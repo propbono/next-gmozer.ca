@@ -14,7 +14,7 @@ export const MobileNav = ({
 }) => {
   return (
     <Sheet>
-      <SheetTrigger>
+      <SheetTrigger asChild>
         <Button variant="outline" size="icon">
           <RxHamburgerMenu />
           <span className="sr-only">Mobile Nav</span>
