@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 const ubuntu = Ubuntu({
   subsets: ["latin"],
@@ -24,11 +25,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={cn("flex min-h-full flex-col bg-slate-100", ubuntu.variable)}
+        className={cn(
+          "min-h-full grid grid-rows-[auto_1fr_auto] bg-slate-100",
+          ubuntu.variable
+        )}
       >
-        <Header />
-        <main className="flex-1 items-start">{children}</main>
-        <Footer />
+        <TooltipProvider>
+          <Header />
+          <main className="items-start">{children}</main>
+          <Footer />
+        </TooltipProvider>
       </body>
     </html>
   );
