@@ -27,7 +27,7 @@ export const Header = () => {
   return (
     <header
       className={cn(
-        "container flex items-center justify-between py-8 transition delay-100 duration-500 md:fixed",
+        "z-50 container flex items-center justify-between py-8 transition delay-100 duration-500 md:fixed",
         isTransparent && isMediumBreakpoint && "bg-opacity-0",
         ((!isTransparent && isMediumBreakpoint) || !isMediumBreakpoint) &&
           "bg-opacity-100 bg-background shadow-md shadow-muted"
