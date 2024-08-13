@@ -1,10 +1,10 @@
 "use client";
+import { navItems } from "@/constants/nav";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { navItems } from "@/constants/nav";
 import { DesktopNav } from "../desktop-nav";
 import { MobileNav } from "../mobile-nav";
 
@@ -27,22 +27,20 @@ export const Header = () => {
   return (
     <header
       className={cn(
-        "z-50 container flex items-center justify-between py-8 transition delay-100 duration-500 md:fixed",
+        "z-50 w-full py-8 transition delay-100 duration-500 md:fixed",
         isTransparent && isMediumBreakpoint && "bg-opacity-0",
-        ((!isTransparent && isMediumBreakpoint) || !isMediumBreakpoint) &&
-          "bg-opacity-100 bg-background shadow-md shadow-muted"
+        ((!isTransparent && isMediumBreakpoint) || !isMediumBreakpoint)
+          && "bg-opacity-100 bg-background shadow-md shadow-muted",
       )}
     >
-      <Link href="/">
-        <span className="text-foreground hover:text-primary-foreground text-2xl font-bold">
-          Greg Mozer<span className="text-primary"> .</span>
-        </span>
-      </Link>
-      {isMediumBreakpoint ? (
-        <DesktopNav items={navItems} pathname={pathname} />
-      ) : (
-        <MobileNav items={navItems} pathname={pathname} />
-      )}
+      <div className="container mx-auto flex items-center justify-between">
+        <Link href="/">
+          <span className="text-foreground hover:text-primary-foreground text-2xl font-bold">
+            Greg Mozer<span className="text-primary">.</span>
+          </span>
+        </Link>
+        {isMediumBreakpoint ? <DesktopNav items={navItems} pathname={pathname} /> : <MobileNav items={navItems} pathname={pathname} />}
+      </div>
     </header>
   );
 };

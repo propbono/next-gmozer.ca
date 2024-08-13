@@ -1,26 +1,22 @@
-import Link from "next/link";
-import {
-  RiGithubFill,
-  RiMailSendFill,
-  RiCopyrightLine,
-  RiLinkedinFill,
-} from "react-icons/ri";
-import { Socials } from "../socials";
 import { SOCIALS } from "@/constants/socials";
+import { RiCopyrightLine } from "react-icons/ri";
+import { Socials } from "../socials";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-foreground container flex flex-col items-center justify-between gap-4 py-8 font-medium md:flex-row">
-      <span className="flex items-center align-middle text-muted gap-2">
-        <RiCopyrightLine /> 2023-{currentYear} by Greg Mozer
-      </span>
-      <Socials
-        links={SOCIALS}
-        containerStyles="flex items-center align-middle gap-8"
-        iconStyles="text-2xl text-muted hover:text-primary hover:transition-all duration-500"
-      />
+    <footer className="bg-foreground py-8">
+      <div className="font-medium container flex flex-col items-center justify-between gap-4  md:flex-row">
+        <span className="flex items-center align-middle text-muted gap-2">
+          <RiCopyrightLine /> 2023-{currentYear} by Greg Mozer
+        </span>
+        <Socials
+          links={SOCIALS}
+          containerStyles="flex items-center align-middle gap-8"
+          iconStyles="text-2xl text-muted hover:text-primary hover:transition-all duration-500"
+        />
+      </div>
     </footer>
   );
 };
