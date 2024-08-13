@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Ubuntu } from "next/font/google";
 import "./globals.css";
-import { cn } from "@/lib/utils";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { cn } from "@/lib/utils";
 
 const ubuntu = Ubuntu({
   subsets: ["latin"],
@@ -26,13 +26,13 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          "min-h-full grid grid-rows-[auto_1fr_auto] bg-slate-100",
-          ubuntu.variable
+          "grid grid-rows-[auto_1fr_auto] bg-slate-100",
+          ubuntu.variable,
         )}
       >
         <TooltipProvider>
           <Header />
-          <main className="items-start">{children}</main>
+          {children}
           <Footer />
         </TooltipProvider>
       </body>
