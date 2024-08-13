@@ -5,6 +5,8 @@ import {
   RiCopyrightLine,
   RiLinkedinFill,
 } from "react-icons/ri";
+import { Socials } from "../socials";
+import { SOCIALS } from "@/constants/socials";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -14,31 +16,11 @@ export const Footer = () => {
       <span className="flex items-center align-middle text-muted gap-2">
         <RiCopyrightLine /> 2023-{currentYear} by Greg Mozer
       </span>
-      <nav className="flex items-center align-middle gap-8">
-        <Link
-          title="Github"
-          href="https://github.com/propbono/"
-          className="text-muted hover:text-primary"
-          target="_blank"
-        >
-          <RiGithubFill className="h-6 w-6" />
-        </Link>
-        <Link
-          title="LinkedIn"
-          href="https://www.linkedin.com/in/greg-mozer/"
-          className="text-muted hover:text-primary"
-          target="_blank"
-        >
-          <RiLinkedinFill className="h-6 w-6" />
-        </Link>
-        <Link
-          href="mailto:propbono@gmail"
-          className="text-muted hover:text-primary"
-          target="_blank"
-        >
-          <RiMailSendFill className="h-6 w-6" />
-        </Link>
-      </nav>
+      <Socials
+        links={SOCIALS}
+        containerStyles="flex items-center align-middle gap-8"
+        iconStyles="text-2xl text-muted hover:text-primary hover:transition-all duration-500"
+      />
     </footer>
   );
 };
