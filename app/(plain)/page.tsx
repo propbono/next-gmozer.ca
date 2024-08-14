@@ -38,7 +38,7 @@ export default async function Home() {
   ];
 
   return (
-    <main className="flex flex-col min-h-full gap-8 py-6 md:py-24">
+    <main className="flex flex-col min-h-full gap-8 py-6 md:pt-24">
       <section className="container flex flex-col md:flex-row items-center md:justify-between gap-8">
         <div className="text-center md:text-left max-w-2xl order-2 md:order-none">
           <span className="text-xl mb-2">Senior Sofwtare Developer</span>

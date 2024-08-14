@@ -26,14 +26,12 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          "grid grid-rows-[auto_1fr_auto] bg-slate-100",
+          "flex flex-col min-h-screen bg-slate-100",
           ubuntu.variable,
         )}
       >
         <TooltipProvider>
-          <Header />
           {children}
-          <Footer />
         </TooltipProvider>
       </body>
     </html>
