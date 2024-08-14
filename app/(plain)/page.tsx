@@ -69,7 +69,7 @@ export default async function Home() {
           <HeroPhoto />
         </div>
       </section>
-      <section className="container flex flex-col md:flex-row gap-8 items-center justify-center">
+      <section className="container">
         <Stats stats={STATS} />
       </section>
     </main>
