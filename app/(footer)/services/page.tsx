@@ -30,7 +30,7 @@ export default function Services() {
               </span>
               <Link
                 href={service.href}
-                className="hover:-rotate-45 hover:text-primary group-hover:text-primary transition-all delay-100 duration-500"
+                className="size-11 flex items-center justify-center border-foreground border rounded-full hover:border-primary text-3xl hover:-rotate-45 hover:text-primary group-hover:border-primary group-hover:text-primary transition-all delay-100 duration-500"
               >
                 <RiArrowRightDownLine />
               </Link>
