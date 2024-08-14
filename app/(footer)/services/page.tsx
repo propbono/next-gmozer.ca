@@ -36,8 +36,8 @@ export default function Services() {
               </Link>
             </div>
 
-            <h3 className="text-2xl font-bold">{service.title}</h3>
-            <p>{service.description}</p>
+            <h3 className="text-2xl font-bold text-foreground group-hover:text-primary transition-all duration-500">{service.title}</h3>
+            <p className="text-lg leading-snug">{service.description}</p>
             <Separator />
           </motion.div>
         ))}
