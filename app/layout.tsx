@@ -26,7 +26,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          "flex flex-col min-h-screen bg-slate-100",
+          "flex flex-col min-h-screen min-w-72",
           ubuntu.variable,
         )}
       >

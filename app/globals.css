@@ -64,6 +64,14 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-slate-100 text-foreground;
+  }
+
+  .text-outline {
+    -webkit-text-stroke: 1px var(--foreground);
+  }
+
+  .text-outline-hover {
+    -webkit-text-stroke: 1px var(--primary);
   }
 }
