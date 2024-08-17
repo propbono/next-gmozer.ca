@@ -12,7 +12,7 @@ export const Header = () => {
   const pathname = usePathname();
   const isMediumBreakpoint = useMediaQuery("(min-width:768px)"); // lg: breakpoint in tailwind
 
-  const [isTransparent, setIsTransparent] = useState(false);
+  const [isTransparent, setIsTransparent] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
