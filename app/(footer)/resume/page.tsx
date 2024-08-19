@@ -1,7 +1,5 @@
-export default function Resume() {
-  return (
-    <section>
-      <h1>Resume</h1>
-    </section>
-  );
+import { TabsContent } from "@/components/ui/tabs";
+
+export default function Experience() {
+  return <TabsContent value="experience">Experience</TabsContent>;
 }

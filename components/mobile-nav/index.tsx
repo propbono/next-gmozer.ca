@@ -1,9 +1,9 @@
 import { cn } from "@/lib/utils";
-import Link from "next/link";
-import { Button } from "../ui/button";
 import { NavItem } from "@/types/nav";
-import { Sheet, SheetClose, SheetContent, SheetTrigger } from "../ui/sheet";
+import Link from "next/link";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { Button } from "../ui/button";
+import { Sheet, SheetClose, SheetContent, SheetTrigger } from "../ui/sheet";
 
 export const MobileNav = ({
   items,
@@ -23,14 +23,15 @@ export const MobileNav = ({
       <SheetContent side="right">
         <nav className="flex flex-col items-center gap-6">
           {items.map((item) => {
+            const isActive = pathname === item.href || item.href !== "/" && pathname.includes(item.href);
+
             return (
               <SheetClose asChild key={item.name}>
                 <Link
                   href={item.href}
                   className={cn(
                     "text-foreground hover:text-primary py-2 font-bold text-lg capitalize",
-                    pathname === item.href &&
-                      "text-primary border-b-2 border-primary"
+                    isActive && "text-primary border-b-2 border-primary",
                   )}
                 >
                   {item.name}
