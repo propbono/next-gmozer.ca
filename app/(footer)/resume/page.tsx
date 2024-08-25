@@ -1,3 +1,4 @@
+import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { TabsContent } from "@/components/ui/tabs";
 import { EXPERIENCE } from "@/constants/resume";
@@ -9,21 +10,24 @@ export default function Experience() {
         <h2 className="text-4xl font-bold">{EXPERIENCE.title}</h2>
         <p className="max-w-xl mx-auto md:mx-0 text-muted-foreground">{EXPERIENCE.description}</p>
         <ScrollArea className="h-[400px]">
-          <ul className="grid grid-cols-1 gap-8 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
             {EXPERIENCE.items.map((item, index) => (
-              <li
+              <Card
                 key={`${item.company}-${index}`}
-                className=" bg-muted-foreground min-h-40 flex flex-col justify-center items-center md:items-start gap-1 rounded-xl px-10 py-6"
               >
-                <span className="text-primary font-semibold">{item.duration}</span>
-                <h3 className="text-xl max-w-64 min-h-14 text-center md:text-left font-bold">{item.position}</h3>
-                <div className="flex flex-wrap items-center gap-2">
+                <CardHeader>
+                  <span className="text-primary font-semibold">{item.duration}</span>
+                </CardHeader>
+                <CardContent>
+                  <h3 className="text-xl max-w-64 min-h-14 text-center md:text-left font-bold">{item.position}</h3>
+                </CardContent>
+                <CardFooter className="flex flex-wrap items-center justify-center md:justify-start gap-2">
                   <span className=" rounded-full size-2 bg-primary"></span>
-                  <span className="">{item.company}</span>
-                </div>
-              </li>
+                  <span>{item.company}</span>
+                </CardFooter>
+              </Card>
             ))}
-          </ul>
+          </div>
         </ScrollArea>
       </div>
     </TabsContent>
