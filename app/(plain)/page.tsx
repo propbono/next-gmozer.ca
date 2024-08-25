@@ -12,7 +12,7 @@ const DEV_START_YEAR = new Date("2018-12-10");
 const TECHNOLOGIES_MASTERED = 10;
 
 export default async function Home() {
-  const yearsofExperience = differenceInCalendarYears(new Date(), DEV_START_YEAR);
+  const yearsOfExperience = differenceInCalendarYears(new Date(), DEV_START_YEAR);
   const { projectCount, allCommitsCount } = await getGithubStats();
 
   const projectsCompleted = 10 + projectCount;
@@ -21,7 +21,7 @@ export default async function Home() {
   const STATS: Stat[] = [
     {
       title: "Years of Experience",
-      value: yearsofExperience,
+      value: yearsOfExperience,
     },
     {
       title: "Projects Completed",
@@ -38,14 +38,14 @@ export default async function Home() {
   ];
 
   return (
-    <main className="flex flex-col min-h-full gap-8 py-6 md:pt-24">
+    <main className="flex flex-col min-h-screen justify-around gap-8 py-6 md:pt-24">
       <section className="container flex flex-col md:flex-row items-center md:justify-between gap-8">
         <div className="text-center md:text-left max-w-2xl order-2 md:order-none">
-          <span className="text-xl mb-2">Senior Sofwtare Developer</span>
-          <h1 className="w-full mb-4 font-logo text-4xl md:text-5xl font-bold leading-relaxed text-foreground">
+          <span className="text-xl mb-2 2xl:mb-4">Senior Software Developer</span>
+          <h1 className="w-full mb-4 2xl:mb-6 font-logo text-4xl md:text-5xl font-bold leading-relaxed text-foreground">
             Making the Web a <span className="text-primary">More Beautiful Place</span>, One Site at a Time.
           </h1>
-          <p className="font-body text-xl md:text-2xls font-medium leading-relaxed text-secondary-foreground  md:leading-normal mb-5">
+          <p className="font-body text-xl md:text-2xl font-medium leading-relaxed text-muted-foreground  md:leading-normal mb-5 2xl:mb-7">
             Full-stack developer turning ideas into innovative web apps with React. Check out my latest projects for examples of my expertise in web development
             and see how I can help bring your ideas to life.
           </p>
