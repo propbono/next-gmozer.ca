@@ -4,11 +4,12 @@ import { TABS } from "@/constants/resume";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { ReactNode } from "react";
 
 export default function ResumeLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
   const pathname = usePathname();
 
@@ -36,7 +37,7 @@ export default function ResumeLayout({
               );
             })}
           </nav>
-          <div className="flex-grow">{children}</div>
+          <div className="flex-grow h-full">{children}</div>
         </div>
       </div>
     </section>

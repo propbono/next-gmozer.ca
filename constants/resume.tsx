@@ -107,7 +107,6 @@ export const EXPERIENCE = {
 };
 
 export const EDUCATION = {
-  icon: "/assets/resume/cap.svg",
   title: "Education",
   description: "My education and certifications.",
   items: [
@@ -133,9 +132,8 @@ export const EDUCATION = {
 };
 
 export const SKILLS = {
-  title: "Skills",
-  icon: "/assets/resume/skills.svg",
-  description: "I've worked with a variety of technologies and frameworks over the years.",
+  title: "My Skills",
+  description: "My favorite technologies and frameworks I've worked with over the years.",
   items: [
     { link: "https://react.dev/", name: "React", icon: <SiReact /> },
     { link: "https://nextjs.org/", name: "NextJS", icon: <SiNextdotjs /> },

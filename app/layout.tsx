@@ -30,7 +30,7 @@ export default function RootLayout({
           ubuntu.variable,
         )}
       >
-        <TooltipProvider>
+        <TooltipProvider delayDuration={150}>
           {children}
         </TooltipProvider>
       </body>
