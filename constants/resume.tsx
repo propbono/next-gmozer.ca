@@ -43,16 +43,16 @@ export const TABS = [
     url: "/resume/education",
   },
   {
-    label: "About",
+    label: "About me",
     url: "/resume/about",
   },
 ];
 
 export const ABOUT = {
   title: "About me",
-  descritpion:
-    "I'm a full stack developer with a passion for learning and problem solving. I'm currently working as a software developer at a small start up in the Silicon Valley. I'm looking for a full time opportunity to expand my knowledge and skills and grow as a developer.",
-  info: [
+  description:
+    "Experienced Software Developer focused on optimizing system performance and leading teams to deliver scalable, high-quality solutions. I have a strong track record in deploying client applications and driving digital transformation. Skilled in React and TypeScript, I am committed to continuous learning and mentoring junior developers to enhance collaboration and code quality.",
+  items: [
     { name: "Name", value: "Greg Mozer" },
     { name: "Phone", value: "+1 (647) 833 8068" },
     { name: "Email", value: "propbono@gmail.com" },
