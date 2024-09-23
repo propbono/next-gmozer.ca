@@ -1,9 +1,12 @@
+"use client";
 import { Badge } from "@/components/ui/badge";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Button } from "@/components/ui/button";
+import { Carousel, type CarouselApi, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { Separator } from "@/components/ui/separator";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import Link from "next/link";
-import { RiArrowRightDownLine, RiGithubLine } from "react-icons/ri";
+import { useCallback, useEffect, useState } from "react";
+import { RiArrowLeftSLine, RiArrowRightDownLine, RiArrowRightSLine, RiGithubLine } from "react-icons/ri";
 
 const PROJECTS = [
   {
@@ -50,7 +53,8 @@ const PROJECTS = [
   },
 ];
 
-// TODO: Add Projects constant
+// TODO: Add static navigation in right bottom corner of the picture
+// TODO: Add project pictures
 // TODO: Add custom logo fonts for headers
 // TODO: Add Contact page
 // TODO: Add Hire page
@@ -61,44 +65,93 @@ const PROJECTS = [
 // TODO: IMplement clean architecture
 
 export default function Work() {
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!api) return;
+
+    setCount(api.scrollSnapList().length);
+    setCurrent(api.selectedScrollSnap() + 1);
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap() + 1);
+    });
+  }, [api]);
+
+  const handleNext = useCallback(() => {
+    if (api && api.canScrollNext()) {
+      api.scrollNext();
+    }
+  }, [api]);
+
+  const handlePrevious = useCallback(() => {
+    if (api && api.canScrollPrev()) {
+      api.scrollPrev();
+    }
+  }, [api]);
+
   return (
     <section className="container  min-h-[80vh] justify-center py-12">
-      <Carousel>
+      <Carousel setApi={setApi}>
         <CarouselContent>
           {PROJECTS.map((item, index) => (
             <CarouselItem key={item.title + index}>
               <div className="flex flex-col md:flex-row gap-8 items-center md:justify-between">
-                <div className="w-full md:w-1/2 md:h-[540px] flex flex-col md:justify-between order-2 md:order-none">
-                  <div className="flex flex-col gap-8 h-1/2">
-                    <span className="text-8xl leading-none font-extrabold text-transparent text-outline">{(index + 1).toString().padStart(2, "0")}</span>
-                    <h2 className="leading-none font-bold text-5xl text-foreground group-hover:text-primary transition-all duration-500 capitalize">
-                      {item.title}
-                    </h2>
-                    <h3 className="leading-none font-medium text-2xl">{item.category} Project</h3>
-                    <p className="text-muted-foreground">
-                      {item.description}
-                    </p>
-                    <div className="flex gap-4">
+                <div className="w-full md:w-1/2 flex flex-col md:justify-between order-2 md:order-none">
+                  <div className="flex gap-6 flex-col h-1/2">
+                    <div className="flex flex-col">
+                      <span className="text-8xl leading-none font-extrabold text-transparent text-outline mb-8">{(index + 1).toString().padStart(2, "0")}</span>
+                      <h2 className="leading-none font-bold text-5xl text-foreground group-hover:text-primary transition-all duration-500 capitalize mb-6">
+                        {item.title}
+                      </h2>
+                      <h3 className="leading-none font-medium text-2x mb-4">{item.category} Project</h3>
+                      <p className="text-muted-foreground">
+                        {item.description}
+                      </p>
+                    </div>
+                    <div className="flex flex-wrap gap-4">
                       {item.stack.map((stack, index) => <Badge className="bg-secondary text-secondary-foreground" key={`${stack}-${index}`}>{stack}</Badge>)}
                     </div>
                     <Separator />
-                    <div className="flex gap-4 items-center">
-                      <Link href={item.liveLink}>
-                        <Tooltip>
-                          <TooltipTrigger className="size-16 rounded-full border border-foreground flex justify-center items-center group">
-                            <RiArrowRightDownLine className="text-3xl text-foreground group-hover:text-primary group-hover:-rotate-45 transition-all duration-500" />
-                          </TooltipTrigger>
-                          <TooltipContent>Live Project</TooltipContent>
-                        </Tooltip>
-                      </Link>
-                      <Link href={item.githubLink}>
-                        <Tooltip>
-                          <TooltipTrigger className="size-16 rounded-full border border-foreground flex justify-center items-center group">
-                            <RiGithubLine className="text-3xl text-foreground group-hover:text-primary transition-all duration-500" />
-                          </TooltipTrigger>
-                          <TooltipContent>Github Repository</TooltipContent>
-                        </Tooltip>
-                      </Link>
+                    <div className="flex flex-row md:justify-between gap-4">
+                      <div className="flex gap-4 items-center">
+                        <Link href={item.liveLink}>
+                          <Tooltip>
+                            <TooltipTrigger className="size-16 rounded-full border border-foreground flex justify-center items-center group">
+                              <RiArrowRightDownLine className="text-3xl text-foreground group-hover:text-primary group-hover:-rotate-45 transition-all duration-500" />
+                            </TooltipTrigger>
+                            <TooltipContent>Live Project</TooltipContent>
+                          </Tooltip>
+                        </Link>
+                        <Link href={item.githubLink}>
+                          <Tooltip>
+                            <TooltipTrigger className="size-16 rounded-full border border-foreground flex justify-center items-center group">
+                              <RiGithubLine className="text-3xl text-foreground group-hover:text-primary transition-all duration-500" />
+                            </TooltipTrigger>
+                            <TooltipContent>Github Repository</TooltipContent>
+                          </Tooltip>
+                        </Link>
+                      </div>
+                      <div className="flex gap-4 items-center">
+                        <Button
+                          onClick={handlePrevious}
+                          disabled={!api?.canScrollPrev()}
+                          variant="ghost"
+                          className="size-16 rounded-full border border-foreground flex justify-center items-center group"
+                        >
+                          <RiArrowLeftSLine className="text-3xl text-foreground group-hover:text-primary transition-all duration-500" />
+                        </Button>
+                        <Button
+                          onClick={handleNext}
+                          disabled={!api?.canScrollNext()}
+                          variant="ghost"
+                          className="size-16 rounded-full border border-foreground flex justify-center items-center group"
+                        >
+                          <RiArrowRightSLine className="text-3xl text-foreground group-hover:text-primary transition-all duration-500" />
+                        </Button>
+                      </div>
                     </div>
                   </div>
                 </div>
