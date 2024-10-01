@@ -2,15 +2,13 @@ import { HeroPhoto } from "@/components/hero-photo";
 import { Socials } from "@/components/socials";
 import { Stats } from "@/components/stats";
 import { Button } from "@/components/ui/button";
+import { DEV_START_YEAR, RESUME_LINK, TECHNOLOGIES_MASTERED } from "@/constants/main";
 import { SOCIALS } from "@/constants/socials";
 import { getGithubStats } from "@/services/github";
 import { Stat } from "@/types/stats";
 import { differenceInCalendarYears } from "date-fns";
-import { Octokit } from "octokit";
+import Link from "next/link";
 import { RxDownload } from "react-icons/rx";
-
-const DEV_START_YEAR = new Date("2018-12-10");
-const TECHNOLOGIES_MASTERED = 10;
 
 export default async function Home() {
   const yearsOfExperience = differenceInCalendarYears(new Date(), DEV_START_YEAR);
@@ -52,11 +50,14 @@ export default async function Home() {
           </p>
           <div className="flex flex-col md:flex-row gap-8 items-center">
             <Button
+              asChild
               variant="outline"
               className="flex gap-2 items-center uppercase"
             >
-              <span>Download resume</span>
-              <RxDownload className="text-xl" />
+              <Link href={RESUME_LINK} download={true} target="_blank">
+                <span>Download resume</span>
+                <RxDownload className="text-xl" />
+              </Link>
             </Button>
             <Socials
               links={SOCIALS}

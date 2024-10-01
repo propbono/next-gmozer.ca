@@ -59,7 +59,6 @@ const PROJECTS = [
 // TODO: Add Contact page
 // TODO: Add Hire page
 // TODO: Add each service page!
-// TODO: Add resume pdf for full stack dev
 // TODO: Add Theme switch
 // TODO: Update colors based on the old website
 // TODO: IMplement clean architecture
