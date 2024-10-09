@@ -53,9 +53,9 @@ export default function Work() {
   }, [api, setCurrentProjectIndex]);
 
   return (
-    <section className="container  min-h-[80vh] justify-center py-12">
-      <div className="flex flex-col md:flex-row gap-8 items-center md:justify-between">
-        <div className="w-full order-1 md:w-1/2 min-h-[500px] flex flex-col md:order-none border border-pink-500">
+    <section className="container flex min-h-[80vh] justify-center py-12">
+      <div className="flex w-full flex-col md:flex-row gap-8 items-center md:justify-between">
+        <div className="w-full order-1 md:w-1/2 h-[450px] md:min-h-[500px] flex flex-col md:order-none border border-pink-500">
           <span className="text-8xl leading-none font-extrabold text-transparent text-outline mb-8">
             {(currentProjectIndex + 1).toString().padStart(2, "0")}
           </span>
@@ -63,9 +63,11 @@ export default function Work() {
             {currentProject.title}
           </h2>
           <h3 className="leading-none font-medium text-2x mb-4">{currentProject.category} Project</h3>
-          <p className="text-muted-foreground flex-grow mb-4">
-            {currentProject.description}
-          </p>
+          <div className="flex-grow">
+            <span className="text-muted-foreground mb-4 line-clamp-2">
+              {currentProject.description}
+            </span>
+          </div>
           <div className="flex flex-wrap gap-4 flex-grow-0 mb-4">
             {currentProject.stack.map((stack, index) => <Badge className="bg-secondary text-secondary-foreground" key={`${stack}-${index}`}>{stack}</Badge>)}
           </div>
@@ -124,12 +126,20 @@ export default function Work() {
             </div>
           </div>
         </div>
-        <div className="w-full order-2 md:w-1/2 h-64 md:h-[500px] border border-green-600">
-          <Carousel setApi={setApi}>
-            <CarouselContent>
+        <div className="w-full order-2 md:w-1/2 h-full md:h-[500px] border border-green-600">
+          <Carousel setApi={setApi} className="h-full">
+            <CarouselContent className="h-full">
               {PROJECTS.map((item, index) => (
-                <CarouselItem key={item.title + index}>
-                  <Image src={item.image} alt={item.title} width={650} height={500} loading="lazy" className="object-cover w-full h-full" />
+                <CarouselItem key={item.title + index} className="h-full">
+                  <div className="relative w-full h-full min-h-[500px]">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                    />
+                  </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
