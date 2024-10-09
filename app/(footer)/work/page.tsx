@@ -55,7 +55,7 @@ export default function Work() {
   return (
     <section className="container flex min-h-[80vh] justify-center py-12">
       <div className="flex w-full flex-col md:flex-row gap-8 items-center md:justify-between">
-        <div className="w-full order-1 md:w-1/2 h-[450px] md:min-h-[500px] flex flex-col md:order-none border border-pink-500">
+        <div className="w-full order-1 md:w-1/2 h-[450px] md:min-h-[500px] flex flex-col md:order-none">
           <span className="text-8xl leading-none font-extrabold text-transparent text-outline mb-8">
             {(currentProjectIndex + 1).toString().padStart(2, "0")}
           </span>
@@ -126,7 +126,7 @@ export default function Work() {
             </div>
           </div>
         </div>
-        <div className="w-full order-2 md:w-1/2 h-full md:h-[500px] border border-green-600">
+        <div className="w-full order-2 md:w-1/2 h-full md:h-[500px]">
           <Carousel setApi={setApi} className="h-full">
             <CarouselContent className="h-full">
               {PROJECTS.map((item, index) => (
