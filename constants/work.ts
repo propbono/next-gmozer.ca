@@ -15,7 +15,7 @@ export const PROJECTS = [
       "Company website for Gemprint. Single Page Application created using NextJS and NextAuth. Currently working on adding Dashboard to manage print orders.",
     liveLink: "https://gemprint.ca/",
     githubLink: "https://github.com/propbono/gemprint.ca",
-    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma", "Vercel"],
+    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma", "Vercel", "Resend"],
     image: "/work/p2.jpg",
   },
   {
@@ -45,5 +45,24 @@ export const PROJECTS = [
     githubLink: "https://github.com/propbono/gmozer.ca",
     stack: ["Remix.js", "TypeScript", "Tailwind CSS", "Vite", "Vercel"],
     image: "/work/p5.jpg",
+  },
+  {
+    title: "SWM Interview 2024",
+    category: "Algorithm",
+    description:
+      "Interview task is composed from two parts, coding exercise and an essay. Below you can see the information about programming task. Write a function that receives two sequences: A and B of integers and returns one sequence C. Sequence C should contain all elements from sequence A (maintaining the order) except those, that are present in sequence B p times, where p is a prime number.",
+    liveLink: "#",
+    githubLink: "https://github.com/propbono/swm-interview-2024",
+    stack: ["TypeScript"],
+    image: "/work/p6.jpg",
+  },
+  {
+    title: "Farah Financial Group - development",
+    category: "Algorithm",
+    description: "Company website for Farah Financial Group. Web application utilizing NextJS App router and Resend for sending emails.",
+    liveLink: "#",
+    githubLink: "https://github.com/propbono/farahfinancialgroup.ca",
+    stack: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Resend", "Vercel"],
+    image: "/work/p7.jpg",
   },
 ];
