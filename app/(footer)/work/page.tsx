@@ -12,9 +12,8 @@ import { RiArrowLeftSLine, RiArrowRightDownLine, RiArrowRightSLine, RiGithubLine
 
 // TODO: Add project pictures
 // TODO: Add custom logo fonts for headers
-// TODO: Add Contact page
+// TODO: Add Contact page wit resend
 // TODO: Add Hire page
-// TODO: Add each service page!
 // TODO: Add Theme switch
 // TODO: Update colors based on the old website
 // TODO: IMplement clean architecture
