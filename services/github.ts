@@ -1,34 +1,57 @@
 import { Octokit } from "octokit";
 
-export async function getGithubStats() {
-  const ocktokit = new Octokit({
-    auth: process.env.GITHUB_TOKEN,
-  });
+type GithubStats = {
+  projectCount: number;
+  allCommitsCount: number;
+};
 
-  const response = await ocktokit.request("GET /user/repos", {
-    headers: {
-      "X-GitHub-Api-Version": "2022-11-28",
-    },
-  });
-  const projects = response.data;
+const MOCK_STATS: GithubStats = {
+  projectCount: 20,
+  allCommitsCount: 2000,
+};
 
-  const requests = projects.map((rep: any) =>
-    ocktokit.request("GET /repos/{owner}/{repo}/contributors", {
-      owner: "propbono",
-      repo: rep.name,
+const GITHUB_USERNAMES = ["propbono", "gregmozer"] as const;
+
+export async function getGithubStats(): Promise<GithubStats> {
+  try {
+    const ocktokit = new Octokit({
+      auth: process.env.GITHUB_TOKEN,
+    });
+
+    const response = await ocktokit.request("GET /user/repos", {
       headers: {
         "X-GitHub-Api-Version": "2022-11-28",
       },
-    })
-  );
+    });
 
-  const allCommitsCount = (await Promise.all(requests)).flatMap(response => response.data).filter(user =>
-    user.login === "propbono" || user.login === "gregmozer"
-  )
-    .reduce(
-      (acc, curr) => acc + curr.contributions,
-      0,
+    const projects = response.data;
+
+    if (projects.length === 0) {
+      return MOCK_STATS;
+    }
+
+    const requests = projects.map((repo) =>
+      ocktokit.request("GET /repos/{owner}/{repo}/contributors", {
+        owner: "propbono",
+        repo: repo.name,
+        headers: {
+          "X-GitHub-Api-Version": "2022-11-28",
+        },
+      })
     );
 
-  return { projectCount: projects.length || 20, allCommitsCount: allCommitsCount || 2000 };
+    const contributionsData = await Promise.all(requests);
+    const allCommitsCount = contributionsData
+      .flatMap((response) => response.data)
+      .filter((user) => GITHUB_USERNAMES.includes(user.login as typeof GITHUB_USERNAMES[number]))
+      .reduce((acc, curr) => acc + curr.contributions, 0);
+
+    return {
+      projectCount: projects.length,
+      allCommitsCount,
+    };
+  } catch (error) {
+    console.error("Failed to fetch GitHub stats:", error);
+    return MOCK_STATS;
+  }
 }
