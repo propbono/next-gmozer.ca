@@ -63,15 +63,20 @@ export const ABOUT = {
 };
 
 export const EXPERIENCE = {
-  icon: "/assets/resume/badge.svg",
   title: "Experience",
-  description: "I've had the pleasure of working with a few companies over the years.",
+  description: "A journey of continuous growth and impactful contributions across diverse technology companies.",
   items: [
+    {
+      position: "Senior Software Developer",
+      company: "Heineken",
+      location: "Toronto, ON, Canada",
+      duration: "Dec 2024 - Present",
+    },
     {
       position: "Senior Software Developer",
       company: "Rangle.io",
       location: "Toronto, ON, Canada",
-      duration: "Nov 2023 - Present",
+      duration: "Nov 2023 - Nov 2024",
     },
     {
       position: "Senior Software Developer",
@@ -108,7 +113,7 @@ export const EXPERIENCE = {
 
 export const EDUCATION = {
   title: "Education",
-  description: "My education and certifications.",
+  description: "A foundation of formal education combined with industry-recognized certifications.",
   items: [
     {
       institution: "AWS",
@@ -133,7 +138,7 @@ export const EDUCATION = {
 
 export const SKILLS = {
   title: "My Skills",
-  description: "My favorite technologies and frameworks I've worked with over the years.",
+  description: "A comprehensive toolkit of modern technologies and frameworks that I've mastered to build robust, scalable applications.",
   items: [
     { link: "https://react.dev/", name: "React", icon: <SiReact /> },
     { link: "https://nextjs.org/", name: "NextJS", icon: <SiNextdotjs /> },
