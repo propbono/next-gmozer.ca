@@ -7,16 +7,8 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip
 import { PROJECTS } from "@/constants/work";
 import Image from "next/image";
 import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { RiArrowLeftSLine, RiArrowRightDownLine, RiArrowRightSLine, RiGithubLine } from "react-icons/ri";
-
-// TODO: Add project pictures
-// TODO: Add custom logo fonts for headers
-// TODO: Add Contact page wit resend
-// TODO: Add Hire page
-// TODO: Add Theme switch
-// TODO: Update colors based on the old website
-// TODO: IMplement clean architecture
 
 export default function Work() {
   const [api, setApi] = useState<CarouselApi>();
@@ -24,7 +16,7 @@ export default function Work() {
   const [count, setCount] = useState(0);
   const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
 
-  const currentProject = PROJECTS[currentProjectIndex];
+  const currentProject = useMemo(() => PROJECTS[currentProjectIndex], [currentProjectIndex]);
 
   useEffect(() => {
     if (!api) return;
