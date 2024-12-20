@@ -10,14 +10,17 @@ import { differenceInCalendarYears } from "date-fns";
 import Link from "next/link";
 import { RxDownload } from "react-icons/rx";
 
+const PROPRIETARY_PROJECTS_COUNT = 10;
+const PROPRIETARY_COMMITS_COUNT = 550;
+
 export default async function Home() {
   const yearsOfExperience = differenceInCalendarYears(new Date(), DEV_START_YEAR);
   const { projectCount, allCommitsCount } = await getGithubStats();
 
-  const projectsCompleted = 10 + projectCount;
-  const codeCommits = 550 + allCommitsCount;
+  const projectsCompleted = PROPRIETARY_PROJECTS_COUNT + projectCount;
+  const codeCommits = PROPRIETARY_COMMITS_COUNT + allCommitsCount;
 
-  const STATS: Stat[] = [
+  const stats: Stat[] = [
     {
       title: "Years of Experience",
       value: yearsOfExperience,
@@ -72,7 +75,7 @@ export default async function Home() {
         </div>
       </section>
       <section className="container">
-        <Stats stats={STATS} />
+        <Stats stats={stats} />
       </section>
     </main>
   );
