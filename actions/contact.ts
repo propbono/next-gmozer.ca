@@ -30,9 +30,13 @@ export async function sendEmail(formData: FormData) {
   const { fullname, email, message } = validatedFields.data;
 
   try {
+    if (!process.env.EMAIL_FROM || !process.env.EMAIL_TO) {
+      throw new Error("Email configuration is missing");
+    }
+
     const { error } = await resend.emails.send({
-      from: process.env.EMAIL_FROM!,
-      to: process.env.EMAIL_TO!,
+      from: process.env.EMAIL_FROM,
+      to: process.env.EMAIL_TO,
       subject: "GMozer.ca - New Contact Form Submission",
       react: ContactFormEmailTemplate({
         fullname,
@@ -45,7 +49,7 @@ export async function sendEmail(formData: FormData) {
     return { error: null, success: true };
   } catch (error) {
     return {
-      error: (error as Error).message,
+      error: error instanceof Error ? error.message : "Failed to send email",
       success: false,
     };
   }

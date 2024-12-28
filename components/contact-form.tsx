@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/hooks/use-toast";
 import { type ContactFormData, contactFormSchema } from "@/schemas/contact";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTransition } from "react";
@@ -12,6 +13,7 @@ import { useForm } from "react-hook-form";
 
 export function ContactForm() {
   const [isPending, startTransition] = useTransition();
+  const { toast } = useToast();
 
   const {
     register,
@@ -31,7 +33,18 @@ export function ContactForm() {
     startTransition(async () => {
       const result = await sendEmail(formData);
       if (result.success) {
+        toast({
+          title: "Your message is on the way!",
+          description: "Message was successfully sent and it started its journey to our mailbox.",
+          variant: "success",
+        });
         reset();
+      } else {
+        toast({
+          title: "Houston we have problem...",
+          description: result.error || "There was some problems with sending your message.",
+          variant: "destructive",
+        });
       }
     });
   };
