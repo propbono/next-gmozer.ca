@@ -1,0 +1,52 @@
+"use server";
+
+import { ContactFormEmailTemplate } from "@/components/contact-form-template";
+import { contactFormSchema } from "@/schemas/contact";
+import { Resend } from "resend";
+
+const resend = new Resend(process.env.RESEND_API_KEY);
+
+export async function sendEmail(formData: FormData) {
+  const validatedFields = contactFormSchema.safeParse({
+    fullname: formData.get("fullname"),
+    email: formData.get("email"),
+    message: formData.get("message"),
+    website: formData.get("website"),
+  });
+
+  if (!validatedFields.success) {
+    let errorMessage = "";
+    validatedFields.error.format();
+    validatedFields.error.issues.forEach((issue) => {
+      errorMessage = errorMessage + issue.path[0] + ": " + issue.message + ". ";
+    });
+
+    return {
+      error: errorMessage,
+      success: false,
+    };
+  }
+
+  const { fullname, email, message } = validatedFields.data;
+
+  try {
+    const { error } = await resend.emails.send({
+      from: process.env.EMAIL_FROM!,
+      to: process.env.EMAIL_TO!,
+      subject: "GMozer.ca - New Contact Form Submission",
+      react: ContactFormEmailTemplate({
+        fullname,
+        email,
+        message,
+      }) as React.ReactElement,
+    });
+    if (error) return { error: error.message, success: false };
+
+    return { error: null, success: true };
+  } catch (error) {
+    return {
+      error: (error as Error).message,
+      success: false,
+    };
+  }
+}

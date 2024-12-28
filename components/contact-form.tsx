@@ -1,6 +1,6 @@
 "use client";
 
-import { sendEmail } from "@/app/(footer)/contact/actions";
+import { sendEmail } from "@/actions/contact";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -38,6 +38,7 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
+      <Input type="text" {...register("website")} className="hidden" tabIndex={-1} autoComplete="off" />
       <div>
         <Label>Full Name</Label>
         <Input {...register("fullname")} />
