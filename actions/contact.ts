@@ -4,9 +4,9 @@ import { ContactFormEmailTemplate } from "@/components/contact-form-template";
 import { contactFormSchema } from "@/schemas/contact";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function sendEmail(formData: FormData) {
+  const resend = new Resend(process.env.RESEND_API_KEY);
+
   const validatedFields = contactFormSchema.safeParse({
     fullname: formData.get("fullname"),
     email: formData.get("email"),

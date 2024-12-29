@@ -37,6 +37,7 @@ export function ContactForm() {
           title: "Your message is on the way!",
           description: "Message was successfully sent and it started its journey to our mailbox.",
           variant: "success",
+          duration: 5000,
         });
         reset();
       } else {
@@ -44,6 +45,7 @@ export function ContactForm() {
           title: "Houston we have problem...",
           description: result.error || "There was some problems with sending your message.",
           variant: "destructive",
+          duration: 5000,
         });
       }
     });
@@ -53,22 +55,22 @@ export function ContactForm() {
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
       <Input type="text" {...register("website")} className="hidden" tabIndex={-1} autoComplete="off" />
       <div>
-        <Label>Full Name</Label>
-        <Input {...register("fullname")} />
+        <Label htmlFor="fullname">Full Name</Label>
+        <Input {...register("fullname")} id="fullname" aria-label="Full Name" />
         <div className="h-5">
           {errors.fullname && <p className="text-sm text-destructive">{errors.fullname.message}</p>}
         </div>
       </div>
       <div>
-        <Label>Email</Label>
-        <Input {...register("email")} />
+        <Label htmlFor="email">Email</Label>
+        <Input {...register("email")} id="email" aria-label="Email" />
         <div className="h-5">
           {errors.email && <p className="text-sm text-destructive">{errors.email.message}</p>}
         </div>
       </div>
       <div>
-        <Label>Message</Label>
-        <Textarea {...register("message")} />
+        <Label htmlFor="message">Message</Label>
+        <Textarea {...register("message")} id="message" aria-label="Message" />
         <div className="h-5">
           {errors.message && <p className="text-sm text-destructive">{errors.message.message}</p>}
         </div>
