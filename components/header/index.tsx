@@ -35,8 +35,8 @@ export const Header = () => {
     >
       <div className="container mx-auto flex items-center justify-between">
         <Link href="/">
-          <span className="text-foreground hover:text-primary-foreground text-2xl font-bold">
-            Greg Mozer<span className="text-primary">.</span>
+          <span className="group text-foreground hover:text-primary text-2xl font-bold">
+            Greg Mozer<span className="text-primary group-hover:text-foreground">.</span>
           </span>
         </Link>
         {isMediumBreakpoint ? <DesktopNav items={navItems} pathname={pathname} /> : <MobileNav items={navItems} pathname={pathname} />}

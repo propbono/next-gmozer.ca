@@ -3,7 +3,7 @@ import { Separator } from "@/components/ui/separator";
 import { SERVICES } from "@/constants/services";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { RiArrowDownSLine, RiArrowDownWideLine, RiArrowDropRightLine, RiArrowRightDownLine } from "react-icons/ri";
+import { RiArrowRightDownLine } from "react-icons/ri";
 
 export default function Services() {
   return (

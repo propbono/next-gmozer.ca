@@ -3,6 +3,7 @@ import { Ubuntu } from "next/font/google";
 import "./globals.css";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
+import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 
@@ -30,9 +31,10 @@ export default function RootLayout({
           ubuntu.variable,
         )}
       >
-        <TooltipProvider>
+        <TooltipProvider delayDuration={150}>
           {children}
         </TooltipProvider>
+        <Toaster />
       </body>
     </html>
   );

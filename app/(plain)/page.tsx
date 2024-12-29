@@ -2,26 +2,28 @@ import { HeroPhoto } from "@/components/hero-photo";
 import { Socials } from "@/components/socials";
 import { Stats } from "@/components/stats";
 import { Button } from "@/components/ui/button";
+import { DEV_START_YEAR, RESUME_LINK, TECHNOLOGIES_MASTERED } from "@/constants/main";
 import { SOCIALS } from "@/constants/socials";
+import { getGithubStats } from "@/services/github";
 import { Stat } from "@/types/stats";
 import { differenceInCalendarYears } from "date-fns";
-import { Octokit } from "octokit";
+import Link from "next/link";
 import { RxDownload } from "react-icons/rx";
 
-const DEV_START_YEAR = new Date("2018-12-10");
-const TECHNOLOGIES_MASTERED = 10;
+const PROPRIETARY_PROJECTS_COUNT = 10;
+const PROPRIETARY_COMMITS_COUNT = 550;
 
 export default async function Home() {
-  const yearsofExperience = differenceInCalendarYears(new Date(), DEV_START_YEAR);
+  const yearsOfExperience = differenceInCalendarYears(new Date(), DEV_START_YEAR);
   const { projectCount, allCommitsCount } = await getGithubStats();
 
-  const projectsCompleted = 10 + projectCount;
-  const codeCommits = 550 + allCommitsCount;
+  const projectsCompleted = PROPRIETARY_PROJECTS_COUNT + projectCount;
+  const codeCommits = PROPRIETARY_COMMITS_COUNT + allCommitsCount;
 
-  const STATS: Stat[] = [
+  const stats: Stat[] = [
     {
       title: "Years of Experience",
-      value: yearsofExperience,
+      value: yearsOfExperience,
     },
     {
       title: "Projects Completed",
@@ -38,24 +40,27 @@ export default async function Home() {
   ];
 
   return (
-    <main className="flex flex-col min-h-full gap-8 py-6 md:pt-24">
+    <main className="flex flex-col min-h-screen justify-around gap-8 py-6 md:pt-24">
       <section className="container flex flex-col md:flex-row items-center md:justify-between gap-8">
         <div className="text-center md:text-left max-w-2xl order-2 md:order-none">
-          <span className="text-xl mb-2">Senior Sofwtare Developer</span>
-          <h1 className="w-full mb-4 font-logo text-4xl md:text-5xl font-bold leading-relaxed text-foreground">
+          <span className="text-xl mb-2 2xl:mb-4">Senior Software Developer</span>
+          <h1 className="w-full mb-4 2xl:mb-6 font-logo text-4xl md:text-5xl font-bold leading-relaxed text-foreground">
             Making the Web a <span className="text-primary">More Beautiful Place</span>, One Site at a Time.
           </h1>
-          <p className="font-body text-xl md:text-2xls font-medium leading-relaxed text-secondary-foreground  md:leading-normal mb-5">
+          <p className="font-body text-xl md:text-2xl font-medium leading-relaxed text-muted-foreground  md:leading-normal mb-5 2xl:mb-7">
             Full-stack developer turning ideas into innovative web apps with React. Check out my latest projects for examples of my expertise in web development
             and see how I can help bring your ideas to life.
           </p>
           <div className="flex flex-col md:flex-row gap-8 items-center">
             <Button
+              asChild
               variant="outline"
               className="flex gap-2 items-center uppercase"
             >
-              <span>Download resume</span>
-              <RxDownload className="text-xl" />
+              <Link href={RESUME_LINK} download={true} target="_blank">
+                <span>Download resume</span>
+                <RxDownload className="text-xl" />
+              </Link>
             </Button>
             <Socials
               links={SOCIALS}
@@ -70,40 +75,8 @@ export default async function Home() {
         </div>
       </section>
       <section className="container">
-        <Stats stats={STATS} />
+        <Stats stats={stats} />
       </section>
     </main>
   );
-}
-async function getGithubStats() {
-  const ocktokit = new Octokit({
-    auth: process.env.GITHUB_TOKEN,
-  });
-
-  const response = await ocktokit.request("GET /user/repos", {
-    headers: {
-      "X-GitHub-Api-Version": "2022-11-28",
-    },
-  });
-  const projects = response.data;
-
-  const requests = projects.map((rep: any) =>
-    ocktokit.request("GET /repos/{owner}/{repo}/contributors", {
-      owner: "propbono",
-      repo: rep.name,
-      headers: {
-        "X-GitHub-Api-Version": "2022-11-28",
-      },
-    })
-  );
-
-  const allCommitsCount = (await Promise.all(requests)).flatMap(response => response.data).filter(user =>
-    user.login === "propbono" || user.login === "gregmozer"
-  )
-    .reduce(
-      (acc, curr) => acc + curr.contributions,
-      0,
-    );
-
-  return { projectCount: projects.length || 20, allCommitsCount: allCommitsCount || 2000 };
 }
