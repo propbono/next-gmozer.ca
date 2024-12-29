@@ -52,7 +52,7 @@ export function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
+    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6">
       <Input type="text" {...register("website")} className="hidden" tabIndex={-1} autoComplete="off" />
       <div>
         <Label htmlFor="fullname">Full Name</Label>
