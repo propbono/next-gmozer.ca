@@ -4,7 +4,7 @@ import { Stats } from "@/components/stats";
 import { Button } from "@/components/ui/button";
 import { DEV_START_YEAR, RESUME_LINK, TECHNOLOGIES_MASTERED } from "@/constants/main";
 import { SOCIALS } from "@/constants/socials";
-import { getGithubStats } from "@/services/github";
+import { getGithubStats, MOCK_STATS } from "@/services/github";
 import { Stat } from "@/types/stats";
 import { differenceInCalendarYears } from "date-fns";
 import Link from "next/link";
@@ -15,10 +15,8 @@ const PROPRIETARY_COMMITS_COUNT = 550;
 
 export default async function Home() {
   const yearsOfExperience = differenceInCalendarYears(new Date(), DEV_START_YEAR);
-  const { projectCount, allCommitsCount } = await getGithubStats();
 
-  const projectsCompleted = PROPRIETARY_PROJECTS_COUNT + projectCount;
-  const codeCommits = PROPRIETARY_COMMITS_COUNT + allCommitsCount;
+  const githubStats = await getGithubStats();
 
   const stats: Stat[] = [
     {
@@ -27,7 +25,9 @@ export default async function Home() {
     },
     {
       title: "Projects Completed",
-      value: projectsCompleted,
+      value: githubStats.status === "success"
+        ? PROPRIETARY_PROJECTS_COUNT + githubStats.data.projectCount
+        : PROPRIETARY_PROJECTS_COUNT + MOCK_STATS.projectCount,
     },
     {
       title: "Technologies Mastered",
@@ -35,7 +35,9 @@ export default async function Home() {
     },
     {
       title: "Code Commits",
-      value: codeCommits,
+      value: githubStats.status === "success"
+        ? PROPRIETARY_COMMITS_COUNT + githubStats.data.allCommitsCount
+        : PROPRIETARY_COMMITS_COUNT + MOCK_STATS.allCommitsCount,
     },
   ];
 

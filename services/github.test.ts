@@ -29,8 +29,11 @@ describe("getGithubStats", () => {
     const stats = await getGithubStats();
 
     expect(stats).toEqual({
-      projectCount: 2,
-      allCommitsCount: 250,
+      data: {
+        projectCount: 2,
+        allCommitsCount: 250,
+      },
+      status: "success",
     });
   });
 
@@ -40,8 +43,8 @@ describe("getGithubStats", () => {
     const stats = await getGithubStats();
 
     expect(stats).toEqual({
-      projectCount: 20,
-      allCommitsCount: 2000,
+      message: "API Error",
+      status: "error",
     });
   });
 
@@ -61,7 +64,10 @@ describe("getGithubStats", () => {
 
     const stats = await getGithubStats();
 
-    expect(stats.allCommitsCount).toBe(150);
+    if (stats.status !== "success") return;
+
+    expect(stats.status).toBe("success");
+    expect(stats.data.allCommitsCount).toBe(150);
   });
 
   it("returns mock stats when repository list is empty", async () => {
@@ -70,8 +76,8 @@ describe("getGithubStats", () => {
     const stats = await getGithubStats();
 
     expect(stats).toEqual({
-      projectCount: 20,
-      allCommitsCount: 2000,
+      status: "error",
+      message: "Projects length empty. Returning mock data.",
     });
   });
 });
