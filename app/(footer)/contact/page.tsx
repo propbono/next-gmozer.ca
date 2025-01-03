@@ -8,9 +8,9 @@ export default function ContactPage() {
         <div className="grid gap-8 grid-cols-1 md:grid-cols-2 px-16 py-16 mx-auto text-gray-900">
           <div className="flex flex-col h-full">
             <div>
-              <h2 className="text-4xl lg:text-6xl text-pretty font-bold">
+              <h1 className="w-full mb-4 2xl:mb-6 font-logo text-4xl md:text-5xl font-bold leading-relaxed text-foreground">
                 Lets <span className="text-primary">chat</span> about everything!
-              </h2>
+              </h1>
               <div className="text-gray-700 mt-8">
                 Hate forms? Send me an email instead{" "}
                 <span className="underline">
