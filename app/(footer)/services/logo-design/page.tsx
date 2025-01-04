@@ -1,4 +1,10 @@
+import { constructMetadata } from "@/app/metadata";
 import { BreadcrumbNav } from "@/components/breadcrumbs";
+
+export const metadata = constructMetadata({
+  title: "Logo Design Services | Greg Mozer",
+  description: "Creating distinctive and memorable brand identities that resonate with target audiences and stand the test of time.",
+});
 
 export default function LogoDesign() {
   return (

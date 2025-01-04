@@ -9,9 +9,15 @@ import { Stat } from "@/types/stats";
 import { differenceInCalendarYears } from "date-fns";
 import Link from "next/link";
 import { RxDownload } from "react-icons/rx";
+import { constructMetadata } from "../metadata";
 
 const PROPRIETARY_PROJECTS_COUNT = 10;
 const PROPRIETARY_COMMITS_COUNT = 550;
+
+export const metadata = constructMetadata({
+  title: "Greg Mozer | Senior Fullstack Engineer",
+  description: "Building high-performance web applications with modern technologies",
+});
 
 export default async function Home() {
   const yearsOfExperience = differenceInCalendarYears(new Date(), DEV_START_YEAR);

@@ -1,4 +1,10 @@
+import { constructMetadata } from "@/app/metadata";
 import { BreadcrumbNav } from "@/components/breadcrumbs";
+
+export const metadata = constructMetadata({
+  title: "UI/UX Design Services | Greg Mozer",
+  description: "Crafting intuitive and engaging user interfaces that deliver exceptional user experiences while maintaining accessibility standards.",
+});
 
 export default function UiUxDesign() {
   return (

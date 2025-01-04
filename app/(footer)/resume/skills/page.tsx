@@ -1,6 +1,12 @@
+import { constructMetadata } from "@/app/metadata";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { SKILLS } from "@/constants/resume";
 import Link from "next/link";
+
+export const metadata = constructMetadata({
+  title: "Technical Skills | Greg Mozer",
+  description: "Explore my technical expertise across various technologies including React, Next.js, TypeScript, and modern web development tools.",
+});
 
 export default function Skills() {
   return (

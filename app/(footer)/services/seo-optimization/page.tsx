@@ -1,4 +1,10 @@
+import { constructMetadata } from "@/app/metadata";
 import { BreadcrumbNav } from "@/components/breadcrumbs";
+
+export const metadata = constructMetadata({
+  title: "SEO Optimization Services | Greg Mozer",
+  description: "Implementing data-driven SEO strategies to enhance online visibility and drive qualified organic traffic.",
+});
 
 export default function SeoOptimization() {
   return (

@@ -1,4 +1,10 @@
+import { constructMetadata } from "@/app/metadata";
 import { BreadcrumbNav } from "@/components/breadcrumbs";
+
+export const metadata = constructMetadata({
+  title: "Web Development Services | Greg Mozer",
+  description: "Building high-performance, scalable web applications with modern frameworks and best practices in mind.",
+});
 
 export default function WebDevelopment() {
   return (

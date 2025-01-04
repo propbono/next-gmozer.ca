@@ -1,4 +1,10 @@
+import { constructMetadata } from "@/app/metadata";
 import { ABOUT } from "@/constants/resume";
+
+export const metadata = constructMetadata({
+  title: "About Me | Greg Mozer",
+  description: "Learn about my professional journey, skills, and experience as a Senior Fullstack Engineer specializing in modern web technologies.",
+});
 
 export default function About() {
   return (

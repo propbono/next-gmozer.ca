@@ -1,25 +1,22 @@
-"use client";
+import { constructMetadata } from "@/app/metadata";
+import { AnimatedElement } from "@/components/animated-element/animated-element";
 import { Separator } from "@/components/ui/separator";
 import { SERVICES } from "@/constants/services";
-import { motion } from "framer-motion";
 import Link from "next/link";
 import { RiArrowRightDownLine } from "react-icons/ri";
+
+export const metadata = constructMetadata({
+  title: "Services | Greg Mozer",
+  description: "Comprehensive web development services including frontend development, UI/UX design, SEO optimization, and mobile app development.",
+});
 
 export default function Services() {
   return (
     <section className="container">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
         {SERVICES.map((service, index) => (
-          <motion.div
-            initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
-            animate={{
-              opacity: 1,
-              x: 0,
-              transition: {
-                duration: 0.5,
-                delay: index * 0.2,
-              },
-            }}
+          <AnimatedElement
+            index={index}
             transition={{ duration: 0.5, delay: index * 0.2 }}
             key={service.title}
             className="flex flex-1 flex-col justify-center gap-6 group"
@@ -39,7 +36,7 @@ export default function Services() {
             <h3 className="text-2xl font-bold text-foreground group-hover:text-primary transition-all duration-500">{service.title}</h3>
             <p className="text-lg leading-snug">{service.description}</p>
             <Separator />
-          </motion.div>
+          </AnimatedElement>
         ))}
       </div>
     </section>

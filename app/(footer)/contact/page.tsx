@@ -1,5 +1,11 @@
+import { constructMetadata } from "@/app/metadata";
 import { ContactForm } from "@/components/contact-form";
 import Image from "next/image";
+
+export const metadata = constructMetadata({
+  title: "Contact | Greg Mozer",
+  description: "Get in touch for web development projects, consultations, or collaborations. Let's build something great together.",
+});
 
 export default function ContactPage() {
   return (

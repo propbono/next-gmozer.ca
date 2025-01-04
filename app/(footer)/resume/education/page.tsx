@@ -1,7 +1,13 @@
-import { AnimatedCard } from "@/components/animated-card/animated-card";
-import { CardContent, CardFooter, CardHeader } from "@/components/ui/card";
+import { constructMetadata } from "@/app/metadata";
+import { AnimatedElement } from "@/components/animated-element/animated-element";
+import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { EDUCATION } from "@/constants/resume";
+
+export const metadata = constructMetadata({
+  title: "Education & Qualifications | Greg Mozer",
+  description: "Discover my educational background, certifications, and continuous learning journey in software development and web technologies.",
+});
 
 export default function Education() {
   return (
@@ -11,18 +17,20 @@ export default function Education() {
       <ScrollArea className="h-[400px] 2xl:h-[600px]">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
           {EDUCATION.items.map((item, index) => (
-            <AnimatedCard index={index} key={`${item.institution}-${index}`}>
-              <CardHeader>
-                <span className="text-primary font-semibold">{item.duration}</span>
-              </CardHeader>
-              <CardContent>
-                <h3 className="text-xl text-center md:text-left font-bold">{item.degree}</h3>
-              </CardContent>
-              <CardFooter className="flex flex-wrap items-center justify-center md:justify-start gap-2">
-                <span className="rounded-full size-2 bg-primary"></span>
-                <span>{item.institution}</span>
-              </CardFooter>
-            </AnimatedCard>
+            <AnimatedElement index={index} key={`${item.institution}-${index}`}>
+              <Card>
+                <CardHeader>
+                  <span className="text-primary font-semibold">{item.duration}</span>
+                </CardHeader>
+                <CardContent>
+                  <h3 className="text-xl text-center md:text-left font-bold">{item.degree}</h3>
+                </CardContent>
+                <CardFooter className="flex flex-wrap items-center justify-center md:justify-start gap-2">
+                  <span className="rounded-full size-2 bg-primary"></span>
+                  <span>{item.institution}</span>
+                </CardFooter>
+              </Card>
+            </AnimatedElement>
           ))}
         </div>
       </ScrollArea>

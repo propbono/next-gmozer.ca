@@ -1,4 +1,5 @@
 "use client";
+import { constructMetadata } from "@/app/metadata";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Carousel, type CarouselApi, CarouselContent, CarouselItem } from "@/components/ui/carousel";
@@ -9,6 +10,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { RiArrowLeftSLine, RiArrowRightDownLine, RiArrowRightSLine, RiGithubLine } from "react-icons/ri";
+
+export const metadata = constructMetadata({
+  title: "Projects | Greg Mozer",
+  description: "Explore my portfolio of web development projects using React, Next.js, and TypeScript",
+});
 
 export default function Work() {
   const [api, setApi] = useState<CarouselApi>();

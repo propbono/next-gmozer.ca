@@ -1,4 +1,10 @@
+import { constructMetadata } from "@/app/metadata";
 import { BreadcrumbNav } from "@/components/breadcrumbs";
+
+export const metadata = constructMetadata({
+  title: "Mobile App Development Services | Greg Mozer",
+  description: "Developing native and cross-platform mobile applications that provide seamless user experiences across all devices.",
+});
 
 export default function MobileAppDevelopment() {
   return (
