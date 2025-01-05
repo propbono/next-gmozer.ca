@@ -8,12 +8,14 @@ export const metadata = constructMetadata({
 
 export default function MobileAppDevelopment() {
   return (
-    <div className="container">
+    <article className="container">
       <BreadcrumbNav />
-      <h1 className="text-4xl font-bold mb-6">Mobile App Development Services</h1>
+      <header>
+        <h1 className="text-4xl font-bold mb-6">Mobile App Development Services</h1>
+      </header>
       <div className="grid gap-8">
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Mobile Solutions</h2>
+        <section aria-labelledby="solutions">
+          <h2 id="solutions" className="text-2xl font-semibold mb-4">Mobile Solutions</h2>
           <p className="text-muted-foreground">
             Creating powerful mobile applications for iOS and Android platforms. We specialize in:
           </p>
@@ -26,8 +28,8 @@ export default function MobileAppDevelopment() {
           </ul>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Development Process</h2>
+        <section aria-labelledby="process">
+          <h2 id="process" className="text-2xl font-semibold mb-4">Development Process</h2>
           <div className="grid gap-4">
             <div>
               <h3 className="text-xl font-medium">1. Requirements Analysis</h3>
@@ -48,6 +50,6 @@ export default function MobileAppDevelopment() {
           </div>
         </section>
       </div>
-    </div>
+    </article>
   );
 }

@@ -8,12 +8,14 @@ export const metadata = constructMetadata({
 
 export default function LogoDesign() {
   return (
-    <div className="container">
+    <article className="container">
       <BreadcrumbNav />
-      <h1 className="text-4xl font-bold mb-6">Logo Design Services</h1>
+      <header>
+        <h1 className="text-4xl font-bold mb-6">Logo Design Services</h1>
+      </header>
       <div className="grid gap-8">
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Brand Identity Creation</h2>
+        <section aria-labelledby="brand-identity">
+          <h2 id="brand-identity" className="text-2xl font-semibold mb-4">Brand Identity Creation</h2>
           <p className="text-muted-foreground">
             Creating distinctive visual identities that capture your brand&apos;s essence. Our logo design includes:
           </p>
@@ -26,8 +28,8 @@ export default function LogoDesign() {
           </ul>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Design Process</h2>
+        <section aria-labelledby="process">
+          <h2 id="process" className="text-2xl font-semibold mb-4">Design Process</h2>
           <div className="grid gap-4">
             <div>
               <h3 className="text-xl font-medium">1. Brand Discovery</h3>
@@ -48,6 +50,6 @@ export default function LogoDesign() {
           </div>
         </section>
       </div>
-    </div>
+    </article>
   );
 }

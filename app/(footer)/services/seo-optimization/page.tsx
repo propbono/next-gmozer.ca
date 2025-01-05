@@ -8,12 +8,14 @@ export const metadata = constructMetadata({
 
 export default function SeoOptimization() {
   return (
-    <div className="container">
+    <article className="container">
       <BreadcrumbNav />
-      <h1 className="text-4xl font-bold mb-6">SEO Optimization Services</h1>
+      <header>
+        <h1 className="text-4xl font-bold mb-6">SEO Optimization Services</h1>
+      </header>
       <div className="grid gap-8">
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Comprehensive SEO Solutions</h2>
+        <section aria-labelledby="solutions">
+          <h2 id="solutions" className="text-2xl font-semibold mb-4">Comprehensive SEO Solutions</h2>
           <p className="text-muted-foreground">
             Data-driven SEO strategies to improve your online visibility and organic traffic. Our services include:
           </p>
@@ -26,8 +28,8 @@ export default function SeoOptimization() {
           </ul>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Our Approach</h2>
+        <section aria-labelledby="approach">
+          <h2 id="approach" className="text-2xl font-semibold mb-4">Our Approach</h2>
           <div className="grid gap-4">
             <div>
               <h3 className="text-xl font-medium">1. Site Analysis</h3>
@@ -48,6 +50,6 @@ export default function SeoOptimization() {
           </div>
         </section>
       </div>
-    </div>
+    </article>
   );
 }
