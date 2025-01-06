@@ -6,7 +6,7 @@ export const PROJECTS = [
     liveLink: "https://farahfg.com/",
     githubLink: "https://github.com/propbono/farahfg.com",
     stack: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Nodemailer", "Vercel"],
-    image: "/work/p1.jpg",
+    image: "/work/farah-freight.avif",
   },
   {
     title: "Gemprint",
@@ -16,17 +16,7 @@ export const PROJECTS = [
     liveLink: "https://gemprint.ca/",
     githubLink: "https://github.com/propbono/gemprint.ca",
     stack: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma", "Vercel", "Resend"],
-    image: "/work/p2.jpg",
-  },
-  {
-    title: "Wizzcode Music App",
-    category: "Frontend",
-    description:
-      "Sample music app to test React Query hooks and write some cool tests in Vitest. It communicates with Itunes API and pull some albums using React Query.",
-    liveLink: "https://wizcode-music.vercel.app/",
-    githubLink: "https://github.com/propbono/gmozer.ca",
-    stack: ["Remix.js", "TypeScript", "Tailwind CSS", "Vite", "Vercel"],
-    image: "/work/p3.jpg",
+    image: "/work/gemprint.avif",
   },
   {
     title: "Propbono Portfolio - new",
@@ -35,16 +25,27 @@ export const PROJECTS = [
     liveLink: "https://gmozer.ca/",
     githubLink: "https://github.com/propbono/next-gmozer.ca",
     stack: ["Next.js", "TypeScript", "Tailwind CSS", "FramerMotion", "Vercel"],
-    image: "/work/p4.jpg",
+    image: "/work/gmozer-new.avif",
   },
+  {
+    title: "Wizzcode Music App",
+    category: "Frontend",
+    description:
+      "Sample music app to test React Query hooks and write some cool tests in Vitest. It communicates with Itunes API and pull some albums using React Query.",
+    liveLink: "https://wizcode-music.vercel.app/",
+    githubLink: "https://github.com/propbono/wizcode-music",
+    stack: ["React.js", "TypeScript", "Tailwind CSS", "Vite", "Vercel"],
+    image: "/work/wizcode.avif",
+  },
+
   {
     title: "Propbono Portfolio - old",
     category: "Frontend",
     description: "Propbono portfolio website presenting some of the projects that I worked on. Written in RemixJS.",
-    liveLink: "https://gmozer-old.vercel.app/",
-    githubLink: "https://github.com/propbono/gmozer.ca",
+    liveLink: "https://gmozerca-old.vercel.app/",
+    githubLink: "https://github.com/propbono/portfolio",
     stack: ["Remix.js", "TypeScript", "Tailwind CSS", "Vite", "Vercel"],
-    image: "/work/p5.jpg",
+    image: "/work/gmozer-old.avif",
   },
   {
     title: "SWM Interview 2024",
@@ -54,15 +55,6 @@ export const PROJECTS = [
     liveLink: "#",
     githubLink: "https://github.com/propbono/swm-interview-2024",
     stack: ["TypeScript"],
-    image: "/work/p6.jpg",
-  },
-  {
-    title: "Farah Financial Group - development",
-    category: "Algorithm",
-    description: "Company website for Farah Financial Group. Web application utilizing NextJS App router and Resend for sending emails.",
-    liveLink: "#",
-    githubLink: "https://github.com/propbono/farahfinancialgroup.ca",
-    stack: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Resend", "Vercel"],
-    image: "/work/p7.jpg",
+    image: "/work/swm.avif",
   },
 ];
