@@ -3,13 +3,11 @@ import { RiCopyrightLine } from "react-icons/ri";
 import { Socials } from "../socials";
 
 export const Footer = () => {
-  const currentYear = new Date().getFullYear();
-
   return (
     <footer className="bg-foreground py-8">
       <div className="font-medium container flex flex-col items-center justify-between gap-4  md:flex-row">
         <span className="flex items-center align-middle text-muted gap-2">
-          <RiCopyrightLine /> 2023-{currentYear} by Greg Mozer
+          <RiCopyrightLine /> 2023 Greg Mozer | All rights reserved
         </span>
         <Socials
           links={SOCIALS}
