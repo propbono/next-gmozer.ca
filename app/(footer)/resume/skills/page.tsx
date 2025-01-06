@@ -1,15 +1,21 @@
+import { constructMetadata } from "@/app/metadata";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { SKILLS } from "@/constants/resume";
 import Link from "next/link";
 
+export const metadata = constructMetadata({
+  title: "Technical Skills | Greg Mozer",
+  description: "Explore my technical expertise across various technologies including React, Next.js, TypeScript, and modern web development tools.",
+});
+
 export default function Skills() {
   return (
-    <div className="flex flex-col gap-8">
-      <div className="flex flex-col gap-8 text-center md:text-left">
-        <h2 className="font-bold text-4xl">{SKILLS.title}</h2>
+    <section className="flex flex-col gap-8">
+      <header className="flex flex-col gap-8 text-center md:text-left">
+        <h1 className="font-bold text-4xl">{SKILLS.title}</h1>
         <p className="text-muted-foreground max-w-2xl mx-auto md:mx-0">{SKILLS.description}</p>
-      </div>
-      <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap-8">
+      </header>
+      <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap-8" aria-label="Technical skills">
         {SKILLS.items.map((skill) => (
           <li key={skill.name}>
             <Tooltip>
@@ -24,6 +30,6 @@ export default function Skills() {
           </li>
         ))}
       </ul>
-    </div>
+    </section>
   );
 }

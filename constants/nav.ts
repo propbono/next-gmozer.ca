@@ -20,10 +20,6 @@ export const navItems: NavItem[] = [
   },
   {
     href: "/contact",
-    name: "Contact",
-  },
-  {
-    href: "/hire-me",
-    name: "Hire Me",
+    name: "Contact me",
   },
 ];

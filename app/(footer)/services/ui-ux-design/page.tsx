@@ -1,13 +1,21 @@
+import { constructMetadata } from "@/app/metadata";
 import { BreadcrumbNav } from "@/components/breadcrumbs";
+
+export const metadata = constructMetadata({
+  title: "UI/UX Design Services | Greg Mozer",
+  description: "Crafting intuitive and engaging user interfaces that deliver exceptional user experiences while maintaining accessibility standards.",
+});
 
 export default function UiUxDesign() {
   return (
-    <div className="container">
+    <article className="container">
       <BreadcrumbNav />
-      <h1 className="text-4xl font-bold mb-6">UI/UX Design Services</h1>
+      <header>
+        <h1 className="text-4xl font-bold mb-6">UI/UX Design Services</h1>
+      </header>
       <div className="grid gap-8">
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Our Design Philosophy</h2>
+        <section aria-labelledby="philosophy">
+          <h2 id="philosophy" className="text-2xl font-semibold mb-4">Our Design Philosophy</h2>
           <p className="text-muted-foreground">
             Creating intuitive, user-centered designs that balance aesthetics with functionality. We focus on:
           </p>
@@ -20,8 +28,8 @@ export default function UiUxDesign() {
           </ul>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Design Process</h2>
+        <section aria-labelledby="process">
+          <h2 id="process" className="text-2xl font-semibold mb-4">Design Process</h2>
           <div className="grid gap-4">
             <div>
               <h3 className="text-xl font-medium">1. Research & Discovery</h3>
@@ -42,8 +50,8 @@ export default function UiUxDesign() {
           </div>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Design Tools</h2>
+        <section aria-labelledby="tools">
+          <h2 id="tools" className="text-2xl font-semibold mb-4">Design Tools</h2>
           <ul className="list-disc list-inside space-y-2 text-muted-foreground">
             <li>Figma for design and prototyping</li>
             <li>Adobe Creative Suite</li>
@@ -53,6 +61,6 @@ export default function UiUxDesign() {
           </ul>
         </section>
       </div>
-    </div>
+    </article>
   );
 }

@@ -1,15 +1,14 @@
 "use client";
 
 import { type HTMLMotionProps, motion } from "framer-motion";
-import { ComponentProps, ReactNode } from "react";
-import { Card } from "../ui/card";
+import { ReactNode } from "react";
 
 type AnimatedCardProps = HTMLMotionProps<"div"> & {
   children: ReactNode;
   index: number;
 };
 
-export const AnimatedCard = ({ index, children, ...otherProps }: AnimatedCardProps) => {
+export const AnimatedElement = ({ index, children, ...otherProps }: AnimatedCardProps) => {
   return (
     <motion.div
       initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
@@ -23,9 +22,7 @@ export const AnimatedCard = ({ index, children, ...otherProps }: AnimatedCardPro
       }}
       {...otherProps}
     >
-      <Card>
-        {children}
-      </Card>
+      {children}
     </motion.div>
   );
 };

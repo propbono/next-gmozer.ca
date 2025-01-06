@@ -1,13 +1,21 @@
+import { constructMetadata } from "@/app/metadata";
 import { BreadcrumbNav } from "@/components/breadcrumbs";
+
+export const metadata = constructMetadata({
+  title: "Web Development Services | Greg Mozer",
+  description: "Building high-performance, scalable web applications with modern frameworks and best practices in mind.",
+});
 
 export default function WebDevelopment() {
   return (
-    <div className="container">
+    <article className="container">
       <BreadcrumbNav />
-      <h1 className="text-4xl font-bold mb-6">Web Development Services</h1>
+      <header>
+        <h1 className="text-4xl font-bold mb-6">Web Development Services</h1>
+      </header>
       <div className="grid gap-8">
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">What We Offer</h2>
+        <section aria-labelledby="offerings">
+          <h2 id="offerings" className="text-2xl font-semibold mb-4">What We Offer</h2>
           <p className="text-muted-foreground">
             Comprehensive web development solutions using cutting-edge technologies and frameworks. We specialize in building:
           </p>
@@ -20,8 +28,8 @@ export default function WebDevelopment() {
           </ul>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Our Process</h2>
+        <section aria-labelledby="process">
+          <h2 id="process" className="text-2xl font-semibold mb-4">Our Process</h2>
           <div className="grid gap-4">
             <div>
               <h3 className="text-xl font-medium">1. Planning & Architecture</h3>
@@ -42,8 +50,8 @@ export default function WebDevelopment() {
           </div>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Technologies We Use</h2>
+        <section aria-labelledby="technologies">
+          <h2 id="technologies" className="text-2xl font-semibold mb-4">Technologies We Use</h2>
           <ul className="list-disc list-inside space-y-2 text-muted-foreground">
             <li>React, Next.js, TypeScript</li>
             <li>Node.js, Express</li>
@@ -53,6 +61,6 @@ export default function WebDevelopment() {
           </ul>
         </section>
       </div>
-    </div>
+    </article>
   );
 }
