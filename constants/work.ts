@@ -1,4 +1,14 @@
-export const PROJECTS = [
+export interface Project {
+  title: string;
+  category: "Frontend" | "Fullstack" | "Algorithm";
+  description: string;
+  liveLink?: string;
+  githubLink: string;
+  stack: string[];
+  image: string;
+}
+
+export const PROJECTS: Project[] = [
   {
     title: "Farah Freight Group",
     category: "Frontend",
@@ -19,7 +29,7 @@ export const PROJECTS = [
     image: "/work/gemprint.avif",
   },
   {
-    title: "Propbono Portfolio - new",
+    title: "Greg Mozer / Propbono (New)",
     category: "Fullstack",
     description: "Propbono portfolio website presenting some of the projects that I worked on.",
     liveLink: "https://gmozer.ca/",
@@ -37,9 +47,8 @@ export const PROJECTS = [
     stack: ["React.js", "TypeScript", "Tailwind CSS", "Vite", "Vercel"],
     image: "/work/wizcode.avif",
   },
-
   {
-    title: "Propbono Portfolio - old",
+    title: "Greg Mozer / Propbono (Old)",
     category: "Frontend",
     description: "Propbono portfolio website presenting some of the projects that I worked on. Written in RemixJS.",
     liveLink: "https://gmozerca-old.vercel.app/",
@@ -52,7 +61,6 @@ export const PROJECTS = [
     category: "Algorithm",
     description:
       "Interview task is composed from two parts, coding exercise and an essay. Below you can see the information about programming task. Write a function that receives two sequences: A and B of integers and returns one sequence C. Sequence C should contain all elements from sequence A (maintaining the order) except those, that are present in sequence B p times, where p is a prime number.",
-    liveLink: "#",
     githubLink: "https://github.com/propbono/swm-interview-2024",
     stack: ["TypeScript"],
     image: "/work/swm.avif",
