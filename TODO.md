@@ -3,7 +3,7 @@
 - [x] Add Contact page with resend
 - [x] Add project pictures
 - [x] Work on SEO
-- [ ] Deploy to gmozer.ca
+- [x] Deploy to gmozer.ca
 - [ ] Add more projects and check
 - [ ] Add Theme switch
 - [ ] Add custom logo fonts for headers
