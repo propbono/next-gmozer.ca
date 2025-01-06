@@ -117,7 +117,7 @@ export function ProjectShowcase() {
                     && (
                       <Link href={currentProject.liveLink}>
                         <Tooltip>
-                          <TooltipTrigger className="size-16 rounded-full border border-foreground flex justify-center items-center group">
+                          <TooltipTrigger className="size-16 rounded-full border border-foreground flex justify-center items-center group hover:border-primary hover:border-2 hover:border-dashed hover:transition-all hover:duration-100">
                             <RiArrowRightDownLine className="text-3xl text-foreground group-hover:text-primary group-hover:-rotate-45 transition-all duration-500" />
                           </TooltipTrigger>
                           <TooltipContent>Live Project</TooltipContent>
@@ -127,7 +127,7 @@ export function ProjectShowcase() {
                   {!!currentProject.githubLink && (
                     <Link href={currentProject.githubLink}>
                       <Tooltip>
-                        <TooltipTrigger className="size-16 rounded-full border border-foreground flex justify-center items-center group">
+                        <TooltipTrigger className="size-16 rounded-full border border-foreground flex justify-center items-center group hover:border-primary hover:border-2 hover:border-dashed hover:transition-all hover:duration-100">
                           <RiGithubLine className="text-3xl text-foreground group-hover:text-primary transition-all duration-500" />
                         </TooltipTrigger>
                         <TooltipContent>Github Repository</TooltipContent>
@@ -142,7 +142,7 @@ export function ProjectShowcase() {
                         onClick={handlePrevious}
                         disabled={!api?.canScrollPrev()}
                         variant="ghost"
-                        className="size-16 rounded-full border border-foreground flex justify-center items-center group"
+                        className="size-16 rounded-full border border-foreground flex justify-center items-center group hover:bg-white hover:border-primary hover:border-2 hover:border-dashed hover:transition-all hover:duration-100"
                       >
                         <RiArrowLeftSLine className="text-3xl text-foreground group-hover:text-primary transition-all duration-500" />
                       </Button>
@@ -155,7 +155,7 @@ export function ProjectShowcase() {
                         onClick={handleNext}
                         disabled={!api?.canScrollNext()}
                         variant="ghost"
-                        className="size-16 rounded-full border border-foreground flex justify-center items-center group"
+                        className="size-16 rounded-full border border-foreground flex justify-center items-center group hover:bg-white hover:border-primary hover:border-2 hover:border-dashed hover:transition-all hover:duration-100"
                       >
                         <RiArrowRightSLine className="text-3xl text-foreground group-hover:text-primary transition-all duration-500" />
                       </Button>
