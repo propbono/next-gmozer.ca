@@ -53,7 +53,7 @@ export function ProjectShowcase() {
     <article className="flex flex-grow relative">
       <div
         ref={ref}
-        className="hidden sm:block absolute rounded-s-lg w-full md:w-[768px] lg:w-[872px] xl:w-[1024px] 2xl:w-[1124px] h-full top-0 right-0"
+        className="hidden sm:block absolute md:rounded-s-lg w-full md:w-[768px] lg:w-[872px] xl:w-[1024px] 2xl:w-[1124px] h-full top-0 right-0"
       >
         <Carousel setApi={setApi} className="h-full">
           <CarouselContent className="h-full">
@@ -64,7 +64,7 @@ export function ProjectShowcase() {
                     src={item.image}
                     alt={item.title}
                     fill
-                    className="object-cover rounded-s-lg"
+                    className="object-cover md:rounded-s-lg"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                     priority={index === 0}
                   />
