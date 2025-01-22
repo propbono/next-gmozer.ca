@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
+    "@million/lint": "^1.0.14",
     "@octokit/types": "^13.6.2",
     "@radix-ui/react-dialog": "^1.1.1",
     "@radix-ui/react-label": "^2.1.1",

@@ -4,7 +4,7 @@ import { useMediaQuery } from "@/hooks/use-media-query";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { DesktopNav } from "../desktop-nav";
 import { MobileNav } from "../mobile-nav";
 
@@ -22,7 +22,17 @@ export const Header = () => {
     document.addEventListener("scroll", handleScroll);
 
     return () => document.removeEventListener("scroll", handleScroll);
-  });
+  }, []);
+
+  const memoizedDesktopNav = useMemo(
+    () => <DesktopNav items={navItems} pathname={pathname} />,
+    [pathname],
+  );
+
+  const memoizedMobileNav = useMemo(
+    () => <MobileNav items={navItems} pathname={pathname} />,
+    [pathname],
+  );
 
   return (
     <header
@@ -39,7 +49,7 @@ export const Header = () => {
             Greg Mozer<span className="text-primary group-hover:text-foreground">.</span>
           </span>
         </Link>
-        {isMediumBreakpoint ? <DesktopNav items={navItems} pathname={pathname} /> : <MobileNav items={navItems} pathname={pathname} />}
+        {isMediumBreakpoint ? memoizedDesktopNav : memoizedMobileNav}
       </div>
     </header>
   );

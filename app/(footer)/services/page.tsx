@@ -32,6 +32,7 @@ export default function Services() {
                   className="size-11 flex items-center justify-center border-foreground border rounded-full hover:border-primary text-3xl hover:-rotate-45 hover:text-primary group-hover:border-primary group-hover:text-primary transition-all delay-100 duration-500"
                 >
                   <RiArrowRightDownLine />
+                  <span className="sr-only">{service.title}</span>
                 </Link>
               </div>
 

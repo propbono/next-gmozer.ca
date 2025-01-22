@@ -2,6 +2,7 @@
 
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { usePathname } from "next/navigation";
+import { Fragment } from "react";
 import { RxCaretRight } from "react-icons/rx";
 
 export const BreadcrumbNav = () => {
@@ -27,16 +28,16 @@ export const BreadcrumbNav = () => {
     <Breadcrumb className="gap-2 mb-8">
       <BreadcrumbList>
         {breadcrumbs.map(({ href, label, current }) => (
-          <>
+          <Fragment key={href}>
             {current
               ? (
-                <BreadcrumbItem key={href}>
-                  <span className="text-foreground">{label}</span>
+                <BreadcrumbItem>
+                  <span className="text-primary font-semibold">{label}</span>
                 </BreadcrumbItem>
               )
               : (
                 <>
-                  <BreadcrumbItem key={href}>
+                  <BreadcrumbItem>
                     <BreadcrumbLink href={href}>{label}</BreadcrumbLink>
                   </BreadcrumbItem>
                   <BreadcrumbSeparator>
@@ -44,7 +45,7 @@ export const BreadcrumbNav = () => {
                   </BreadcrumbSeparator>
                 </>
               )}
-          </>
+          </Fragment>
         ))}
       </BreadcrumbList>
     </Breadcrumb>
