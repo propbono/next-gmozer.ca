@@ -119,6 +119,7 @@ export function ProjectShowcase() {
                         <Tooltip>
                           <TooltipTrigger className="size-16 rounded-full border border-foreground flex justify-center items-center group hover:border-primary hover:border-2 hover:border-dashed hover:transition-all hover:duration-100">
                             <RiArrowRightDownLine className="text-3xl text-foreground group-hover:text-primary group-hover:-rotate-45 transition-all duration-500" />
+                            <span className="sr-only">{currentProject.title} - Live Project</span>
                           </TooltipTrigger>
                           <TooltipContent>Live Project</TooltipContent>
                         </Tooltip>
@@ -129,6 +130,7 @@ export function ProjectShowcase() {
                       <Tooltip>
                         <TooltipTrigger className="size-16 rounded-full border border-foreground flex justify-center items-center group hover:border-primary hover:border-2 hover:border-dashed hover:transition-all hover:duration-100">
                           <RiGithubLine className="text-3xl text-foreground group-hover:text-primary transition-all duration-500" />
+                          <span className="sr-only">{currentProject.title} - Github Repository</span>
                         </TooltipTrigger>
                         <TooltipContent>Github Repository</TooltipContent>
                       </Tooltip>
@@ -145,6 +147,7 @@ export function ProjectShowcase() {
                         className="size-16 rounded-full border border-foreground flex justify-center items-center group hover:bg-white hover:border-primary hover:border-2 hover:border-dashed hover:transition-all hover:duration-100"
                       >
                         <RiArrowLeftSLine className="text-3xl text-foreground group-hover:text-primary transition-all duration-500" />
+                        <span className="sr-only">Previous Project</span>
                       </Button>
                     </TooltipTrigger>
                     <TooltipContent>Previous Project</TooltipContent>
@@ -158,6 +161,7 @@ export function ProjectShowcase() {
                         className="size-16 rounded-full border border-foreground flex justify-center items-center group hover:bg-white hover:border-primary hover:border-2 hover:border-dashed hover:transition-all hover:duration-100"
                       >
                         <RiArrowRightSLine className="text-3xl text-foreground group-hover:text-primary transition-all duration-500" />
+                        <span className="sr-only">Next Project</span>
                       </Button>
                     </TooltipTrigger>
                     <TooltipContent>Next Project</TooltipContent>
