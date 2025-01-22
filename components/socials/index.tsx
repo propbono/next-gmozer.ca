@@ -29,6 +29,7 @@ export const Socials = ({
             target="_blank"
           >
             <Icon />
+            <span className="sr-only">{name}</span>
           </Link>
         ))}
       </nav>
@@ -42,6 +43,7 @@ export const Socials = ({
           <TooltipTrigger>
             <Link href={url} className={cn(iconStyles)} target="_blank">
               <Icon />
+              <span className="sr-only">{name}</span>
             </Link>
           </TooltipTrigger>
           <TooltipContent>{name}</TooltipContent>
