@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { NavItem } from "@/types/nav";
+import type { NavItem } from "@/types/nav";
 import Link from "next/link";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { Button } from "../ui/button";

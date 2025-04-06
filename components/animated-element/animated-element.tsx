@@ -1,7 +1,7 @@
 "use client";
 
 import { type HTMLMotionProps, motion } from "framer-motion";
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 
 type AnimatedCardProps = HTMLMotionProps<"div"> & {
 	children: ReactNode;

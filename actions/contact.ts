@@ -17,9 +17,9 @@ export async function sendEmail(formData: FormData) {
 	if (!validatedFields.success) {
 		let errorMessage = "";
 		validatedFields.error.format();
-		validatedFields.error.issues.forEach((issue) => {
-			errorMessage = errorMessage + issue.path[0] + ": " + issue.message + ". ";
-		});
+		for (const issue of validatedFields.error.issues){
+			errorMessage = `${errorMessage + issue.path[0]}: ${issue.message}. `;	
+		}
 
 		return {
 			error: errorMessage,
@@ -30,7 +30,7 @@ export async function sendEmail(formData: FormData) {
 	const { fullname, email, message } = validatedFields.data;
 
 	try {
-		if (!process.env.EMAIL_FROM || !process.env.EMAIL_TO) {
+		if (!(process.env.EMAIL_FROM && process.env.EMAIL_TO)) {
 			throw new Error("Email configuration is missing");
 		}
 

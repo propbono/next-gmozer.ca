@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { Social } from "@/types/social";
+import type { Social } from "@/types/social";
 import Link from "next/link";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
 

@@ -1,6 +1,6 @@
 "use client";
 import { cn } from "@/lib/utils";
-import { type Stat } from "@/types/stats";
+import type { Stat } from "@/types/stats";
 import CountUp from "react-countup";
 export const Stats = ({ stats }: { stats: Stat[] }) => {
 	return (

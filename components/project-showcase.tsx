@@ -50,18 +50,18 @@ export function ProjectShowcase() {
 	}, [api]);
 
 	const handleNext = useCallback(() => {
-		if (api && api.canScrollNext()) {
+		if (api?.canScrollNext()) {
 			api.scrollNext();
 			setCurrentProjectIndex((prev) => prev + 1);
 		}
-	}, [api, setCurrentProjectIndex]);
+	}, [api]);
 
 	const handlePrevious = useCallback(() => {
-		if (api && api.canScrollPrev()) {
+		if (api?.canScrollPrev()) {
 			api.scrollPrev();
 			setCurrentProjectIndex((prev) => prev - 1);
 		}
-	}, [api, setCurrentProjectIndex]);
+	}, [api]);
 
 	console.log("Width: ", width);
 	console.log("Height: ", height);
@@ -75,7 +75,7 @@ export function ProjectShowcase() {
 				<Carousel setApi={setApi} className="h-full">
 					<CarouselContent className="h-full">
 						{PROJECTS.map((item, index) => (
-							<CarouselItem key={item.title + index} className="h-full">
+							<CarouselItem key={item.title} className="h-full">
 								<div
 									className="relative w-full h-full"
 									style={{ height: `${height}px` }}
@@ -118,10 +118,10 @@ export function ProjectShowcase() {
 							</span>
 
 							<div className="flex flex-wrap gap-2 overflow-y-auto max-h-24 mb-4">
-								{currentProject.stack.map((stack, index) => (
+								{currentProject.stack.map((stack) => (
 									<Badge
 										className="bg-secondary text-secondary-foreground flex-shrink-0"
-										key={`${stack}-${index}`}
+										key={stack}
 									>
 										{stack}
 									</Badge>

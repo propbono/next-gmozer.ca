@@ -1,6 +1,6 @@
 import { SERVICES } from "@/constants/services";
 import { PROJECTS } from "@/constants/work";
-import { MetadataRoute } from "next";
+import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
 	const baseUrl = "https://gmozer.ca";

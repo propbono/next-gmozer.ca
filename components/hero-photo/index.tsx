@@ -35,6 +35,7 @@ export const HeroPhoto = () => {
 					viewBox="0 0 504 504"
 					xmlns="http://www.w3.org/2000/svg"
 				>
+					<title className="sr-only">Hero svg</title>
 					<motion.circle
 						cx="253"
 						cy="253"
@@ -50,7 +51,7 @@ export const HeroPhoto = () => {
 						}}
 						transition={{
 							duration: 20,
-							repeat: Infinity,
+							repeat: Number.POSITIVE_INFINITY,
 							repeatType: "reverse",
 						}}
 					/>

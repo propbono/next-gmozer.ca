@@ -43,7 +43,7 @@ export default function Experience() {
 									</h2>
 								</CardContent>
 								<CardFooter className="flex flex-wrap items-center justify-center md:justify-start gap-2">
-									<span className="rounded-full size-2 bg-primary"></span>
+									<span className="rounded-full size-2 bg-primary" />
 									<span>{item.company}</span>
 								</CardFooter>
 							</Card>

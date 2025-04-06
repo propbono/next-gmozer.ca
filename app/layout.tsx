@@ -6,6 +6,7 @@ import { Ubuntu } from "next/font/google";
 import "./globals.css";
 import { constructMetadata } from "@/app/metadata";
 import { siteConfig } from "./metadata";
+import Script from "next/script";
 
 const ubuntu = Ubuntu({
 	subsets: ["latin"],
@@ -65,10 +66,11 @@ export default function RootLayout({
 			>
 				<TooltipProvider delayDuration={150}>{children}</TooltipProvider>
 				<Toaster />
-				<script
+				<Script type="application/ld+json">{JSON.stringify(jsonLd)}</Script>
+				{/* <script
 					type="application/ld+json"
 					dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-				/>
+				/> */}
 			</body>
 		</html>
 	);

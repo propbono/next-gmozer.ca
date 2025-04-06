@@ -20,9 +20,9 @@ export default function About() {
 				className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto md:mx-0"
 				aria-label="Personal details"
 			>
-				{ABOUT.items.map((item, index) => (
+				{ABOUT.items.map((item) => (
 					<li
-						key={index}
+						key={item.name}
 						className="flex gap-4 justify-center md:justify-start items-center"
 					>
 						<span className="font-semibold">{item.name}</span>

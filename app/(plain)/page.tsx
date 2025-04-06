@@ -9,7 +9,7 @@ import {
 } from "@/constants/main";
 import { SOCIALS } from "@/constants/socials";
 import { getGithubStats, MOCK_STATS } from "@/services/github";
-import { Stat } from "@/types/stats";
+import type { Stat } from "@/types/stats";
 import { differenceInCalendarYears } from "date-fns";
 import Link from "next/link";
 import { RxDownload } from "react-icons/rx";

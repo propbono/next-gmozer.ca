@@ -26,9 +26,9 @@ export function ContactForm() {
 
 	const onSubmit = (data: ContactFormData) => {
 		const formData = new FormData();
-		Object.entries(data).forEach(([key, value]) => {
+		for(const [key, value] of Object.entries(data)) {
 			formData.append(key, value);
-		});
+		}
 
 		startTransition(async () => {
 			const result = await sendEmail(formData);
