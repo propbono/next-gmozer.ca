@@ -10,124 +10,141 @@ process.env.EMAIL_TO = "test@example.com";
 
 // Mock the server action
 vi.mock("@/actions/contact", () => ({
-  sendEmail: vi.fn(),
+	sendEmail: vi.fn(),
 }));
 
 // Mock the toast component
 const mockToast = vi.fn();
 vi.mock("@/hooks/use-toast", () => ({
-  useToast: () => ({
-    toast: mockToast,
-  }),
+	useToast: () => ({
+		toast: mockToast,
+	}),
 }));
 
 describe("ContactForm", () => {
-  beforeEach(() => {
-    vi.clearAllMocks();
-  });
+	beforeEach(() => {
+		vi.clearAllMocks();
+	});
 
-  it("renders all form fields", () => {
-    render(<ContactForm />);
+	it("renders all form fields", () => {
+		render(<ContactForm />);
 
-    expect(screen.getByText(/full name/i)).toBeInTheDocument();
-    expect(screen.getByText(/email/i)).toBeInTheDocument();
-    expect(screen.getByText("Message")).toBeInTheDocument();
-    expect(screen.getByRole("textbox", { name: /full name/i })).toBeInTheDocument();
-    expect(screen.getByRole("textbox", { name: /email/i })).toBeInTheDocument();
-    expect(screen.getByRole("textbox", { name: "Message" })).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: /send message/i })).toBeInTheDocument();
-  });
+		expect(screen.getByText(/full name/i)).toBeInTheDocument();
+		expect(screen.getByText(/email/i)).toBeInTheDocument();
+		expect(screen.getByText("Message")).toBeInTheDocument();
+		expect(
+			screen.getByRole("textbox", { name: /full name/i }),
+		).toBeInTheDocument();
+		expect(screen.getByRole("textbox", { name: /email/i })).toBeInTheDocument();
+		expect(
+			screen.getByRole("textbox", { name: "Message" }),
+		).toBeInTheDocument();
+		expect(
+			screen.getByRole("button", { name: /send message/i }),
+		).toBeInTheDocument();
+	});
 
-  it("displays validation errors for empty fields", async () => {
-    render(<ContactForm />);
+	it("displays validation errors for empty fields", async () => {
+		render(<ContactForm />);
 
-    fireEvent.click(screen.getByRole("button", { name: /send message/i }));
+		fireEvent.click(screen.getByRole("button", { name: /send message/i }));
 
-    await waitFor(() => {
-      expect(screen.getByText(/name must be at least 2 characters/i)).toBeInTheDocument();
-      expect(screen.getByText(/invalid email address/i)).toBeInTheDocument();
-      expect(screen.getByText(/message must be at least 10 characters/i)).toBeInTheDocument();
-    });
-  });
+		await waitFor(() => {
+			expect(
+				screen.getByText(/name must be at least 2 characters/i),
+			).toBeInTheDocument();
+			expect(screen.getByText(/invalid email address/i)).toBeInTheDocument();
+			expect(
+				screen.getByText(/message must be at least 10 characters/i),
+			).toBeInTheDocument();
+		});
+	});
 
-  it("submits form with valid data", async () => {
-    const mockSendEmail = vi.mocked(sendEmail);
-    mockSendEmail.mockResolvedValue({ success: true, error: null });
+	it("submits form with valid data", async () => {
+		const mockSendEmail = vi.mocked(sendEmail);
+		mockSendEmail.mockResolvedValue({ success: true, error: null });
 
-    render(<ContactForm />);
+		render(<ContactForm />);
 
-    fireEvent.change(screen.getByRole("textbox", { name: /full name/i }), {
-      target: { value: "John Doe" },
-    });
+		fireEvent.change(screen.getByRole("textbox", { name: /full name/i }), {
+			target: { value: "John Doe" },
+		});
 
-    fireEvent.change(screen.getByRole("textbox", { name: /email/i }), {
-      target: { value: "john@example.com" },
-    });
+		fireEvent.change(screen.getByRole("textbox", { name: /email/i }), {
+			target: { value: "john@example.com" },
+		});
 
-    fireEvent.change(screen.getByRole("textbox", { name: "Message" }), {
-      target: { value: "This is a test message" },
-    });
+		fireEvent.change(screen.getByRole("textbox", { name: "Message" }), {
+			target: { value: "This is a test message" },
+		});
 
-    fireEvent.click(screen.getByRole("button", { name: /send message/i }));
+		fireEvent.click(screen.getByRole("button", { name: /send message/i }));
 
-    await waitFor(() => {
-      expect(mockSendEmail).toHaveBeenCalled();
-    });
-  });
+		await waitFor(() => {
+			expect(mockSendEmail).toHaveBeenCalled();
+		});
+	});
 
-  it("shows success toast on successful submission", async () => {
-    const mockSendEmail = vi.mocked(sendEmail);
-    mockSendEmail.mockResolvedValue({ success: true, error: null });
+	it("shows success toast on successful submission", async () => {
+		const mockSendEmail = vi.mocked(sendEmail);
+		mockSendEmail.mockResolvedValue({ success: true, error: null });
 
-    render(<ContactForm />);
+		render(<ContactForm />);
 
-    fireEvent.change(screen.getByRole("textbox", { name: /full name/i }), {
-      target: { value: "John Doe" },
-    });
+		fireEvent.change(screen.getByRole("textbox", { name: /full name/i }), {
+			target: { value: "John Doe" },
+		});
 
-    fireEvent.change(screen.getByRole("textbox", { name: /email/i }), {
-      target: { value: "john@example.com" },
-    });
+		fireEvent.change(screen.getByRole("textbox", { name: /email/i }), {
+			target: { value: "john@example.com" },
+		});
 
-    fireEvent.change(screen.getByRole("textbox", { name: /message/i }), {
-      target: { value: "This is a test message" },
-    });
+		fireEvent.change(screen.getByRole("textbox", { name: /message/i }), {
+			target: { value: "This is a test message" },
+		});
 
-    fireEvent.click(screen.getByRole("button", { name: /send message/i }));
+		fireEvent.click(screen.getByRole("button", { name: /send message/i }));
 
-    await waitFor(() => {
-      expect(mockToast).toHaveBeenCalledWith(expect.objectContaining({
-        title: "Your message is on the way!",
-        variant: "success",
-      }));
-    });
-  });
+		await waitFor(() => {
+			expect(mockToast).toHaveBeenCalledWith(
+				expect.objectContaining({
+					title: "Your message is on the way!",
+					variant: "success",
+				}),
+			);
+		});
+	});
 
-  it("shows error toast on failed submission", async () => {
-    const mockSendEmail = vi.mocked(sendEmail);
-    mockSendEmail.mockResolvedValue({ success: false, error: "Failed to send email" });
+	it("shows error toast on failed submission", async () => {
+		const mockSendEmail = vi.mocked(sendEmail);
+		mockSendEmail.mockResolvedValue({
+			success: false,
+			error: "Failed to send email",
+		});
 
-    render(<ContactForm />);
+		render(<ContactForm />);
 
-    fireEvent.change(screen.getByRole("textbox", { name: /full name/i }), {
-      target: { value: "John Doe" },
-    });
+		fireEvent.change(screen.getByRole("textbox", { name: /full name/i }), {
+			target: { value: "John Doe" },
+		});
 
-    fireEvent.change(screen.getByRole("textbox", { name: /email/i }), {
-      target: { value: "john@example.com" },
-    });
+		fireEvent.change(screen.getByRole("textbox", { name: /email/i }), {
+			target: { value: "john@example.com" },
+		});
 
-    fireEvent.change(screen.getByRole("textbox", { name: /message/i }), {
-      target: { value: "This is a test message" },
-    });
+		fireEvent.change(screen.getByRole("textbox", { name: /message/i }), {
+			target: { value: "This is a test message" },
+		});
 
-    fireEvent.click(screen.getByRole("button", { name: /send message/i }));
+		fireEvent.click(screen.getByRole("button", { name: /send message/i }));
 
-    await waitFor(() => {
-      expect(mockToast).toHaveBeenCalledWith(expect.objectContaining({
-        title: "Houston we have problem...",
-        variant: "destructive",
-      }));
-    });
-  });
+		await waitFor(() => {
+			expect(mockToast).toHaveBeenCalledWith(
+				expect.objectContaining({
+					title: "Houston we have problem...",
+					variant: "destructive",
+				}),
+			);
+		});
+	});
 });
