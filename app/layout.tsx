@@ -7,6 +7,7 @@ import "./globals.css";
 import { constructMetadata } from "@/app/metadata";
 import { siteConfig } from "./metadata";
 import Script from "next/script";
+import { PostHogProvider } from "@/components/PostHogProvider";
 
 const ubuntu = Ubuntu({
 	subsets: ["latin"],
@@ -36,9 +37,7 @@ export const metadata = constructMetadata({
 
 export default function RootLayout({
 	children,
-}: Readonly<{
-	children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
 	return (
 		<html lang="en">
 			<head>
@@ -61,16 +60,12 @@ export default function RootLayout({
 				/>
 				<link rel="manifest" href="/site.webmanifest" />
 			</head>
-			<body
-				className={cn("flex flex-col min-h-screen min-w-72", ubuntu.variable)}
-			>
-				<TooltipProvider delayDuration={150}>{children}</TooltipProvider>
-				<Toaster />
-				<Script type="application/ld+json">{JSON.stringify(jsonLd)}</Script>
-				{/* <script
-					type="application/ld+json"
-					dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-				/> */}
+			<body className={cn("flex flex-col min-h-screen min-w-72", ubuntu.variable)}>
+				<PostHogProvider>
+					<TooltipProvider delayDuration={150}>{children}</TooltipProvider>
+					<Toaster />
+					<Script type="application/ld+json">{JSON.stringify(jsonLd)}</Script>
+				</PostHogProvider>
 			</body>
 		</html>
 	);
