@@ -9,9 +9,16 @@
 		"test": "vitest",
 		"test:watch": "vitest watch",
 		"test:coverage": "vitest run --coverage",
-		"format:fix": "biome format --write .",
-		"lint": "biome lint .",
-		"lint:fix": "biome lint --write ."
+
+		"format:check": "biome format .",
+
+		"format:fix": "biome format --write --",
+		"format:fix-all": "formst:fix .",
+		"lint:file": "biome lint --",
+		"lint:file-all": "lint:file .",
+		"lint:fix": "biome lint --write --",
+		"lint:fix-all": "lint:fix .",
+		"prepare": "husky"
 	},
 	"dependencies": {
 		"@hookform/resolvers": "^3.9.1",
@@ -52,6 +59,7 @@
 		"@types/react": "^18",
 		"@types/react-dom": "^18",
 		"@vitejs/plugin-react": "^4.3.4",
+		"husky": "^9.1.7",
 		"jsdom": "^25.0.1",
 		"postcss": "^8",
 		"tailwindcss": "^3.4.1",

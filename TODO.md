@@ -6,6 +6,9 @@
 - [x] Deploy to gmozer.ca
 - [x] Format files
 - [x] Fix linting
+
+
+
 - [ ] Add pre push hook with lint and format fix
 - [ ] Deploy
 - [ ] Add more projects and check
