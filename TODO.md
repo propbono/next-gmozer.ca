@@ -4,6 +4,10 @@
 - [x] Add project pictures
 - [x] Work on SEO
 - [x] Deploy to gmozer.ca
+- [x] Format files
+- [x] Fix linting
+- [ ] Add pre push hook with lint and format fix
+- [ ] Deploy
 - [ ] Add more projects and check
 - [ ] Add Theme switch
 - [ ] Add custom logo fonts for headers

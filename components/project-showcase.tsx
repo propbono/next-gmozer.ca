@@ -63,9 +63,6 @@ export function ProjectShowcase() {
 		}
 	}, [api]);
 
-	console.log("Width: ", width);
-	console.log("Height: ", height);
-
 	return (
 		<article className="flex flex-grow relative">
 			<div

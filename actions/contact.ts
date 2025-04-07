@@ -17,8 +17,8 @@ export async function sendEmail(formData: FormData) {
 	if (!validatedFields.success) {
 		let errorMessage = "";
 		validatedFields.error.format();
-		for (const issue of validatedFields.error.issues){
-			errorMessage = `${errorMessage + issue.path[0]}: ${issue.message}. `;	
+		for (const issue of validatedFields.error.issues) {
+			errorMessage = `${errorMessage + issue.path[0]}: ${issue.message}. `;
 		}
 
 		return {

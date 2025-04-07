@@ -1,7 +1,16 @@
 {
 	"$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
 	"vcs": { "enabled": false, "clientKind": "git", "useIgnoreFile": false },
-	"files": { "ignoreUnknown": false, "ignore": ["./.next/**","./hooks/use-toast.ts", "./hooks/use-media-query.ts", "./hooks/use-element-size.ts", "./components/ui/**"] },
+	"files": {
+		"ignoreUnknown": false,
+		"ignore": [
+			"./.next/**",
+			"./hooks/use-toast.ts",
+			"./hooks/use-media-query.ts",
+			"./hooks/use-element-size.ts",
+			"./components/ui/**"
+		]
+	},
 	"formatter": {
 		"enabled": true,
 		"formatWithErrors": false,
@@ -29,7 +38,14 @@
 		}
 	},
 	"organizeImports": { "enabled": true },
-	"linter": { "enabled": true, "rules": { "recommended": true, "complexity": {
-		"all": true
-	} } }
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true,
+			"complexity": {
+				"all": true
+			},
+			"suspicious": { "noConsole": "error" }
+		}
+	}
 }
