@@ -2,6 +2,7 @@
 
 import { ContactFormEmailTemplate } from "@/components/contact-form-template";
 import { contactFormSchema } from "@/schemas/contact";
+import type { ReactElement } from "react";
 import { Resend } from "resend";
 
 export async function sendEmail(formData: FormData) {
@@ -17,8 +18,8 @@ export async function sendEmail(formData: FormData) {
 	if (!validatedFields.success) {
 		let errorMessage = "";
 		validatedFields.error.format();
-		for (const issue of validatedFields.error.issues){
-			errorMessage = `${errorMessage + issue.path[0]}: ${issue.message}. `;	
+		for (const issue of validatedFields.error.issues) {
+			errorMessage = `${errorMessage + issue.path[0]}: ${issue.message}. `;
 		}
 
 		return {
@@ -42,7 +43,7 @@ export async function sendEmail(formData: FormData) {
 				fullname,
 				email,
 				message,
-			}) as React.ReactElement,
+			}) as ReactElement,
 		});
 		if (error) return { error: error.message, success: false };
 

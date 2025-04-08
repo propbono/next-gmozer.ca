@@ -1,9 +1,10 @@
 import { Header } from "@/components/header";
+import type { ReactNode } from "react";
 
 export default function PlainLayout({
 	children,
 }: Readonly<{
-	children: React.ReactNode;
+	children: ReactNode;
 }>) {
 	return (
 		<>

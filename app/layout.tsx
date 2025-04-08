@@ -1,13 +1,13 @@
+import { constructMetadata } from "@/app/metadata";
+import { PostHogProvider } from "@/components/posthog-provider";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
-import type { Metadata } from "next";
 import { Ubuntu } from "next/font/google";
-import "./globals.css";
-import { constructMetadata } from "@/app/metadata";
-import { siteConfig } from "./metadata";
 import Script from "next/script";
-import { PostHogProvider } from "@/components/PostHogProvider";
+import type { ReactNode } from "react";
+import { siteConfig } from "./metadata";
+import "./globals.css";
 
 const ubuntu = Ubuntu({
 	subsets: ["latin"],
@@ -37,7 +37,7 @@ export const metadata = constructMetadata({
 
 export default function RootLayout({
 	children,
-}: Readonly<{ children: React.ReactNode }>) {
+}: Readonly<{ children: ReactNode }>) {
 	return (
 		<html lang="en">
 			<head>
@@ -60,7 +60,9 @@ export default function RootLayout({
 				/>
 				<link rel="manifest" href="/site.webmanifest" />
 			</head>
-			<body className={cn("flex flex-col min-h-screen min-w-72", ubuntu.variable)}>
+			<body
+				className={cn("flex flex-col min-h-screen min-w-72", ubuntu.variable)}
+			>
 				<PostHogProvider>
 					<TooltipProvider delayDuration={150}>{children}</TooltipProvider>
 					<Toaster />

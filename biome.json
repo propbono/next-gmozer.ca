@@ -1,7 +1,17 @@
 {
 	"$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
 	"vcs": { "enabled": false, "clientKind": "git", "useIgnoreFile": false },
-	"files": { "ignoreUnknown": false, "ignore": ["./.next/**","./hooks/use-toast.ts", "./hooks/use-media-query.ts", "./hooks/use-element-size.ts", "./components/ui/**"] },
+	"files": {
+		"ignoreUnknown": false,
+		"ignore": [
+			"./.next/**",
+			"./hooks/use-toast.ts",
+			"./hooks/use-media-query.ts",
+			"./hooks/use-element-size.ts",
+			"./components/ui/**",
+			"./coverage/**"
+		]
+	},
 	"formatter": {
 		"enabled": true,
 		"formatWithErrors": false,
@@ -20,7 +30,9 @@
 			"jsxQuoteStyle": "double",
 			"quoteProperties": "asNeeded",
 			"semicolons": "always",
-			"trailingCommas": "all"
+			"trailingCommas": "all",
+			"attributePosition": "auto",
+			"enabled": true
 		}
 	},
 	"json": {
@@ -29,7 +41,23 @@
 		}
 	},
 	"organizeImports": { "enabled": true },
-	"linter": { "enabled": true, "rules": { "recommended": true, "complexity": {
-		"all": true
-	} } }
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true,
+			"complexity": {
+				"all": true
+			},
+			"suspicious": { "noConsole": "error" },
+			"correctness": {
+				"noUndeclaredDependencies": "error",
+				"noUndeclaredVariables": "error",
+				"noUnusedImports": "error"
+			},
+			"style": {
+				"useConsistentArrayType": "error",
+				"useDefaultSwitchClause": "error"
+			}
+		}
+	}
 }
