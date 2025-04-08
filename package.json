@@ -9,15 +9,13 @@
 		"test": "vitest",
 		"test:watch": "vitest watch",
 		"test:coverage": "vitest run --coverage",
-
 		"format:check": "biome format .",
-
 		"format:fix": "biome format --write --",
-		"format:fix-all": "formst:fix .",
-		"lint:file": "biome lint --",
-		"lint:file-all": "lint:file .",
+		"format:fix-all": "pnpm format:fix .",
+		"lint": "biome lint --",
+		"lint:all": "pnpm lint .",
 		"lint:fix": "biome lint --write --",
-		"lint:fix-all": "lint:fix .",
+		"lint:fix-all": "pnpm lint:fix .",
 		"prepare": "husky"
 	},
 	"dependencies": {

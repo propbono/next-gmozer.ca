@@ -2,10 +2,10 @@
 
 import posthog from "posthog-js";
 import { PostHogProvider as PHProvider, usePostHog } from "posthog-js/react";
-import { Suspense, useEffect } from "react";
+import { type ReactNode, Suspense, useEffect } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 
-export function PostHogProvider({ children }: { children: React.ReactNode }) {
+export function PostHogProvider({ children }: { children: ReactNode }) {
 	useEffect(() => {
 		if (!process.env.NEXT_PUBLIC_POSTHOG_KEY) {
 			throw new Error("NEXT_PUBLIC_POSTHOG_KEY is not defined");

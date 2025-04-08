@@ -1,12 +1,13 @@
+import { constructMetadata } from "@/app/metadata";
+import { PostHogProvider } from "@/components/posthog-provider";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 import { Ubuntu } from "next/font/google";
-import "./globals.css";
-import { constructMetadata } from "@/app/metadata";
-import { siteConfig } from "./metadata";
 import Script from "next/script";
-import { PostHogProvider } from "@/components/posthog-provider";
+import type { ReactNode } from "react";
+import { siteConfig } from "./metadata";
+import "./globals.css";
 
 const ubuntu = Ubuntu({
 	subsets: ["latin"],
@@ -36,7 +37,7 @@ export const metadata = constructMetadata({
 
 export default function RootLayout({
 	children,
-}: Readonly<{ children: React.ReactNode }>) {
+}: Readonly<{ children: ReactNode }>) {
 	return (
 		<html lang="en">
 			<head>

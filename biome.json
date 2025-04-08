@@ -29,7 +29,9 @@
 			"jsxQuoteStyle": "double",
 			"quoteProperties": "asNeeded",
 			"semicolons": "always",
-			"trailingCommas": "all"
+			"trailingCommas": "all",
+			"attributePosition": "auto",
+			"enabled": true
 		}
 	},
 	"json": {
@@ -45,7 +47,16 @@
 			"complexity": {
 				"all": true
 			},
-			"suspicious": { "noConsole": "error" }
+			"suspicious": { "noConsole": "error" },
+			"correctness": {
+				"noUndeclaredDependencies": "error",
+				"noUndeclaredVariables": "error",
+				"noUnusedImports": "error"
+			},
+			"style": {
+				"useConsistentArrayType": "error",
+				"useDefaultSwitchClause": "error"
+			}
 		}
 	}
 }

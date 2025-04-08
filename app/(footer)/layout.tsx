@@ -1,10 +1,11 @@
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
+import type { ReactNode } from "react";
 
 export default function FooterLayout({
 	children,
 }: Readonly<{
-	children: React.ReactNode;
+	children: ReactNode;
 }>) {
 	return (
 		<>

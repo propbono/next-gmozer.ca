@@ -2,6 +2,7 @@
 
 import { ContactFormEmailTemplate } from "@/components/contact-form-template";
 import { contactFormSchema } from "@/schemas/contact";
+import type { ReactElement } from "react";
 import { Resend } from "resend";
 
 export async function sendEmail(formData: FormData) {
@@ -42,7 +43,7 @@ export async function sendEmail(formData: FormData) {
 				fullname,
 				email,
 				message,
-			}) as React.ReactElement,
+			}) as ReactElement,
 		});
 		if (error) return { error: error.message, success: false };
 
