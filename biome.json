@@ -8,7 +8,8 @@
 			"./hooks/use-toast.ts",
 			"./hooks/use-media-query.ts",
 			"./hooks/use-element-size.ts",
-			"./components/ui/**"
+			"./components/ui/**",
+			"./coverage/**"
 		]
 	},
 	"formatter": {
