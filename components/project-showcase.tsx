@@ -24,7 +24,7 @@ import {
 	RiArrowRightSLine,
 	RiGithubLine,
 } from "react-icons/ri";
-import { Card, CardContent, CardFooter, CardHeader } from "./ui/card";
+import { Card, CardContent } from "./ui/card";
 
 export function ProjectShowcase() {
 	const [api, setApi] = useState<CarouselApi>();
@@ -62,9 +62,6 @@ export function ProjectShowcase() {
 			setCurrentProjectIndex((prev) => prev - 1);
 		}
 	}, [api]);
-
-	console.log("Width: ", width);
-	console.log("Height: ", height);
 
 	return (
 		<article className="flex flex-grow relative">
