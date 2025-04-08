@@ -11,11 +11,11 @@
 		"test:coverage": "vitest run --coverage",
 		"format:check": "biome format .",
 		"format:fix": "biome format --write --",
-		"format:fix-all": "pnpm format:fix .",
+		"format:fix-all": "npm run format:fix .",
 		"lint": "biome lint --",
-		"lint:all": "pnpm lint .",
+		"lint:all": "npm run lint .",
 		"lint:fix": "biome lint --write --",
-		"lint:fix-all": "pnpm lint:fix .",
+		"lint:fix-all": "npm run lint:fix .",
 		"prepare": "husky"
 	},
 	"dependencies": {
