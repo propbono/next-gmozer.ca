@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import { DesktopNav } from "../desktop-nav";
 import { MobileNav } from "../mobile-nav";
+import { ThemeSwitch } from "../theme-switch";
 
 export const Header = () => {
 	const pathname = usePathname();
@@ -50,7 +51,10 @@ export const Header = () => {
 						<span className="text-primary group-hover:text-foreground">.</span>
 					</span>
 				</Link>
-				{isMediumBreakpoint ? memoizedDesktopNav : memoizedMobileNav}
+				<div className="flex flex-row-reverse sm:flex-row items-center gap-4">
+					{isMediumBreakpoint ? memoizedDesktopNav : memoizedMobileNav}
+					<ThemeSwitch />
+				</div>
 			</div>
 		</header>
 	);

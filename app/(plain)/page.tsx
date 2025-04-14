@@ -8,7 +8,7 @@ import {
 	TECHNOLOGIES_MASTERED,
 } from "@/constants/main";
 import { SOCIALS } from "@/constants/socials";
-import { getGithubStats, MOCK_STATS } from "@/services/github";
+import { MOCK_STATS, getGithubStats } from "@/services/github";
 import type { Stat } from "@/types/stats";
 import { differenceInCalendarYears } from "date-fns";
 import Link from "next/link";
@@ -49,12 +49,12 @@ export default async function Home() {
 				className="container flex flex-col md:flex-row items-center md:justify-between gap-8"
 				aria-labelledby="hero-heading"
 			>
-				<div className="text-center md:text-left max-w-2xl order-2 md:order-none">
+				<div className="max-w-2xl order-2 md:order-none">
 					<h1 id="hero-heading" className="sr-only">
 						Greg Mozer - Senior Software Developer
 					</h1>
 					<p className="text-xl mb-2 2xl:mb-4">Senior Software Developer</p>
-					<h2 className="w-full mb-4 2xl:mb-6 font-logo text-4xl md:text-5xl font-bold leading-relaxed text-foreground">
+					<h2 className="w-full mb-4 2xl:mb-6 font-logo text-4xl md:text-5xl font-bold leading-relaxed md:leading-snug text-foreground">
 						Making the Web a{" "}
 						<span className="text-primary">More Beautiful Place</span>, One Site
 						at a Time.
