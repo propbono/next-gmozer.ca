@@ -11,8 +11,8 @@ export const metadata = constructMetadata({
 export default function ContactPage() {
 	return (
 		<article className="container flex flex-grow">
-			<div className="w-full rounded-lg shadow-xl bg-border">
-				<div className="grid gap-8 grid-cols-1 md:grid-cols-2 px-16 py-16 mx-auto text-gray-900">
+			<div className="w-full">
+				<div className="grid gap-8 grid-cols-1 md:grid-cols-2 sm:px-16 py-16 mx-auto text-foreground">
 					<section
 						className="flex flex-col h-full"
 						aria-labelledby="contact-heading"
@@ -20,25 +20,25 @@ export default function ContactPage() {
 						<div>
 							<h1
 								id="contact-heading"
-								className="w-full mb-4 2xl:mb-6 font-logo text-4xl md:text-5xl font-bold leading-relaxed text-foreground"
+								className="w-full mb-4 2xl:mb-6 font-logo text-4xl md:text-5xl font-bold leading-relaxed"
 							>
 								Lets <span className="text-primary">chat</span> about
 								everything!
 							</h1>
-							<p className="text-gray-700 mt-8">
+							<p className="text-muted-foreground mt-8">
 								Hate forms? Send me an email instead{" "}
 								<a href="mailto:propbono@gmail.com" className="underline">
 									propbono@gmail.com
 								</a>
 							</p>
 						</div>
-						<figure className="relative w-full flex-grow max-h-[400px] mt-4">
+						<figure className="relative w-full flex-grow max-h-[400px] mt-4 rounded-ss-2xl">
 							<Image
 								src="/images/The-whole-world.png"
 								alt="World illustration"
 								fill
 								sizes="(max-width: 768px) 100vw, 50vw"
-								className="object-cover object-bottom"
+								className="object-cover object-bottom rounded-ss-2xl"
 								priority
 							/>
 						</figure>

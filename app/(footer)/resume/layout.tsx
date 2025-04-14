@@ -16,9 +16,9 @@ export default function ResumeLayout({
 	return (
 		<article className="min-h-[80vh] flex">
 			<div className="container">
-				<div className="flex flex-col md:flex-row flex-wrap justify-center gap-16">
+				<div className="flex flex-col sm:flex-row justify-center gap-16">
 					<nav
-						className="flex flex-col w-full max-w-96 mx-auto md:mx-0 gap-6 h-auto rounded-md p-1 text-foreground"
+						className="flex flex-col flex-grow-0 flex-1 min-w-56 w-full mx-auto md:mx-0 gap-6 h-auto rounded-md p-1 text-foreground"
 						aria-label="Resume sections"
 					>
 						{TABS.map((tab) => {
@@ -29,9 +29,9 @@ export default function ResumeLayout({
 									href={tab.url}
 									aria-current={isActive ? "page" : undefined}
 									className={cn(
-										"inline-flex items-center w-full bg-white justify-center whitespace-nowrap text-foreground rounded-lg p-3 text-balance font-medium ring-offset-white transition-all",
+										"inline-flex items-center w-full bg-white dark:bg-foreground justify-center whitespace-nowrap text-foreground dark:text-background rounded-lg p-3 text-balance font-medium ring-offset-white transition-all",
 										{
-											"text-background shadow-sm font-bold bg-primary":
+											"text-background shadow-sm font-bold bg-primary dark:bg-primary":
 												isActive,
 										},
 									)}

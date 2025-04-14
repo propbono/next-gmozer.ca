@@ -4,12 +4,12 @@
 
 @layer base {
 	:root {
-		--background: #ffffff;
-		--foreground: #020817;
-		--card: #ffffff;
-		--card-foreground: #020817;
-		--popover: #ffffff;
-		--popover-foreground: #020817;
+		--background: #f5f5f5;
+		--foreground: #0e1111;
+		--card: #f8fafc;
+		--card-foreground: #0e1111;
+		--popover: #f5f5f5;
+		--popover-foreground: #0e1111;
 		--primary: #00c6bd;
 		--primary-foreground: #c1fcf6;
 		--secondary: #98005f;
@@ -34,16 +34,16 @@
 	}
 
 	.dark {
-		--background: #020817;
+		--background: #0e1111;
 		--foreground: #f8fafc;
-		--card: #020817;
-		--card-foreground: #f8fafc;
-		--popover: #020817;
-		--popover-foreground: #f8fafc;
+		--card: #f8fafc;
+		--card-foreground: #0e1111;
+		--popover: #f8fafc;
+		--popover-foreground: #0e1111;
 		--primary: #00c6bd;
 		--primary-foreground: #0f172a;
-		--secondary: #1e293b;
-		--secondary-foreground: #f8fafc;
+		--secondary: #98005f;
+		--secondary-foreground: #ffe4f9;
 		--muted: #1e293b;
 		--muted-foreground: #94a3b8;
 		--accent: #1e293b;
@@ -72,7 +72,7 @@
 	}
 
 	.text-outline {
-		-webkit-text-stroke: 1px var(--foreground);
+		-webkit-text-stroke: 1px var(--card-foreground);
 	}
 
 	.text-outline-hover {

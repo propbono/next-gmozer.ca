@@ -17,7 +17,7 @@ export const HeroPhoto = () => {
 						opacity: 1,
 						transition: { delay: 0.5, duration: 0.4, ease: "easeInOut" },
 					}}
-					className="absolute w-[298px] h-[298px] md:w-[398px] md:h-[398px] 2xl:w-[498px] 2xl:h-[498px] mix-blend-darken"
+					className="absolute w-[298px] h-[298px] md:w-[398px] md:h-[398px] 2xl:w-[498px] 2xl:h-[498px]"
 				>
 					<Image
 						priority

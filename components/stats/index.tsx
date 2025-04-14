@@ -4,11 +4,11 @@ import type { Stat } from "@/types/stats";
 import CountUp from "react-countup";
 export const Stats = ({ stats }: { stats: Stat[] }) => {
 	return (
-		<div className="grid grid-cols-2 md:flex md:flex-row md:flex-wrap w-full gap-4 justify-between">
+		<div className="flex flex-col md:flex-row md:flex-wrap w-full gap-4 justify-between">
 			{stats.map((stat) => (
 				<div
 					key={stat.title}
-					className="flex flex-row gap-4 items-center justify-start md:justify-end"
+					className="grid grid-cols-2 md:flex md:flex-row gap-9 md:gap-4 items-center md:justify-end"
 				>
 					<div className="min-w-[4ch] font-mono text-right">
 						<CountUp
