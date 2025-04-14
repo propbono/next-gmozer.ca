@@ -1,5 +1,6 @@
 import { constructMetadata } from "@/app/metadata";
 import { PostHogProvider } from "@/components/posthog-provider";
+import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
@@ -8,7 +9,6 @@ import Script from "next/script";
 import type { ReactNode } from "react";
 import { siteConfig } from "./metadata";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
 
 const ubuntu = Ubuntu({
 	subsets: ["latin"],
