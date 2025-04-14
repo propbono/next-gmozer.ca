@@ -1,5 +1,6 @@
 import { constructMetadata } from "@/app/metadata";
 import { PostHogProvider } from "@/components/posthog-provider";
+import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
@@ -39,7 +40,7 @@ export default function RootLayout({
 	children,
 }: Readonly<{ children: ReactNode }>) {
 	return (
-		<html lang="en">
+		<html lang="en" suppressHydrationWarning>
 			<head>
 				<link
 					rel="apple-touch-icon"
@@ -61,10 +62,16 @@ export default function RootLayout({
 				<link rel="manifest" href="/site.webmanifest" />
 			</head>
 			<body
-				className={cn("flex flex-col min-h-screen min-w-72", ubuntu.variable)}
+				className={cn(
+					"flex flex-col min-h-screen min-w-72 bg-background",
+					ubuntu.variable,
+				)}
 			>
 				<PostHogProvider>
-					<TooltipProvider delayDuration={150}>{children}</TooltipProvider>
+					<ThemeProvider>
+						<TooltipProvider delayDuration={150}>{children}</TooltipProvider>
+					</ThemeProvider>
+
 					<Toaster />
 					<Script type="application/ld+json">{JSON.stringify(jsonLd)}</Script>
 				</PostHogProvider>

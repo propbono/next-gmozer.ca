@@ -100,7 +100,7 @@ export function ProjectShowcase() {
 							</span>
 							<h1
 								id="project-title"
-								className="leading-tight font-bold text-4xl sm:text-5xl text-foreground group-hover:text-primary transition-all duration-500 capitalize mb-6 line-clamp-2"
+								className="leading-tight font-bold text-4xl sm:text-5xl text-card-foreground group-hover:text-primary transition-all duration-500 capitalize mb-6 line-clamp-2"
 							>
 								{currentProject.title}
 							</h1>
@@ -133,8 +133,8 @@ export function ProjectShowcase() {
 									{!!currentProject.liveLink && (
 										<Link href={currentProject.liveLink}>
 											<Tooltip>
-												<TooltipTrigger className="size-16 rounded-full border border-foreground flex justify-center items-center group hover:border-primary hover:border-2 hover:border-dashed hover:transition-all hover:duration-100">
-													<RiArrowRightDownLine className="text-3xl text-foreground group-hover:text-primary group-hover:-rotate-45 transition-all duration-500" />
+												<TooltipTrigger className="size-16 rounded-full border border-card-foreground flex justify-center items-center group hover:border-primary hover:border-2 hover:border-dashed hover:transition-all hover:duration-100">
+													<RiArrowRightDownLine className="text-3xl text-card-foreground group-hover:text-primary group-hover:-rotate-45 transition-all duration-500" />
 													<span className="sr-only">
 														{currentProject.title} - Live Project
 													</span>
@@ -146,8 +146,8 @@ export function ProjectShowcase() {
 									{!!currentProject.githubLink && (
 										<Link href={currentProject.githubLink}>
 											<Tooltip>
-												<TooltipTrigger className="size-16 rounded-full border border-foreground flex justify-center items-center group hover:border-primary hover:border-2 hover:border-dashed hover:transition-all hover:duration-100">
-													<RiGithubLine className="text-3xl text-foreground group-hover:text-primary transition-all duration-500" />
+												<TooltipTrigger className="size-16 rounded-full border border-card-foreground flex justify-center items-center group hover:border-primary hover:border-2 hover:border-dashed hover:transition-all hover:duration-100">
+													<RiGithubLine className="text-3xl text-card-foreground group-hover:text-primary transition-all duration-500" />
 													<span className="sr-only">
 														{currentProject.title} - Github Repository
 													</span>
@@ -164,9 +164,9 @@ export function ProjectShowcase() {
 												onClick={handlePrevious}
 												disabled={!api?.canScrollPrev()}
 												variant="ghost"
-												className="size-16 rounded-full border border-foreground flex justify-center items-center group hover:bg-white hover:border-primary hover:border-2 hover:border-dashed hover:transition-all hover:duration-100"
+												className="size-16 rounded-full border border-card-foreground flex justify-center items-center group hover:bg-white hover:border-primary hover:border-2 hover:border-dashed hover:transition-all hover:duration-100"
 											>
-												<RiArrowLeftSLine className="text-3xl text-foreground group-hover:text-primary transition-all duration-500" />
+												<RiArrowLeftSLine className="text-3xl text-card-foreground group-hover:text-primary transition-all duration-500" />
 												<span className="sr-only">Previous Project</span>
 											</Button>
 										</TooltipTrigger>
@@ -178,9 +178,9 @@ export function ProjectShowcase() {
 												onClick={handleNext}
 												disabled={!api?.canScrollNext()}
 												variant="ghost"
-												className="size-16 rounded-full border border-foreground flex justify-center items-center group hover:bg-white hover:border-primary hover:border-2 hover:border-dashed hover:transition-all hover:duration-100"
+												className="size-16 rounded-full border border-card-foreground flex justify-center items-center group hover:bg-white hover:border-primary hover:border-2 hover:border-dashed hover:transition-all hover:duration-100"
 											>
-												<RiArrowRightSLine className="text-3xl text-foreground group-hover:text-primary transition-all duration-500" />
+												<RiArrowRightSLine className="text-3xl text-card-foreground group-hover:text-primary transition-all duration-500" />
 												<span className="sr-only">Next Project</span>
 											</Button>
 										</TooltipTrigger>
