@@ -8,11 +8,11 @@
 - [x] Fix linting
 - [x] Add pre push hook with lint and format fix
 - [x] Deploy
+- [x] Add Theme switch
+- [x] Deploy to prod
 - [ ] Add more projects and check
-- [ ] Add Theme switch
 - [ ] Add custom logo fonts for headers
 - [ ] Add better email template
-- [ ] Deploy to prod
 - [ ] Improve each detailed service page
 - [ ] Add Page transitions
 - [ ] Add more unit tests
