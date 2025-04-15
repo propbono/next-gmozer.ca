@@ -77,7 +77,7 @@ export const EXPERIENCE = {
 			position: "Senior Software Developer",
 			company: "Rangle.io",
 			location: "Toronto, ON, Canada",
-			duration: "Nov 2023 - Nov 2024",
+			duration: "Nov 2023 - Dec 2024",
 		},
 		{
 			position: "Senior Software Developer",
