@@ -3,7 +3,14 @@ import type { NavItem } from "@/types/nav";
 import Link from "next/link";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { Button } from "../ui/button";
-import { Sheet, SheetClose, SheetContent, SheetTrigger } from "../ui/sheet";
+import {
+	Sheet,
+	SheetClose,
+	SheetContent,
+	SheetDescription,
+	SheetTitle,
+	SheetTrigger,
+} from "../ui/sheet";
 
 export const MobileNav = ({
 	items,
@@ -20,7 +27,12 @@ export const MobileNav = ({
 					<span className="sr-only">Mobile Nav</span>
 				</Button>
 			</SheetTrigger>
+
 			<SheetContent side="right">
+				<SheetTitle className="sr-only">Menu</SheetTitle>
+				<SheetDescription className="sr-only">
+					This is a mobile navigation
+				</SheetDescription>
 				<nav className="flex flex-col items-center gap-6">
 					{items.map((item) => {
 						const isActive =

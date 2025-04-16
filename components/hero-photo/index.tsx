@@ -26,6 +26,7 @@ export const HeroPhoto = () => {
 						className="object-contain"
 						alt="Raccon"
 						src="/images/Raccoon_1-min.png"
+						sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
 					/>
 				</motion.div>
 
