@@ -1,4 +1,3 @@
-import { SOCIALS } from "@/constants/socials";
 import { RiCopyrightLine } from "react-icons/ri";
 import { Socials } from "../socials";
 
@@ -10,7 +9,6 @@ export const Footer = () => {
 					<RiCopyrightLine /> 2023 Greg Mozer | All rights reserved
 				</span>
 				<Socials
-					links={SOCIALS}
 					containerStyles="flex items-center align-middle gap-8"
 					iconStyles="text-2xl text-muted hover:text-primary hover:transition-all duration-500"
 				/>
