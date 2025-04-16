@@ -1,18 +1,11 @@
 import { HeroPhoto } from "@/components/hero-photo";
+import { DownloadResume } from "@/components/resume-download";
 import { Socials } from "@/components/socials";
 import { Stats } from "@/components/stats";
-import { Button } from "@/components/ui/button";
-import {
-	DEV_START_YEAR,
-	RESUME_LINK,
-	TECHNOLOGIES_MASTERED,
-} from "@/constants/main";
-import { SOCIALS } from "@/constants/socials";
+import { DEV_START_YEAR, TECHNOLOGIES_MASTERED } from "@/constants/main";
 import { MOCK_STATS, getGithubStats } from "@/services/github";
 import type { Stat } from "@/types/stats";
 import { differenceInCalendarYears } from "date-fns";
-import Link from "next/link";
-import { RxDownload } from "react-icons/rx";
 
 const PROPRIETARY_PROJECTS_COUNT = 10;
 const PROPRIETARY_COMMITS_COUNT = 550;
@@ -65,19 +58,8 @@ export default async function Home() {
 						web development and see how I can help bring your ideas to life.
 					</p>
 					<div className="flex flex-col md:flex-row gap-8 items-center">
-						<Button
-							asChild
-							variant="outline"
-							className="flex gap-2 items-center uppercase"
-						>
-							<Link href={RESUME_LINK} download={true} target="_blank">
-								<span>Download resume</span>
-								<RxDownload className="text-xl" />
-							</Link>
-						</Button>
+						<DownloadResume />
 						<Socials
-							links={SOCIALS}
-							as="div"
 							containerStyles="flex gap-6"
 							iconStyles="size-9 border border-primary rounded-full flex justify-center items-center text-primary text-base hover:bg-primary hover:text-background hover:transition-all duration-500"
 						/>

@@ -1,54 +1,31 @@
+"use client";
+
+import { useMediaQuery } from "@/hooks/use-media-query";
 import { cn } from "@/lib/utils";
-import type { Social } from "@/types/social";
-import Link from "next/link";
-import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
+import { SocialLinks } from "./social-link";
 
 export const Socials = ({
 	containerStyles,
 	iconStyles,
-	links,
 	as = "nav",
 }: {
 	containerStyles?: string;
 	iconStyles?: string;
-	links: Social[];
 	as?: "nav" | "div";
 }) => {
-	if (links.length === 0) {
-		return null;
-	}
+	const isMobile = useMediaQuery("(max-width: 768px)");
 
 	if (as === "nav") {
 		return (
 			<nav className={cn(containerStyles)}>
-				{links.map(({ name, url, icon: Icon }) => (
-					<Link
-						key={name}
-						href={url}
-						className={cn(iconStyles)}
-						target="_blank"
-					>
-						<Icon />
-						<span className="sr-only">{name}</span>
-					</Link>
-				))}
+				<SocialLinks isMobile={isMobile} iconStyles={iconStyles} />
 			</nav>
 		);
 	}
 
 	return (
 		<div className={cn(containerStyles)}>
-			{links.map(({ name, url, icon: Icon }) => (
-				<Tooltip key={name}>
-					<TooltipTrigger>
-						<Link href={url} className={cn(iconStyles)} target="_blank">
-							<Icon />
-							<span className="sr-only">{name}</span>
-						</Link>
-					</TooltipTrigger>
-					<TooltipContent>{name}</TooltipContent>
-				</Tooltip>
-			))}
+			<SocialLinks isMobile={isMobile} iconStyles={iconStyles} />
 		</div>
 	);
 };
