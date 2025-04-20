@@ -7,6 +7,14 @@
 			"resume": "Resume",
 			"work": "Work",
 			"contact": "Contact me"
+		},
+		"mobileMenu": {
+			"title": "Menu",
+			"description": "Select a page to navigate to",
+			"open": "Open navigation"
+		},
+		"themeSwitch": {
+			"toggle": "Toggle theme"
 		}
 	},
 	"footer": {

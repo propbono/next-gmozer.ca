@@ -1,7 +1,10 @@
 import { cn } from "@/lib/utils";
 import type { NavItem } from "@/types/nav";
+
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { RxHamburgerMenu } from "react-icons/rx";
+
 import { Button } from "../ui/button";
 import {
 	Sheet,
@@ -19,19 +22,21 @@ export const MobileNav = ({
 	items: NavItem[];
 	pathname: string;
 }) => {
+	const t = useTranslations("header.mobileMenu");
+
 	return (
 		<Sheet>
 			<SheetTrigger asChild>
 				<Button variant="outline" size="icon">
 					<RxHamburgerMenu />
-					<span className="sr-only">Mobile Nav</span>
+					<span className="sr-only">{t("open")}</span>
 				</Button>
 			</SheetTrigger>
 
 			<SheetContent side="right">
-				<SheetTitle className="sr-only">Menu</SheetTitle>
+				<SheetTitle className="sr-only">{t("title")}</SheetTitle>
 				<SheetDescription className="sr-only">
-					This is a mobile navigation
+					{t("description")}
 				</SheetDescription>
 				<nav className="flex flex-col items-center gap-6">
 					{items.map((item) => {
