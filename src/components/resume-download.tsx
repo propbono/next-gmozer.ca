@@ -1,12 +1,14 @@
 "use client";
 
 import { RESUME_LINK } from "@/constants/main";
+
 import Link from "next/link";
 import posthog from "posthog-js";
 import { RxDownload } from "react-icons/rx";
+
 import { Button } from "./ui/button";
 
-export const DownloadResume = () => {
+export const DownloadResume = ({ text }: { text: string }) => {
 	return (
 		<Button
 			asChild
@@ -15,7 +17,7 @@ export const DownloadResume = () => {
 			onClick={() => posthog.capture("download_resume")}
 		>
 			<Link href={RESUME_LINK} download={true} target="_blank">
-				<span>Download resume</span>
+				<span>{text}</span>
 				<RxDownload className="text-xl" />
 			</Link>
 		</Button>

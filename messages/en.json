@@ -17,6 +17,21 @@
 			"toggle": "Toggle theme"
 		}
 	},
+	"home": {
+		"hero": {
+			"position": "Senior Software Engineer",
+			"title": "Making the Web a <span>More Beautiful Place</span>, One Site at a Time.",
+			"description": "Frontend developer turning ideas into innovative web apps with React. Check out my latest projects for examples of my expertise in web development and see how I can help bring your ideas to life.",
+			"downloadResume": "Download Resume"
+		},
+		"stats": {
+			"srTitle": "Professional Statistics",
+			"yearsExperience": "Years of experience",
+			"projectsCompleted": "Projects completed",
+			"technologiesUsed": "Technologies mastered",
+			"commits": "Commits made"
+		}
+	},
 	"footer": {
 		"copyright": "2023 Greg Mozer | All rights reserved"
 	}

@@ -5,12 +5,16 @@ import { Stats } from "@/components/stats";
 import { DEV_START_YEAR, TECHNOLOGIES_MASTERED } from "@/constants/main";
 import { MOCK_STATS, getGithubStats } from "@/services/github";
 import type { Stat } from "@/types/stats";
+
 import { differenceInCalendarYears } from "date-fns";
+import { getTranslations } from "next-intl/server";
 
 const PROPRIETARY_PROJECTS_COUNT = 10;
 const PROPRIETARY_COMMITS_COUNT = 550;
 
 export default async function Home() {
+	const t = await getTranslations("home");
+
 	const yearsOfExperience = differenceInCalendarYears(
 		new Date(),
 		DEV_START_YEAR,
@@ -18,17 +22,17 @@ export default async function Home() {
 	const githubStats = await getGithubStats();
 
 	const stats: Stat[] = [
-		{ title: "Years of Experience", value: yearsOfExperience },
+		{ title: t("stats.yearsExperience"), value: yearsOfExperience },
 		{
-			title: "Projects Completed",
+			title: t("stats.projectsCompleted"),
 			value:
 				githubStats.status === "success"
 					? PROPRIETARY_PROJECTS_COUNT + githubStats.data.projectCount
 					: PROPRIETARY_PROJECTS_COUNT + MOCK_STATS.projectCount,
 		},
-		{ title: "Technologies Mastered", value: TECHNOLOGIES_MASTERED },
+		{ title: t("stats.technologiesUsed"), value: TECHNOLOGIES_MASTERED },
 		{
-			title: "Code Commits",
+			title: t("stats.commits"),
 			value:
 				githubStats.status === "success"
 					? PROPRIETARY_COMMITS_COUNT + githubStats.data.allCommitsCount
@@ -43,22 +47,17 @@ export default async function Home() {
 				aria-labelledby="hero-heading"
 			>
 				<div className="max-w-2xl order-2 md:order-none">
-					<h1 id="hero-heading" className="sr-only">
-						Greg Mozer - Senior Software Developer
-					</h1>
 					<p className="text-xl mb-2 2xl:mb-4">Senior Software Developer</p>
 					<h2 className="w-full mb-4 2xl:mb-6 font-logo text-4xl md:text-5xl font-bold leading-relaxed md:leading-snug text-foreground">
-						Making the Web a{" "}
-						<span className="text-primary">More Beautiful Place</span>, One Site
-						at a Time.
+						{t.rich("hero.title", {
+							span: (chunks) => <span className="text-primary">{chunks}</span>,
+						})}
 					</h2>
 					<p className="font-body text-xl md:text-2xl font-medium leading-relaxed text-muted-foreground md:leading-normal mb-5 2xl:mb-7">
-						Full-stack developer turning ideas into innovative web apps with
-						React. Check out my latest projects for examples of my expertise in
-						web development and see how I can help bring your ideas to life.
+						{t("hero.description")}
 					</p>
 					<div className="flex flex-col md:flex-row gap-8 items-center">
-						<DownloadResume />
+						<DownloadResume text={t("hero.downloadResume")} />
 						<Socials
 							containerStyles="flex gap-6"
 							iconStyles="size-9 border border-primary rounded-full flex justify-center items-center text-primary text-base hover:bg-primary hover:text-background hover:transition-all duration-500"
@@ -72,7 +71,7 @@ export default async function Home() {
 
 			<section className="container" aria-labelledby="stats-heading">
 				<h2 id="stats-heading" className="sr-only">
-					Professional Statistics
+					{t("stats.srTitle")}
 				</h2>
 				<Stats stats={stats} />
 			</section>
