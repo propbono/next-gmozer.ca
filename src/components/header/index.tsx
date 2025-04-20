@@ -1,17 +1,24 @@
 "use client";
-import { navItems } from "@/constants/nav";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { cn } from "@/lib/utils";
+import type { NavItem } from "@/types/nav";
+
+import { useMessages, useTranslations } from "next-intl";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
+
 import { DesktopNav } from "../desktop-nav";
 import { MobileNav } from "../mobile-nav";
 import { ThemeSwitch } from "../theme-switch";
 
 export const Header = () => {
+	const t = useTranslations("header");
+	const messages = useMessages();
+	const keys = Object.keys(messages.header.nav);
+
 	const pathname = usePathname();
-	const isMediumBreakpoint = useMediaQuery("(min-width:768px)"); // lg: breakpoint in tailwind
+	const isMediumBreakpoint = useMediaQuery("(min-width:768px)");
 
 	const [isTransparent, setIsTransparent] = useState(true);
 
@@ -25,14 +32,39 @@ export const Header = () => {
 		return () => document.removeEventListener("scroll", handleScroll);
 	}, []);
 
+	const navItems: NavItem[] = useMemo(() => {
+		return [
+			{
+				name: t("nav.home"),
+				href: "/",
+			},
+			{
+				name: t("nav.services"),
+				href: "/services",
+			},
+			{
+				name: t("nav.resume"),
+				href: "/resume",
+			},
+			{
+				name: t("nav.work"),
+				href: "/work",
+			},
+			{
+				name: t("nav.contact"),
+				href: "/contact",
+			},
+		];
+	}, [t]);
+
 	const memoizedDesktopNav = useMemo(
 		() => <DesktopNav items={navItems} pathname={pathname} />,
-		[pathname],
+		[pathname, navItems],
 	);
 
 	const memoizedMobileNav = useMemo(
 		() => <MobileNav items={navItems} pathname={pathname} />,
-		[pathname],
+		[pathname, navItems],
 	);
 
 	return (
@@ -47,7 +79,7 @@ export const Header = () => {
 			<div className="container mx-auto flex items-center justify-between">
 				<Link href="/">
 					<span className="group text-foreground hover:text-primary text-2xl font-bold">
-						Greg Mozer
+						{t("name")}
 						<span className="text-primary group-hover:text-foreground">.</span>
 					</span>
 				</Link>
