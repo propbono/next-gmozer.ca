@@ -1,1 +1,15 @@
-{}
+{
+	"header": {
+		"name": "Greg Mozer",
+		"nav": {
+			"home": "Home",
+			"services": "Services",
+			"resume": "Resume",
+			"work": "Work",
+			"contact": "Contact me"
+		}
+	},
+	"footer": {
+		"copyright": "2023 Greg Mozer | All rights reserved"
+	}
+}
