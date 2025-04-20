@@ -1,10 +1,11 @@
+import createNextIntlPlugin from "next-intl/plugin";
+
 // @ts-check
 
 /**
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
-	/* config options here */
 	async rewrites() {
 		return [
 			{
@@ -24,4 +25,5 @@ const nextConfig = {
 	skipTrailingSlashRedirect: true,
 };
 
-export default nextConfig;
+const withNextIntl = createNextIntlPlugin();
+export default withNextIntl(nextConfig);

@@ -4,11 +4,17 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
+
 import { Ubuntu } from "next/font/google";
 import Script from "next/script";
 import type { ReactNode } from "react";
-import { siteConfig } from "./metadata";
-import "./globals.css";
+
+import { siteConfig } from "../metadata";
+
+import "../globals.css";
+import { routing } from "@/i18n/routing";
+import { NextIntlClientProvider, hasLocale } from "next-intl";
+import { notFound } from "next/navigation";
 
 const ubuntu = Ubuntu({
 	subsets: ["latin"],
@@ -36,11 +42,17 @@ export const metadata = constructMetadata({
 		"Building high-performance web applications with modern technologies",
 });
 
-export default function RootLayout({
+export default async function RootLayout({
 	children,
-}: Readonly<{ children: ReactNode }>) {
+	params,
+}: Readonly<{ children: ReactNode; params: Promise<{ locale: string }> }>) {
+	const { locale } = await params;
+	if (!hasLocale(routing.locales, locale)) {
+		notFound();
+	}
+
 	return (
-		<html lang="en" suppressHydrationWarning>
+		<html lang={locale} suppressHydrationWarning>
 			<head>
 				<link
 					rel="apple-touch-icon"
@@ -69,7 +81,9 @@ export default function RootLayout({
 			>
 				<PostHogProvider>
 					<ThemeProvider>
-						<TooltipProvider delayDuration={150}>{children}</TooltipProvider>
+						<NextIntlClientProvider>
+							<TooltipProvider delayDuration={150}>{children}</TooltipProvider>
+						</NextIntlClientProvider>
 					</ThemeProvider>
 
 					<Toaster />
