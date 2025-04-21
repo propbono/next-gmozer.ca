@@ -74,21 +74,18 @@ export default async function RootLayout({
 				<link rel="manifest" href="/site.webmanifest" />
 			</head>
 			<body
-				className={cn(
-					"flex flex-col min-h-screen min-w-72 bg-background",
-					ubuntu.variable,
-				)}
+				className={cn("flex flex-col min-h-screen min-w-72", ubuntu.variable)}
 			>
-				<PostHogProvider>
-					<ThemeProvider>
-						<NextIntlClientProvider>
+				<NextIntlClientProvider>
+					<PostHogProvider>
+						<ThemeProvider>
 							<TooltipProvider delayDuration={150}>{children}</TooltipProvider>
-						</NextIntlClientProvider>
-					</ThemeProvider>
+						</ThemeProvider>
 
-					<Toaster />
-					<Script type="application/ld+json">{JSON.stringify(jsonLd)}</Script>
-				</PostHogProvider>
+						<Toaster />
+						<Script type="application/ld+json">{JSON.stringify(jsonLd)}</Script>
+					</PostHogProvider>
+				</NextIntlClientProvider>
 			</body>
 		</html>
 	);
