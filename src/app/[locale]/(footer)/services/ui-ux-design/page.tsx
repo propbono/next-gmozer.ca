@@ -1,5 +1,8 @@
 import { constructMetadata } from "@/app/metadata";
 import { BreadcrumbNav } from "@/components/breadcrumbs";
+import { NumberItem } from "@/components/number-item";
+import { ServiceCard } from "@/components/service-card";
+import { useTranslations } from "next-intl";
 
 export const metadata = constructMetadata({
 	title: "UI/UX Design Services | Greg Mozer",
@@ -8,73 +11,99 @@ export const metadata = constructMetadata({
 });
 
 export default function UiUxDesign() {
+	const t = useTranslations("services.uiUxDesign.content");
+
 	return (
 		<article className="container">
 			<BreadcrumbNav />
 			<header>
-				<h1 className="text-4xl font-bold mb-6">UI/UX Design Services</h1>
+				<h1 className="text-4xl font-bold mb-6">{t("title")}</h1>
 			</header>
-			<div className="grid gap-8">
+			<div className="grid gap-16">
 				<section aria-labelledby="philosophy">
-					<h2 id="philosophy" className="text-2xl font-semibold mb-4">
-						Our Design Philosophy
+					<h2 className="text-2xl font-semibold mb-4">
+						{t("philosophy.title")}
 					</h2>
-					<p className="text-muted-foreground">
-						Creating intuitive, user-centered designs that balance aesthetics
-						with functionality. We focus on:
+					<p className="text-muted-foreground mb-4">
+						{t("philosophy.description")}
 					</p>
-					<ul className="list-disc list-inside mt-4 space-y-2 text-muted-foreground">
-						<li>User-centered design principles</li>
-						<li>Accessibility standards (WCAG compliance)</li>
-						<li>Responsive design for all devices</li>
-						<li>Modern design trends and patterns</li>
-						<li>Brand consistency</li>
-					</ul>
+					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+						<ServiceCard
+							title={t("philosophy.point1.title")}
+							description={t("philosophy.point1.description")}
+							hasSecondChevronIcon={false}
+						/>
+						<ServiceCard
+							title={t("philosophy.point2.title")}
+							description={t("philosophy.point2.description")}
+							hasSecondChevronIcon={false}
+						/>
+						<ServiceCard
+							title={t("philosophy.point3.title")}
+							description={t("philosophy.point3.description")}
+							hasSecondChevronIcon={false}
+						/>
+						<ServiceCard
+							title={t("philosophy.point4.title")}
+							description={t("philosophy.point4.description")}
+							hasSecondChevronIcon={false}
+						/>
+						<ServiceCard
+							title={t("philosophy.point5.title")}
+							description={t("philosophy.point5.description")}
+							hasSecondChevronIcon={false}
+						/>
+					</div>
 				</section>
 
 				<section aria-labelledby="process">
-					<h2 id="process" className="text-2xl font-semibold mb-4">
-						Design Process
-					</h2>
-					<div className="grid gap-4">
-						<div>
-							<h3 className="text-xl font-medium">1. Research & Discovery</h3>
-							<p className="text-muted-foreground">
-								User research, competitor analysis, and requirement gathering.
-							</p>
-						</div>
-						<div>
-							<h3 className="text-xl font-medium">2. Wireframing</h3>
-							<p className="text-muted-foreground">
-								Low-fidelity designs and user flow mapping.
-							</p>
-						</div>
-						<div>
-							<h3 className="text-xl font-medium">3. Visual Design</h3>
-							<p className="text-muted-foreground">
-								High-fidelity designs with brand integration.
-							</p>
-						</div>
-						<div>
-							<h3 className="text-xl font-medium">4. Prototyping & Testing</h3>
-							<p className="text-muted-foreground">
-								Interactive prototypes and user testing.
-							</p>
-						</div>
+					<h2 className="text-2xl font-semibold mb-4">{t("process.title")}</h2>
+					<p className="text-muted-foreground mb-4">
+						{t("process.description")}
+					</p>
+					<div className="space-y-8">
+						<NumberItem
+							number={1}
+							title={t("process.point1.title")}
+							description={t("process.point1.description")}
+						/>
+						<NumberItem
+							number={2}
+							title={t("process.point2.title")}
+							description={t("process.point2.description")}
+						/>
+						<NumberItem
+							number={3}
+							title={t("process.point3.title")}
+							description={t("process.point3.description")}
+						/>
+						<NumberItem
+							number={4}
+							title={t("process.point4.title")}
+							description={t("process.point4.description")}
+							isLastItem={true}
+						/>
 					</div>
 				</section>
 
 				<section aria-labelledby="tools">
-					<h2 id="tools" className="text-2xl font-semibold mb-4">
-						Design Tools
-					</h2>
-					<ul className="list-disc list-inside space-y-2 text-muted-foreground">
-						<li>Figma for design and prototyping</li>
-						<li>Adobe Creative Suite</li>
-						<li>Sketch</li>
-						<li>InVision</li>
-						<li>Principle for animations</li>
-					</ul>
+					<h2 className="text-2xl font-semibold mb-4">{t("tools.title")}</h2>
+					<p className="text-muted-foreground mb-4">{t("tools.description")}</p>
+
+					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+						<ServiceCard
+							title={t("tools.point1.title")}
+							description={t("tools.point1.description")}
+						/>
+						<ServiceCard
+							title={t("tools.point2.title")}
+							description={t("tools.point2.description")}
+						/>
+						<ServiceCard
+							title={t("tools.point3.title")}
+							description={t("tools.point3.description")}
+						/>
+					</div>
 				</section>
 			</div>
 		</article>

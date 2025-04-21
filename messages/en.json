@@ -32,6 +32,275 @@
 			"commits": "Commits made"
 		}
 	},
+	"services": {
+		"srTitle": "List of services",
+		"webDevelopment": {
+			"title": "Web Development",
+			"description": "Creating stunning and responsive websites that provide an exceptional user experience. I specialize in building custom web applications using the latest technologies.",
+			"content": {
+				"title": "Web Development Services",
+				"offerings": {
+					"title": "What We Offer",
+					"description": "Comprehensive web development solutions using cutting-edge technologies and frameworks. We specialize in building:",
+					"point1": {
+						"title": "Single Page Applications",
+						"description": "SPAs using React and Next.js for seamless user experiences"
+					},
+					"point2": {
+						"title": "Full-stack Applications",
+						"description": "Robust backend integration with modern frontend technologies"
+					},
+					"point3": {
+						"title": "Progressive Web Apps",
+						"description": "PWAs for enhanced mobile experience with offline capabilities"
+					},
+					"point4": {
+						"title": "Custom API Development",
+						"description": "Tailored API solutions with seamless integration"
+					},
+					"point5": {
+						"title": "E-commerce Platforms",
+						"description": "Secure payment gateways and shopping experiences"
+					},
+					"point6": {
+						"title": "Content Management",
+						"description": "CMS solutions for easy content updates and management"
+					},
+					"point7": "Responsive web design for optimal viewing on all devices",
+					"point8": "Performance optimization for faster load times",
+					"point9": "Security best practices to protect user data"
+				},
+				"process": {
+					"title": "Our Process",
+					"description": "We follow a structured approach to ensure the successful delivery of your project. Our process includes:",
+					"point1": {
+						"title": "Discovery and Requirement Gathering",
+						"description": "We begin by understanding your business goals, target audience, and project requirements. This phase involves brainstorming sessions, user research, and documentation."
+					},
+					"point2": {
+						"title": "Design and Prototyping",
+						"description": "We create wireframes and prototypes to visualize the user interface and user experience. This phase includes feedback loops to ensure alignment with your vision."
+					},
+					"point3": {
+						"title": "Development",
+						"description": "Our development team builds the application using the latest technologies. We follow best practices for coding, version control, and testing."
+					},
+					"point4": {
+						"title": "Testing and Quality Assurance",
+						"description": "We conduct thorough testing to identify and fix any bugs or issues. This includes functional testing, performance testing, and security testing."
+					},
+					"point5": {
+						"title": "Deployment and Launch",
+						"description": "We deploy the application to a production environment and conduct a launch event. This includes user training and support documentation."
+					}
+				},
+				"cta": {
+					"title": "Ready to start your project?",
+					"description": "Let's discuss how we can help bring your vision to life.",
+					"button": "Get in Touch"
+				},
+				"technologies": {
+					"title": "Technologies We Use",
+					"description": "We leverage a wide range of technologies to build robust and scalable web applications. Our tech stack includes:",
+					"point1": {
+						"title": "Frontend",
+						"description": "React, Next.js, HTML5, CSS3, JavaScript (ES6+), TypeScript"
+					},
+					"point2": {
+						"title": "Backend",
+						"description": "Node.js, Express.js, MongoDB, PostgreSQL"
+					},
+					"point3": {
+						"title": "DevOps",
+						"description": "Docker, Vercel, AWS, CI/CD pipelines"
+					},
+					"point4": {
+						"title": "Testing & Version Control",
+						"description": "Jest, Vitest, Playwright, Cypress, Git, GitHub"
+					}
+				}
+			}
+		},
+		"uiUxDesign": {
+			"title": "UI/UX Design",
+			"description": "Crafting intuitive and engaging user interfaces that deliver exceptional user experiences while maintaining accessibility standards.",
+			"content": {
+				"title": "UI/UX Design Services",
+				"philosophy": {
+					"title": "Our Design Philosophy",
+					"description": "Creating intuitive, user-centered designs that balance aesthetics with functionality. We focus on:",
+					"point1": {
+						"title": "User-centered design principles",
+						"description": "Creating interfaces that prioritize user needs, behaviors, and feedback throughout the design process"
+					},
+					"point2": {
+						"title": "Accessibility standards (WCAG compliance)",
+						"description": "Ensuring digital content is accessible to all users by following WCAG guidelines for contrast, navigation, and screen reader compatibility"
+					},
+					"point3": {
+						"title": "Responsive design for all devices",
+						"description": "Developing fluid layouts that adapt seamlessly across desktop, tablet, and mobile devices for consistent user experience"
+					},
+					"point4": {
+						"title": "Modern design trends and patterns",
+						"description": "Incorporating contemporary design elements while maintaining intuitive navigation and familiar interaction patterns"
+					},
+					"point5": {
+						"title": "Brand consistency",
+						"description": "Maintaining cohesive visual identity through consistent use of colors, typography, and design elements across all touchpoints"
+					}
+				},
+				"process": {
+					"title": "Design Process",
+					"description": "We follow a structured design process to ensure the successful delivery of your project. Our process includes:",
+					"point1": {
+						"title": "Research & Discovery",
+						"description": "User research, competitor analysis, and requirement gathering. This phase involves brainstorming sessions, user personas, and documentation."
+					},
+					"point2": {
+						"title": "Wireframing",
+						"description": "Low-fidelity designs and user flow mapping. This phase involves creating a visual representation of the information architecture and user interactions."
+					},
+					"point3": {
+						"title": "Visual Design",
+						"description": "High-fidelity designs with brand integration and attention to visual hierarchy and aesthetics."
+					},
+					"point4": {
+						"title": "Prototyping & Testing",
+						"description": "Interactive prototypes and user testing. This phase involves creating interactive prototypes and conducting user testing to gather feedback and make necessary refinements."
+					}
+				},
+				"tools": {
+					"title": "Design Tools",
+					"description": "We use a range of design tools to create visually stunning and user-friendly interfaces. Our tools include:",
+					"point1": {
+						"title": "UI/UX Design & Prototyping",
+						"description": "Figma for design and prototyping"
+					},
+					"point2": {
+						"title": "Image Manipulation",
+						"description": "Adobe Photoshop for image editing"
+					},
+					"point3": {
+						"title": "Logo & Icon Design",
+						"description": "Adobe Illustrator for vector graphics"
+					}
+				}
+			}
+		},
+		"logoDesign": {
+			"title": "Logo Design",
+			"description": "Creating distinctive and memorable brand identities that resonate with target audiences and stand the test of time.",
+			"content": {
+				"title": "Logo Design Services",
+				"brand-identity": {
+					"title": "Brand Identity Creation",
+					"description": "Creating distinctive visual identities that capture your brand's essence. Our logo design includes:",
+					"point1": "Custom vector graphics for scalability and versatility",
+					"point2": "Brand guidelines documentation for consistent application",
+					"point3": "Color palette selection for brand recognition and emotional impact",
+					"point4": "Typography selection for brand voice and personality",
+					"point5": "Logo variations for different applications (horizontal, vertical, icon-only)",
+					"point6": "Multiple format deliverables (AI, EPS, SVG, PNG, JPG, PDF)"
+				},
+				"process": {
+					"title": "Design Process",
+					"description": "We follow a structured design process to ensure the successful delivery of your project. Our process includes:",
+					"point1": {
+						"title": "Brand Discovery",
+						"description": "Understanding your brand values, target audience, and market positioning."
+					},
+					"point2": {
+						"title": "Concept Development",
+						"description": "Creating multiple design concepts based on research findings."
+					},
+					"point3": {
+						"title": "Refinement",
+						"description": "Iterative refinement process with client feedback."
+					},
+					"point4": {
+						"title": "Finalization",
+						"description": "Delivery of final files in various formats for different use cases."
+					}
+				}
+			}
+		},
+		"seoOptimization": {
+			"title": "SEO Optimization",
+			"description": "Implementing data-driven SEO strategies to enhance online visibility and drive qualified organic traffic.",
+			"content": {
+				"title": "SEO Optimization Services",
+				"solutions": {
+					"title": "Comprehensive SEO Solutions",
+					"description": "Data-driven SEO strategies to improve your online visibility and organic traffic. Our services include:",
+					"point1": "Technical SEO audits to identify and address technical issues that may be hindering your site's performance.",
+					"point2": "Content strategy development to create high-quality, relevant content that resonates with your target audience.",
+					"point3": "Link building strategies to improve your site's authority and credibility.",
+					"point4": "Analytics and reporting to track your progress and measure the impact of our strategies.",
+					"point5": "Optimization of on-page elements such as meta tags, headings, and images for improved search engine visibility.",
+					"point6": "Monitoring and responding to algorithm updates to ensure your site remains compliant and competitive."
+				},
+				"process": {
+					"title": "Our Approach",
+					"description": "We follow a structured approach to ensure the successful delivery of your project. Our process includes:",
+					"point1": {
+						"title": "Site Analysis",
+						"description": "Comprehensive website audit and competitor analysis to identify areas for improvement."
+					},
+					"point2": {
+						"title": "Strategy Development",
+						"description": "Custom SEO strategy based on analysis findings."
+					},
+					"point3": {
+						"title": "Implementation",
+						"description": "Executing optimization strategies and content improvements."
+					},
+					"point4": {
+						"title": "Monitoring & Adjustment",
+						"description": "Continuous monitoring and strategy refinement based on results."
+					}
+				}
+			}
+		},
+
+		"mobileAppDevelopment": {
+			"title": "Mobile App Development",
+			"description": "Developing native and cross-platform mobile applications that provide seamless user experiences across all devices.",
+			"content": {
+				"title": "Mobile App Development Services",
+				"solutions": {
+					"title": "Mobile Solutions",
+					"description": "Creating powerful mobile applications for iOS and Android platforms. We specialize in:",
+					"point1": "Native iOS and Android development for optimal performance and user experience",
+					"point2": "Cross-platform development using frameworks like React Native for faster time-to-market",
+					"point3": "Progressive Web Apps (PWAs) for a mobile-like experience in a web browser",
+					"point4": "Mobile app testing and optimization",
+					"point5": "App Store submission and optimization for better visibility",
+					"point6": "Maintenance and support for ongoing app updates and improvements"
+				},
+				"process": {
+					"title": "Development Process",
+					"description": "Our development process is designed to deliver high-quality, user-friendly mobile apps efficiently. Here's a brief overview:",
+					"point1": {
+						"title": "Requirements Analysis",
+						"description": "Conducting thorough market research, defining user stories, and documenting technical specifications for your mobile application."
+					},
+					"point2": {
+						"title": "Design & Development",
+						"description": "Creating intuitive interfaces and implementing robust functionality through agile sprints and continuous integration."
+					},
+					"point3": {
+						"title": "Testing",
+						"description": "Executing rigorous test suites including unit tests, integration tests, and real-device testing to ensure flawless performance."
+					},
+					"point4": {
+						"title": "Deployment & Support",
+						"description": "Managing app store submissions, providing post-launch monitoring, and delivering regular updates and feature enhancements."
+					}
+				}
+			}
+		}
+	},
 	"footer": {
 		"copyright": "2023 Greg Mozer | All rights reserved"
 	}

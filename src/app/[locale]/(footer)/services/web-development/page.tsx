@@ -1,5 +1,18 @@
 import { constructMetadata } from "@/app/metadata";
 import { BreadcrumbNav } from "@/components/breadcrumbs";
+import { CallToActionCard } from "@/components/call-to-action-card";
+import { CheckCircleWithText } from "@/components/check-circle-with-text";
+import { NumberItem } from "@/components/number-item";
+import { ServiceCard } from "@/components/service-card";
+import { PAGE_URLS } from "@/constants/urls";
+import { useTranslations } from "next-intl";
+import {
+	LuCircleCheck,
+	LuCode,
+	LuLayers,
+	LuServer,
+	LuWorkflow,
+} from "react-icons/lu";
 
 export const metadata = constructMetadata({
 	title: "Web Development Services | Greg Mozer",
@@ -8,80 +21,139 @@ export const metadata = constructMetadata({
 });
 
 export default function WebDevelopment() {
+	const t = useTranslations("services.webDevelopment.content");
+
 	return (
 		<article className="container">
 			<BreadcrumbNav />
 			<header>
-				<h1 className="text-4xl font-bold mb-6">Web Development Services</h1>
+				<h1 className="text-4xl font-bold mb-6">{t("title")}</h1>
 			</header>
-			<div className="grid gap-8">
+			<div className="grid gap-16">
 				<section aria-labelledby="offerings">
-					<h2 id="offerings" className="text-2xl font-semibold mb-4">
-						What We Offer
+					<h2 className="text-2xl font-semibold mb-4">
+						{t("offerings.title")}
 					</h2>
-					<p className="text-muted-foreground">
-						Comprehensive web development solutions using cutting-edge
-						technologies and frameworks. We specialize in building:
+					<p className="text-muted-foreground mb-4">
+						{t("offerings.description")}
 					</p>
-					<ul className="list-disc list-inside mt-4 space-y-2 text-muted-foreground">
-						<li>Single Page Applications (SPA) using React and Next.js</li>
-						<li>Full-stack web applications with robust backend integration</li>
-						<li>Progressive Web Apps (PWA) for enhanced mobile experience</li>
-						<li>Custom API development and integration</li>
-						<li>Database design and optimization</li>
-					</ul>
-				</section>
-
-				<section aria-labelledby="process">
-					<h2 id="process" className="text-2xl font-semibold mb-4">
-						Our Process
-					</h2>
-					<div className="grid gap-4">
-						<div>
-							<h3 className="text-xl font-medium">
-								1. Planning & Architecture
-							</h3>
-							<p className="text-muted-foreground">
-								Technical requirements gathering, system architecture design,
-								and project roadmap creation.
-							</p>
-						</div>
-						<div>
-							<h3 className="text-xl font-medium">2. Development</h3>
-							<p className="text-muted-foreground">
-								Agile development process with regular updates and continuous
-								integration.
-							</p>
-						</div>
-						<div>
-							<h3 className="text-xl font-medium">3. Testing & QA</h3>
-							<p className="text-muted-foreground">
-								Comprehensive testing including unit tests, integration tests,
-								and user acceptance testing.
-							</p>
-						</div>
-						<div>
-							<h3 className="text-xl font-medium">
-								4. Deployment & Maintenance
-							</h3>
-							<p className="text-muted-foreground">
-								Smooth deployment process and ongoing maintenance support.
-							</p>
-						</div>
+					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+						<ServiceCard
+							title={t("offerings.point1.title")}
+							description={t("offerings.point1.description")}
+							icon={<LuCode className="size-6 text-primary" />}
+							hasSecondChevronIcon={false}
+						/>
+						<ServiceCard
+							title={t("offerings.point2.title")}
+							description={t("offerings.point2.description")}
+							icon={<LuLayers className="size-6 text-primary" />}
+							hasSecondChevronIcon={false}
+						/>
+						<ServiceCard
+							title={t("offerings.point3.title")}
+							description={t("offerings.point3.description")}
+							icon={<LuServer className="size-6 text-primary" />}
+							hasSecondChevronIcon={false}
+						/>
+						<ServiceCard
+							title={t("offerings.point4.title")}
+							description={t("offerings.point4.description")}
+							icon={<LuWorkflow className="size-6 text-primary" />}
+							hasSecondChevronIcon={false}
+						/>
+						<ServiceCard
+							title={t("offerings.point5.title")}
+							description={t("offerings.point5.description")}
+							icon={<LuCircleCheck className="size-6 text-primary" />}
+							hasSecondChevronIcon={false}
+						/>
+						<ServiceCard
+							title={t("offerings.point5.title")}
+							description={t("offerings.point5.description")}
+							icon={<LuLayers className="size-6 text-primary" />}
+							hasSecondChevronIcon={false}
+						/>
+					</div>
+					<div className="grid grid-cols-3 gap-4">
+						<CheckCircleWithText text={t("offerings.point7")} />
+						<CheckCircleWithText text={t("offerings.point8")} />
+						<CheckCircleWithText text={t("offerings.point9")} />
 					</div>
 				</section>
 
+				<section aria-labelledby="process">
+					<h2 className="text-2xl font-semibold mb-4">{t("process.title")}</h2>
+					<p className="text-muted-foreground mb-4">
+						{t("process.description")}
+					</p>
+					<div className="space-y-8">
+						<NumberItem
+							number={1}
+							title={t("process.point1.title")}
+							description={t("process.point1.description")}
+						/>
+						<NumberItem
+							number={2}
+							title={t("process.point2.title")}
+							description={t("process.point2.description")}
+						/>
+						<NumberItem
+							number={3}
+							title={t("process.point3.title")}
+							description={t("process.point3.description")}
+						/>
+						<NumberItem
+							number={4}
+							title={t("process.point4.title")}
+							description={t("process.point4.description")}
+						/>
+						<NumberItem
+							number={5}
+							title={t("process.point5.title")}
+							description={t("process.point5.description")}
+							isLastItem={true}
+						/>
+					</div>
+				</section>
+				<section aria-labelledby="cta">
+					<CallToActionCard
+						ctaTitle={t("cta.title")}
+						ctaDescription={t("cta.description")}
+						ctaUrl={PAGE_URLS.contact}
+						ctaUrlText={t("cta.button")}
+					/>
+				</section>
 				<section aria-labelledby="technologies">
-					<h2 id="technologies" className="text-2xl font-semibold mb-4">
-						Technologies We Use
+					<h2 className="text-2xl font-semibold mb-4">
+						{t("technologies.title")}
 					</h2>
-					<ul className="list-disc list-inside space-y-2 text-muted-foreground">
-						<li>React, Next.js, TypeScript</li>
-						<li>Node.js, Express</li>
-						<li>PostgreSQL, MongoDB</li>
-						<li>AWS, Vercel, Docker</li>
-						<li>Git, GitHub Actions</li>
-					</ul>
+					<p className="text-muted-foreground mb-4">
+						{t("technologies.description")}
+					</p>
+
+					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+						<ServiceCard
+							title={t("technologies.point1.title")}
+							description={t("technologies.point1.description")}
+							icon={<LuCode className="h-5 w-5 text-primary" />}
+						/>
+						<ServiceCard
+							title={t("technologies.point2.title")}
+							description={t("technologies.point2.description")}
+							icon={<LuServer className="h-5 w-5 text-primary" />}
+						/>
+						<ServiceCard
+							title={t("technologies.point3.title")}
+							description={t("technologies.point3.description")}
+							icon={<LuWorkflow className="h-5 w-5 text-primary" />}
+						/>
+						<ServiceCard
+							title={t("technologies.point4.title")}
+							description={t("technologies.point4.description")}
+							icon={<LuCircleCheck className="h-5 w-5 text-primary" />}
+						/>
+					</div>
 				</section>
 			</div>
 		</article>

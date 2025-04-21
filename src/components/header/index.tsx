@@ -3,19 +3,18 @@ import { useMediaQuery } from "@/hooks/use-media-query";
 import { cn } from "@/lib/utils";
 import type { NavItem } from "@/types/nav";
 
-import { useMessages, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 
+import { PAGE_URLS } from "@/constants/urls";
 import { DesktopNav } from "../desktop-nav";
 import { MobileNav } from "../mobile-nav";
 import { ThemeSwitch } from "../theme-switch";
 
 export const Header = () => {
 	const t = useTranslations("header");
-	const messages = useMessages();
-	const keys = Object.keys(messages.header.nav);
 
 	const pathname = usePathname();
 	const isMediumBreakpoint = useMediaQuery("(min-width:768px)");
@@ -36,23 +35,23 @@ export const Header = () => {
 		return [
 			{
 				name: t("nav.home"),
-				href: "/",
+				href: PAGE_URLS.home,
 			},
 			{
 				name: t("nav.services"),
-				href: "/services",
+				href: PAGE_URLS.services,
 			},
 			{
 				name: t("nav.resume"),
-				href: "/resume",
+				href: PAGE_URLS.resume,
 			},
 			{
 				name: t("nav.work"),
-				href: "/work",
+				href: PAGE_URLS.work,
 			},
 			{
 				name: t("nav.contact"),
-				href: "/contact",
+				href: PAGE_URLS.contact,
 			},
 		];
 	}, [t]);

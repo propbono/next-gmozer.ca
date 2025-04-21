@@ -1,7 +1,9 @@
 import { constructMetadata } from "@/app/metadata";
 import { AnimatedElement } from "@/components/animated-element/animated-element";
 import { Separator } from "@/components/ui/separator";
-import { SERVICES } from "@/constants/services";
+import { PAGE_URLS, SERVICE_URLS } from "@/constants/urls";
+
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { RiArrowRightDownLine } from "react-icons/ri";
 
@@ -12,41 +14,87 @@ export const metadata = constructMetadata({
 });
 
 export default function Services() {
+	const t = useTranslations("services");
 	return (
 		<article className="container">
 			<div
 				className="grid grid-cols-1 md:grid-cols-2 gap-16"
-				aria-label="Services list"
+				aria-label={t("srTitle")}
 			>
-				{SERVICES.map((service, index) => (
-					<section key={service.title}>
-						<AnimatedElement
-							index={index}
-							transition={{ duration: 0.5, delay: index * 0.2 }}
-							className="flex flex-1 flex-col justify-center gap-6 group"
-						>
-							<div className="flex w-full justify-between items-center text-5xl font-extrabold">
-								<span className="text-transparent text-outline hover:text-outline-hover group-hover:text-outline-hover transition-all delay-100 duration-500">
-									{(index + 1).toString().padStart(2, "0")}
-								</span>
-								<Link
-									href={service.href}
-									className="size-11 flex items-center justify-center border-foreground border rounded-full hover:border-primary text-3xl hover:-rotate-45 hover:text-primary group-hover:border-primary group-hover:text-primary transition-all delay-100 duration-500"
-								>
-									<RiArrowRightDownLine />
-									<span className="sr-only">{service.title}</span>
-								</Link>
-							</div>
+				<ServiceCard
+					index={1}
+					url={`${PAGE_URLS.services}${SERVICE_URLS.webDevelopment}`}
+					title={t("webDevelopment.title")}
+					description={t("webDevelopment.description")}
+				/>
 
-							<h3 className="text-2xl font-bold text-foreground group-hover:text-primary transition-all duration-500">
-								{service.title}
-							</h3>
-							<p className="text-lg leading-snug">{service.description}</p>
-							<Separator />
-						</AnimatedElement>
-					</section>
-				))}
+				<ServiceCard
+					index={2}
+					url={`${PAGE_URLS.services}${SERVICE_URLS.uiUxDesign}`}
+					title={t("uiUxDesign.title")}
+					description={t("uiUxDesign.description")}
+				/>
+
+				<ServiceCard
+					index={3}
+					url={`${PAGE_URLS.services}${SERVICE_URLS.logoDesign}`}
+					title={t("logoDesign.title")}
+					description={t("logoDesign.description")}
+				/>
+				<ServiceCard
+					index={4}
+					url={`${PAGE_URLS.services}${SERVICE_URLS.seoOptimization}`}
+					title={t("seoOptimization.title")}
+					description={t("seoOptimization.description")}
+				/>
+				<ServiceCard
+					index={5}
+					url={`${PAGE_URLS.services}${SERVICE_URLS.mobileAppDevelopment}`}
+					title={t("mobileAppDevelopment.title")}
+					description={t("mobileAppDevelopment.description")}
+					hasSeparator={false}
+				/>
 			</div>
 		</article>
 	);
 }
+
+const ServiceCard = ({
+	index,
+	url,
+	title,
+	description,
+	hasSeparator = true,
+}: {
+	index: number;
+	url: string;
+	title: string;
+	description: string;
+	hasSeparator?: boolean;
+}) => {
+	return (
+		<Link href={url} className="group">
+			<AnimatedElement
+				index={index}
+				transition={{ duration: 0.5, delay: index * 0.2 }}
+				className="flex flex-1 flex-col justify-center gap-6"
+			>
+				<div className="flex w-full justify-between items-center text-5xl font-extrabold">
+					<span className="hover:text-primary text-5xl group-hover:text-primary transition-all delay-100 duration-500">
+						{index.toString().padStart(2, "0")}
+					</span>
+					<span className="size-11 flex items-center justify-center border-foreground border rounded-full hover:border-primary text-3xl hover:-rotate-45 group-hover:-rotate-45 hover:text-primary group-hover:border-primary group-hover:text-primary transition-all delay-100 duration-500">
+						<RiArrowRightDownLine />
+						<span className="sr-only">{title}</span>
+					</span>
+				</div>
+
+				<h3 className="text-2xl font-bold text-foreground group-hover:text-primary transition-all duration-500">
+					{title}
+				</h3>
+				<p className="text-lg leading-snug">{description}</p>
+				{hasSeparator && <Separator />}
+			</AnimatedElement>
+		</Link>
+	);
+};
