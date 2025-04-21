@@ -13,3 +13,10 @@ export const PAGE_URLS = {
 	work: "/work",
 	contact: "/contact",
 };
+
+export const RESUME_URLS = {
+	experience: "/",
+	skills: "/skills",
+	education: "/education",
+	about: "/about",
+};

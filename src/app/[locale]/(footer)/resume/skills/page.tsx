@@ -5,6 +5,7 @@ import {
 	TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { SKILLS } from "@/constants/resume";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 
 export const metadata = constructMetadata({
@@ -14,12 +15,14 @@ export const metadata = constructMetadata({
 });
 
 export default function Skills() {
+	const t = useTranslations("resume.skills");
+
 	return (
 		<section className="flex flex-col gap-8">
 			<header className="flex flex-col gap-8 text-center md:text-left">
-				<h1 className="font-bold text-4xl">{SKILLS.title}</h1>
+				<h1 className="font-bold text-4xl">{t("title")}</h1>
 				<p className="text-muted-foreground max-w-2xl mx-auto md:mx-0">
-					{SKILLS.description}
+					{t("description")}
 				</p>
 			</header>
 			<ul

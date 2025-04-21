@@ -301,6 +301,134 @@
 			}
 		}
 	},
+	"resume": {
+		"tabs": {
+			"experience": "Experience",
+			"skills": "Skills",
+			"education": "Education",
+			"about": "About me"
+		},
+		"experience": {
+			"title": "Experience",
+			"description": "A journey of continuous growth and impactful contributions across diverse technology companies.",
+			"positions": {
+				"heineken": {
+					"position": "Senior Software Developer",
+					"company": "Heineken",
+					"location": "Krakow, Poland",
+					"duration": "Dec 2024 - Present"
+				},
+				"rangle": {
+					"position": "Senior Software Developer",
+					"company": "Rangle.io",
+					"location": "Toronto, ON, Canada",
+					"duration": "Nov 2023 - Dec 2024"
+				},
+				"cgi2": {
+					"position": "Senior Software Developer",
+					"company": "CGI (TSX: GIB.A)",
+					"location": "Toronto, ON, Canada",
+					"duration": "Jan 2023 - Nov 2023"
+				},
+				"cgi1": {
+					"position": "Software Developer",
+					"company": "CGI (TSX: GIB.A)",
+					"location": "Toronto, ON, Canada",
+					"duration": "Aug 2021 - Jan 2023"
+				},
+				"dcm2": {
+					"position": "Software Developer, Frontend",
+					"company": "DCM (TSX: DCM)",
+					"location": "Mississauga, ON, Canada",
+					"duration": "Jan 2021 - Aug 2021"
+				},
+				"dcm1": {
+					"position": "Software Developer, Quadient",
+					"company": "DCM (TSX: DCM)",
+					"location": "Mississauga, ON, Canada",
+					"duration": "Dec 2018 - Jan 2021"
+				}
+			}
+		},
+		"skills": {
+			"title": "My Skills",
+			"description": "A comprehensive toolkit of modern technologies and frameworks that I've mastered to build robust, scalable applications."
+		},
+		"education": {
+			"title": "Education",
+			"description": "A foundation of formal education combined with industry-recognized certifications.",
+			"items": {
+				"aws": {
+					"institution": "AWS",
+					"degree": "AWS Certified Cloud Practitioner",
+					"program": "",
+					"duration": "2023 - 2025"
+				},
+				"wit": {
+					"institution": "WIT Academy, Warsaw, Poland",
+					"degree": "N/A",
+					"program": "Computer Science",
+					"duration": "2008 - 2010"
+				},
+				"ucw": {
+					"institution": "Uczelnia Warszawska, Warsaw, Poland",
+					"program": "Computer Science and Econometrics",
+					"degree": "Bachelor of Engineering",
+					"duration": "2004 - 2008"
+				}
+			}
+		},
+		"about": {
+			"title": "About me",
+			"description": "Experienced Software Developer focused on optimizing system performance and leading teams to deliver scalable, high-quality solutions. I have a strong track record in deploying client applications and driving digital transformation. Skilled in React and TypeScript, I am committed to continuous learning and mentoring junior developers to enhance collaboration and code quality.",
+			"items": {
+				"name": { "label": "Name", "value": "Greg Mozer" },
+				"phone": { "label": "Phone", "value": "+1 (647) 833 8068" },
+				"email": { "label": "Email", "value": "propbono@gmail.com" },
+				"location": { "label": "Location", "value": "Toronto, ON, Canada" },
+				"nationality": { "label": "Nationality", "value": "Canadian, Polish" },
+				"languages": { "label": "Languages", "value": "English, Polish" }
+			}
+		}
+	},
+	"contact": {
+		"title": "Lets <span>chat</span> about everything!",
+		"cta": "Hate forms? Send me an email instead <a>propbono@gmail.com</a>",
+		"form": {
+			"error": {
+				"title": "Houston we have problem...",
+				"message": "There was some problems with sending your message. Please try again later."
+			},
+			"success": {
+				"title": "Your message is on the way!",
+				"message": "Message was successfully sent and it started its journey to our mailbox."
+			},
+			"fields": {
+				"fullName": {
+					"label": "Full name",
+					"placeholder": "John Doe",
+					"ariaLabel": "Full name",
+					"error": "Name must be at least 2 characters"
+				},
+				"email": {
+					"label": "Email",
+					"placeholder": "john.doe@example.com",
+					"ariaLabel": "Email",
+					"error": "Invalid email address"
+				},
+				"message": {
+					"label": "Message",
+					"placeholder": "Your message",
+					"ariaLabel": "Message",
+					"error": "Message must be at least 10 characters"
+				},
+				"submit": {
+					"label": "Send message",
+					"loading": "Sending..."
+				}
+			}
+		}
+	},
 	"footer": {
 		"copyright": "2023 Greg Mozer | All rights reserved"
 	}

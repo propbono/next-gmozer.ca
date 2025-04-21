@@ -1,5 +1,6 @@
 import { constructMetadata } from "@/app/metadata";
 import { ContactForm } from "@/components/contact-form";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 
 export const metadata = constructMetadata({
@@ -9,6 +10,8 @@ export const metadata = constructMetadata({
 });
 
 export default function ContactPage() {
+	const t = useTranslations("contact");
+
 	return (
 		<article className="container flex flex-grow">
 			<div className="w-full">
@@ -22,14 +25,20 @@ export default function ContactPage() {
 								id="contact-heading"
 								className="w-full mb-4 2xl:mb-6 font-logo text-4xl md:text-5xl font-bold leading-relaxed"
 							>
-								Lets <span className="text-primary">chat</span> about
-								everything!
+								{t.rich("title", {
+									span: (chunks) => (
+										<span className="text-primary">{chunks}</span>
+									),
+								})}
 							</h1>
 							<p className="text-muted-foreground mt-8">
-								Hate forms? Send me an email instead{" "}
-								<a href="mailto:propbono@gmail.com" className="underline">
-									propbono@gmail.com
-								</a>
+								{t.rich("cta", {
+									a: (chunks) => (
+										<a href={`mailto:${chunks}`} className="underline">
+											{chunks}
+										</a>
+									),
+								})}
 							</p>
 						</div>
 						<figure className="relative w-full flex-grow max-h-[400px] mt-4 rounded-ss-2xl">
@@ -43,7 +52,7 @@ export default function ContactPage() {
 							/>
 						</figure>
 					</section>
-					<section aria-label="Contact form">
+					<section aria-labelledby="contact-form">
 						<ContactForm />
 					</section>
 				</div>

@@ -47,7 +47,7 @@ export default async function Home() {
 				aria-labelledby="hero-heading"
 			>
 				<div className="max-w-2xl order-2 md:order-none">
-					<p className="text-xl mb-2 2xl:mb-4">Senior Software Developer</p>
+					<p className="text-xl mb-2 2xl:mb-4">{t("hero.position")}</p>
 					<h2 className="w-full mb-4 2xl:mb-6 font-logo text-4xl md:text-5xl font-bold leading-relaxed md:leading-snug text-foreground">
 						{t.rich("hero.title", {
 							span: (chunks) => <span className="text-primary">{chunks}</span>,

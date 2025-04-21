@@ -14,15 +14,16 @@
 - [x] Add i18n - Services
 - [x] Improve each detailed service page
 - [x] fix posthog rewrites
+- [x] Add i18n - Resume
+- [x] Add i18n - Contact
 - [ ] Add i18n - Work
-- [ ] Add i18n - Contact
-- [ ] Add i18n - Resume
 - [ ] translate metadata as well
 - [ ] Add langauge switcher
 - [ ] Add i18n - Polish translations
 - [ ] Deploy to Prod
 
 - [ ] Add Convex DB to manage projects
+- [ ] change skills to something else like tools or toolset
 - [ ] Add more projects and check
 - [ ] Add custom logo fonts for headers
 - [ ] Add better email template

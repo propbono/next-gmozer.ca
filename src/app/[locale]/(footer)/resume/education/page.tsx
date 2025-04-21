@@ -7,7 +7,8 @@ import {
 	CardHeader,
 } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { EDUCATION } from "@/constants/resume";
+import { useTranslations } from "next-intl";
+import { useMemo } from "react";
 
 export const metadata = constructMetadata({
 	title: "Education & Qualifications | Greg Mozer",
@@ -16,12 +17,37 @@ export const metadata = constructMetadata({
 });
 
 export default function Education() {
+	const t = useTranslations("resume.education");
+
+	const educationItems = useMemo(() => {
+		return [
+			{
+				degree: t("items.aws.degree"),
+				institution: t("items.aws.institution"),
+				program: t("items.aws.program"),
+				duration: t("items.aws.duration"),
+			},
+			{
+				degree: t("items.wit.degree"),
+				institution: t("items.wit.institution"),
+				program: t("items.wit.program"),
+				duration: t("items.wit.duration"),
+			},
+			{
+				degree: t("items.ucw.degree"),
+				institution: t("items.ucw.institution"),
+				program: t("items.ucw.program"),
+				duration: t("items.ucw.duration"),
+			},
+		];
+	}, [t]);
+
 	return (
 		<section className="flex flex-col gap-8">
 			<header className="flex flex-col gap-8 text-center md:text-left">
-				<h1 className="text-4xl font-bold">{EDUCATION.title}</h1>
+				<h1 className="text-4xl font-bold">{t("title")}</h1>
 				<p className="max-w-xl mx-auto md:mx-0 text-muted-foreground">
-					{EDUCATION.description}
+					{t("description")}
 				</p>
 			</header>
 			<ScrollArea className="h-[400px] 2xl:h-[600px]">
@@ -29,7 +55,7 @@ export default function Education() {
 					className="grid grid-cols-1 gap-8 md:grid-cols-2"
 					aria-label="Education timeline"
 				>
-					{EDUCATION.items.map((item, index) => (
+					{educationItems.map((item, index) => (
 						<AnimatedElement index={index} key={`${item.institution}-${index}`}>
 							<Card>
 								<CardHeader>
