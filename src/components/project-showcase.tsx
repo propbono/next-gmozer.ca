@@ -95,7 +95,7 @@ export function ProjectShowcase() {
 				<Card className="w-full sm:w-[672px] h-[600px] z-10 shadow-lg shadow-white/75">
 					<CardContent className="h-full flex flex-col p-6">
 						<div className="flex-shrink-0">
-							<span className="text-8xl leading-none font-extrabold text-transparent text-outline mb-8 block">
+							<span className="text-8xl leading-none font-extrabold text-primary mb-8 block">
 								{(currentProjectIndex + 1).toString().padStart(2, "0")}
 							</span>
 							<h1

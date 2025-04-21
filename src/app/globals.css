@@ -68,14 +68,6 @@
 		@apply border-border;
 	}
 	body {
-		@apply bg-slate-100 text-foreground;
-	}
-
-	.text-outline {
-		-webkit-text-stroke: 1px var(--card-foreground);
-	}
-
-	.text-outline-hover {
-		-webkit-text-stroke: 1px var(--primary);
+		@apply bg-background text-foreground;
 	}
 }
