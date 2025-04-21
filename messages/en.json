@@ -262,7 +262,6 @@
 				}
 			}
 		},
-
 		"mobileAppDevelopment": {
 			"title": "Mobile App Development",
 			"description": "Developing native and cross-platform mobile applications that provide seamless user experiences across all devices.",
@@ -388,6 +387,89 @@
 				"location": { "label": "Location", "value": "Toronto, ON, Canada" },
 				"nationality": { "label": "Nationality", "value": "Canadian, Polish" },
 				"languages": { "label": "Languages", "value": "English, Polish" }
+			}
+		}
+	},
+	"work": {
+		"card-footer": {
+			"live": "Live Project",
+			"github": "GitHub Repository",
+			"next": "Next Project",
+			"previous": "Previous Project"
+		},
+		"projects": {
+			"project1": {
+				"title": "Farah Freight Group",
+				"category": "Frontend",
+				"description": "Company website for Farah Freight Group. Single Page Application created using NextJS and Nodemailer for sending emails.",
+				"liveLink": "https://farahfg.com/",
+				"githubLink": "https://github.com/propbono/farahfg.com",
+				"stack": [
+					"NextJS",
+					"React",
+					"TypeScript",
+					"TailwindCSS",
+					"Vercel",
+					"Nodemailer"
+				],
+				"image": "/work/farah-freight.avif"
+			},
+			"project2": {
+				"title": "Gemprint",
+				"category": "Full stack",
+				"description": "Company website for Gemprint. Single Page Application created using NextJS and NextAuth. Currently working on adding Dashboard to manage print orders.",
+				"liveLink": "https://gemprint.ca/",
+				"githubLink": "https://github.com/propbono/gemprint.ca",
+				"stack": [
+					"Next.js",
+					"TypeScript",
+					"Tailwind CSS",
+					"Prisma",
+					"Vercel",
+					"Resend"
+				],
+				"image": "/work/gemprint.avif"
+			},
+			"project3": {
+				"title": "Greg Mozer / Propbono (New)",
+				"category": "Full stack",
+				"description": "Propbono portfolio website presenting some of the projects that I worked on.",
+				"liveLink": "https://gmozer.ca/",
+				"githubLink": "https://github.com/propbono/next-gmozer.ca",
+				"stack": [
+					"Next.js",
+					"TypeScript",
+					"Tailwind CSS",
+					"FramerMotion",
+					"Vercel"
+				],
+				"image": "/work/gmozer-new.avif"
+			},
+			"project4": {
+				"title": "Wizzcode Music App",
+				"category": "Frontend",
+				"description": "Sample music app to test React Query hooks and write some cool tests in Vitest. It communicates with Itunes API and pull some albums using React Query.",
+				"liveLink": "https://wizcode-music.vercel.app/",
+				"githubLink": "https://github.com/propbono/wizcode-music",
+				"stack": ["React.js", "TypeScript", "Tailwind CSS", "Vite", "Vercel"],
+				"image": "/work/wizcode.avif"
+			},
+			"project5": {
+				"title": "Propbono (Greg Mozer - Old)",
+				"category": "Frontend",
+				"description": "Propbono portfolio website presenting some of the projects that I worked on. Written in RemixJS.",
+				"liveLink": "https://gmozerca-old.vercel.app/",
+				"githubLink": "https://github.com/propbono/portfolio",
+				"stack": ["Remix.js", "TypeScript", "Tailwind CSS", "Vite", "Vercel"],
+				"image": "/work/gmozer-old.avif"
+			},
+			"project6": {
+				"title": "SWM Interview 2024",
+				"category": "Algorithm",
+				"description": "Interview task is composed from two parts, coding exercise and an essay. Below you can see the information about programming task. Write a function that receives two sequences: A and B of integers and returns one sequence C. Sequence C should contain all elements from sequence A (maintaining the order) except those, that are present in sequence B p times, where p is a prime number.",
+				"githubLink": "https://github.com/propbono/swm-interview-2024",
+				"stack": ["TypeScript"],
+				"image": "/work/swm.avif"
 			}
 		}
 	},

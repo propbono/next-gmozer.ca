@@ -16,7 +16,7 @@
 - [x] fix posthog rewrites
 - [x] Add i18n - Resume
 - [x] Add i18n - Contact
-- [ ] Add i18n - Work
+- [x] Add i18n - Work
 - [ ] translate metadata as well
 - [ ] Add langauge switcher
 - [ ] Add i18n - Polish translations

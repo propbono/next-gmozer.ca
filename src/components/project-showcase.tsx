@@ -13,8 +13,11 @@ import {
 	TooltipContent,
 	TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { PROJECTS } from "@/constants/work";
 import { useElementSize } from "@/hooks/use-element-size";
+import { isStringArray } from "@/lib/utils";
+import type { Project } from "@/types/work";
+
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useState } from "react";
@@ -24,6 +27,7 @@ import {
 	RiArrowRightSLine,
 	RiGithubLine,
 } from "react-icons/ri";
+
 import { Card, CardContent } from "./ui/card";
 
 export function ProjectShowcase() {
@@ -32,10 +36,42 @@ export function ProjectShowcase() {
 	const [count, setCount] = useState(0);
 	const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
 	const [ref, { width, height }] = useElementSize();
+	const t = useTranslations("work");
+
+	const projectKeys = [
+		"project1",
+		"project2",
+		"project3",
+		"project4",
+		"project5",
+		"project6",
+	] as const;
+
+	const projects: Project[] = useMemo(() => {
+		return projectKeys.map((key) => {
+			return {
+				title: t(`projects.${key}.title`),
+				category: t(`projects.${key}.category`),
+				description: t(`projects.${key}.description`),
+				liveLink: t.has(`projects.${key}.liveLink`)
+					? t(`projects.${key}.liveLink`)
+					: undefined,
+				githubLink: t(`projects.${key}.githubLink`),
+				stack:
+					t.has(`projects.${key}.stack`) &&
+					isStringArray(t.raw(`projects.${key}.stack`))
+						? t.raw(`projects.${key}.stack`)
+						: [],
+				image: t.has(`projects.${key}.image`)
+					? t(`projects.${key}.image`)
+					: undefined,
+			};
+		});
+	}, [t, projectKeys]);
 
 	const currentProject = useMemo(
-		() => PROJECTS[currentProjectIndex],
-		[currentProjectIndex],
+		() => projects[currentProjectIndex],
+		[currentProjectIndex, projects],
 	);
 
 	useEffect(() => {
@@ -71,23 +107,27 @@ export function ProjectShowcase() {
 			>
 				<Carousel setApi={setApi} className="h-full">
 					<CarouselContent className="h-full">
-						{PROJECTS.map((item, index) => (
-							<CarouselItem key={item.title} className="h-full">
-								<div
-									className="relative w-full h-full"
-									style={{ height: `${height}px` }}
-								>
-									<Image
-										src={item.image}
-										alt={item.title}
-										fill
-										className="object-cover md:rounded-s-lg"
-										sizes="(max-width: 1024px) 100vw, 50vw"
-										priority={index === 0}
-									/>
-								</div>
-							</CarouselItem>
-						))}
+						{projects?.length > 0 &&
+							projects.map((item, index) => (
+								<CarouselItem key={item.title} className="h-full">
+									<div
+										className="relative w-full h-full"
+										style={{ height: `${height}px` }}
+									>
+										{/* TODO: if no image display placeholder image */}
+										{item.image && (
+											<Image
+												src={item.image}
+												alt={item.title}
+												fill
+												className="object-cover md:rounded-s-lg"
+												sizes="(max-width: 1024px) 100vw, 50vw"
+												priority={index === 0}
+											/>
+										)}
+									</div>
+								</CarouselItem>
+							))}
 					</CarouselContent>
 				</Carousel>
 			</div>
@@ -105,7 +145,7 @@ export function ProjectShowcase() {
 								{currentProject.title}
 							</h1>
 							<h2 className="leading-none font-medium text-2x mb-4">
-								{currentProject.category} Project
+								{currentProject.category}
 							</h2>
 						</div>
 
@@ -136,10 +176,10 @@ export function ProjectShowcase() {
 												<TooltipTrigger className="size-16 rounded-full border border-card-foreground flex justify-center items-center group hover:border-primary hover:border-2 hover:border-dashed hover:transition-all hover:duration-100">
 													<RiArrowRightDownLine className="text-3xl text-card-foreground group-hover:text-primary group-hover:-rotate-45 transition-all duration-500" />
 													<span className="sr-only">
-														{currentProject.title} - Live Project
+														{currentProject.title} - {t("card-footer.live")}
 													</span>
 												</TooltipTrigger>
-												<TooltipContent>Live Project</TooltipContent>
+												<TooltipContent>{t("card-footer.live")}</TooltipContent>
 											</Tooltip>
 										</Link>
 									)}
@@ -149,10 +189,12 @@ export function ProjectShowcase() {
 												<TooltipTrigger className="size-16 rounded-full border border-card-foreground flex justify-center items-center group hover:border-primary hover:border-2 hover:border-dashed hover:transition-all hover:duration-100">
 													<RiGithubLine className="text-3xl text-card-foreground group-hover:text-primary transition-all duration-500" />
 													<span className="sr-only">
-														{currentProject.title} - Github Repository
+														{currentProject.title} - {t("card-footer.github")}
 													</span>
 												</TooltipTrigger>
-												<TooltipContent>Github Repository</TooltipContent>
+												<TooltipContent>
+													{t("card-footer.github")}
+												</TooltipContent>
 											</Tooltip>
 										</Link>
 									)}
@@ -167,10 +209,12 @@ export function ProjectShowcase() {
 												className="size-16 rounded-full border border-card-foreground flex justify-center items-center group hover:bg-white hover:border-primary hover:border-2 hover:border-dashed hover:transition-all hover:duration-100"
 											>
 												<RiArrowLeftSLine className="text-3xl text-card-foreground group-hover:text-primary transition-all duration-500" />
-												<span className="sr-only">Previous Project</span>
+												<span className="sr-only">
+													{t("card-footer.previous")}
+												</span>
 											</Button>
 										</TooltipTrigger>
-										<TooltipContent>Previous Project</TooltipContent>
+										<TooltipContent>{t("card-footer.previous")}</TooltipContent>
 									</Tooltip>
 									<Tooltip>
 										<TooltipTrigger asChild>
@@ -181,10 +225,10 @@ export function ProjectShowcase() {
 												className="size-16 rounded-full border border-card-foreground flex justify-center items-center group hover:bg-white hover:border-primary hover:border-2 hover:border-dashed hover:transition-all hover:duration-100"
 											>
 												<RiArrowRightSLine className="text-3xl text-card-foreground group-hover:text-primary transition-all duration-500" />
-												<span className="sr-only">Next Project</span>
+												<span className="sr-only">{t("card-footer.next")}</span>
 											</Button>
 										</TooltipTrigger>
-										<TooltipContent>Next Project</TooltipContent>
+										<TooltipContent>{t("card-footer.next")}</TooltipContent>
 									</Tooltip>
 								</div>
 							</div>
