@@ -1,7 +1,6 @@
 import { constructMetadata } from "@/app/metadata";
 import { AnimatedElement } from "@/components/animated-element/animated-element";
 import { Separator } from "@/components/ui/separator";
-import { PAGE_URLS, SERVICE_URLS } from "@/constants/urls";
 
 import { useTranslations } from "next-intl";
 import Link from "next/link";
@@ -15,6 +14,8 @@ export const metadata = constructMetadata({
 
 export default function Services() {
 	const t = useTranslations("services");
+	const nav = useTranslations("navigation.services.children");
+
 	return (
 		<article className="container">
 			<div
@@ -23,33 +24,33 @@ export default function Services() {
 			>
 				<ServiceCard
 					index={1}
-					url={`${PAGE_URLS.services}${SERVICE_URLS.webDevelopment}`}
+					url={nav("web-development.url")}
 					title={t("webDevelopment.title")}
 					description={t("webDevelopment.description")}
 				/>
 
 				<ServiceCard
 					index={2}
-					url={`${PAGE_URLS.services}${SERVICE_URLS.uiUxDesign}`}
+					url={nav("ui-ux-design.url")}
 					title={t("uiUxDesign.title")}
 					description={t("uiUxDesign.description")}
 				/>
 
 				<ServiceCard
 					index={3}
-					url={`${PAGE_URLS.services}${SERVICE_URLS.logoDesign}`}
+					url={nav("logo-design.url")}
 					title={t("logoDesign.title")}
 					description={t("logoDesign.description")}
 				/>
 				<ServiceCard
 					index={4}
-					url={`${PAGE_URLS.services}${SERVICE_URLS.seoOptimization}`}
+					url={nav("seo-optimization.url")}
 					title={t("seoOptimization.title")}
 					description={t("seoOptimization.description")}
 				/>
 				<ServiceCard
 					index={5}
-					url={`${PAGE_URLS.services}${SERVICE_URLS.mobileAppDevelopment}`}
+					url={nav("mobile-development.url")}
 					title={t("mobileAppDevelopment.title")}
 					description={t("mobileAppDevelopment.description")}
 					hasSeparator={false}

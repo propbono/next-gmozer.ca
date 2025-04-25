@@ -8,13 +8,13 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 
-import { PAGE_URLS } from "@/constants/urls";
 import { DesktopNav } from "../desktop-nav";
 import { MobileNav } from "../mobile-nav";
 import { ThemeSwitch } from "../theme-switch";
 
 export const Header = () => {
-	const t = useTranslations("header");
+	const header = useTranslations("header");
+	const nav = useTranslations("navigation");
 
 	const pathname = usePathname();
 	const isMediumBreakpoint = useMediaQuery("(min-width:768px)");
@@ -34,27 +34,27 @@ export const Header = () => {
 	const navItems: NavItem[] = useMemo(() => {
 		return [
 			{
-				name: t("nav.home"),
-				href: PAGE_URLS.home,
+				name: nav("home.default.title"),
+				href: nav("home.default.url"),
 			},
 			{
-				name: t("nav.services"),
-				href: PAGE_URLS.services,
+				name: nav("services.default.title"),
+				href: nav("services.default.url"),
 			},
 			{
-				name: t("nav.resume"),
-				href: PAGE_URLS.resume,
+				name: nav("resume.default.title"),
+				href: nav("resume.default.url"),
 			},
 			{
-				name: t("nav.work"),
-				href: PAGE_URLS.work,
+				name: nav("work.default.title"),
+				href: nav("work.default.url"),
 			},
 			{
-				name: t("nav.contact"),
-				href: PAGE_URLS.contact,
+				name: nav("contact.default.title"),
+				href: nav("contact.default.url"),
 			},
 		];
-	}, [t]);
+	}, [nav]);
 
 	const memoizedDesktopNav = useMemo(
 		() => <DesktopNav items={navItems} pathname={pathname} />,
@@ -76,11 +76,12 @@ export const Header = () => {
 			)}
 		>
 			<div className="container mx-auto flex items-center justify-between">
-				<Link href="/">
-					<span className="group text-foreground hover:text-primary text-2xl font-bold">
-						{t("name")}
-						<span className="text-primary group-hover:text-foreground">.</span>
-					</span>
+				<Link
+					href="/"
+					className="group text-foreground hover:text-primary text-2xl font-bold"
+				>
+					{header("name")}
+					<span className="text-primary group-hover:text-foreground">.</span>
 				</Link>
 				<div className="flex flex-row-reverse sm:flex-row items-center gap-4">
 					{isMediumBreakpoint ? memoizedDesktopNav : memoizedMobileNav}

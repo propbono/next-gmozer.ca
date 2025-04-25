@@ -1,6 +1,5 @@
 "use client";
 
-import { PAGE_URLS, RESUME_URLS } from "@/constants/urls";
 import { cn } from "@/lib/utils";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
@@ -13,7 +12,7 @@ export default function ResumeLayout({
 	children: ReactNode;
 }>) {
 	const pathname = usePathname();
-	const t = useTranslations("resume.tabs");
+	const resume = useTranslations("navigation.resume.children");
 
 	return (
 		<article className="container">
@@ -24,21 +23,21 @@ export default function ResumeLayout({
 				>
 					{[
 						{
-							label: t("experience"),
-							url: `${PAGE_URLS.resume}${RESUME_URLS.experience}`,
+							label: resume("experience.title"),
+							url: resume("experience.url"),
 						},
 
 						{
-							label: t("skills"),
-							url: `${PAGE_URLS.resume}${RESUME_URLS.skills}`,
+							label: resume("skills.title"),
+							url: resume("skills.url"),
 						},
 						{
-							label: t("education"),
-							url: `${PAGE_URLS.resume}${RESUME_URLS.education}`,
+							label: resume("education.title"),
+							url: resume("education.url"),
 						},
 						{
-							label: t("about"),
-							url: `${PAGE_URLS.resume}${RESUME_URLS.about}`,
+							label: resume("about.title"),
+							url: resume("about.url"),
 						},
 					].map((tab) => (
 						<Link

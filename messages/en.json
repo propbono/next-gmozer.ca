@@ -1,13 +1,6 @@
 {
 	"header": {
 		"name": "Greg Mozer",
-		"nav": {
-			"home": "Home",
-			"services": "Services",
-			"resume": "Resume",
-			"work": "Work",
-			"contact": "Contact me"
-		},
 		"mobileMenu": {
 			"title": "Menu",
 			"description": "Select a page to navigate to",
@@ -16,6 +9,47 @@
 		"themeSwitch": {
 			"toggle": "Toggle theme"
 		}
+	},
+	"navigation": {
+		"home": {
+			"default": { "title": "Home", "url": "/" }
+		},
+		"services": {
+			"default": { "title": "Services", "url": "/services" },
+			"children": {
+				"web-development": {
+					"title": "Web Development",
+					"url": "/services/web-development"
+				},
+				"mobile-development": {
+					"title": "Mobile Development",
+					"url": "/services/mobile-development"
+				},
+				"ui-ux-design": {
+					"title": "UI/UX Design",
+					"url": "/services/ui-ux-design"
+				},
+				"seo-optimization": {
+					"title": "SEO Optimization",
+					"url": "/services/seo-optimization"
+				},
+				"logo-design": {
+					"title": "Logo Design",
+					"url": "/services/logo-design"
+				}
+			}
+		},
+		"resume": {
+			"default": { "title": "Resume", "url": "/resume" },
+			"children": {
+				"experience": { "title": "Experience", "url": "/resume/" },
+				"education": { "title": "Education", "url": "/resume/education" },
+				"skills": { "title": "Skills", "url": "/resume/skills" },
+				"about": { "title": "About me", "url": "/resume/about" }
+			}
+		},
+		"work": { "default": { "title": "Work", "url": "/work" } },
+		"contact": { "default": { "title": "Contact me", "url": "/contact" } }
 	},
 	"home": {
 		"hero": {
@@ -301,12 +335,6 @@
 		}
 	},
 	"resume": {
-		"tabs": {
-			"experience": "Experience",
-			"skills": "Skills",
-			"education": "Education",
-			"about": "About me"
-		},
 		"experience": {
 			"title": "Experience",
 			"description": "A journey of continuous growth and impactful contributions across diverse technology companies.",

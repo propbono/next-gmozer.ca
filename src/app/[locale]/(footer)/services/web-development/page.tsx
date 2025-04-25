@@ -4,7 +4,6 @@ import { CallToActionCard } from "@/components/call-to-action-card";
 import { CheckCircleWithText } from "@/components/check-circle-with-text";
 import { NumberItem } from "@/components/number-item";
 import { ServiceCard } from "@/components/service-card";
-import { PAGE_URLS } from "@/constants/urls";
 import { useTranslations } from "next-intl";
 import {
 	LuCircleCheck,
@@ -22,6 +21,7 @@ export const metadata = constructMetadata({
 
 export default function WebDevelopment() {
 	const t = useTranslations("services.webDevelopment.content");
+	const nav = useTranslations("navigation");
 
 	return (
 		<article className="container">
@@ -120,7 +120,7 @@ export default function WebDevelopment() {
 					<CallToActionCard
 						ctaTitle={t("cta.title")}
 						ctaDescription={t("cta.description")}
-						ctaUrl={PAGE_URLS.contact}
+						ctaUrl={nav("contact.default.url")}
 						ctaUrlText={t("cta.button")}
 					/>
 				</section>
