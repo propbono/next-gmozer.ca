@@ -17,10 +17,10 @@
 - [x] Add i18n - Resume
 - [x] Add i18n - Contact
 - [x] Add i18n - Work
-- [ ] translate metadata as well
-- [ ] Add langauge switcher
-- [ ] Add i18n - Polish translations
-- [ ] Deploy to Prod
+- [x] translate metadata as well
+- [x] Add langauge switcher
+- [x] Add i18n - Polish translations
+- [x] Deploy to Prod
 
 - [ ] Add Convex DB to manage projects
 - [ ] change skills to something else like tools or toolset
