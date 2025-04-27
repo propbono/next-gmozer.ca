@@ -1,6 +1,9 @@
 import { sendEmail } from "@/actions/contact";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { NextIntlClientProvider } from "next-intl";
+import type { ReactNode } from "react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
+import messages from "../../messages/en.json";
 import { ContactForm } from "./contact-form";
 
 // Set environment variables
@@ -21,13 +24,21 @@ vi.mock("@/hooks/use-toast", () => ({
 	}),
 }));
 
+const renderWithTranslations = (children: ReactNode) => {
+	render(
+		<NextIntlClientProvider locale="en" messages={messages}>
+			{children}
+		</NextIntlClientProvider>,
+	);
+};
+
 describe("ContactForm", () => {
 	beforeEach(() => {
 		vi.clearAllMocks();
 	});
 
 	it("renders all form fields", () => {
-		render(<ContactForm />);
+		renderWithTranslations(<ContactForm />);
 
 		expect(screen.getByText(/full name/i)).toBeInTheDocument();
 		expect(screen.getByText(/email/i)).toBeInTheDocument();
@@ -45,7 +56,7 @@ describe("ContactForm", () => {
 	});
 
 	it("displays validation errors for empty fields", async () => {
-		render(<ContactForm />);
+		renderWithTranslations(<ContactForm />);
 
 		fireEvent.click(screen.getByRole("button", { name: /send message/i }));
 
@@ -64,7 +75,7 @@ describe("ContactForm", () => {
 		const mockSendEmail = vi.mocked(sendEmail);
 		mockSendEmail.mockResolvedValue({ success: true, error: null });
 
-		render(<ContactForm />);
+		renderWithTranslations(<ContactForm />);
 
 		fireEvent.change(screen.getByRole("textbox", { name: /full name/i }), {
 			target: { value: "John Doe" },
@@ -89,7 +100,7 @@ describe("ContactForm", () => {
 		const mockSendEmail = vi.mocked(sendEmail);
 		mockSendEmail.mockResolvedValue({ success: true, error: null });
 
-		render(<ContactForm />);
+		renderWithTranslations(<ContactForm />);
 
 		fireEvent.change(screen.getByRole("textbox", { name: /full name/i }), {
 			target: { value: "John Doe" },
@@ -122,7 +133,7 @@ describe("ContactForm", () => {
 			error: "Failed to send email",
 		});
 
-		render(<ContactForm />);
+		renderWithTranslations(<ContactForm />);
 
 		fireEvent.change(screen.getByRole("textbox", { name: /full name/i }), {
 			target: { value: "John Doe" },

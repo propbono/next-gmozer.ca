@@ -5,7 +5,7 @@ import { contactFormSchema } from "@/schemas/contact";
 import type { ReactElement } from "react";
 import { Resend } from "resend";
 
-export async function sendEmail(formData: FormData) {
+export const sendEmail = async (formData: FormData) => {
 	const resend = new Resend(process.env.RESEND_API_KEY);
 
 	const validatedFields = contactFormSchema.safeParse({
@@ -54,4 +54,4 @@ export async function sendEmail(formData: FormData) {
 			success: false,
 		};
 	}
-}
+};

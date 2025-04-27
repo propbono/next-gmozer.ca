@@ -1,5 +1,5 @@
-import { sendEmail } from "@/actions/contact";
 import { beforeEach, describe, expect, it, vi } from "vitest";
+import { sendEmail } from "./contact";
 
 const mockSend = vi.fn();
 
