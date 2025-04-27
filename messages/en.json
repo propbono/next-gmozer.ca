@@ -1,0 +1,650 @@
+{
+	"header": {
+		"name": "Greg Mozer",
+		"mobileMenu": {
+			"title": "Menu",
+			"description": "Select a page to navigate to",
+			"open": "Open navigation"
+		},
+		"themeSwitch": {
+			"toggle": "Toggle theme"
+		}
+	},
+	"navigation": {
+		"home": {
+			"default": { "title": "Home", "url": "/" }
+		},
+		"services": {
+			"default": { "title": "Services", "url": "/services" },
+			"children": {
+				"web-development": {
+					"title": "Web Development",
+					"url": "/services/web-development"
+				},
+				"mobile-development": {
+					"title": "Mobile Development",
+					"url": "/services/mobile-development"
+				},
+				"ui-ux-design": {
+					"title": "UI/UX Design",
+					"url": "/services/ui-ux-design"
+				},
+				"seo-optimization": {
+					"title": "SEO Optimization",
+					"url": "/services/seo-optimization"
+				},
+				"logo-design": {
+					"title": "Logo Design",
+					"url": "/services/logo-design"
+				}
+			}
+		},
+		"resume": {
+			"default": { "title": "Resume", "url": "/resume" },
+			"children": {
+				"experience": { "title": "Experience", "url": "/resume/" },
+				"education": { "title": "Education", "url": "/resume/education" },
+				"skills": { "title": "Skills", "url": "/resume/skills" },
+				"about": { "title": "About me", "url": "/resume/about" }
+			}
+		},
+		"work": { "default": { "title": "Work", "url": "/work" } },
+		"contact": { "default": { "title": "Contact me", "url": "/contact" } }
+	},
+	"home": {
+		"hero": {
+			"position": "Senior Software Engineer",
+			"title": "Making the Web a <span>More Beautiful Place</span>, One Site at a Time.",
+			"description": "Frontend developer turning ideas into innovative web apps with React. Check out my latest projects for examples of my expertise in web development and see how I can help bring your ideas to life.",
+			"downloadResume": "Download Resume"
+		},
+		"stats": {
+			"srTitle": "Professional Statistics",
+			"yearsExperience": "Years of experience",
+			"projectsCompleted": "Projects completed",
+			"technologiesUsed": "Technologies mastered",
+			"commits": "Commits made"
+		}
+	},
+	"services": {
+		"srTitle": "List of services",
+		"webDevelopment": {
+			"title": "Web Development",
+			"description": "Creating stunning and responsive websites that provide an exceptional user experience. I specialize in building custom web applications using the latest technologies.",
+			"content": {
+				"title": "Web Development Services",
+				"offerings": {
+					"title": "What We Offer",
+					"description": "Comprehensive web development solutions using cutting-edge technologies and frameworks. We specialize in building:",
+					"point1": {
+						"title": "Single Page Applications",
+						"description": "SPAs using React and Next.js for seamless user experiences"
+					},
+					"point2": {
+						"title": "Full-stack Applications",
+						"description": "Robust backend integration with modern frontend technologies"
+					},
+					"point3": {
+						"title": "Progressive Web Apps",
+						"description": "PWAs for enhanced mobile experience with offline capabilities"
+					},
+					"point4": {
+						"title": "Custom API Development",
+						"description": "Tailored API solutions with seamless integration"
+					},
+					"point5": {
+						"title": "E-commerce Platforms",
+						"description": "Secure payment gateways and shopping experiences"
+					},
+					"point6": {
+						"title": "Content Management",
+						"description": "CMS solutions for easy content updates and management"
+					},
+					"point7": "Responsive web design for optimal viewing on all devices",
+					"point8": "Performance optimization for faster load times",
+					"point9": "Security best practices to protect user data"
+				},
+				"process": {
+					"title": "Our Process",
+					"description": "We follow a structured approach to ensure the successful delivery of your project. Our process includes:",
+					"point1": {
+						"title": "Discovery and Requirement Gathering",
+						"description": "We begin by understanding your business goals, target audience, and project requirements. This phase involves brainstorming sessions, user research, and documentation."
+					},
+					"point2": {
+						"title": "Design and Prototyping",
+						"description": "We create wireframes and prototypes to visualize the user interface and user experience. This phase includes feedback loops to ensure alignment with your vision."
+					},
+					"point3": {
+						"title": "Development",
+						"description": "Our development team builds the application using the latest technologies. We follow best practices for coding, version control, and testing."
+					},
+					"point4": {
+						"title": "Testing and Quality Assurance",
+						"description": "We conduct thorough testing to identify and fix any bugs or issues. This includes functional testing, performance testing, and security testing."
+					},
+					"point5": {
+						"title": "Deployment and Launch",
+						"description": "We deploy the application to a production environment and conduct a launch event. This includes user training and support documentation."
+					}
+				},
+				"cta": {
+					"title": "Ready to start your project?",
+					"description": "Let's discuss how we can help bring your vision to life.",
+					"button": "Get in Touch"
+				},
+				"technologies": {
+					"title": "Technologies We Use",
+					"description": "We leverage a wide range of technologies to build robust and scalable web applications. Our tech stack includes:",
+					"point1": {
+						"title": "Frontend",
+						"description": "React, Next.js, HTML5, CSS3, JavaScript (ES6+), TypeScript"
+					},
+					"point2": {
+						"title": "Backend",
+						"description": "Node.js, Express.js, MongoDB, PostgreSQL"
+					},
+					"point3": {
+						"title": "DevOps",
+						"description": "Docker, Vercel, AWS, CI/CD pipelines"
+					},
+					"point4": {
+						"title": "Testing & Version Control",
+						"description": "Jest, Vitest, Playwright, Cypress, Git, GitHub"
+					}
+				}
+			}
+		},
+		"uiUxDesign": {
+			"title": "UI/UX Design",
+			"description": "Crafting intuitive and engaging user interfaces that deliver exceptional user experiences while maintaining accessibility standards.",
+			"content": {
+				"title": "UI/UX Design Services",
+				"philosophy": {
+					"title": "Our Design Philosophy",
+					"description": "Creating intuitive, user-centered designs that balance aesthetics with functionality. We focus on:",
+					"point1": {
+						"title": "User-centered design principles",
+						"description": "Creating interfaces that prioritize user needs, behaviors, and feedback throughout the design process"
+					},
+					"point2": {
+						"title": "Accessibility standards (WCAG compliance)",
+						"description": "Ensuring digital content is accessible to all users by following WCAG guidelines for contrast, navigation, and screen reader compatibility"
+					},
+					"point3": {
+						"title": "Responsive design for all devices",
+						"description": "Developing fluid layouts that adapt seamlessly across desktop, tablet, and mobile devices for consistent user experience"
+					},
+					"point4": {
+						"title": "Modern design trends and patterns",
+						"description": "Incorporating contemporary design elements while maintaining intuitive navigation and familiar interaction patterns"
+					},
+					"point5": {
+						"title": "Brand consistency",
+						"description": "Maintaining cohesive visual identity through consistent use of colors, typography, and design elements across all touchpoints"
+					}
+				},
+				"process": {
+					"title": "Design Process",
+					"description": "We follow a structured design process to ensure the successful delivery of your project. Our process includes:",
+					"point1": {
+						"title": "Research & Discovery",
+						"description": "User research, competitor analysis, and requirement gathering. This phase involves brainstorming sessions, user personas, and documentation."
+					},
+					"point2": {
+						"title": "Wireframing",
+						"description": "Low-fidelity designs and user flow mapping. This phase involves creating a visual representation of the information architecture and user interactions."
+					},
+					"point3": {
+						"title": "Visual Design",
+						"description": "High-fidelity designs with brand integration and attention to visual hierarchy and aesthetics."
+					},
+					"point4": {
+						"title": "Prototyping & Testing",
+						"description": "Interactive prototypes and user testing. This phase involves creating interactive prototypes and conducting user testing to gather feedback and make necessary refinements."
+					}
+				},
+				"tools": {
+					"title": "Design Tools",
+					"description": "We use a range of design tools to create visually stunning and user-friendly interfaces. Our tools include:",
+					"point1": {
+						"title": "UI/UX Design & Prototyping",
+						"description": "Figma for design and prototyping"
+					},
+					"point2": {
+						"title": "Image Manipulation",
+						"description": "Adobe Photoshop for image editing"
+					},
+					"point3": {
+						"title": "Logo & Icon Design",
+						"description": "Adobe Illustrator for vector graphics"
+					}
+				}
+			}
+		},
+		"logoDesign": {
+			"title": "Logo Design",
+			"description": "Creating distinctive and memorable brand identities that resonate with target audiences and stand the test of time.",
+			"content": {
+				"title": "Logo Design Services",
+				"brand-identity": {
+					"title": "Brand Identity Creation",
+					"description": "Creating distinctive visual identities that capture your brand's essence. Our logo design includes:",
+					"point1": "Custom vector graphics for scalability and versatility",
+					"point2": "Brand guidelines documentation for consistent application",
+					"point3": "Color palette selection for brand recognition and emotional impact",
+					"point4": "Typography selection for brand voice and personality",
+					"point5": "Logo variations for different applications (horizontal, vertical, icon-only)",
+					"point6": "Multiple format deliverables (AI, EPS, SVG, PNG, JPG, PDF)"
+				},
+				"process": {
+					"title": "Design Process",
+					"description": "We follow a structured design process to ensure the successful delivery of your project. Our process includes:",
+					"point1": {
+						"title": "Brand Discovery",
+						"description": "Understanding your brand values, target audience, and market positioning."
+					},
+					"point2": {
+						"title": "Concept Development",
+						"description": "Creating multiple design concepts based on research findings."
+					},
+					"point3": {
+						"title": "Refinement",
+						"description": "Iterative refinement process with client feedback."
+					},
+					"point4": {
+						"title": "Finalization",
+						"description": "Delivery of final files in various formats for different use cases."
+					}
+				}
+			}
+		},
+		"seoOptimization": {
+			"title": "SEO Optimization",
+			"description": "Implementing data-driven SEO strategies to enhance online visibility and drive qualified organic traffic.",
+			"content": {
+				"title": "SEO Optimization Services",
+				"solutions": {
+					"title": "Comprehensive SEO Solutions",
+					"description": "Data-driven SEO strategies to improve your online visibility and organic traffic. Our services include:",
+					"point1": "Technical SEO audits to identify and address technical issues that may be hindering your site's performance.",
+					"point2": "Content strategy development to create high-quality, relevant content that resonates with your target audience.",
+					"point3": "Link building strategies to improve your site's authority and credibility.",
+					"point4": "Analytics and reporting to track your progress and measure the impact of our strategies.",
+					"point5": "Optimization of on-page elements such as meta tags, headings, and images for improved search engine visibility.",
+					"point6": "Monitoring and responding to algorithm updates to ensure your site remains compliant and competitive."
+				},
+				"process": {
+					"title": "Our Approach",
+					"description": "We follow a structured approach to ensure the successful delivery of your project. Our process includes:",
+					"point1": {
+						"title": "Site Analysis",
+						"description": "Comprehensive website audit and competitor analysis to identify areas for improvement."
+					},
+					"point2": {
+						"title": "Strategy Development",
+						"description": "Custom SEO strategy based on analysis findings."
+					},
+					"point3": {
+						"title": "Implementation",
+						"description": "Executing optimization strategies and content improvements."
+					},
+					"point4": {
+						"title": "Monitoring & Adjustment",
+						"description": "Continuous monitoring and strategy refinement based on results."
+					}
+				}
+			}
+		},
+		"mobileAppDevelopment": {
+			"title": "Mobile App Development",
+			"description": "Developing native and cross-platform mobile applications that provide seamless user experiences across all devices.",
+			"content": {
+				"title": "Mobile App Development Services",
+				"solutions": {
+					"title": "Mobile Solutions",
+					"description": "Creating powerful mobile applications for iOS and Android platforms. We specialize in:",
+					"point1": "Native iOS and Android development for optimal performance and user experience",
+					"point2": "Cross-platform development using frameworks like React Native for faster time-to-market",
+					"point3": "Progressive Web Apps (PWAs) for a mobile-like experience in a web browser",
+					"point4": "Mobile app testing and optimization",
+					"point5": "App Store submission and optimization for better visibility",
+					"point6": "Maintenance and support for ongoing app updates and improvements"
+				},
+				"process": {
+					"title": "Development Process",
+					"description": "Our development process is designed to deliver high-quality, user-friendly mobile apps efficiently. Here's a brief overview:",
+					"point1": {
+						"title": "Requirements Analysis",
+						"description": "Conducting thorough market research, defining user stories, and documenting technical specifications for your mobile application."
+					},
+					"point2": {
+						"title": "Design & Development",
+						"description": "Creating intuitive interfaces and implementing robust functionality through agile sprints and continuous integration."
+					},
+					"point3": {
+						"title": "Testing",
+						"description": "Executing rigorous test suites including unit tests, integration tests, and real-device testing to ensure flawless performance."
+					},
+					"point4": {
+						"title": "Deployment & Support",
+						"description": "Managing app store submissions, providing post-launch monitoring, and delivering regular updates and feature enhancements."
+					}
+				}
+			}
+		}
+	},
+	"resume": {
+		"experience": {
+			"title": "Experience",
+			"description": "A journey of continuous growth and impactful contributions across diverse technology companies.",
+			"positions": {
+				"heineken": {
+					"position": "Senior Software Developer",
+					"company": "Heineken",
+					"location": "Krakow, Poland",
+					"duration": "Dec 2024 - Present"
+				},
+				"rangle": {
+					"position": "Senior Software Developer",
+					"company": "Rangle.io",
+					"location": "Toronto, ON, Canada",
+					"duration": "Nov 2023 - Dec 2024"
+				},
+				"cgi2": {
+					"position": "Senior Software Developer",
+					"company": "CGI (TSX: GIB.A)",
+					"location": "Toronto, ON, Canada",
+					"duration": "Jan 2023 - Nov 2023"
+				},
+				"cgi1": {
+					"position": "Software Developer",
+					"company": "CGI (TSX: GIB.A)",
+					"location": "Toronto, ON, Canada",
+					"duration": "Aug 2021 - Jan 2023"
+				},
+				"dcm2": {
+					"position": "Software Developer, Frontend",
+					"company": "DCM (TSX: DCM)",
+					"location": "Mississauga, ON, Canada",
+					"duration": "Jan 2021 - Aug 2021"
+				},
+				"dcm1": {
+					"position": "Software Developer, Quadient",
+					"company": "DCM (TSX: DCM)",
+					"location": "Mississauga, ON, Canada",
+					"duration": "Dec 2018 - Jan 2021"
+				}
+			}
+		},
+		"skills": {
+			"title": "My Skills",
+			"description": "A comprehensive toolkit of modern technologies and frameworks that I've mastered to build robust, scalable applications."
+		},
+		"education": {
+			"title": "Education",
+			"description": "A foundation of formal education combined with industry-recognized certifications.",
+			"items": {
+				"aws": {
+					"institution": "AWS",
+					"degree": "AWS Certified Cloud Practitioner",
+					"program": "",
+					"duration": "2023 - 2025"
+				},
+				"wit": {
+					"institution": "WIT Academy, Warsaw, Poland",
+					"degree": "N/A",
+					"program": "Computer Science",
+					"duration": "2008 - 2010"
+				},
+				"ucw": {
+					"institution": "Uczelnia Warszawska, Warsaw, Poland",
+					"program": "Computer Science and Econometrics",
+					"degree": "Bachelor of Engineering",
+					"duration": "2004 - 2008"
+				}
+			}
+		},
+		"about": {
+			"title": "About me",
+			"description": "Experienced Software Developer focused on optimizing system performance and leading teams to deliver scalable, high-quality solutions. I have a strong track record in deploying client applications and driving digital transformation. Skilled in React and TypeScript, I am committed to continuous learning and mentoring junior developers to enhance collaboration and code quality.",
+			"items": {
+				"name": { "label": "Name", "value": "Greg Mozer" },
+				"phone": { "label": "Phone", "value": "+1 (647) 833 8068" },
+				"email": { "label": "Email", "value": "propbono@gmail.com" },
+				"location": {
+					"label": "Location",
+					"value": "Toronto, ON, Canada / Józefów, Poland"
+				},
+				"nationality": { "label": "Nationality", "value": "Canadian, Polish" },
+				"languages": { "label": "Languages", "value": "English, Polish" }
+			}
+		}
+	},
+	"work": {
+		"card-footer": {
+			"live": "Live Project",
+			"github": "GitHub Repository",
+			"next": "Next Project",
+			"previous": "Previous Project"
+		},
+		"projects": {
+			"project1": {
+				"title": "Farah Freight Group",
+				"category": "Frontend",
+				"description": "Company website for Farah Freight Group. Single Page Application created using NextJS and Nodemailer for sending emails.",
+				"liveLink": "https://farahfg.com/",
+				"githubLink": "https://github.com/propbono/farahfg.com",
+				"stack": [
+					"NextJS",
+					"React",
+					"TypeScript",
+					"TailwindCSS",
+					"Vercel",
+					"Nodemailer"
+				],
+				"image": "/work/farah-freight.avif"
+			},
+			"project2": {
+				"title": "Gemprint",
+				"category": "Full stack",
+				"description": "Company website for Gemprint. Single Page Application created using NextJS and NextAuth. Currently working on adding Dashboard to manage print orders.",
+				"liveLink": "https://gemprint.ca/",
+				"githubLink": "https://github.com/propbono/gemprint.ca",
+				"stack": [
+					"Next.js",
+					"TypeScript",
+					"Tailwind CSS",
+					"Prisma",
+					"Vercel",
+					"Resend"
+				],
+				"image": "/work/gemprint.avif"
+			},
+			"project3": {
+				"title": "Greg Mozer / Propbono (New)",
+				"category": "Full stack",
+				"description": "Propbono portfolio website presenting some of the projects that I worked on.",
+				"liveLink": "https://gmozer.ca/",
+				"githubLink": "https://github.com/propbono/next-gmozer.ca",
+				"stack": [
+					"Next.js",
+					"TypeScript",
+					"Tailwind CSS",
+					"FramerMotion",
+					"Vercel"
+				],
+				"image": "/work/gmozer-new.avif"
+			},
+			"project4": {
+				"title": "Wizzcode Music App",
+				"category": "Frontend",
+				"description": "Sample music app to test React Query hooks and write some cool tests in Vitest. It communicates with Itunes API and pull some albums using React Query.",
+				"liveLink": "https://wizcode-music.vercel.app/",
+				"githubLink": "https://github.com/propbono/wizcode-music",
+				"stack": ["React.js", "TypeScript", "Tailwind CSS", "Vite", "Vercel"],
+				"image": "/work/wizcode.avif"
+			},
+			"project5": {
+				"title": "Propbono (Greg Mozer - Old)",
+				"category": "Frontend",
+				"description": "Propbono portfolio website presenting some of the projects that I worked on. Written in RemixJS.",
+				"liveLink": "https://gmozerca-old.vercel.app/",
+				"githubLink": "https://github.com/propbono/portfolio",
+				"stack": ["Remix.js", "TypeScript", "Tailwind CSS", "Vite", "Vercel"],
+				"image": "/work/gmozer-old.avif"
+			},
+			"project6": {
+				"title": "SWM Interview 2024",
+				"category": "Algorithm",
+				"description": "Interview task is composed from two parts, coding exercise and an essay. Below you can see the information about programming task. Write a function that receives two sequences: A and B of integers and returns one sequence C. Sequence C should contain all elements from sequence A (maintaining the order) except those, that are present in sequence B p times, where p is a prime number.",
+				"githubLink": "https://github.com/propbono/swm-interview-2024",
+				"stack": ["TypeScript"],
+				"image": "/work/swm.avif"
+			}
+		}
+	},
+	"contact": {
+		"title": "Lets <span>chat</span> about everything!",
+		"cta": "Hate forms? Send me an email instead <a>propbono@gmail.com</a>",
+		"form": {
+			"error": {
+				"title": "Houston we have problem...",
+				"message": "There was some problems with sending your message. Please try again later."
+			},
+			"success": {
+				"title": "Your message is on the way!",
+				"message": "Message was successfully sent and it started its journey to our mailbox."
+			},
+			"fields": {
+				"fullName": {
+					"label": "Full name",
+					"placeholder": "John Doe",
+					"ariaLabel": "Full name",
+					"error": "Name must be at least 2 characters"
+				},
+				"email": {
+					"label": "Email",
+					"placeholder": "john.doe@example.com",
+					"ariaLabel": "Email",
+					"error": "Invalid email address"
+				},
+				"message": {
+					"label": "Message",
+					"placeholder": "Your message",
+					"ariaLabel": "Message",
+					"error": "Message must be at least 10 characters"
+				},
+				"submit": {
+					"label": "Send message",
+					"loading": "Sending..."
+				}
+			}
+		}
+	},
+	"footer": {
+		"copyright": "2023 Greg Mozer | All rights reserved"
+	},
+	"metadata": {
+		"default": {
+			"name": "Greg Mozer",
+			"jobTitle": "Senior Frontend Developer",
+			"title": "Greg Mozer - Portfolio",
+			"description": "Portfolio website of Greg Mozer, a frontend developer based in Canada. Building high-performance web applications with modern technologies",
+			"image": "https://gmozer.ca/en/og.jpg",
+			"siteName": "Greg Mozer - Portfolio",
+			"url": "https://gmozer.ca/en"
+		},
+		"contact": {
+			"title": "Contact | Greg Mozer",
+			"description": "Get in touch for web development projects, consultations, or collaborations. Let's build something great together.",
+			"url": "https://gmozer.ca/en/contact"
+		},
+		"resume": {
+			"experience": {
+				"title": "Professional Experience | Greg Mozer",
+				"description": "View my professional timeline, work history, and achievements as a Senior Fullstack Engineer working with cutting-edge technologies.",
+				"url": "https://gmozer.ca/en/resume"
+			},
+			"education": {
+				"title": "Education & Qualifications | Greg Mozer",
+				"description": "Discover my educational background, certifications, and continuous learning journey in software development and web technologies.",
+				"url": "https://gmozer.ca/en/resume/education"
+			},
+			"skills": {
+				"title": "Technical Skills | Greg Mozer",
+				"description": "Explore my technical expertise across various technologies including React, Next.js, TypeScript, and modern web development tools.",
+				"url": "https://gmozer.ca/en/resume/skills"
+			},
+			"about": {
+				"title": "About Me | Greg Mozer",
+				"description": "View my professional timeline, work history, and achievements as a Senior Fullstack Engineer working with cutting-edge technologies.",
+				"url": "https://gmozer.ca/en/resume/about"
+			}
+		},
+		"services": {
+			"default": {
+				"title": "Services | Greg Mozer",
+				"description": "Comprehensive web development services including frontend development, UI/UX design, SEO optimization, and mobile app development.",
+				"url": "https://gmozer.ca/en/services"
+			},
+			"web-development": {
+				"title": "Web Development | Greg Mozer",
+				"description": "Expert frontend development services using React, Next.js, and TypeScript to create responsive and interactive user experiences.",
+				"url": "https://gmozer.ca/en/services/web-development"
+			},
+			"ui-ux-design": {
+				"title": "UI/UX Design | Greg Mozer",
+				"description": "Crafting intuitive and engaging user interfaces that deliver exceptional user experiences while maintaining accessibility standards.",
+				"url": "https://gmozer.ca/en/services/ui-ux-design"
+			},
+			"seo-optimization": {
+				"title": "SEO Optimization | Greg Mozer",
+				"description": "Implementing data-driven SEO strategies to enhance online visibility and drive qualified organic traffic.",
+				"url": "https://gmozer.ca/en/services/seo-optimization"
+			},
+			"mobile-app-development": {
+				"title": "Mobile App Development | Greg Mozer",
+				"description": "Developing native and cross-platform mobile applications that provide seamless user experiences across all devices.",
+				"url": "https://gmozer.ca/en/services/mobile-app-development"
+			},
+			"logo-design": {
+				"title": "Logo Design | Greg Mozer",
+				"description": "Creating distinctive and memorable brand identities that resonate with target audiences and stand the test of time.",
+				"url": "https://gmozer.ca/en/services/logo-design"
+			}
+		},
+		"work": {
+			"title": "Projects | Greg Mozer",
+			"description": "Explore my portfolio of web development projects using React, Next.js, and TypeScript",
+			"url": "https://gmozer.ca/en/work"
+		},
+		"openGraph": {
+			"type": "website",
+			"locale": "en_CA",
+			"title": "Greg Mozer - Portfolio",
+			"description": "Senior Frontend Engineer specializing in React, Next.js, and TypeScript with over 5 years of experience building scalable web applications.",
+			"siteName": "Greg Mozer",
+			"image": {
+				"url": "https://gmozer.ca/og.jpg",
+				"width": 1200,
+				"height": 630,
+				"alt": "Greg Mozer - Portfolio"
+			}
+		},
+		"twitter": {
+			"card": "summary_large_image",
+			"title": "Greg Mozer - Portfolio",
+			"description": "Senior Frontend Engineer specializing in React, Next.js, and TypeScript with over 5 years of experience building scalable web applications.",
+			"image": "https://gmozer.ca/og.jpg",
+			"creator": "@GregMozer"
+		}
+	},
+	"locale-switcher": {
+		"label": "Switch the language",
+		"locale": {
+			"en": "English",
+			"pl": "Polish"
+		}
+	}
+}

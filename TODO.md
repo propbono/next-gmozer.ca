@@ -10,10 +10,23 @@
 - [x] Deploy
 - [x] Add Theme switch
 - [x] Deploy to prod
+- [x] Add i18n - Homepage
+- [x] Add i18n - Services
+- [x] Improve each detailed service page
+- [x] fix posthog rewrites
+- [x] Add i18n - Resume
+- [x] Add i18n - Contact
+- [x] Add i18n - Work
+- [x] translate metadata as well
+- [x] Add langauge switcher
+- [x] Add i18n - Polish translations
+- [x] Deploy to Prod
+
+- [ ] Add Convex DB to manage projects
+- [ ] change skills to something else like tools or toolset
 - [ ] Add more projects and check
 - [ ] Add custom logo fonts for headers
 - [ ] Add better email template
-- [ ] Improve each detailed service page
 - [ ] Add Page transitions
 - [ ] Add more unit tests
 - [ ] Deploy to prod
