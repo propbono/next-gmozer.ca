@@ -1,1 +1,650 @@
-{}
+{
+	"header": {
+		"name": "Grzegorz Mozer",
+		"mobileMenu": {
+			"title": "Menu",
+			"description": "Wybierz stronę do nawigacji",
+			"open": "Otwórz nawigację"
+		},
+		"themeSwitch": {
+			"toggle": "Przełącz motyw"
+		}
+	},
+	"navigation": {
+		"home": {
+			"default": { "title": "Strona główna", "url": "/" }
+		},
+		"services": {
+			"default": { "title": "Usługi", "url": "/services" },
+			"children": {
+				"web-development": {
+					"title": "Tworzenie stron internetowych",
+					"url": "/services/web-development"
+				},
+				"mobile-development": {
+					"title": "Tworzenie aplikacji mobilnych",
+					"url": "/services/mobile-development"
+				},
+				"ui-ux-design": {
+					"title": "Projektowanie UI/UX",
+					"url": "/services/ui-ux-design"
+				},
+				"seo-optimization": {
+					"title": "Optymalizacja SEO",
+					"url": "/services/seo-optimization"
+				},
+				"logo-design": {
+					"title": "Projektowanie logo",
+					"url": "/services/logo-design"
+				}
+			}
+		},
+		"resume": {
+			"default": { "title": "O mnie", "url": "/resume" },
+			"children": {
+				"experience": { "title": "Doświadczenie", "url": "/resume/" },
+				"education": { "title": "Wykształcenie", "url": "/resume/education" },
+				"skills": { "title": "Umiejętności", "url": "/resume/skills" },
+				"about": { "title": "O mnie", "url": "/resume/about" }
+			}
+		},
+		"work": { "default": { "title": "Portfolio", "url": "/work" } },
+		"contact": { "default": { "title": "Kontakt", "url": "/contact" } }
+	},
+	"home": {
+		"hero": {
+			"position": "Starszy Inżynier Oprogramowania",
+			"title": "Strona po stronie <span>buduję piękniejszy</span> Internet.",
+			"description": "Frontend developer, który zamienia pomysły w nowoczesne aplikacje internetowe z wykorzystaniem Reacta. Zobacz moje najnowsze projekty, aby przekonać się o moim doświadczeniu w tworzeniu stron i aplikacji oraz sprawdzić, jak mogę pomóc w realizacji Twoich pomysłów.",
+			"downloadResume": "Pobierz CV"
+		},
+		"stats": {
+			"srTitle": "Statystyki zawodowe",
+			"yearsExperience": "Lat Doświadczenia",
+			"projectsCompleted": "Ukończone projekty",
+			"technologiesUsed": "Opanowane technologie",
+			"commits": "Wykonane commity"
+		}
+	},
+	"services": {
+		"srTitle": "Lista usług",
+		"webDevelopment": {
+			"title": "Tworzenie stron internetowych",
+			"description": "Tworzenie efektownych i responsywnych stron internetowych zapewniających wyjątkowe wrażenia użytkownika. Specjalizuję się w budowaniu niestandardowych aplikacji webowych z wykorzystaniem najnowszych technologii.",
+			"content": {
+				"title": "Usługi tworzenia stron internetowych",
+				"offerings": {
+					"title": "Co oferujemy",
+					"description": "Kompleksowe rozwiązania w zakresie tworzenia stron internetowych z wykorzystaniem najnowocześniejszych technologii i frameworków. Specjalizujemy się w budowaniu:",
+					"point1": {
+						"title": "Aplikacje SPA",
+						"description": "SPA z wykorzystaniem React i Next.js dla płynnych doświadczeń użytkownika"
+					},
+					"point2": {
+						"title": "Aplikacje pełnostackowe",
+						"description": "Solidna integracja backendu z nowoczesnymi technologiami frontendowymi"
+					},
+					"point3": {
+						"title": "Aplikacje progresywne (PWA)",
+						"description": "PWAs z rozszerzonymi możliwościami mobilnymi i pracą offline"
+					},
+					"point4": {
+						"title": "Tworzenie niestandardowych API",
+						"description": "Spersonalizowane rozwiązania API z płynną integracją"
+					},
+					"point5": {
+						"title": "Platformy e-commerce",
+						"description": "Bezpieczne bramki płatności i rozwiązania sklepowe"
+					},
+					"point6": {
+						"title": "Zarządzanie treścią",
+						"description": "Rozwiązania CMS do łatwej aktualizacji i zarządzania treścią"
+					},
+					"point7": "Responsywny web design dla optymalnego wyświetlania na wszystkich urządzeniach",
+					"point8": "Optymalizacja wydajności dla szybszego ładowania",
+					"point9": "Najlepsze praktyki bezpieczeństwa do ochrony danych użytkowników"
+				},
+				"process": {
+					"title": "Nasz proces",
+					"description": "Stosujemy strukturalne podejście aby zapewnić sukces w realizacji projektu. Nasz proces obejmuje:",
+					"point1": {
+						"title": "Odkrywanie i zbieranie wymagań",
+						"description": "Rozpoczynamy od zrozumienia celów biznesowych, grupy docelowej i wymagań projektu. Ta faza obejmuje burze mózgów, badania użytkowników i dokumentację."
+					},
+					"point2": {
+						"title": "Projektowanie i prototypowanie",
+						"description": "Tworzymy wireframe'y i prototypy do wizualizacji interfejsu i doświadczeń użytkownika. Ta faza obejmuje pętlę feedbacku dla zapewnienia zgodności z wizją klienta."
+					},
+					"point3": {
+						"title": "Rozwój",
+						"description": "Nasz zespół developerski buduje aplikację używając najnowszych technologii. Stosujemy najlepsze praktyki kodowania, kontroli wersji i testowania."
+					},
+					"point4": {
+						"title": "Testowanie i QA",
+						"description": "Przeprowadzamy dokładne testy w celu identyfikacji i naprawy błędów. Obejmuje to testy funkcjonalne, wydajnościowe i bezpieczeństwa."
+					},
+					"point5": {
+						"title": "Wdrożenie i uruchomienie",
+						"description": "Wdrażamy aplikację w środowisku produkcyjnym i przeprowadzamy proces uruchomienia. Obejmuje szkolenie użytkowników i dokumentację wsparcia."
+					}
+				},
+				"cta": {
+					"title": "Gotów rozpocząć projekt?",
+					"description": "Porozmawiajmy jak możemy pomóc w realizacji Twojej wizji.",
+					"button": "Skontaktuj się"
+				},
+				"technologies": {
+					"title": "Wykorzystywane technologie",
+					"description": "Wykorzystujemy szeroki zakres technologii do budowy solidnych i skalowalnych aplikacji webowych. Nasz stack technologiczny obejmuje:",
+					"point1": {
+						"title": "Frontend",
+						"description": "React, Next.js, HTML5, CSS3, JavaScript (ES6+), TypeScript"
+					},
+					"point2": {
+						"title": "Backend",
+						"description": "Node.js, Express.js, MongoDB, PostgreSQL"
+					},
+					"point3": {
+						"title": "DevOps",
+						"description": "Docker, Vercel, AWS, CI/CD pipelines"
+					},
+					"point4": {
+						"title": "Testowanie & kontrola wersji",
+						"description": "Jest, Vitest, Playwright, Cypress, Git, GitHub"
+					}
+				}
+			}
+		},
+		"uiUxDesign": {
+			"title": "Projektowanie UI/UX",
+			"description": "Tworzenie intuicyjnych i angażujących interfejsów użytkownika zapewniających wyjątkowe doświadczenia przy zachowaniu standardów dostępności.",
+			"content": {
+				"title": "Usługi projektowania UI/UX",
+				"philosophy": {
+					"title": "Nasza filozofia projektowania",
+					"description": "Tworzenie intuicyjnych, zorientowanych na użytkownika projektów łączących estetykę z funkcjonalnością. Skupiamy się na:",
+					"point1": {
+						"title": "Zasady projektowania zorientowanego na użytkownika",
+						"description": "Tworzenie interfejsów priorytetyzujących potrzeby, zachowania i feedback użytkowników przez cały proces projektowy"
+					},
+					"point2": {
+						"title": "Standardy dostępności (zgodność WCAG)",
+						"description": "Zapewnienie dostępności treści cyfrowych dla wszystkich użytkowników poprzez stosowanie wytycznych WCAG dotyczących kontrastu, nawigacji i kompatybilności z czytnikami ekranu"
+					},
+					"point3": {
+						"title": "Responsywny design dla wszystkich urządzeń",
+						"description": "Rozwój płynnych układów dostosowujących się do desktopów, tabletów i urządzeń mobilnych dla spójnego doświadczenia"
+					},
+					"point4": {
+						"title": "Nowoczesne trendy i wzorce projektowe",
+						"description": "Włączanie współczesnych elementów designu przy zachowaniu intuicyjnej nawigacji i znanych wzorców interakcji"
+					},
+					"point5": {
+						"title": "Spójność marki",
+						"description": "Utrzymanie spójnej tożsamości wizualnej poprzez konsekwentne użycie kolorów, typografii i elementów projektowych"
+					}
+				},
+				"process": {
+					"title": "Proces projektowy",
+					"description": "Stosujemy strukturalny proces projektowy aby zapewnić sukces w realizacji projektu. Nasz proces obejmuje:",
+					"point1": {
+						"title": "Badania & odkrywanie",
+						"description": "Badania użytkowników, analiza konkurencji i zbieranie wymagań. Ta faza obejmuje burze mózgów, persony użytkowników i dokumentację."
+					},
+					"point2": {
+						"title": "Tworzenie wireframe'ów",
+						"description": "Projekty niskiej wierności i mapowanie ścieżek użytkownika. Ta faza obejmuje wizualną reprezentację architektury informacji i interakcji."
+					},
+					"point3": {
+						"title": "Projektowanie wizualne",
+						"description": "Projekty wysokiej wierności z integracją marki i uwzględnieniem hierarchii wizualnej i estetyki."
+					},
+					"point4": {
+						"title": "Prototypowanie & testowanie",
+						"description": "Interaktywne prototypy i testy użytkowników. Ta faza obejmuje tworzenie interaktywnych prototypów i testowanie z użytkownikami w celu zebrania feedbacku i wprowadzenia poprawek."
+					}
+				},
+				"tools": {
+					"title": "Narzędzia projektowe",
+					"description": "Używamy różnych narzędzi projektowych do tworzenia wizualnie oszałamiających i przyjaznych interfejsów. Nasze narzędzia obejmują:",
+					"point1": {
+						"title": "Projektowanie UI/UX & prototypowanie",
+						"description": "Figma do projektowania i prototypowania"
+					},
+					"point2": {
+						"title": "Edytowanie obrazów",
+						"description": "Adobe Photoshop do edycji zdjęć"
+					},
+					"point3": {
+						"title": "Projektowanie logo i ikon",
+						"description": "Adobe Illustrator do grafiki wektorowej"
+					}
+				}
+			}
+		},
+		"logoDesign": {
+			"title": "Projektowanie logo",
+			"description": "Tworzenie charakterystycznych i zapadających w pamięć identyfikacji wizualnych rezonujących z grupą docelową i wytrzymujących próbę czasu.",
+			"content": {
+				"title": "Usługi projektowania logo",
+				"brand-identity": {
+					"title": "Tworzenie tożsamości marki",
+					"description": "Tworzenie charakterystycznych identyfikacji wizualnych oddających esencję marki. Nasze projektowanie logo obejmuje:",
+					"point1": "Niestandardową grafikę wektorową dla skalowalności i wszechstronności",
+					"point2": "Dokumentację wytycznych marki dla spójnej aplikacji",
+					"point3": "Dobór palety kolorystycznej dla rozpoznawalności i wpływu emocjonalnego",
+					"point4": "Dobór typografii dla głosu marki i osobowości",
+					"point5": "Warianty logo dla różnych zastosowań (poziome, pionowe, sam symbol)",
+					"point6": "Dostarczenie w wielu formatach (AI, EPS, SVG, PNG, JPG, PDF)"
+				},
+				"process": {
+					"title": "Proces projektowy",
+					"description": "Stosujemy strukturalny proces projektowy aby zapewnić sukces w realizacji projektu. Nasz proces obejmuje:",
+					"point1": {
+						"title": "Odkrywanie marki",
+						"description": "Zrozumienie wartości marki, grupy docelowej i pozycjonowania na rynku."
+					},
+					"point2": {
+						"title": "Rozwój koncepcji",
+						"description": "Tworzenie wielokrotnych koncepcji projektowych opartych na badaniach."
+					},
+					"point3": {
+						"title": "Dopracowanie",
+						"description": "Iteracyjny proces dopracowywania z feedbackiem klienta."
+					},
+					"point4": {
+						"title": "Finalizacja",
+						"description": "Dostarczenie finalnych plików w różnych formatach do różnych zastosowań."
+					}
+				}
+			}
+		},
+		"seoOptimization": {
+			"title": "Optymalizacja SEO",
+			"description": "Wdrażanie strategii SEO opartych na danych w celu zwiększenia widoczności online i pozyskania kwalifikowanego ruchu organicznego.",
+			"content": {
+				"title": "Usługi optymalizacji SEO",
+				"solutions": {
+					"title": "Kompleksowe rozwiązania SEO",
+					"description": "Strategie SEO oparte na danych dla poprawy widoczności online i ruchu organicznego. Nasze usługi obejmują:",
+					"point1": "Audyty techniczne SEO w celu identyfikacji i rozwiązania problemów technicznych wpływających na wydajność strony.",
+					"point2": "Rozwój strategii treściowej do tworzenia wysokiej jakości, istotnych treści rezonujących z grupą docelową.",
+					"point3": "Strategie link buildingu dla poprawy autorytetu i wiarygodności strony.",
+					"point4": "Analitykę i raportowanie do śledzenia postępów i mierzenia wpływu strategii.",
+					"point5": "Optymalizację elementów on-page takich jak meta tagi, nagłówki i obrazy dla lepszej widoczności w wyszukiwarkach.",
+					"point6": "Monitorowanie i reagowanie na aktualizacje algorytmów dla utrzymania zgodności i konkurencyjności."
+				},
+				"process": {
+					"title": "Nasze podejście",
+					"description": "Stosujemy strukturalne podejście aby zapewnić sukces w realizacji projektu. Nasz proces obejmuje:",
+					"point1": {
+						"title": "Analiza strony",
+						"description": "Kompleksowy audyt strony i analiza konkurencji dla identyfikacji obszarów poprawy."
+					},
+					"point2": {
+						"title": "Rozwój strategii",
+						"description": "Niestandardowa strategia SEO oparta na wynikach analizy."
+					},
+					"point3": {
+						"title": "Implementacja",
+						"description": "Wdrażanie strategii optymalizacji i ulepszeń treści."
+					},
+					"point4": {
+						"title": "Monitorowanie & dostosowania",
+						"description": "Ciągłe monitorowanie i dostosowywanie strategii na podstawie wyników."
+					}
+				}
+			}
+		},
+		"mobileAppDevelopment": {
+			"title": "Tworzenie aplikacji mobilnych",
+			"description": "Tworzenie natywnych i cross-platformowych aplikacji mobilnych zapewniających płynne doświadczenia użytkownika na wszystkich urządzeniach.",
+			"content": {
+				"title": "Usługi tworzenia aplikacji mobilnych",
+				"solutions": {
+					"title": "Rozwiązania mobilne",
+					"description": "Tworzenie potężnych aplikacji mobilnych na platformy iOS i Android. Specjalizujemy się w:",
+					"point1": "Natywnym rozwoju iOS i Android dla optymalnej wydajności i doświadczeń użytkownika",
+					"point2": "Rozwoju cross-platform z wykorzystaniem frameworków jak React Native dla szybszego wprowadzenia na rynek",
+					"point3": "Aplikacjach progresywnych (PWA) dla mobilnych doświadczeń w przeglądarce",
+					"point4": "Testowaniu i optymalizacji aplikacji mobilnych",
+					"point5": "Submisji do sklepów aplikacji i optymalizacji dla lepszej widoczności",
+					"point6": "Utrzymaniu i wsparciu dla aktualizacji aplikacji i ulepszeń"
+				},
+				"process": {
+					"title": "Proces rozwoju",
+					"description": "Nasz proces rozwoju zaprojektowano aby dostarczać wysokiej jakości, przyjazne aplikacje mobilne efektywnie. Oto krótki przegląd:",
+					"point1": {
+						"title": "Analiza wymagań",
+						"description": "Przeprowadzanie dogłębnych badań rynku, definiowanie user stories i dokumentowanie specyfikacji technicznych dla aplikacji mobilnej."
+					},
+					"point2": {
+						"title": "Projektowanie & rozwój",
+						"description": "Tworzenie intuicyjnych interfejsów i implementacja solidnej funkcjonalności poprzez agile i ciągłą integrację."
+					},
+					"point3": {
+						"title": "Testowanie",
+						"description": "Przeprowadzanie rygorystycznych testów jednostkowych, integracyjnych i na rzeczywistych urządzeniach dla zapewnienia bezbłędnej wydajności."
+					},
+					"point4": {
+						"title": "Wdrożenie & wsparcie",
+						"description": "Zarządzanie submisją do sklepów, zapewnienie monitorowania po uruchomieniu i dostarczanie regularnych aktualizacji i nowych funkcji."
+					}
+				}
+			}
+		}
+	},
+	"resume": {
+		"experience": {
+			"title": "Doświadczenie",
+			"description": "Droga ciągłego rozwoju i tworzenia wartości w firmach technologicznych na różnych etapach ich rozwoju.",
+			"positions": {
+				"heineken": {
+					"position": "Starszy programista",
+					"company": "Heineken",
+					"location": "Kraków, Polska",
+					"duration": "Gru 2024 - Obecnie"
+				},
+				"rangle": {
+					"position": "Starszy programista",
+					"company": "Rangle.io",
+					"location": "Toronto, ON, Kanada",
+					"duration": "Lis 2023 - Gru 2024"
+				},
+				"cgi2": {
+					"position": "Starszy programista",
+					"company": "CGI (TSX: GIB.A)",
+					"location": "Toronto, ON, Kanada",
+					"duration": "Sty 2023 - Lis 2023"
+				},
+				"cgi1": {
+					"position": "Programista",
+					"company": "CGI (TSX: GIB.A)",
+					"location": "Toronto, ON, Kanada",
+					"duration": "Sie 2021 - Sty 2023"
+				},
+				"dcm2": {
+					"position": "Programista Frontend",
+					"company": "DCM (TSX: DCM)",
+					"location": "Mississauga, ON, Kanada",
+					"duration": "Sty 2021 - Sie 2021"
+				},
+				"dcm1": {
+					"position": "Programista Quadient",
+					"company": "DCM (TSX: DCM)",
+					"location": "Mississauga, ON, Kanada",
+					"duration": "Gru 2018 - Sty 2021"
+				}
+			}
+		},
+		"skills": {
+			"title": "Moje umiejętności",
+			"description": "Kompleksowy zestaw nowoczesnych technologii i frameworków, które opanowałem do budowy solidnych, skalowalnych aplikacji."
+		},
+		"education": {
+			"title": "Wykształcenie",
+			"description": "Podstawa formalnego wykształcenia połączona z certyfikacjami branżowymi.",
+			"items": {
+				"aws": {
+					"institution": "AWS",
+					"degree": "AWS Certified Cloud Practitioner",
+					"program": "",
+					"duration": "2023 - 2025"
+				},
+				"wit": {
+					"institution": "Akademia WIT, Warszawa, Polska",
+					"degree": "N/A",
+					"program": "Informatyka",
+					"duration": "2008 - 2010"
+				},
+				"ucw": {
+					"institution": "Uczelnia Warszawska, Warszawa, Polska",
+					"program": "Informatyka i ekonometria",
+					"degree": "Inżynier",
+					"duration": "2004 - 2008"
+				}
+			}
+		},
+		"about": {
+			"title": "O mnie",
+			"description": "Doświadczony programista skupiony na optymalizacji wydajności systemów i prowadzeniu zespołów w dostarczaniu skalowalnych, wysokiej jakości rozwiązań. Posiadam udokumentowane doświadczenie we wdrażaniu aplikacji klienckich i prowadzeniu transformacji cyfrowych. Biegły w React i TypeScript, zaangażowany w ciągłe uczenie się i mentoring młodszych programistów dla poprawy współpracy i jakości kodu.",
+			"items": {
+				"name": { "label": "Imię", "value": "Grzegorz Mozer" },
+				"phone": { "label": "Telefon", "value": "+48 (530) 061 945" },
+				"email": { "label": "Email", "value": "propbono@gmail.com" },
+				"location": {
+					"label": "Lokalizacja",
+					"value": "Józefów, Polska / Toronto, Kanada"
+				},
+				"nationality": { "label": "Narodowość", "value": "Polska, Kanadyjska" },
+				"languages": { "label": "Języki", "value": "Polski, Angielski" }
+			}
+		}
+	},
+	"work": {
+		"card-footer": {
+			"live": "Link do projektu",
+			"github": "Repozytorium GitHub",
+			"next": "Następny projekt",
+			"previous": "Poprzedni projekt"
+		},
+		"projects": {
+			"project1": {
+				"title": "Farah Freight Group",
+				"category": "Frontend",
+				"description": "Strona firmowa Farah Freight Group. Aplikacja jednostronicowa stworzona z użyciem NextJS i Nodemailer do wysyłania emaili.",
+				"liveLink": "https://farahfg.com/",
+				"githubLink": "https://github.com/propbono/farahfg.com",
+				"stack": [
+					"NextJS",
+					"React",
+					"TypeScript",
+					"TailwindCSS",
+					"Vercel",
+					"Nodemailer"
+				],
+				"image": "/work/farah-freight.avif"
+			},
+			"project2": {
+				"title": "Gemprint",
+				"category": "Full stack",
+				"description": "Strona firmowa Gemprint. Aplikacja jednostronicowa stworzona z użyciem NextJS i NextAuth. Obecnie w trakcie dodawania panelu do zarządzania zamówieniami druku.",
+				"liveLink": "https://gemprint.ca/",
+				"githubLink": "https://github.com/propbono/gemprint.ca",
+				"stack": [
+					"Next.js",
+					"TypeScript",
+					"Tailwind CSS",
+					"Prisma",
+					"Vercel",
+					"Resend"
+				],
+				"image": "/work/gemprint.avif"
+			},
+			"project3": {
+				"title": "Grzegorz Mozer / Propbono (Nowy)",
+				"category": "Full stack",
+				"description": "Portfolio Propbono prezentujące niektóre z realizowanych projektów.",
+				"liveLink": "https://gmozer.ca/",
+				"githubLink": "https://github.com/propbono/next-gmozer.ca",
+				"stack": [
+					"Next.js",
+					"TypeScript",
+					"Tailwind CSS",
+					"FramerMotion",
+					"Vercel"
+				],
+				"image": "/work/gmozer-new.avif"
+			},
+			"project4": {
+				"title": "Wizzcode Music App",
+				"category": "Frontend",
+				"description": "Przykładowa aplikacja muzyczna do testowania hooków React Query i pisania testów w Vitest. Komunikuje się z API Itunes i pobiera albumy używając React Query.",
+				"liveLink": "https://wizcode-music.vercel.app/",
+				"githubLink": "https://github.com/propbono/wizcode-music",
+				"stack": ["React.js", "TypeScript", "Tailwind CSS", "Vite", "Vercel"],
+				"image": "/work/wizcode.avif"
+			},
+			"project5": {
+				"title": "Propbono (Grzegorz Mozer - Stary)",
+				"category": "Frontend",
+				"description": "Portfolio Propbono prezentujące niektóre z realizowanych projektów. Napisane w RemixJS.",
+				"liveLink": "https://gmozerca-old.vercel.app/",
+				"githubLink": "https://github.com/propbono/portfolio",
+				"stack": ["Remix.js", "TypeScript", "Tailwind CSS", "Vite", "Vercel"],
+				"image": "/work/gmozer-old.avif"
+			},
+			"project6": {
+				"title": "SWM Interview 2024",
+				"category": "Algorytm",
+				"description": "Zadanie rekrutacyjne składa się z dwóch części, ćwiczenia programistycznego i eseju. Poniżej informacje o zadaniu programistycznym. Napisz funkcję otrzymującą dwie sekwencje: A i B liczb całkowitych i zwracającą sekwencję C. Sekwencja C powinna zawierać wszystkie elementy z sekwencji A (zachowując kolejność) z wyjątkiem tych, które występują w sekwencji B p razy, gdzie p jest liczbą pierwszą.",
+				"githubLink": "https://github.com/propbono/swm-interview-2024",
+				"stack": ["TypeScript"],
+				"image": "/work/swm.avif"
+			}
+		}
+	},
+	"contact": {
+		"title": "Porozmawiajmy <span>o wszystkim</span>!",
+		"cta": "Nie lubisz formularzy? Wyślij mi emaila <a>propbono@gmail.com</a>",
+		"form": {
+			"error": {
+				"title": "Houston, mamy problem...",
+				"message": "Wystąpiły problemy z wysłaniem wiadomości. Spróbuj ponownie później."
+			},
+			"success": {
+				"title": "Twoja wiadomość jest w drodze!",
+				"message": "Wiadomość została pomyślnie wysłana i rozpoczęła podróż do naszej skrzynki."
+			},
+			"fields": {
+				"fullName": {
+					"label": "Imię i nazwisko",
+					"placeholder": "Jan Kowalski",
+					"ariaLabel": "Imię i nazwisko",
+					"error": "Imię musi mieć co najmniej 2 znaki"
+				},
+				"email": {
+					"label": "Email",
+					"placeholder": "jan.kowalski@przyklad.com",
+					"ariaLabel": "Email",
+					"error": "Nieprawidłowy adres email"
+				},
+				"message": {
+					"label": "Wiadomość",
+					"placeholder": "Twoja wiadomość",
+					"ariaLabel": "Wiadomość",
+					"error": "Wiadomość musi mieć co najmniej 10 znaków"
+				},
+				"submit": {
+					"label": "Wyślij wiadomość",
+					"loading": "Wysyłanie..."
+				}
+			}
+		}
+	},
+	"footer": {
+		"copyright": "2023 Grzegorz Mozer | Wszelkie prawa zastrzeżone"
+	},
+	"metadata": {
+		"default": {
+			"name": "Grzegorz Mozer",
+			"jobTitle": "Starszy Deweloper Frontendu",
+			"title": "Grzegorz Mozer - Portfolio",
+			"description": "Portfolio Grzegorz Mozer - dewelopera frontendu z Kanady. Tworzenie wysokowydajnych aplikacji internetowych z wykorzystaniem nowoczesnych technologii",
+			"image": "https://gmozer.ca/en/og.jpg",
+			"siteName": "Grzegorz Mozer - Portfolio",
+			"url": "https://gmozer.ca/en"
+		},
+		"contact": {
+			"title": "Kontakt | Grzegorz Mozer",
+			"description": "Skontaktuj się w sprawie projektów webowych, konsultacji lub współpracy. Stwórzmy razem coś wyjątkowego.",
+			"url": "https://gmozer.ca/en/contact"
+		},
+		"resume": {
+			"experience": {
+				"title": "Doświadczenie Zawodowe | Grzegorz Mozer",
+				"description": "Moja ścieżka kariery, historia zatrudnienia oraz osiągnięcia jako starszy inżynier fullstack pracujący z najnowszymi technologiami.",
+				"url": "https://gmozer.ca/en/resume"
+			},
+			"education": {
+				"title": "Wykształcenie i Kwalifikacje | Grzegorz Mozer",
+				"description": "Moje wykształcenie, certyfikaty oraz ciągły rozwój w dziedzinie tworzenia oprogramowania i technologii webowych.",
+				"url": "https://gmozer.ca/en/resume/education"
+			},
+			"skills": {
+				"title": "Umiejętności Techniczne | Grzegorz Mozer",
+				"description": "Poznaj moje kompetencje techniczne, w tym React, Next.js, TypeScript oraz współczesne narzędzia webowe.",
+				"url": "https://gmozer.ca/en/resume/skills"
+			},
+			"about": {
+				"title": "O Mnie | Grzegorz Mozer",
+				"description": "Moje doświadczenie zawodowe, historia zatrudnienia oraz osiągnięcia jako starszy inżynier fullstack pracujący z najnowszymi technologiami.",
+				"url": "https://gmozer.ca/en/resume/about"
+			}
+		},
+		"services": {
+			"default": {
+				"title": "Usługi | Grzegorz Mozer",
+				"description": "Kompleksowe usługi webowe: rozwój frontendu, projektowanie UI/UX, optymalizacja SEO oraz tworzenie aplikacji mobilnych.",
+				"url": "https://gmozer.ca/en/services"
+			},
+			"web-development": {
+				"title": "Tworzenie Stron WWW | Grzegorz Mozer",
+				"description": "Usługi frontendowe z wykorzystaniem React, Next.js i TypeScript do tworzenia responsywnych i interaktywnych interfejsów.",
+				"url": "https://gmozer.ca/en/services/web-development"
+			},
+			"ui-ux-design": {
+				"title": "Projektowanie UI/UX | Grzegorz Mozer",
+				"description": "Tworzenie intuicyjnych i angażujących interfejsów zapewniających doskonałe doświadczenia użytkownika przy zachowaniu standardów dostępności.",
+				"url": "https://gmozer.ca/en/services/ui-ux-design"
+			},
+			"seo-optimization": {
+				"title": "Optymalizacja SEO | Grzegorz Mozer",
+				"description": "Wdrażanie strategii SEO opartych na danych w celu zwiększenia widoczności w wyszukiwarkach i pozyskania wartościowego ruchu.",
+				"url": "https://gmozer.ca/en/services/seo-optimization"
+			},
+			"mobile-app-development": {
+				"title": "Aplikacje Mobilne | Grzegorz Mozer",
+				"description": "Tworzenie natywnych i cross-platformowych aplikacji mobilnych z płynnymi doświadczeniami użytkownika na wszystkich urządzeniach.",
+				"url": "https://gmozer.ca/en/services/mobile-app-development"
+			},
+			"logo-design": {
+				"title": "Projektowanie Logo | Grzegorz Mozer",
+				"description": "Kreowanie unikalnych identyfikacji wizualnych, które zapadają w pamięć i skutecznie komunikują wartości marki.",
+				"url": "https://gmozer.ca/en/services/logo-design"
+			}
+		},
+		"work": {
+			"title": "Projekty | Grzegorz Mozer",
+			"description": "Przeglądaj moje portfolio projektów webowych zrealizowanych z użyciem React, Next.js i TypeScript",
+			"url": "https://gmozer.ca/en/work"
+		},
+		"openGraph": {
+			"type": "website",
+			"locale": "pl_PL",
+			"title": "Grzegorz Mozer - Portfolio",
+			"description": "Starszy Inżynier Frontendu specjalizujący się w React, Next.js i TypeScript z ponad 5-letnim doświadczeniem w budowaniu skalowalnych aplikacji webowych.",
+			"siteName": "Grzegorz Mozer",
+			"image": {
+				"url": "https://gmozer.ca/og.jpg",
+				"width": 1200,
+				"height": 630,
+				"alt": "Grzegorz Mozer - Portfolio"
+			}
+		},
+		"twitter": {
+			"card": "summary_large_image",
+			"title": "Grzegorz Mozer - Portfolio",
+			"description": "Starszy Inżynier Frontendu specjalizujący się w React, Next.js i TypeScript z ponad 5-letnim doświadczeniem w budowaniu skalowalnych aplikacji webowych.",
+			"image": "https://gmozer.ca/og.jpg",
+			"creator": "@GregMozer"
+		}
+	},
+	"locale-switcher": {
+		"label": "Zmień język",
+		"locale": {
+			"en": "Angielski",
+			"pl": "Polski"
+		}
+	}
+}
