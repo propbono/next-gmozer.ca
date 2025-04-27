@@ -1,28 +1,42 @@
-import { constructMetadata } from "@/app/metadata";
-import { useTranslations } from "next-intl";
-import { useMemo } from "react";
+import { getTranslations } from "next-intl/server";
 
-export const metadata = constructMetadata({
-	title: "About Me | Greg Mozer",
-	description:
-		"Learn about my professional journey, skills, and experience as a Senior Fullstack Engineer specializing in modern web technologies.",
-});
+export async function generateMetadata() {
+	const t = await getTranslations("metadata");
 
-export default function About() {
-	const t = useTranslations("resume.about");
-	const aboutItems = useMemo(() => {
-		return [
-			{ name: t("items.name.label"), value: t("items.name.value") },
-			{ name: t("items.phone.label"), value: t("items.phone.value") },
-			{ name: t("items.email.label"), value: t("items.email.value") },
-			{ name: t("items.location.label"), value: t("items.location.value") },
-			{
-				name: t("items.nationality.label"),
-				value: t("items.nationality.value"),
-			},
-			{ name: t("items.languages.label"), value: t("items.languages.value") },
-		];
-	}, [t]);
+	return {
+		title: t("resume.about.title"),
+		description: t("resume.about.description"),
+		openGraph: {
+			title: t("resume.about.title"),
+			description: t("resume.about.description"),
+			images: [{ url: t("default.image") }],
+			type: "website",
+			siteName: t("default.siteName"),
+			url: t("resume.about.url"),
+		},
+		twitter: {
+			card: "summary_large_image",
+			title: t("resume.about.title"),
+			description: t("resume.about.description"),
+			images: [t("default.image")],
+		},
+		metadataBase: new URL(t("default.url")),
+	};
+}
+
+export default async function About() {
+	const t = await getTranslations("resume.about");
+	const aboutItems = [
+		{ name: t("items.name.label"), value: t("items.name.value") },
+		{ name: t("items.phone.label"), value: t("items.phone.value") },
+		{ name: t("items.email.label"), value: t("items.email.value") },
+		{ name: t("items.location.label"), value: t("items.location.value") },
+		{
+			name: t("items.nationality.label"),
+			value: t("items.nationality.value"),
+		},
+		{ name: t("items.languages.label"), value: t("items.languages.value") },
+	];
 
 	return (
 		<section className="flex flex-col gap-8">

@@ -1,16 +1,33 @@
-import { constructMetadata } from "@/app/metadata";
 import { ContactForm } from "@/components/contact-form";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 
-export const metadata = constructMetadata({
-	title: "Contact | Greg Mozer",
-	description:
-		"Get in touch for web development projects, consultations, or collaborations. Let's build something great together.",
-});
+export async function generateMetadata() {
+	const t = await getTranslations("metadata");
 
-export default function ContactPage() {
-	const t = useTranslations("contact");
+	return {
+		title: t("contact.title"),
+		description: t("contact.description"),
+		openGraph: {
+			title: t("contact.title"),
+			description: t("contact.description"),
+			images: [{ url: t("default.image") }],
+			type: "website",
+			siteName: t("default.siteName"),
+			url: t("contact.url"),
+		},
+		twitter: {
+			card: "summary_large_image",
+			title: t("contact.title"),
+			description: t("contact.description"),
+			images: [t("default.image")],
+		},
+		metadataBase: new URL(t("default.url")),
+	};
+}
+
+export default async function ContactPage() {
+	const t = await getTranslations("contact");
 
 	return (
 		<article className="container flex flex-grow">

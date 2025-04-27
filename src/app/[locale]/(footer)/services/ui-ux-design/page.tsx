@@ -1,17 +1,34 @@
-import { constructMetadata } from "@/app/metadata";
 import { BreadcrumbNav } from "@/components/breadcrumbs";
 import { NumberItem } from "@/components/number-item";
 import { ServiceCard } from "@/components/service-card";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
-export const metadata = constructMetadata({
-	title: "UI/UX Design Services | Greg Mozer",
-	description:
-		"Crafting intuitive and engaging user interfaces that deliver exceptional user experiences while maintaining accessibility standards.",
-});
+export async function generateMetadata() {
+	const t = await getTranslations("metadata");
 
-export default function UiUxDesign() {
-	const t = useTranslations("services.uiUxDesign.content");
+	return {
+		title: t("services.ui-ux-design.title"),
+		description: t("services.ui-ux-design.description"),
+		openGraph: {
+			title: t("services.ui-ux-design.title"),
+			description: t("services.ui-ux-design.description"),
+			images: [{ url: t("default.image") }],
+			type: "website",
+			siteName: t("default.siteName"),
+			url: t("services.ui-ux-design.url"),
+		},
+		twitter: {
+			card: "summary_large_image",
+			title: t("services.ui-ux-design.title"),
+			description: t("services.ui-ux-design.description"),
+			images: [t("default.image")],
+		},
+		metadataBase: new URL(t("default.url")),
+	};
+}
+
+export default async function UiUxDesign() {
+	const t = await getTranslations("services.uiUxDesign.content");
 
 	return (
 		<article className="container">

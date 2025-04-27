@@ -1,17 +1,34 @@
-import { constructMetadata } from "@/app/metadata";
 import { BreadcrumbNav } from "@/components/breadcrumbs";
 import { CheckCircleWithText } from "@/components/check-circle-with-text";
 import { NumberItem } from "@/components/number-item";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
-export const metadata = constructMetadata({
-	title: "SEO Optimization Services | Greg Mozer",
-	description:
-		"Implementing data-driven SEO strategies to enhance online visibility and drive qualified organic traffic.",
-});
+export async function generateMetadata() {
+	const t = await getTranslations("metadata");
 
-export default function SeoOptimization() {
-	const t = useTranslations("services.seoOptimization.content");
+	return {
+		title: t("services.seo-optimization.title"),
+		description: t("services.seo-optimization.description"),
+		openGraph: {
+			title: t("services.seo-optimization.title"),
+			description: t("services.seo-optimization.description"),
+			images: [{ url: t("default.image") }],
+			type: "website",
+			siteName: t("default.siteName"),
+			url: t("services.seo-optimization.url"),
+		},
+		twitter: {
+			card: "summary_large_image",
+			title: t("services.seo-optimization.title"),
+			description: t("services.seo-optimization.description"),
+			images: [t("default.image")],
+		},
+		metadataBase: new URL(t("default.url")),
+	};
+}
+
+export default async function SeoOptimization() {
+	const t = await getTranslations("services.seoOptimization.content");
 	return (
 		<article className="container">
 			<BreadcrumbNav />

@@ -1,20 +1,18 @@
-import { constructMetadata } from "@/app/metadata";
 import { PostHogProvider } from "@/components/posthog-provider";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { routing } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
 
+import { NextIntlClientProvider, hasLocale } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Ubuntu } from "next/font/google";
+import { notFound } from "next/navigation";
 import Script from "next/script";
 import type { ReactNode } from "react";
 
-import { siteConfig } from "../metadata";
-
 import "../globals.css";
-import { routing } from "@/i18n/routing";
-import { NextIntlClientProvider, hasLocale } from "next-intl";
-import { notFound } from "next/navigation";
 
 const ubuntu = Ubuntu({
 	subsets: ["latin"],
@@ -22,34 +20,58 @@ const ubuntu = Ubuntu({
 	variable: "--font-ubuntu",
 });
 
-const jsonLd = {
-	"@context": "https://schema.org",
-	"@type": "Person",
-	name: siteConfig.name,
-	jobTitle: "Senior Fullstack Engineer",
-	url: siteConfig.url,
-	sameAs: [siteConfig.links.github, siteConfig.links.linkedin],
-	skills: ["React", "TypeScript", "Next.js", "Node.js"],
-	worksFor: {
-		"@type": "Organization",
-		name: "Heineken",
-	},
-};
+export async function generateMetadata() {
+	const t = await getTranslations("metadata");
 
-export const metadata = constructMetadata({
-	title: "Greg Mozer | Senior Fullstack Engineer",
-	description:
-		"Building high-performance web applications with modern technologies",
-});
+	return {
+		title: t("default.title"),
+		description: t("default.description"),
+		openGraph: {
+			title: t("default.title"),
+			description: t("default.description"),
+			images: [{ url: t("default.image") }],
+			type: "website",
+			siteName: t("default.siteName"),
+			url: t("default.url"),
+		},
+		twitter: {
+			card: "summary_large_image",
+			title: t("default.title"),
+			description: t("default.description"),
+			images: [t("default.image")],
+		},
+		metadataBase: new URL(t("default.url")),
+	};
+}
 
 export default async function RootLayout({
 	children,
 	params,
 }: Readonly<{ children: ReactNode; params: Promise<{ locale: string }> }>) {
+	const t = await getTranslations("metadata");
 	const { locale } = await params;
 	if (!hasLocale(routing.locales, locale)) {
 		notFound();
 	}
+
+	setRequestLocale(locale);
+
+	const jsonLd = {
+		"@context": "https://schema.org",
+		"@type": "Person",
+		name: t("default.name"),
+		jobTitle: t("default.jobTitle"),
+		url: `https://gmozer.ca/${locale}`,
+		sameAs: [
+			"https://github.com/propbono/",
+			"https://www.linkedin.com/in/greg-mozer/",
+		],
+		skills: ["React", "TypeScript", "Next.js", "Node.js"],
+		worksFor: {
+			"@type": "Organization",
+			name: "Heineken",
+		},
+	};
 
 	return (
 		<html lang={locale} suppressHydrationWarning>
@@ -89,4 +111,8 @@ export default async function RootLayout({
 			</body>
 		</html>
 	);
+}
+
+export function generateStaticParams() {
+	return routing.locales.map((locale) => ({ locale }));
 }

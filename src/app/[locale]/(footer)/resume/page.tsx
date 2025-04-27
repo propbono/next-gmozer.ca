@@ -1,4 +1,3 @@
-import { constructMetadata } from "@/app/metadata";
 import { AnimatedElement } from "@/components/animated-element/animated-element";
 import {
 	Card,
@@ -7,58 +6,73 @@ import {
 	CardHeader,
 } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { useTranslations } from "next-intl";
-import { useMemo } from "react";
+import { getTranslations } from "next-intl/server";
 
-export const metadata = constructMetadata({
-	title: "Professional Experience | Greg Mozer",
-	description:
-		"View my professional timeline, work history, and achievements as a Senior Fullstack Engineer working with cutting-edge technologies.",
-});
+export async function generateMetadata() {
+	const t = await getTranslations("metadata");
 
-export default function Experience() {
-	const t = useTranslations("resume.experience");
+	return {
+		title: t("resume.experience.title"),
+		description: t("resume.experience.description"),
+		openGraph: {
+			title: t("resume.experience.title"),
+			description: t("resume.experience.description"),
+			images: [{ url: t("default.image") }],
+			type: "website",
+			siteName: t("default.siteName"),
+			url: t("resume.experience.url"),
+		},
+		twitter: {
+			card: "summary_large_image",
+			title: t("resume.experience.title"),
+			description: t("resume.experience.description"),
+			images: [t("default.image")],
+		},
+		metadataBase: new URL(t("default.url")),
+	};
+}
 
-	const positions = useMemo(() => {
-		return [
-			{
-				position: t("positions.heineken.position"),
-				company: t("positions.heineken.company"),
-				location: t("positions.heineken.location"),
-				duration: t("positions.heineken.duration"),
-			},
-			{
-				position: t("positions.rangle.position"),
-				company: t("positions.rangle.company"),
-				location: t("positions.rangle.location"),
-				duration: t("positions.rangle.duration"),
-			},
-			{
-				position: t("positions.cgi2.position"),
-				company: t("positions.cgi2.company"),
-				location: t("positions.cgi2.location"),
-				duration: t("positions.cgi2.duration"),
-			},
-			{
-				position: t("positions.cgi1.position"),
-				company: t("positions.cgi1.company"),
-				location: t("positions.cgi1.location"),
-				duration: t("positions.cgi1.duration"),
-			},
-			{
-				position: t("positions.dcm2.position"),
-				company: t("positions.dcm2.company"),
-				location: t("positions.dcm2.location"),
-				duration: t("positions.dcm2.duration"),
-			},
-			{
-				position: t("positions.dcm1.position"),
-				company: t("positions.dcm1.company"),
-				location: t("positions.dcm1.location"),
-				duration: t("positions.dcm1.duration"),
-			},
-		];
-	}, [t]);
+export default async function Experience() {
+	const t = await getTranslations("resume.experience");
+
+	const positions = [
+		{
+			position: t("positions.heineken.position"),
+			company: t("positions.heineken.company"),
+			location: t("positions.heineken.location"),
+			duration: t("positions.heineken.duration"),
+		},
+		{
+			position: t("positions.rangle.position"),
+			company: t("positions.rangle.company"),
+			location: t("positions.rangle.location"),
+			duration: t("positions.rangle.duration"),
+		},
+		{
+			position: t("positions.cgi2.position"),
+			company: t("positions.cgi2.company"),
+			location: t("positions.cgi2.location"),
+			duration: t("positions.cgi2.duration"),
+		},
+		{
+			position: t("positions.cgi1.position"),
+			company: t("positions.cgi1.company"),
+			location: t("positions.cgi1.location"),
+			duration: t("positions.cgi1.duration"),
+		},
+		{
+			position: t("positions.dcm2.position"),
+			company: t("positions.dcm2.company"),
+			location: t("positions.dcm2.location"),
+			duration: t("positions.dcm2.duration"),
+		},
+		{
+			position: t("positions.dcm1.position"),
+			company: t("positions.dcm1.company"),
+			location: t("positions.dcm1.location"),
+			duration: t("positions.dcm1.duration"),
+		},
+	];
 
 	return (
 		<section className="flex flex-col gap-8">

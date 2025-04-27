@@ -1,20 +1,37 @@
-import { constructMetadata } from "@/app/metadata";
 import { AnimatedElement } from "@/components/animated-element/animated-element";
 import { Separator } from "@/components/ui/separator";
+import { Link } from "@/i18n/navigation";
 
-import { useTranslations } from "next-intl";
-import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 import { RiArrowRightDownLine } from "react-icons/ri";
 
-export const metadata = constructMetadata({
-	title: "Services | Greg Mozer",
-	description:
-		"Comprehensive web development services including frontend development, UI/UX design, SEO optimization, and mobile app development.",
-});
+export async function generateMetadata() {
+	const t = await getTranslations("metadata");
 
-export default function Services() {
-	const t = useTranslations("services");
-	const nav = useTranslations("navigation.services.children");
+	return {
+		title: t("services.default.title"),
+		description: t("services.default.description"),
+		openGraph: {
+			title: t("services.default.title"),
+			description: t("services.default.description"),
+			images: [{ url: t("default.image") }],
+			type: "website",
+			siteName: t("default.siteName"),
+			url: t("services.default.url"),
+		},
+		twitter: {
+			card: "summary_large_image",
+			title: t("services.default.title"),
+			description: t("services.default.description"),
+			images: [t("default.image")],
+		},
+		metadataBase: new URL(t("default.url")),
+	};
+}
+
+export default async function Services() {
+	const t = await getTranslations("services");
+	const nav = await getTranslations("navigation.services.children");
 
 	return (
 		<article className="container">

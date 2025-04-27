@@ -1,4 +1,3 @@
-import { constructMetadata } from "@/app/metadata";
 import {
 	Tooltip,
 	TooltipContent,
@@ -6,13 +5,32 @@ import {
 } from "@/components/ui/tooltip";
 import { SKILLS } from "@/constants/resume";
 import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import Link from "next/link";
 
-export const metadata = constructMetadata({
-	title: "Technical Skills | Greg Mozer",
-	description:
-		"Explore my technical expertise across various technologies including React, Next.js, TypeScript, and modern web development tools.",
-});
+export async function generateMetadata() {
+	const t = await getTranslations("metadata");
+
+	return {
+		title: t("resume.skills.title"),
+		description: t("resume.skills.description"),
+		openGraph: {
+			title: t("resume.skills.title"),
+			description: t("resume.skills.description"),
+			images: [{ url: t("default.image") }],
+			type: "website",
+			siteName: t("default.siteName"),
+			url: t("resume.skills.url"),
+		},
+		twitter: {
+			card: "summary_large_image",
+			title: t("resume.skills.title"),
+			description: t("resume.skills.description"),
+			images: [t("default.image")],
+		},
+		metadataBase: new URL(t("default.url")),
+	};
+}
 
 export default function Skills() {
 	const t = useTranslations("resume.skills");

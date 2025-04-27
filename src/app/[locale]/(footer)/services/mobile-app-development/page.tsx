@@ -1,17 +1,34 @@
-import { constructMetadata } from "@/app/metadata";
 import { BreadcrumbNav } from "@/components/breadcrumbs";
 import { CheckCircleWithText } from "@/components/check-circle-with-text";
 import { NumberItem } from "@/components/number-item";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
-export const metadata = constructMetadata({
-	title: "Mobile App Development Services | Greg Mozer",
-	description:
-		"Developing native and cross-platform mobile applications that provide seamless user experiences across all devices.",
-});
+export async function generateMetadata() {
+	const t = await getTranslations("metadata");
 
-export default function MobileAppDevelopment() {
-	const t = useTranslations("services.mobileAppDevelopment.content");
+	return {
+		title: t("services.mobile-app-development.title"),
+		description: t("services.mobile-app-development.description"),
+		openGraph: {
+			title: t("services.mobile-app-development.title"),
+			description: t("services.mobile-app-development.description"),
+			images: [{ url: t("default.image") }],
+			type: "website",
+			siteName: t("default.siteName"),
+			url: t("services.mobile-app-development.url"),
+		},
+		twitter: {
+			card: "summary_large_image",
+			title: t("services.mobile-app-development.title"),
+			description: t("services.mobile-app-development.description"),
+			images: [t("default.image")],
+		},
+		metadataBase: new URL(t("default.url")),
+	};
+}
+
+export default async function MobileAppDevelopment() {
+	const t = await getTranslations("services.mobileAppDevelopment.content");
 
 	return (
 		<article className="container">

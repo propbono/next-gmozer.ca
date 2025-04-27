@@ -1,10 +1,9 @@
-import { constructMetadata } from "@/app/metadata";
 import { BreadcrumbNav } from "@/components/breadcrumbs";
 import { CallToActionCard } from "@/components/call-to-action-card";
 import { CheckCircleWithText } from "@/components/check-circle-with-text";
 import { NumberItem } from "@/components/number-item";
 import { ServiceCard } from "@/components/service-card";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import {
 	LuCircleCheck,
 	LuCode,
@@ -13,15 +12,33 @@ import {
 	LuWorkflow,
 } from "react-icons/lu";
 
-export const metadata = constructMetadata({
-	title: "Web Development Services | Greg Mozer",
-	description:
-		"Building high-performance, scalable web applications with modern frameworks and best practices in mind.",
-});
+export async function generateMetadata() {
+	const t = await getTranslations("metadata");
 
-export default function WebDevelopment() {
-	const t = useTranslations("services.webDevelopment.content");
-	const nav = useTranslations("navigation");
+	return {
+		title: t("services.web-development.title"),
+		description: t("services.web-development.description"),
+		openGraph: {
+			title: t("services.web-development.title"),
+			description: t("services.web-development.description"),
+			images: [{ url: t("default.image") }],
+			type: "website",
+			siteName: t("default.siteName"),
+			url: t("services.web-development.url"),
+		},
+		twitter: {
+			card: "summary_large_image",
+			title: t("services.web-development.title"),
+			description: t("services.web-development.description"),
+			images: [t("default.image")],
+		},
+		metadataBase: new URL(t("default.url")),
+	};
+}
+
+export default async function WebDevelopment() {
+	const t = await getTranslations("services.webDevelopment.content");
+	const nav = await getTranslations("navigation");
 
 	return (
 		<article className="container">

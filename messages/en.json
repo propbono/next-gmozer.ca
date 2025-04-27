@@ -412,7 +412,10 @@
 				"name": { "label": "Name", "value": "Greg Mozer" },
 				"phone": { "label": "Phone", "value": "+1 (647) 833 8068" },
 				"email": { "label": "Email", "value": "propbono@gmail.com" },
-				"location": { "label": "Location", "value": "Toronto, ON, Canada" },
+				"location": {
+					"label": "Location",
+					"value": "Toronto, ON, Canada / Józefów, Poland"
+				},
 				"nationality": { "label": "Nationality", "value": "Canadian, Polish" },
 				"languages": { "label": "Languages", "value": "English, Polish" }
 			}
@@ -541,5 +544,107 @@
 	},
 	"footer": {
 		"copyright": "2023 Greg Mozer | All rights reserved"
+	},
+	"metadata": {
+		"default": {
+			"name": "Greg Mozer",
+			"jobTitle": "Senior Frontend Developer",
+			"title": "Greg Mozer - Portfolio",
+			"description": "Portfolio website of Greg Mozer, a frontend developer based in Canada. Building high-performance web applications with modern technologies",
+			"image": "https://gmozer.ca/en/og.jpg",
+			"siteName": "Greg Mozer - Portfolio",
+			"url": "https://gmozer.ca/en"
+		},
+		"contact": {
+			"title": "Contact | Greg Mozer",
+			"description": "Get in touch for web development projects, consultations, or collaborations. Let's build something great together.",
+			"url": "https://gmozer.ca/en/contact"
+		},
+		"resume": {
+			"experience": {
+				"title": "Professional Experience | Greg Mozer",
+				"description": "View my professional timeline, work history, and achievements as a Senior Fullstack Engineer working with cutting-edge technologies.",
+				"url": "https://gmozer.ca/en/resume"
+			},
+			"education": {
+				"title": "Education & Qualifications | Greg Mozer",
+				"description": "Discover my educational background, certifications, and continuous learning journey in software development and web technologies.",
+				"url": "https://gmozer.ca/en/resume/education"
+			},
+			"skills": {
+				"title": "Technical Skills | Greg Mozer",
+				"description": "Explore my technical expertise across various technologies including React, Next.js, TypeScript, and modern web development tools.",
+				"url": "https://gmozer.ca/en/resume/skills"
+			},
+			"about": {
+				"title": "About Me | Greg Mozer",
+				"description": "View my professional timeline, work history, and achievements as a Senior Fullstack Engineer working with cutting-edge technologies.",
+				"url": "https://gmozer.ca/en/resume/about"
+			}
+		},
+		"services": {
+			"default": {
+				"title": "Services | Greg Mozer",
+				"description": "Comprehensive web development services including frontend development, UI/UX design, SEO optimization, and mobile app development.",
+				"url": "https://gmozer.ca/en/services"
+			},
+			"web-development": {
+				"title": "Web Development | Greg Mozer",
+				"description": "Expert frontend development services using React, Next.js, and TypeScript to create responsive and interactive user experiences.",
+				"url": "https://gmozer.ca/en/services/web-development"
+			},
+			"ui-ux-design": {
+				"title": "UI/UX Design | Greg Mozer",
+				"description": "Crafting intuitive and engaging user interfaces that deliver exceptional user experiences while maintaining accessibility standards.",
+				"url": "https://gmozer.ca/en/services/ui-ux-design"
+			},
+			"seo-optimization": {
+				"title": "SEO Optimization | Greg Mozer",
+				"description": "Implementing data-driven SEO strategies to enhance online visibility and drive qualified organic traffic.",
+				"url": "https://gmozer.ca/en/services/seo-optimization"
+			},
+			"mobile-app-development": {
+				"title": "Mobile App Development | Greg Mozer",
+				"description": "Developing native and cross-platform mobile applications that provide seamless user experiences across all devices.",
+				"url": "https://gmozer.ca/en/services/mobile-app-development"
+			},
+			"logo-design": {
+				"title": "Logo Design | Greg Mozer",
+				"description": "Creating distinctive and memorable brand identities that resonate with target audiences and stand the test of time.",
+				"url": "https://gmozer.ca/en/services/logo-design"
+			}
+		},
+		"work": {
+			"title": "Projects | Greg Mozer",
+			"description": "Explore my portfolio of web development projects using React, Next.js, and TypeScript",
+			"url": "https://gmozer.ca/en/work"
+		},
+		"openGraph": {
+			"type": "website",
+			"locale": "en_CA",
+			"title": "Greg Mozer - Portfolio",
+			"description": "Senior Frontend Engineer specializing in React, Next.js, and TypeScript with over 5 years of experience building scalable web applications.",
+			"siteName": "Greg Mozer",
+			"image": {
+				"url": "https://gmozer.ca/og.jpg",
+				"width": 1200,
+				"height": 630,
+				"alt": "Greg Mozer - Portfolio"
+			}
+		},
+		"twitter": {
+			"card": "summary_large_image",
+			"title": "Greg Mozer - Portfolio",
+			"description": "Senior Frontend Engineer specializing in React, Next.js, and TypeScript with over 5 years of experience building scalable web applications.",
+			"image": "https://gmozer.ca/og.jpg",
+			"creator": "@GregMozer"
+		}
+	},
+	"locale-switcher": {
+		"label": "Switch the language",
+		"locale": {
+			"en": "English",
+			"pl": "Polish"
+		}
 	}
 }

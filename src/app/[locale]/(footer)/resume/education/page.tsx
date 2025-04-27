@@ -1,4 +1,3 @@
-import { constructMetadata } from "@/app/metadata";
 import { AnimatedElement } from "@/components/animated-element/animated-element";
 import {
 	Card,
@@ -7,40 +6,55 @@ import {
 	CardHeader,
 } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { useTranslations } from "next-intl";
-import { useMemo } from "react";
+import { getTranslations } from "next-intl/server";
 
-export const metadata = constructMetadata({
-	title: "Education & Qualifications | Greg Mozer",
-	description:
-		"Discover my educational background, certifications, and continuous learning journey in software development and web technologies.",
-});
+export async function generateMetadata() {
+	const t = await getTranslations("metadata");
 
-export default function Education() {
-	const t = useTranslations("resume.education");
+	return {
+		title: t("resume.education.title"),
+		description: t("resume.education.description"),
+		openGraph: {
+			title: t("resume.education.title"),
+			description: t("resume.education.description"),
+			images: [{ url: t("default.image") }],
+			type: "website",
+			siteName: t("default.siteName"),
+			url: t("resume.education.url"),
+		},
+		twitter: {
+			card: "summary_large_image",
+			title: t("resume.education.title"),
+			description: t("resume.education.description"),
+			images: [t("default.image")],
+		},
+		metadataBase: new URL(t("default.url")),
+	};
+}
 
-	const educationItems = useMemo(() => {
-		return [
-			{
-				degree: t("items.aws.degree"),
-				institution: t("items.aws.institution"),
-				program: t("items.aws.program"),
-				duration: t("items.aws.duration"),
-			},
-			{
-				degree: t("items.wit.degree"),
-				institution: t("items.wit.institution"),
-				program: t("items.wit.program"),
-				duration: t("items.wit.duration"),
-			},
-			{
-				degree: t("items.ucw.degree"),
-				institution: t("items.ucw.institution"),
-				program: t("items.ucw.program"),
-				duration: t("items.ucw.duration"),
-			},
-		];
-	}, [t]);
+export default async function Education() {
+	const t = await getTranslations("resume.education");
+
+	const educationItems = [
+		{
+			degree: t("items.aws.degree"),
+			institution: t("items.aws.institution"),
+			program: t("items.aws.program"),
+			duration: t("items.aws.duration"),
+		},
+		{
+			degree: t("items.wit.degree"),
+			institution: t("items.wit.institution"),
+			program: t("items.wit.program"),
+			duration: t("items.wit.duration"),
+		},
+		{
+			degree: t("items.ucw.degree"),
+			institution: t("items.ucw.institution"),
+			program: t("items.ucw.program"),
+			duration: t("items.ucw.duration"),
+		},
+	];
 
 	return (
 		<section className="flex flex-col gap-8">

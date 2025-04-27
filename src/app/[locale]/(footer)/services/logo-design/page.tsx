@@ -1,17 +1,34 @@
-import { constructMetadata } from "@/app/metadata";
 import { BreadcrumbNav } from "@/components/breadcrumbs";
 import { CheckCircleWithText } from "@/components/check-circle-with-text";
 import { NumberItem } from "@/components/number-item";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
-export const metadata = constructMetadata({
-	title: "Logo Design Services | Greg Mozer",
-	description:
-		"Creating distinctive and memorable brand identities that resonate with target audiences and stand the test of time.",
-});
+export async function generateMetadata() {
+	const t = await getTranslations("metadata");
 
-export default function LogoDesign() {
-	const t = useTranslations("services.logoDesign.content");
+	return {
+		title: t("services.logo-design.title"),
+		description: t("services.logo-design.description"),
+		openGraph: {
+			title: t("services.logo-design.title"),
+			description: t("services.logo-design.description"),
+			images: [{ url: t("default.image") }],
+			type: "website",
+			siteName: t("default.siteName"),
+			url: t("services.logo-design.url"),
+		},
+		twitter: {
+			card: "summary_large_image",
+			title: t("services.logo-design.title"),
+			description: t("services.logo-design.description"),
+			images: [t("default.image")],
+		},
+		metadataBase: new URL(t("default.url")),
+	};
+}
+
+export default async function LogoDesign() {
+	const t = await getTranslations("services.logoDesign.content");
 
 	return (
 		<article className="container">
