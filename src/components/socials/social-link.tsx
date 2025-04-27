@@ -1,11 +1,11 @@
 import { SOCIALS } from "@/constants/socials";
+import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 import {
 	Tooltip,
 	TooltipContent,
 	TooltipTrigger,
 } from "@radix-ui/react-tooltip";
-import Link from "next/link";
 import posthog from "posthog-js";
 
 export const SocialLinks = ({

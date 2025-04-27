@@ -1,20 +1,21 @@
 "use client";
 import { useMediaQuery } from "@/hooks/use-media-query";
+import { Link, usePathname } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 import type { NavItem } from "@/types/nav";
 
-import { useTranslations } from "next-intl";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useMemo, useState } from "react";
 
 import { DesktopNav } from "../desktop-nav";
+import { LocaleSwitcher } from "../language-switcher";
 import { MobileNav } from "../mobile-nav";
 import { ThemeSwitch } from "../theme-switch";
 
 export const Header = () => {
 	const header = useTranslations("header");
 	const nav = useTranslations("navigation");
+	const locale = useLocale();
 
 	const pathname = usePathname();
 	const isMediumBreakpoint = useMediaQuery("(min-width:768px)");
@@ -85,6 +86,7 @@ export const Header = () => {
 				</Link>
 				<div className="flex flex-row-reverse sm:flex-row items-center gap-4">
 					{isMediumBreakpoint ? memoizedDesktopNav : memoizedMobileNav}
+					{pathname === "/" && <LocaleSwitcher />}
 					<ThemeSwitch />
 				</div>
 			</div>

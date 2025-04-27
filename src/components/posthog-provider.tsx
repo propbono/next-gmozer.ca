@@ -1,7 +1,8 @@
 "use client";
 
+import { usePathname } from "@/i18n/navigation";
 import { useLocale } from "next-intl";
-import { usePathname, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import posthog from "posthog-js";
 import { PostHogProvider as PHProvider, usePostHog } from "posthog-js/react";
 import { type ReactNode, Suspense, useEffect } from "react";

@@ -19,7 +19,6 @@ import type { Project } from "@/types/work";
 
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import Link from "next/link";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import {
 	RiArrowLeftSLine,
@@ -28,6 +27,7 @@ import {
 	RiGithubLine,
 } from "react-icons/ri";
 
+import { Link } from "@/i18n/navigation";
 import { Card, CardContent } from "./ui/card";
 
 export function ProjectShowcase() {

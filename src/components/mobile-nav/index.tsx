@@ -2,9 +2,9 @@ import { cn } from "@/lib/utils";
 import type { NavItem } from "@/types/nav";
 
 import { useTranslations } from "next-intl";
-import Link from "next/link";
 import { RxHamburgerMenu } from "react-icons/rx";
 
+import { Link } from "@/i18n/navigation";
 import { Button } from "../ui/button";
 import {
 	Sheet,

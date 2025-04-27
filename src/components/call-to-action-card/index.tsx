@@ -16,13 +16,15 @@ export const CallToActionCard = ({
 	ctaUrlText,
 }: CallToActionCardProps) => {
 	return (
-		<Card className="bg-gradient-to-r from-primary-foreground to-slate-200 border-0">
+		<Card className="bg-gradient-to-r from-primary-foreground dark:from-primary dark:to-primary-foreground to-slate-200 border-0">
 			<CardContent className="p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
 				<div className="space-y-4 text-center md:text-left">
 					<h2 className="text-2xl md:text-3xl font-bold tracking-tight">
 						{ctaTitle}
 					</h2>
-					<p className="text-muted-foreground">{ctaDescription}</p>
+					<p className="text-muted-foreground dark:text-foreground">
+						{ctaDescription}
+					</p>
 				</div>
 				<Button
 					size="lg"
