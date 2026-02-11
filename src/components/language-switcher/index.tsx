@@ -19,7 +19,7 @@ export const LocaleSwitcher = () => {
 	const t = useTranslations("locale-switcher");
 	const locale = useLocale();
 	const router = useRouter();
-	const [isPending, startTransition] = useTransition();
+	const [_isPending, startTransition] = useTransition();
 	const pathname = usePathname();
 	const params = useParams();
 
@@ -37,7 +37,7 @@ export const LocaleSwitcher = () => {
 
 	return (
 		<Select
-			onValueChange={(value) => onSelectChange(value as Locale)}
+			onValueChange={(value: string) => onSelectChange(value as Locale)}
 			defaultValue={locale}
 		>
 			<SelectTrigger className="w-fit">

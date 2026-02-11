@@ -32,10 +32,10 @@ import { Card, CardContent } from "./ui/card";
 
 export function ProjectShowcase() {
 	const [api, setApi] = useState<CarouselApi>();
-	const [current, setCurrent] = useState(0);
-	const [count, setCount] = useState(0);
+	const [_current, setCurrent] = useState(0);
+	const [_count, setCount] = useState(0);
 	const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
-	const [ref, { width, height }] = useElementSize();
+	const [ref, { height }] = useElementSize();
 	const t = useTranslations("work");
 
 	const projectKeys = [

@@ -57,7 +57,7 @@ export default async function Education() {
 	];
 
 	return (
-		<section className="flex flex-col gap-8">
+		<section className="flex flex-col gap-8" aria-label="Education timeline">
 			<header className="flex flex-col gap-8 text-center md:text-left">
 				<h1 className="text-4xl font-bold">{t("title")}</h1>
 				<p className="max-w-xl mx-auto md:mx-0 text-muted-foreground">
@@ -65,10 +65,7 @@ export default async function Education() {
 				</p>
 			</header>
 			<ScrollArea className="h-[400px] 2xl:h-[600px]">
-				<div
-					className="grid grid-cols-1 gap-8 md:grid-cols-2"
-					aria-label="Education timeline"
-				>
+				<div className="grid grid-cols-1 gap-8 md:grid-cols-2">
 					{educationItems.map((item, index) => (
 						<AnimatedElement index={index} key={`${item.institution}-${index}`}>
 							<Card>
