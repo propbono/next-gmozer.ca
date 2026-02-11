@@ -9,6 +9,10 @@ vi.mock("octokit", () => ({
 	})),
 }));
 
+vi.mock("next/cache", () => ({
+	unstable_cache: <T extends (...args: unknown[]) => unknown>(fn: T) => fn,
+}));
+
 describe("getGithubStats", () => {
 	beforeEach(() => {
 		vi.clearAllMocks();
