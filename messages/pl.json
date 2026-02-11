@@ -646,5 +646,21 @@
 			"en": "Angielski",
 			"pl": "Polski"
 		}
+	},
+	"error": {
+		"title": "Coś poszło nie tak!",
+		"description": "Przepraszamy za niedogodności. Wystąpił nieoczekiwany błąd.",
+		"retry": "Spróbuj ponownie",
+		"home": "Wróć na stronę główna"
+	},
+	"notFound": {
+		"title": "Strona nie znaleziona",
+		"description": "Przepraszamy, nie mogliśmy znaleźć strony, której szukasz.",
+		"home": "Wróć na stronę główna"
+	},
+	"globalError": {
+		"title": "Błąd krytyczny",
+		"description": "Wystąpił błąd krytyczny.",
+		"retry": "Spróbuj ponownie"
 	}
 }
