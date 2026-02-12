@@ -422,6 +422,7 @@
 		}
 	},
 	"work": {
+		"noImage": "Brak zdjęcia",
 		"card-footer": {
 			"live": "Link do projektu",
 			"github": "Repozytorium GitHub",

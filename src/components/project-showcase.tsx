@@ -1,34 +1,20 @@
 "use client";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import {
 	Carousel,
 	type CarouselApi,
 	CarouselContent,
 	CarouselItem,
 } from "@/components/ui/carousel";
-import { Separator } from "@/components/ui/separator";
-import {
-	Tooltip,
-	TooltipContent,
-	TooltipTrigger,
-} from "@/components/ui/tooltip";
 import { useElementSize } from "@/hooks/use-element-size";
 import { isStringArray } from "@/lib/utils";
 import type { Project } from "@/types/work";
 
+import { PROJECT_KEYS } from "@/constants/main";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import {
-	RiArrowLeftSLine,
-	RiArrowRightDownLine,
-	RiArrowRightSLine,
-	RiGithubLine,
-} from "react-icons/ri";
-
-import { Link } from "@/i18n/navigation";
-import { Card, CardContent } from "./ui/card";
+import { LuImageOff } from "react-icons/lu";
+import { ProjectCard } from "./project-card";
 
 export function ProjectShowcase() {
 	const [api, setApi] = useState<CarouselApi>();
@@ -38,17 +24,8 @@ export function ProjectShowcase() {
 	const [ref, { height }] = useElementSize();
 	const t = useTranslations("work");
 
-	const projectKeys = [
-		"project1",
-		"project2",
-		"project3",
-		"project4",
-		"project5",
-		"project6",
-	] as const;
-
 	const projects: Project[] = useMemo(() => {
-		return projectKeys.map((key) => {
+		return PROJECT_KEYS.map((key) => {
 			return {
 				title: t(`projects.${key}.title`),
 				category: t(`projects.${key}.category`),
@@ -67,7 +44,7 @@ export function ProjectShowcase() {
 					: undefined,
 			};
 		});
-	}, [t, projectKeys]);
+	}, [t]);
 
 	const currentProject = useMemo(
 		() => projects[currentProjectIndex],
@@ -111,11 +88,10 @@ export function ProjectShowcase() {
 							projects.map((item, index) => (
 								<CarouselItem key={item.title} className="h-full">
 									<div
-										className="relative w-full h-full"
+										className="relative w-full h-full bg-muted/30 md:rounded-s-lg overflow-hidden"
 										style={{ height: `${height}px` }}
 									>
-										{/* TODO: if no image display placeholder image */}
-										{item.image && (
+										{item.image ? (
 											<Image
 												src={item.image}
 												alt={item.title}
@@ -124,6 +100,13 @@ export function ProjectShowcase() {
 												sizes="(max-width: 1024px) 100vw, 50vw"
 												priority={index === 0}
 											/>
+										) : (
+											<div className="w-full h-full flex flex-col items-center justify-center text-muted-foreground bg-muted">
+												<LuImageOff className="size-16 mb-4 opacity-50" />
+												<span className="text-lg font-medium">
+													{t("noImage")}
+												</span>
+											</div>
 										)}
 									</div>
 								</CarouselItem>
@@ -132,109 +115,14 @@ export function ProjectShowcase() {
 				</Carousel>
 			</div>
 			<div className="container flex flex-grow items-center justify-start">
-				<Card className="w-full sm:w-[672px] h-[600px] z-10 shadow-lg shadow-white/75">
-					<CardContent className="h-full flex flex-col p-6">
-						<div className="flex-shrink-0">
-							<span className="text-8xl leading-none font-extrabold text-primary mb-8 block">
-								{(currentProjectIndex + 1).toString().padStart(2, "0")}
-							</span>
-							<h1
-								id="project-title"
-								className="leading-tight font-bold text-4xl sm:text-5xl text-card-foreground group-hover:text-primary transition-all duration-500 capitalize mb-6 line-clamp-2"
-							>
-								{currentProject.title}
-							</h1>
-							<h2 className="leading-none font-medium text-2x mb-4">
-								{currentProject.category}
-							</h2>
-						</div>
-
-						<div className="flex-grow flex flex-col justify-between min-h-0">
-							<span className="text-muted-foreground mb-4 line-clamp-2">
-								{currentProject.description}
-							</span>
-
-							<div className="flex flex-wrap gap-2 overflow-y-auto max-h-24 mb-4">
-								{currentProject.stack.map((stack) => (
-									<Badge
-										className="bg-secondary text-secondary-foreground flex-shrink-0"
-										key={stack}
-									>
-										{stack}
-									</Badge>
-								))}
-							</div>
-						</div>
-
-						<div className="flex-shrink-0 mt-auto pt-4">
-							<Separator className="mb-4" />
-							<div className="flex flex-row justify-between gap-4">
-								<div className="flex gap-4 items-center">
-									{!!currentProject.liveLink && (
-										<Link href={currentProject.liveLink}>
-											<Tooltip>
-												<TooltipTrigger className="size-16 rounded-full border border-card-foreground flex justify-center items-center group hover:border-primary hover:border-2 hover:border-dashed hover:transition-all hover:duration-100">
-													<RiArrowRightDownLine className="text-3xl text-card-foreground group-hover:text-primary group-hover:-rotate-45 transition-all duration-500" />
-													<span className="sr-only">
-														{currentProject.title} - {t("card-footer.live")}
-													</span>
-												</TooltipTrigger>
-												<TooltipContent>{t("card-footer.live")}</TooltipContent>
-											</Tooltip>
-										</Link>
-									)}
-									{!!currentProject.githubLink && (
-										<Link href={currentProject.githubLink}>
-											<Tooltip>
-												<TooltipTrigger className="size-16 rounded-full border border-card-foreground flex justify-center items-center group hover:border-primary hover:border-2 hover:border-dashed hover:transition-all hover:duration-100">
-													<RiGithubLine className="text-3xl text-card-foreground group-hover:text-primary transition-all duration-500" />
-													<span className="sr-only">
-														{currentProject.title} - {t("card-footer.github")}
-													</span>
-												</TooltipTrigger>
-												<TooltipContent>
-													{t("card-footer.github")}
-												</TooltipContent>
-											</Tooltip>
-										</Link>
-									)}
-								</div>
-								<div className="flex gap-4 items-center">
-									<Tooltip>
-										<TooltipTrigger asChild>
-											<Button
-												onClick={handlePrevious}
-												disabled={!api?.canScrollPrev()}
-												variant="ghost"
-												className="size-16 rounded-full border border-card-foreground flex justify-center items-center group hover:bg-white hover:border-primary hover:border-2 hover:border-dashed hover:transition-all hover:duration-100"
-											>
-												<RiArrowLeftSLine className="text-3xl text-card-foreground group-hover:text-primary transition-all duration-500" />
-												<span className="sr-only">
-													{t("card-footer.previous")}
-												</span>
-											</Button>
-										</TooltipTrigger>
-										<TooltipContent>{t("card-footer.previous")}</TooltipContent>
-									</Tooltip>
-									<Tooltip>
-										<TooltipTrigger asChild>
-											<Button
-												onClick={handleNext}
-												disabled={!api?.canScrollNext()}
-												variant="ghost"
-												className="size-16 rounded-full border border-card-foreground flex justify-center items-center group hover:bg-white hover:border-primary hover:border-2 hover:border-dashed hover:transition-all hover:duration-100"
-											>
-												<RiArrowRightSLine className="text-3xl text-card-foreground group-hover:text-primary transition-all duration-500" />
-												<span className="sr-only">{t("card-footer.next")}</span>
-											</Button>
-										</TooltipTrigger>
-										<TooltipContent>{t("card-footer.next")}</TooltipContent>
-									</Tooltip>
-								</div>
-							</div>
-						</div>
-					</CardContent>
-				</Card>
+				<ProjectCard
+					project={currentProject}
+					index={currentProjectIndex}
+					onNext={handleNext}
+					onPrevious={handlePrevious}
+					canNext={!!api?.canScrollNext()}
+					canPrevious={!!api?.canScrollPrev()}
+				/>
 			</div>
 		</article>
 	);
