@@ -29,7 +29,6 @@ export async function generateMetadata() {
 		openGraph: {
 			title: t("default.title"),
 			description: t("default.description"),
-			images: [{ url: t("default.image") }],
 			type: "website",
 			siteName: t("default.siteName"),
 			url: t("default.url"),
@@ -38,7 +37,6 @@ export async function generateMetadata() {
 			card: "summary_large_image",
 			title: t("default.title"),
 			description: t("default.description"),
-			images: [t("default.image")],
 		},
 		metadataBase: new URL(t("default.url")),
 	};

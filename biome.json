@@ -11,7 +11,8 @@
 			"!src/hooks/use-element-size.ts",
 			"!src/components/ui",
 			"!coverage",
-			"!src/types/global.ts"
+			"!src/types/global.ts",
+			"!src/app/**/opengraph-image.tsx"
 		]
 	},
 	"formatter": {
