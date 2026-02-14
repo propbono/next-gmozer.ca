@@ -3,6 +3,7 @@ import { DownloadResume } from "@/components/resume-download";
 import { Socials } from "@/components/socials";
 import { Stats } from "@/components/stats";
 import { DEV_START_YEAR, TECHNOLOGIES_MASTERED } from "@/constants/main";
+import { isValidLocale } from "@/i18n/routing";
 import { MOCK_STATS, getGithubStats } from "@/services/github";
 import type { Stat } from "@/types/stats";
 
@@ -11,6 +12,51 @@ import { getTranslations } from "next-intl/server";
 
 const PROPRIETARY_PROJECTS_COUNT = 10;
 const PROPRIETARY_COMMITS_COUNT = 550;
+
+export async function generateMetadata({
+	params: { locale },
+}: {
+	params: { locale: string };
+}) {
+	const t = await getTranslations({
+		locale: isValidLocale(locale) ? locale : "en",
+		namespace: "metadata.default",
+	});
+
+	return {
+		title: t("title"),
+		description: t("description"),
+		keywords: [
+			"Frontend Developer",
+			"React Developer",
+			"Next.js",
+			"TypeScript",
+			"Greg Mozer",
+			"Portfolio",
+		],
+		openGraph: {
+			title: t("title"),
+			description: t("description"),
+			url: t("url"),
+			siteName: t("siteName"),
+			locale: locale,
+			type: "website",
+		},
+		twitter: {
+			card: "summary_large_image",
+			title: t("title"),
+			description: t("description"),
+			creator: "@GregMozer",
+		},
+		alternates: {
+			canonical: t("url"),
+			languages: {
+				en: "https://gmozer.ca/en",
+				pl: "https://gmozer.ca/pl",
+			},
+		},
+	};
+}
 
 export default async function Home() {
 	const t = await getTranslations("home");

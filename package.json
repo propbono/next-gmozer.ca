@@ -11,11 +11,12 @@
 		"test:coverage": "vitest run --coverage",
 		"format:check": "biome format .",
 		"format:fix": "biome format --write --",
-		"format:fix-all": "npm run format:fix .",
+		"format:fix-all": "pnpm run format:fix .",
 		"lint": "biome lint --",
-		"lint:all": "npm run lint .",
+		"lint:all": "pnpm run lint .",
 		"lint:fix": "biome lint --write --",
-		"lint:fix-all": "npm run lint:fix .",
+		"lint:fix-all": "pnpm run lint:fix .",
+		"typecheck": "tsc --noEmit",
 		"prepare": "husky"
 	},
 	"dependencies": {
@@ -53,7 +54,7 @@
 		"zod": "^3.24.1"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "1.9.4",
+		"@biomejs/biome": "2.3.14",
 		"@testing-library/jest-dom": "^6.6.3",
 		"@testing-library/react": "^16.1.0",
 		"@types/node": "^20",
@@ -70,7 +71,11 @@
 		"vitest": "^3.1.1"
 	},
 	"lint-staged": {
-		"*.{js, jsx,ts,tsx}": ["npm run lint"],
-		"*.{json,js,ts,jsx,tsx,html}": ["npm run format:fix"]
+		"*.{js,jsx,ts,tsx}": [
+			"pnpm run lint"
+		],
+		"*.{json,js,ts,jsx,tsx,html}": [
+			"pnpm run format:fix"
+		]
 	}
 }

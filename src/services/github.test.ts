@@ -9,13 +9,20 @@ vi.mock("octokit", () => ({
 	})),
 }));
 
+vi.mock("next/cache", () => ({
+	unstable_cache: <T extends (...args: unknown[]) => unknown>(fn: T) => fn,
+}));
+
 describe("getGithubStats", () => {
 	beforeEach(() => {
 		vi.clearAllMocks();
 	});
 
 	it("successfully fetches github stats", async () => {
-		const mockRepos = [{ name: "repo1" }, { name: "repo2" }];
+		const mockRepos = [
+			{ name: "repo1", owner: { login: "propbono" } },
+			{ name: "repo2", owner: { login: "propbono" } },
+		];
 		const mockContributors = [
 			{ data: [{ login: "propbono", contributions: 100 }] },
 			{ data: [{ login: "propbono", contributions: 150 }] },
@@ -49,7 +56,7 @@ describe("getGithubStats", () => {
 	});
 
 	it("counts contributions only from specified github usernames", async () => {
-		const mockRepos = [{ name: "repo1" }];
+		const mockRepos = [{ name: "repo1", owner: { login: "propbono" } }];
 		const mockContributors = {
 			data: [
 				{ login: "propbono", contributions: 100 },

@@ -1,21 +1,24 @@
 {
-	"$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+	"$schema": "https://biomejs.dev/schemas/2.3.14/schema.json",
 	"vcs": { "enabled": false, "clientKind": "git", "useIgnoreFile": false },
 	"files": {
 		"ignoreUnknown": false,
-		"ignore": [
-			"./.next/**",
-			"./hooks/use-toast.ts",
-			"./hooks/use-media-query.ts",
-			"./hooks/use-element-size.ts",
-			"./components/ui/**",
-			"./coverage/**"
+		"includes": [
+			"**",
+			"!.next",
+			"!src/hooks/use-toast.ts",
+			"!src/hooks/use-media-query.ts",
+			"!src/hooks/use-element-size.ts",
+			"!src/components/ui",
+			"!coverage",
+			"!src/types/global.ts",
+			"!src/app/**/opengraph-image.tsx"
 		]
 	},
 	"formatter": {
 		"enabled": true,
 		"formatWithErrors": false,
-		"ignore": [],
+		"includes": ["**"],
 		"attributePosition": "auto",
 		"indentStyle": "tab",
 		"indentWidth": 2,
@@ -35,29 +38,55 @@
 			"enabled": true
 		}
 	},
-	"json": {
-		"formatter": {
-			"trailingCommas": "none"
+	"css": {
+		"parser": {
+			"cssModules": true,
+			"allowWrongLineComments": true,
+			"tailwindDirectives": true
 		}
 	},
-	"organizeImports": { "enabled": true },
+	"assist": {
+		"actions": {
+			"source": { "organizeImports": "on" }
+		}
+	},
 	"linter": {
 		"enabled": true,
 		"rules": {
 			"recommended": true,
-			"complexity": {
-				"all": true
-			},
-			"suspicious": { "noConsole": "error" },
+			"complexity": {},
 			"correctness": {
 				"noUndeclaredDependencies": "error",
 				"noUndeclaredVariables": "error",
-				"noUnusedImports": "error"
+				"noUnusedImports": "error",
+				"noUnusedVariables": "error",
+				"noUnusedLabels": "error"
 			},
 			"style": {
 				"useConsistentArrayType": "error",
-				"useDefaultSwitchClause": "error"
+				"useDefaultSwitchClause": "error",
+				"useImportType": "error",
+				"useConsistentTypeDefinitions": {
+					"level": "error",
+					"options": { "style": "type" }
+				}
+			},
+			"suspicious": {
+				"noConsole": "error",
+				"noExplicitAny": "error"
 			}
 		}
-	}
+	},
+	"overrides": [
+		{
+			"includes": ["src/app/globals.css"],
+			"linter": {
+				"rules": {
+					"suspicious": {
+						"noUnknownAtRules": "off"
+					}
+				}
+			}
+		}
+	]
 }

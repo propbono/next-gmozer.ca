@@ -4,10 +4,11 @@ export const LOCALES = ["en", "pl"] as const;
 export type Locale = (typeof LOCALES)[number];
 export const DEFAULT_LOCALE = "en";
 
-export const routing = defineRouting({
-	// A list of all locales that are supported
-	locales: LOCALES,
+export const isValidLocale = (locale: string): locale is Locale => {
+	return (LOCALES as readonly string[]).includes(locale);
+};
 
-	// Used when no locale matches
+export const routing = defineRouting({
+	locales: LOCALES,
 	defaultLocale: DEFAULT_LOCALE,
 });

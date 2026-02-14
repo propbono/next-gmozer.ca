@@ -4,7 +4,7 @@ import { Link, usePathname } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 import type { NavItem } from "@/types/nav";
 
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import { useEffect, useMemo, useState } from "react";
 
 import { DesktopNav } from "../desktop-nav";
@@ -15,8 +15,6 @@ import { ThemeSwitch } from "../theme-switch";
 export const Header = () => {
 	const header = useTranslations("header");
 	const nav = useTranslations("navigation");
-	const locale = useLocale();
-
 	const pathname = usePathname();
 	const isMediumBreakpoint = useMediaQuery("(min-width:768px)");
 

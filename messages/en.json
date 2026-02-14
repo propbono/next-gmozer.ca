@@ -422,6 +422,7 @@
 		}
 	},
 	"work": {
+		"noImage": "No image available",
 		"card-footer": {
 			"live": "Live Project",
 			"github": "GitHub Repository",
@@ -646,5 +647,21 @@
 			"en": "English",
 			"pl": "Polish"
 		}
+	},
+	"error": {
+		"title": "Something went wrong!",
+		"description": "We apologize for the inconvenience. An unexpected error has occurred.",
+		"retry": "Try again",
+		"home": "Go back home"
+	},
+	"notFound": {
+		"title": "Page Not Found",
+		"description": "Sorry, we couldn't find the page you're looking for.",
+		"home": "Go back home"
+	},
+	"globalError": {
+		"title": "Critical Error",
+		"description": "A critical error occurred.",
+		"retry": "Try again"
 	}
 }

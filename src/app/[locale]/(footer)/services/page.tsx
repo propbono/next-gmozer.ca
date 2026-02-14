@@ -34,11 +34,8 @@ export default async function Services() {
 	const nav = await getTranslations("navigation.services.children");
 
 	return (
-		<article className="container">
-			<div
-				className="grid grid-cols-1 md:grid-cols-2 gap-16"
-				aria-label={t("srTitle")}
-			>
+		<article className="container" aria-label={t("srTitle")}>
+			<div className="grid grid-cols-1 md:grid-cols-2 gap-16">
 				<ServiceCard
 					index={1}
 					url={nav("web-development.url")}

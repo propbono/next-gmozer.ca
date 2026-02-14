@@ -1,5 +1,4 @@
 import type { routing } from "@/i18n/routing";
-// biome-ignore lint/style/useImportType: <explanation>
 import messages from "../../messages/en.json";
 
 declare module "next-intl" {
