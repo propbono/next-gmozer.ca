@@ -1,14 +1,13 @@
+import { differenceInCalendarYears } from "date-fns";
+import { getTranslations } from "next-intl/server";
 import { HeroPhoto } from "@/components/hero-photo";
 import { DownloadResume } from "@/components/resume-download";
 import { Socials } from "@/components/socials";
 import { Stats } from "@/components/stats";
 import { DEV_START_YEAR, TECHNOLOGIES_MASTERED } from "@/constants/main";
 import { isValidLocale } from "@/i18n/routing";
-import { MOCK_STATS, getGithubStats } from "@/services/github";
+import { getGithubStats, MOCK_STATS } from "@/services/github";
 import type { Stat } from "@/types/stats";
-
-import { differenceInCalendarYears } from "date-fns";
-import { getTranslations } from "next-intl/server";
 
 const PROPRIETARY_PROJECTS_COUNT = 10;
 const PROPRIETARY_COMMITS_COUNT = 550;

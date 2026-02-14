@@ -1,16 +1,15 @@
+import { Ubuntu } from "next/font/google";
+import { notFound } from "next/navigation";
+import Script from "next/script";
+import { hasLocale, NextIntlClientProvider } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import type { ReactNode } from "react";
 import { PostHogProvider } from "@/components/posthog-provider";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { routing } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
-
-import { NextIntlClientProvider, hasLocale } from "next-intl";
-import { getTranslations, setRequestLocale } from "next-intl/server";
-import { Ubuntu } from "next/font/google";
-import { notFound } from "next/navigation";
-import Script from "next/script";
-import type { ReactNode } from "react";
 
 import "../globals.css";
 

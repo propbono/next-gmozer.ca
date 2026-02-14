@@ -1,3 +1,4 @@
+import { getTranslations } from "next-intl/server";
 import { AnimatedElement } from "@/components/animated-element/animated-element";
 import {
 	Card,
@@ -6,7 +7,6 @@ import {
 	CardHeader,
 } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { getTranslations } from "next-intl/server";
 
 export async function generateMetadata() {
 	const t = await getTranslations("metadata");

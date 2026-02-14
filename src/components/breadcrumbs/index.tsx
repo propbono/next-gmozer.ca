@@ -1,5 +1,7 @@
 "use client";
 
+import { Fragment } from "react";
+import { RxCaretRight } from "react-icons/rx";
 import {
 	Breadcrumb,
 	BreadcrumbItem,
@@ -8,8 +10,6 @@ import {
 	BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { usePathname } from "@/i18n/navigation";
-import { Fragment } from "react";
-import { RxCaretRight } from "react-icons/rx";
 
 export const BreadcrumbNav = () => {
 	const pathname = usePathname();

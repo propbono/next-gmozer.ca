@@ -1,5 +1,5 @@
-import { ProjectShowcase } from "@/components/project-showcase";
 import { getTranslations } from "next-intl/server";
+import { ProjectShowcase } from "@/components/project-showcase";
 
 export async function generateMetadata() {
 	const t = await getTranslations("metadata");

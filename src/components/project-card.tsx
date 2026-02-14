@@ -1,5 +1,12 @@
 "use client";
 
+import { useTranslations } from "next-intl";
+import {
+	RiArrowLeftSLine,
+	RiArrowRightDownLine,
+	RiArrowRightSLine,
+	RiGithubLine,
+} from "react-icons/ri";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -11,13 +18,6 @@ import {
 } from "@/components/ui/tooltip";
 import { Link } from "@/i18n/navigation";
 import type { Project } from "@/types/work";
-import { useTranslations } from "next-intl";
-import {
-	RiArrowLeftSLine,
-	RiArrowRightDownLine,
-	RiArrowRightSLine,
-	RiGithubLine,
-} from "react-icons/ri";
 
 type ProjectCardProps = {
 	project: Project;

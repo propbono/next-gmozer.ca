@@ -1,4 +1,4 @@
-import { RiGithubFill, RiMailSendFill, RiLinkedinFill } from "react-icons/ri";
+import { RiGithubFill, RiLinkedinFill, RiMailSendFill } from "react-icons/ri";
 
 import type { Social } from "@/types/social";
 

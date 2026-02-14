@@ -1,12 +1,17 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { getGithubStats } from "./github";
 
-const mockRequest = vi.fn();
+const { mockRequest } = vi.hoisted(() => {
+	return { mockRequest: vi.fn() };
+});
 
 vi.mock("octokit", () => ({
-	Octokit: vi.fn().mockImplementation(() => ({
-		request: mockRequest,
-	})),
+	// biome-ignore lint/complexity/useArrowFunction: Requesting a standard function for Vitest mock compatibility
+	Octokit: vi.fn(function () {
+		return {
+			request: mockRequest,
+		};
+	}),
 }));
 
 vi.mock("next/cache", () => ({

@@ -1,12 +1,12 @@
+import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import {
 	Tooltip,
 	TooltipContent,
 	TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { SKILLS } from "@/constants/resume";
-import { useTranslations } from "next-intl";
-import { getTranslations } from "next-intl/server";
-import Link from "next/link";
 
 export async function generateMetadata() {
 	const t = await getTranslations("metadata");
