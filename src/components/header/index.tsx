@@ -16,7 +16,7 @@ export const Header = () => {
 	const header = useTranslations("header");
 	const nav = useTranslations("navigation");
 	const pathname = usePathname();
-	const isMobileScreen = useMediaQuery("(max-width:768px)");
+	const isMobileScreen = useMediaQuery("(max-width:767px)");
 
 	const [isTransparent, setIsTransparent] = useState(true);
 
