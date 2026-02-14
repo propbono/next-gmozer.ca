@@ -1,10 +1,9 @@
 "use client";
 
-import { RESUME_LINK } from "@/constants/main";
-import { Link } from "@/i18n/navigation";
-
 import posthog from "posthog-js";
 import { RxDownload } from "react-icons/rx";
+import { RESUME_LINK } from "@/constants/main";
+import { Link } from "@/i18n/navigation";
 
 import { Button } from "./ui/button";
 

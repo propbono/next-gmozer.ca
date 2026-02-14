@@ -1,11 +1,11 @@
 "use client";
+
+import { useTranslations } from "next-intl";
+import { useEffect, useMemo, useState } from "react";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { Link, usePathname } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 import type { NavItem } from "@/types/nav";
-
-import { useTranslations } from "next-intl";
-import { useEffect, useMemo, useState } from "react";
 
 import { DesktopNav } from "../desktop-nav";
 import { LocaleSwitcher } from "../language-switcher";

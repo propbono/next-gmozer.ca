@@ -1,14 +1,19 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { sendEmail } from "./contact";
 
-const mockSend = vi.fn();
+const { mockSend } = vi.hoisted(() => {
+	return { mockSend: vi.fn() };
+});
 
 vi.mock("resend", () => ({
-	Resend: vi.fn(() => ({
-		emails: {
-			send: mockSend,
-		},
-	})),
+	// biome-ignore lint/complexity/useArrowFunction: Requesting a standard function for Vitest mock compatibility
+	Resend: vi.fn(function () {
+		return {
+			emails: {
+				send: mockSend,
+			},
+		};
+	}),
 }));
 
 describe("sendEmail", () => {

@@ -1,7 +1,7 @@
+import { getTranslations } from "next-intl/server";
 import { BreadcrumbNav } from "@/components/breadcrumbs";
 import { NumberItem } from "@/components/number-item";
 import { ServiceCard } from "@/components/service-card";
-import { getTranslations } from "next-intl/server";
 
 export async function generateMetadata() {
 	const t = await getTranslations("metadata");

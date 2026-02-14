@@ -1,7 +1,7 @@
 "use client";
-import { usePathname } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { RiCopyrightLine } from "react-icons/ri";
+import { usePathname } from "@/i18n/navigation";
 import { LocaleSwitcher } from "../language-switcher";
 import { Socials } from "../socials";
 

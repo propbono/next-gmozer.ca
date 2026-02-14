@@ -1,17 +1,20 @@
-import { SOCIALS } from "@/constants/socials";
-import { Link } from "@/i18n/navigation";
-import { cn } from "@/lib/utils";
 import {
 	Tooltip,
 	TooltipContent,
 	TooltipTrigger,
 } from "@radix-ui/react-tooltip";
 import posthog from "posthog-js";
+import { SOCIALS } from "@/constants/socials";
+import { Link } from "@/i18n/navigation";
+import { cn } from "@/lib/utils";
 
 export const SocialLinks = ({
 	isMobile = false,
 	iconStyles,
-}: { isMobile?: boolean; iconStyles?: string }) => {
+}: {
+	isMobile?: boolean;
+	iconStyles?: string;
+}) => {
 	if (!SOCIALS || SOCIALS.length === 0) {
 		return null;
 	}

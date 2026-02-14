@@ -1,9 +1,9 @@
 "use server";
 
-import { ContactFormEmailTemplate } from "@/components/contact-form-template";
-import { contactFormSchema } from "@/schemas/contact";
 import type { ReactElement } from "react";
 import { Resend } from "resend";
+import { ContactFormEmailTemplate } from "@/components/contact-form-template";
+import { contactFormSchema } from "@/schemas/contact";
 
 export const sendEmail = async (formData: FormData) => {
 	const resend = new Resend(process.env.RESEND_API_KEY);

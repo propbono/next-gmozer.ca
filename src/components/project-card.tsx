@@ -1,5 +1,12 @@
 "use client";
 
+import { useTranslations } from "next-intl";
+import {
+	RiArrowLeftSLine,
+	RiArrowRightDownLine,
+	RiArrowRightSLine,
+	RiGithubLine,
+} from "react-icons/ri";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -11,13 +18,6 @@ import {
 } from "@/components/ui/tooltip";
 import { Link } from "@/i18n/navigation";
 import type { Project } from "@/types/work";
-import { useTranslations } from "next-intl";
-import {
-	RiArrowLeftSLine,
-	RiArrowRightDownLine,
-	RiArrowRightSLine,
-	RiGithubLine,
-} from "react-icons/ri";
 
 type ProjectCardProps = {
 	project: Project;
@@ -111,7 +111,7 @@ export function ProjectCard({
 										onClick={onPrevious}
 										disabled={!canPrevious}
 										variant="ghost"
-										className="size-16 rounded-full border border-card-foreground flex justify-center items-center group hover:bg-white hover:border-primary hover:border-2 hover:border-dashed hover:transition-all hover:duration-100"
+										className="size-16 rounded-full border border-card-foreground flex justify-center items-center group hover:bg-transparent hover:border-primary hover:border-2 hover:border-dashed hover:transition-all hover:duration-100"
 									>
 										<RiArrowLeftSLine className="text-3xl text-card-foreground group-hover:text-primary transition-all duration-500" />
 										<span className="sr-only">{t("card-footer.previous")}</span>
@@ -125,7 +125,7 @@ export function ProjectCard({
 										onClick={onNext}
 										disabled={!canNext}
 										variant="ghost"
-										className="size-16 rounded-full border border-card-foreground flex justify-center items-center group hover:bg-white hover:border-primary hover:border-2 hover:border-dashed hover:transition-all hover:duration-100"
+										className="size-16 rounded-full border border-card-foreground flex justify-center items-center group hover:bg-transparent hover:border-primary hover:border-2 hover:border-dashed hover:transition-all hover:duration-100"
 									>
 										<RiArrowRightSLine className="text-3xl text-card-foreground group-hover:text-primary transition-all duration-500" />
 										<span className="sr-only">{t("card-footer.next")}</span>

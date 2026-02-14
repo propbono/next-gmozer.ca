@@ -1,12 +1,10 @@
 "use client";
 
+import { useParams } from "next/navigation";
+import { type Locale, useLocale, useTranslations } from "next-intl";
+import { useTransition } from "react";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
-
-import { type Locale, useTranslations } from "next-intl";
-import { useLocale } from "next-intl";
-import { useParams } from "next/navigation";
-import { useTransition } from "react";
 import {
 	Select,
 	SelectContent,
