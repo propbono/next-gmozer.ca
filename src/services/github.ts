@@ -58,7 +58,7 @@ export const getGithubStats = cache(
 
 			const requests = projects.map((repo: GithubRepo) =>
 				octokit.request("GET /repos/{owner}/{repo}/contributors", {
-					owner: "propbono",
+					owner: repo.owner.login,
 					repo: repo.name,
 					headers: {
 						"X-GitHub-Api-Version": "2022-11-28",

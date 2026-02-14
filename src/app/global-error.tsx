@@ -9,10 +9,11 @@ export default function GlobalError({
 }) {
 	return (
 		<html lang="en">
+			<head />
 			<body className="flex flex-col items-center justify-center min-h-screen text-center font-sans">
 				<div className="space-y-4">
 					<h2 className="text-2xl font-bold">Critical Error</h2>
-					<p className="text-muted-foreground">
+					<p className="text-gray-600">
 						Something went wrong. Please try refreshing the page.
 					</p>
 					<button
