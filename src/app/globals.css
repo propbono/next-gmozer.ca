@@ -58,6 +58,7 @@
 
 /* Container Utility Configuration */
 @utility container {
+	width: 100%;
 	margin-inline: auto;
 	padding-inline: 2rem;
 	@media (width >= 1400px) {
@@ -99,10 +100,10 @@
 .dark {
 	--background: #0e1111;
 	--foreground: #f8fafc;
-	--card: #f8fafc;
-	--card-foreground: #0e1111;
-	--popover: #f8fafc;
-	--popover-foreground: #0e1111;
+	--card: #1a1d1d;
+	--card-foreground: #f8fafc;
+	--popover: #1a1d1d;
+	--popover-foreground: #f8fafc;
 	--primary: #00c6bd;
 	--primary-foreground: #0f172a;
 	--secondary: #f97316;
