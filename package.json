@@ -9,13 +9,10 @@
 		"test": "vitest",
 		"test:watch": "vitest watch",
 		"test:coverage": "vitest run --coverage",
-		"format:check": "biome format .",
-		"format:fix": "biome format --write --",
-		"format:fix-all": "pnpm run format:fix .",
-		"lint": "biome lint --",
-		"lint:all": "pnpm run lint .",
-		"lint:fix": "biome lint --write --",
-		"lint:fix-all": "pnpm run lint:fix .",
+		"lint": "biome check .",
+		"lint:all": "biome check .",
+		"lint:fix": "biome check --write .",
+		"lint:fix-all": "biome check --write .",
 		"typecheck": "tsc --noEmit",
 		"prepare": "husky"
 	},
@@ -72,11 +69,8 @@
 		"vitest": "^4.0.18"
 	},
 	"lint-staged": {
-		"*.{js,jsx,ts,tsx}": [
-			"pnpm run lint"
-		],
-		"*.{json,js,ts,jsx,tsx,html}": [
-			"pnpm run format:fix"
+		"*.{js,jsx,ts,tsx,json,html,css}": [
+			"pnpm run lint:fix"
 		]
 	}
 }

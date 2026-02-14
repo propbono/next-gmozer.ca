@@ -16,7 +16,7 @@ export const Header = () => {
 	const header = useTranslations("header");
 	const nav = useTranslations("navigation");
 	const pathname = usePathname();
-	const isMediumBreakpoint = useMediaQuery("(min-width:768px)");
+	const isMobileScreen = useMediaQuery("(max-width:767px)");
 
 	const [isTransparent, setIsTransparent] = useState(true);
 
@@ -55,22 +55,12 @@ export const Header = () => {
 		];
 	}, [nav]);
 
-	const memoizedDesktopNav = useMemo(
-		() => <DesktopNav items={navItems} pathname={pathname} />,
-		[pathname, navItems],
-	);
-
-	const memoizedMobileNav = useMemo(
-		() => <MobileNav items={navItems} pathname={pathname} />,
-		[pathname, navItems],
-	);
-
 	return (
 		<header
 			className={cn(
 				"z-50 w-full py-8 transition delay-100 duration-500 md:fixed",
-				isTransparent && isMediumBreakpoint && "bg-opacity-0",
-				((!isTransparent && isMediumBreakpoint) || !isMediumBreakpoint) &&
+				isTransparent && !isMobileScreen && "bg-opacity-0",
+				((!isTransparent && !isMobileScreen) || isMobileScreen) &&
 					"bg-opacity-100 bg-background shadow-md shadow-muted",
 			)}
 		>
@@ -83,9 +73,12 @@ export const Header = () => {
 					<span className="text-primary group-hover:text-foreground">.</span>
 				</Link>
 				<div className="flex flex-row-reverse sm:flex-row items-center gap-4">
-					{isMediumBreakpoint ? memoizedDesktopNav : memoizedMobileNav}
+					{!isMobileScreen && (
+						<DesktopNav items={navItems} pathname={pathname} />
+					)}
 					{pathname === "/" && <LocaleSwitcher />}
 					<ThemeSwitch />
+					{isMobileScreen && <MobileNav items={navItems} pathname={pathname} />}
 				</div>
 			</div>
 		</header>
