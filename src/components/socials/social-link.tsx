@@ -3,7 +3,6 @@ import {
 	TooltipContent,
 	TooltipTrigger,
 } from "@radix-ui/react-tooltip";
-import posthog from "posthog-js";
 import { SOCIALS } from "@/constants/socials";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
@@ -28,7 +27,7 @@ export const SocialLinks = ({
 						href={url}
 						className={cn(iconStyles)}
 						target="_blank"
-						onClick={() => posthog.capture("click_social_link", { name, url })}
+						// onClick={() => posthog.capture("click_social_link", { name, url })}
 					>
 						<Icon className="size-4" />
 						<span className="sr-only">{name}</span>
@@ -47,9 +46,9 @@ export const SocialLinks = ({
 							href={url}
 							className={cn(iconStyles)}
 							target="_blank"
-							onClick={() =>
-								posthog.capture("click_social_link", { name, url })
-							}
+							// onClick={() =>
+							// 	posthog.capture("click_social_link", { name, url })
+							// }
 						>
 							<Icon className="size-4" />
 							<span className="sr-only">{name}</span>
