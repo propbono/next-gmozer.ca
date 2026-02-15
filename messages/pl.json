@@ -554,73 +554,73 @@
 			"jobTitle": "Starszy Deweloper Frontendu",
 			"title": "Grzegorz Mozer - Portfolio",
 			"description": "Portfolio Grzegorz Mozer - dewelopera frontendu z Kanady. Tworzenie wysokowydajnych aplikacji internetowych z wykorzystaniem nowoczesnych technologii",
-			"image": "https://gmozer.ca/en/og.jpg",
+			"image": "https://gmozer.ca/pl/og.jpg",
 			"siteName": "Grzegorz Mozer - Portfolio",
-			"url": "https://gmozer.ca/en"
+			"url": "https://gmozer.ca/pl"
 		},
 		"contact": {
 			"title": "Kontakt | Grzegorz Mozer",
 			"description": "Skontaktuj się w sprawie projektów webowych, konsultacji lub współpracy. Stwórzmy razem coś wyjątkowego.",
-			"url": "https://gmozer.ca/en/contact"
+			"url": "https://gmozer.ca/pl/contact"
 		},
 		"resume": {
 			"experience": {
 				"title": "Doświadczenie Zawodowe | Grzegorz Mozer",
 				"description": "Moja ścieżka kariery, historia zatrudnienia oraz osiągnięcia jako starszy inżynier fullstack pracujący z najnowszymi technologiami.",
-				"url": "https://gmozer.ca/en/resume/experience"
+				"url": "https://gmozer.ca/pl/resume/experience"
 			},
 			"education": {
 				"title": "Wykształcenie i Kwalifikacje | Grzegorz Mozer",
 				"description": "Moje wykształcenie, certyfikaty oraz ciągły rozwój w dziedzinie tworzenia oprogramowania i technologii webowych.",
-				"url": "https://gmozer.ca/en/resume/education"
+				"url": "https://gmozer.ca/pl/resume/education"
 			},
 			"skills": {
 				"title": "Umiejętności Techniczne | Grzegorz Mozer",
 				"description": "Poznaj moje kompetencje techniczne, w tym React, Next.js, TypeScript oraz współczesne narzędzia webowe.",
-				"url": "https://gmozer.ca/en/resume/skills"
+				"url": "https://gmozer.ca/pl/resume/skills"
 			},
 			"about": {
 				"title": "O Mnie | Grzegorz Mozer",
 				"description": "Moje doświadczenie zawodowe, historia zatrudnienia oraz osiągnięcia jako starszy inżynier fullstack pracujący z najnowszymi technologiami.",
-				"url": "https://gmozer.ca/en/resume/about"
+				"url": "https://gmozer.ca/pl/resume/about"
 			}
 		},
 		"services": {
 			"default": {
 				"title": "Usługi | Grzegorz Mozer",
 				"description": "Kompleksowe usługi webowe: rozwój frontendu, projektowanie UI/UX, optymalizacja SEO oraz tworzenie aplikacji mobilnych.",
-				"url": "https://gmozer.ca/en/services"
+				"url": "https://gmozer.ca/pl/services"
 			},
 			"web-development": {
 				"title": "Tworzenie Stron WWW | Grzegorz Mozer",
 				"description": "Usługi frontendowe z wykorzystaniem React, Next.js i TypeScript do tworzenia responsywnych i interaktywnych interfejsów.",
-				"url": "https://gmozer.ca/en/services/web-development"
+				"url": "https://gmozer.ca/pl/services/web-development"
 			},
 			"ui-ux-design": {
 				"title": "Projektowanie UI/UX | Grzegorz Mozer",
 				"description": "Tworzenie intuicyjnych i angażujących interfejsów zapewniających doskonałe doświadczenia użytkownika przy zachowaniu standardów dostępności.",
-				"url": "https://gmozer.ca/en/services/ui-ux-design"
+				"url": "https://gmozer.ca/pl/services/ui-ux-design"
 			},
 			"seo-optimization": {
 				"title": "Optymalizacja SEO | Grzegorz Mozer",
 				"description": "Wdrażanie strategii SEO opartych na danych w celu zwiększenia widoczności w wyszukiwarkach i pozyskania wartościowego ruchu.",
-				"url": "https://gmozer.ca/en/services/seo-optimization"
+				"url": "https://gmozer.ca/pl/services/seo-optimization"
 			},
 			"mobile-app-development": {
 				"title": "Aplikacje Mobilne | Grzegorz Mozer",
 				"description": "Tworzenie natywnych i cross-platformowych aplikacji mobilnych z płynnymi doświadczeniami użytkownika na wszystkich urządzeniach.",
-				"url": "https://gmozer.ca/en/services/mobile-app-development"
+				"url": "https://gmozer.ca/pl/services/mobile-app-development"
 			},
 			"logo-design": {
 				"title": "Projektowanie Logo | Grzegorz Mozer",
 				"description": "Kreowanie unikalnych identyfikacji wizualnych, które zapadają w pamięć i skutecznie komunikują wartości marki.",
-				"url": "https://gmozer.ca/en/services/logo-design"
+				"url": "https://gmozer.ca/pl/services/logo-design"
 			}
 		},
 		"work": {
 			"title": "Projekty | Grzegorz Mozer",
 			"description": "Przeglądaj moje portfolio projektów webowych zrealizowanych z użyciem React, Next.js i TypeScript",
-			"url": "https://gmozer.ca/en/work"
+			"url": "https://gmozer.ca/pl/work"
 		},
 		"openGraph": {
 			"type": "website",

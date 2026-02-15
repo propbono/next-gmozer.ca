@@ -1,11 +1,9 @@
 "use client";
+import Link from "next/link";
 import { useLocale } from "next-intl";
 import { RxDownload } from "react-icons/rx";
-
 import { RESUME_LINKS } from "@/constants/main";
-import { Link } from "@/i18n/navigation";
 import { phClientCapture } from "@/lib/posthog/client";
-
 import { Button } from "./ui/button";
 
 export const DownloadResume = ({ text }: { text: string }) => {

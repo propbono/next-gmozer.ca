@@ -1,3 +1,4 @@
+import { FaTheaterMasks } from "react-icons/fa";
 import {
 	SiApollographql,
 	SiCss3,
@@ -16,7 +17,6 @@ import {
 	SiNx,
 	SiPostgresql,
 	SiPrisma,
-	SiPuppeteer,
 	SiPython,
 	SiReact,
 	SiReactquery,
@@ -178,7 +178,7 @@ export const SKILLS: SkillCategory[] = [
 			{
 				link: "https://playwright.dev/",
 				name: "Playwright",
-				icon: <SiPuppeteer />,
+				icon: <FaTheaterMasks />,
 			},
 		],
 	},

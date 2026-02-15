@@ -53,7 +53,7 @@ export default function ResumeLayout({
 								key={label}
 								variant={pathname === url ? "default" : "outline"}
 								className={cn(
-									"inline-flex items-center flex-1 md:flex-none w-ful justify-center md:justify-start whitespace-nowrap text-balance  transition-all",
+									"inline-flex items-center flex-1 md:flex-none w-full justify-center md:justify-start whitespace-nowrap text-balance  transition-all",
 									{
 										"hover:bg-primary dark:hover:bg-primary": pathname === url,
 									},
