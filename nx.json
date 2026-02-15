@@ -1,0 +1,43 @@
+{
+	"$schema": "./node_modules/nx/schemas/nx-schema.json",
+	"targetDefaults": {
+		"build": {
+			"outputs": ["{projectRoot}/.next"],
+			"cache": true
+		},
+		"test:coverage": {
+			"outputs": ["{projectRoot}/coverage"],
+			"cache": true
+		},
+		"test": {
+			"cache": true
+		},
+		"lint": {
+			"cache": true
+		},
+		"lint:all": {
+			"cache": true
+		},
+		"typecheck": {
+			"cache": true
+		},
+		"@nx/vitest:test": {
+			"cache": true,
+			"inputs": ["default", "^default"]
+		}
+	},
+	"plugins": [
+		{
+			"plugin": "@nx/next/plugin",
+			"options": {
+				"startTargetName": "next:start",
+				"buildTargetName": "next:build",
+				"devTargetName": "next:dev",
+				"serveStaticTargetName": "serve-static",
+				"buildDepsTargetName": "build-deps",
+				"watchDepsTargetName": "watch-deps"
+			}
+		}
+	],
+	"nxCloudId": "6991d5ad8c861d2f1fa95f9d"
+}

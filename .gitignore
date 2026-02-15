@@ -40,3 +40,12 @@ next-env.d.ts
 
 .env.local
 .env
+
+
+.nx/cache
+.nx/workspace-data
+vitest.config.*.timestamp*
+
+# Next.js
+.next
+out

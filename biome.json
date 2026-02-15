@@ -5,6 +5,8 @@
 		"ignoreUnknown": false,
 		"includes": [
 			"**",
+			"!node_modules",
+			"!.nx",
 			"!.next",
 			"!src/hooks/use-toast.ts",
 			"!src/hooks/use-media-query.ts",
