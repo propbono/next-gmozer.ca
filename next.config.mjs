@@ -6,23 +6,19 @@ import createNextIntlPlugin from "next-intl/plugin";
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
-	skipTrailingSlashRedirect: true,
 	async rewrites() {
 		return [
 			{
-				source: "/ingest/static/:path*",
+				source: "/ph/static/:path*",
 				destination: "https://us-assets.i.posthog.com/static/:path*",
 			},
 			{
-				source: "/ingest/:path*",
+				source: "/ph/:path*",
 				destination: "https://us.i.posthog.com/:path*",
-			},
-			{
-				source: "/ingest/decide",
-				destination: "https://us.i.posthog.com/decide",
 			},
 		];
 	},
+	skipTrailingSlashRedirect: true,
 };
 
 const withNextIntl = createNextIntlPlugin();

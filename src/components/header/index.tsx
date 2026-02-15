@@ -55,13 +55,14 @@ export const Header = () => {
 		];
 	}, [nav]);
 
+	const isNoBgOpacity = isTransparent && !isMobileScreen;
+
 	return (
 		<header
 			className={cn(
 				"z-50 w-full py-8 transition delay-100 duration-500 md:fixed",
-				isTransparent && !isMobileScreen && "bg-opacity-0",
-				((!isTransparent && !isMobileScreen) || isMobileScreen) &&
-					"bg-opacity-100 bg-background shadow-md shadow-muted",
+				isNoBgOpacity && "bg-opacity-0",
+				!isNoBgOpacity && "bg-opacity-100 bg-background shadow-md shadow-muted",
 			)}
 		>
 			<div className="container mx-auto flex items-center justify-between">
@@ -72,7 +73,7 @@ export const Header = () => {
 					{header("name")}
 					<span className="text-primary group-hover:text-foreground">.</span>
 				</Link>
-				<div className="flex flex-row-reverse sm:flex-row items-center gap-4">
+				<div className="flex flex-row sm:flex-row items-center gap-4">
 					{!isMobileScreen && (
 						<DesktopNav items={navItems} pathname={pathname} />
 					)}
