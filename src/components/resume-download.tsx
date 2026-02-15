@@ -2,16 +2,14 @@
 
 import { RxDownload } from "react-icons/rx";
 import { RESUME_LINK } from "@/constants/main";
-import { usePostHog } from "@/hooks/use-posthog";
 import { Link } from "@/i18n/navigation";
+import { phClientCapture } from "@/lib/posthog/client";
 
 import { Button } from "./ui/button";
 
 export const DownloadResume = ({ text }: { text: string }) => {
-	const posthog = usePostHog();
-
 	const handleDownload = () => {
-		posthog?.capture("download_resume");
+		phClientCapture("download_resume");
 	};
 
 	return (

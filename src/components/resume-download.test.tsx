@@ -1,12 +1,12 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import type { ComponentProps } from "react";
 import { describe, expect, it, vi } from "vitest";
-import { usePostHog } from "@/hooks/use-posthog";
+import { phClientCapture } from "@/lib/posthog/client";
 import { DownloadResume } from "./resume-download";
 
-// Mock the hook
-vi.mock("@/hooks/use-posthog", () => ({
-	usePostHog: vi.fn(),
+// Mock the client capture function
+vi.mock("@/lib/posthog/client", () => ({
+	phClientCapture: vi.fn(),
 }));
 
 // Mock dependencies
@@ -30,16 +30,11 @@ vi.mock("./ui/button", () => ({
 
 describe("DownloadResume", () => {
 	it("captures download_resume event without properties", () => {
-		const captureMock = vi.fn();
-		vi.mocked(usePostHog).mockReturnValue({
-			capture: captureMock,
-		} as unknown as ReturnType<typeof usePostHog>);
-
 		render(<DownloadResume text="Resume" />);
 
 		const link = screen.getByRole("link", { name: /resume/i });
 		fireEvent.click(link);
 
-		expect(captureMock).toHaveBeenCalledWith("download_resume");
+		expect(phClientCapture).toHaveBeenCalledWith("download_resume");
 	});
 });

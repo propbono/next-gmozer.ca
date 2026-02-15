@@ -1,11 +1,15 @@
-import { Ubuntu } from "next/font/google";
+import { Ubuntu } from "next/font/google"; // Keep existing imports
 import { notFound } from "next/navigation";
 import Script from "next/script";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import {
+	getMessages,
+	getTranslations,
+	setRequestLocale,
+} from "next-intl/server";
 import type { ReactNode } from "react";
-import { PostHogProvider } from "@/components/providers/posthog-provider";
-import { ThemeProvider } from "@/components/theme-provider";
+import PostHogPageView from "@/components/posthog-pageview"; // Added import
+import { ThemeProvider } from "@/components/theme-provider"; // Verify path
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { routing } from "@/i18n/routing";
@@ -45,13 +49,15 @@ export default async function RootLayout({
 	children,
 	params,
 }: Readonly<{ children: ReactNode; params: Promise<{ locale: string }> }>) {
-	const t = await getTranslations("metadata");
 	const { locale } = await params;
+
 	if (!hasLocale(routing.locales, locale)) {
 		notFound();
 	}
 
 	setRequestLocale(locale);
+	const messages = await getMessages();
+	const t = await getTranslations("metadata");
 
 	const jsonLd = {
 		"@context": "https://schema.org",
@@ -91,19 +97,21 @@ export default async function RootLayout({
 					href="/favicon-16x16.png"
 				/>
 				<link rel="manifest" href="/site.webmanifest" />
+				<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+				<meta name="msapplication-TileColor" content="#da532c" />
+				<meta name="theme-color" content="#ffffff" />
 			</head>
 			<body
 				className={cn("flex flex-col min-h-screen min-w-72", ubuntu.variable)}
 			>
-				<NextIntlClientProvider>
-					<PostHogProvider>
-						<ThemeProvider>
-							<TooltipProvider delayDuration={150}>{children}</TooltipProvider>
-						</ThemeProvider>
+				<NextIntlClientProvider messages={messages}>
+					<PostHogPageView />
+					<ThemeProvider>
+						<TooltipProvider delayDuration={150}>{children}</TooltipProvider>
+					</ThemeProvider>
 
-						<Toaster />
-						<Script type="application/ld+json">{JSON.stringify(jsonLd)}</Script>
-					</PostHogProvider>
+					<Toaster />
+					<Script type="application/ld+json">{JSON.stringify(jsonLd)}</Script>
 				</NextIntlClientProvider>
 			</body>
 		</html>

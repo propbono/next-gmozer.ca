@@ -4,8 +4,8 @@ import {
 	TooltipTrigger,
 } from "@radix-ui/react-tooltip";
 import { SOCIALS } from "@/constants/socials";
-import { usePostHog } from "@/hooks/use-posthog";
 import { Link } from "@/i18n/navigation";
+import { phClientCapture } from "@/lib/posthog/client";
 import { cn } from "@/lib/utils";
 
 export const SocialLinks = ({
@@ -15,14 +15,12 @@ export const SocialLinks = ({
 	isMobile?: boolean;
 	iconStyles?: string;
 }) => {
-	const posthog = usePostHog();
-
 	if (!SOCIALS || SOCIALS.length === 0) {
 		return null;
 	}
 
 	const handleSocialClick = (name: string, url: string) => {
-		posthog?.capture("click_social_link", {
+		phClientCapture("click_social_link", {
 			name,
 			url,
 		});
