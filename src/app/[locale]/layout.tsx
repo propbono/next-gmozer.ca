@@ -4,6 +4,7 @@ import Script from "next/script";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { ReactNode } from "react";
+import { PostHogProvider } from "@/components/providers/posthog-provider";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -95,12 +96,14 @@ export default async function RootLayout({
 				className={cn("flex flex-col min-h-screen min-w-72", ubuntu.variable)}
 			>
 				<NextIntlClientProvider>
-					<ThemeProvider>
-						<TooltipProvider delayDuration={150}>{children}</TooltipProvider>
-					</ThemeProvider>
+					<PostHogProvider>
+						<ThemeProvider>
+							<TooltipProvider delayDuration={150}>{children}</TooltipProvider>
+						</ThemeProvider>
 
-					<Toaster />
-					<Script type="application/ld+json">{JSON.stringify(jsonLd)}</Script>
+						<Toaster />
+						<Script type="application/ld+json">{JSON.stringify(jsonLd)}</Script>
+					</PostHogProvider>
 				</NextIntlClientProvider>
 			</body>
 		</html>

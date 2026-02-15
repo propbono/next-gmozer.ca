@@ -4,6 +4,7 @@ import {
 	TooltipTrigger,
 } from "@radix-ui/react-tooltip";
 import { SOCIALS } from "@/constants/socials";
+import { usePostHog } from "@/hooks/use-posthog";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
@@ -14,9 +15,18 @@ export const SocialLinks = ({
 	isMobile?: boolean;
 	iconStyles?: string;
 }) => {
+	const posthog = usePostHog();
+
 	if (!SOCIALS || SOCIALS.length === 0) {
 		return null;
 	}
+
+	const handleSocialClick = (name: string, url: string) => {
+		posthog?.capture("click_social_link", {
+			name,
+			url,
+		});
+	};
 
 	if (isMobile) {
 		return (
@@ -27,7 +37,7 @@ export const SocialLinks = ({
 						href={url}
 						className={cn(iconStyles)}
 						target="_blank"
-						// onClick={() => posthog.capture("click_social_link", { name, url })}
+						onClick={() => handleSocialClick(name, url)}
 					>
 						<Icon className="size-4" />
 						<span className="sr-only">{name}</span>
@@ -46,9 +56,7 @@ export const SocialLinks = ({
 							href={url}
 							className={cn(iconStyles)}
 							target="_blank"
-							// onClick={() =>
-							// 	posthog.capture("click_social_link", { name, url })
-							// }
+							onClick={() => handleSocialClick(name, url)}
 						>
 							<Icon className="size-4" />
 							<span className="sr-only">{name}</span>
