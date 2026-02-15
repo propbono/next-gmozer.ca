@@ -1,81 +1,26 @@
 {
-	"name": "gmozer.ca-next",
-	"version": "0.1.0",
+	"name": "gmozer.ca",
+	"version": "0.0.0",
 	"private": true,
 	"scripts": {
-		"dev": "nx next:dev",
-		"build": "nx next:build",
-		"start": "nx next:start",
-		"test": "vitest",
-		"test:watch": "vitest watch",
-		"test:coverage": "vitest run --coverage",
-		"lint": "biome check .",
-		"lint:all": "biome check .",
 		"lint:fix": "biome check --write .",
-		"lint:fix-all": "biome check --write .",
-		"typecheck": "tsc --noEmit",
+		"dev": "nx run @gmozer.ca/web:next:dev",
+		"build": "nx run-many --target=build",
+		"test": "nx run-many --target=test",
+		"lint": "nx run-many --target=lint",
+		"typecheck": "nx run-many --target=typecheck",
 		"prepare": "husky"
-	},
-	"dependencies": {
-		"@hookform/resolvers": "^5.2.2",
-		"@octokit/types": "^16.0.0",
-		"@radix-ui/react-dialog": "^1.1.1",
-		"@radix-ui/react-label": "^2.1.1",
-		"@radix-ui/react-scroll-area": "^1.1.0",
-		"@radix-ui/react-select": "^2.2.2",
-		"@radix-ui/react-separator": "^1.1.0",
-		"@radix-ui/react-slot": "^1.1.1",
-		"@radix-ui/react-tabs": "^1.1.0",
-		"@radix-ui/react-toast": "^1.2.4",
-		"@radix-ui/react-tooltip": "^1.1.2",
-		"@tailwindcss/postcss": "^4.1.18",
-		"class-variance-authority": "^0.7.0",
-		"clsx": "^2.1.1",
-		"date-fns": "^4.1.0",
-		"embla-carousel-react": "^8.2.0",
-		"framer-motion": "^12.34.0",
-		"lucide-react": "^0.564.0",
-		"next": "^16.1.6",
-		"next-intl": "^4.8.2",
-		"next-themes": "^0.4.6",
-		"octokit": "^5.0.5",
-		"posthog-js": "^1.347.2",
-		"posthog-node": "^5.24.15",
-		"react": "^19.2.4",
-		"react-countup": "^6.5.3",
-		"react-dom": "^19.2.4",
-		"react-hook-form": "^7.54.2",
-		"react-icons": "^5.2.1",
-		"resend": "^6.9.2",
-		"tailwind-merge": "^3.4.0",
-		"tailwindcss-animate": "^1.0.7",
-		"zod": "^3.24.1"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.3.15",
 		"@nx/next": "22.5.1",
 		"@nx/vitest": "22.5.1",
-		"@testing-library/jest-dom": "^6.9.1",
-		"@testing-library/react": "^16.3.2",
-		"@types/node": "^20",
-		"@types/react": "^19.2.14",
-		"@types/react-dom": "^19.2.3",
-		"@vitejs/plugin-react": "^5.1.4",
-		"@vitest/coverage-v8": "^4.0.18",
 		"husky": "^9.1.7",
-		"jsdom": "^28.0.0",
 		"lint-staged": "^15.5.1",
 		"nx": "22.5.1",
-		"postcss": "^8.5.6",
-		"tailwindcss": "^4.1.18",
-		"typescript": "^5",
-		"vite": "^7.0.0",
-		"vitest": "^4.0.18"
+		"typescript": "^5"
 	},
-	"lint-staged": {
-		"*.{js,jsx,ts,tsx,json,html,css}": [
-			"pnpm run lint:fix"
-		]
-	},
-	"nx": {}
+	"dependencies": {
+		"tslib": "^2.8.1"
+	}
 }
