@@ -22,13 +22,12 @@ export default function ResumeLayout({
 				>
 					{[
 						{
-							label: resume("experience.title"),
-							url: resume("experience.url"),
-						},
-
-						{
 							label: resume("skills.title"),
 							url: resume("skills.url"),
+						},
+						{
+							label: resume("experience.title"),
+							url: resume("experience.url"),
 						},
 						{
 							label: resume("education.title"),

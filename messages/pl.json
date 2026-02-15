@@ -42,9 +42,9 @@
 		"resume": {
 			"default": { "title": "O mnie", "url": "/resume" },
 			"children": {
-				"experience": { "title": "Doświadczenie", "url": "/resume/" },
+				"skills": { "title": "Umiejętności", "url": "/resume" },
+				"experience": { "title": "Doświadczenie", "url": "/resume/experience" },
 				"education": { "title": "Wykształcenie", "url": "/resume/education" },
-				"skills": { "title": "Umiejętności", "url": "/resume/skills" },
 				"about": { "title": "O mnie", "url": "/resume/about" }
 			}
 		},
@@ -379,7 +379,14 @@
 		},
 		"skills": {
 			"title": "Moje umiejętności",
-			"description": "Kompleksowy zestaw nowoczesnych technologii i frameworków, które opanowałem do budowy solidnych, skalowalnych aplikacji."
+			"description": "Kompleksowy zestaw nowoczesnych technologii i frameworków, które opanowałem do budowy solidnych, skalowalnych aplikacji.",
+			"categories": {
+				"frontend": "Frontend",
+				"backend": "Backend",
+				"languages": "Języki",
+				"tools": "Narzędzia & DevOps",
+				"testing": "Testowanie"
+			}
 		},
 		"education": {
 			"title": "Wykształcenie",

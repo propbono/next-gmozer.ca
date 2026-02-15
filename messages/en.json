@@ -42,9 +42,9 @@
 		"resume": {
 			"default": { "title": "Resume", "url": "/resume" },
 			"children": {
-				"experience": { "title": "Experience", "url": "/resume/" },
+				"skills": { "title": "Skills", "url": "/resume" },
+				"experience": { "title": "Experience", "url": "/resume/experience" },
 				"education": { "title": "Education", "url": "/resume/education" },
-				"skills": { "title": "Skills", "url": "/resume/skills" },
 				"about": { "title": "About me", "url": "/resume/about" }
 			}
 		},
@@ -379,7 +379,14 @@
 		},
 		"skills": {
 			"title": "My Skills",
-			"description": "A comprehensive toolkit of modern technologies and frameworks that I've mastered to build robust, scalable applications."
+			"description": "A comprehensive toolkit of modern technologies and frameworks that I've mastered to build robust, scalable applications.",
+			"categories": {
+				"frontend": "Frontend",
+				"backend": "Backend",
+				"languages": "Languages",
+				"tools": "Tools & DevOps",
+				"testing": "Testing"
+			}
 		},
 		"education": {
 			"title": "Education",
