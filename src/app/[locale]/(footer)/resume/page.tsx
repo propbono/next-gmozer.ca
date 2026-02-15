@@ -1,111 +1,107 @@
+import Link from "next/link";
 import { getTranslations } from "next-intl/server";
-import { AnimatedElement } from "@/components/animated-element/animated-element";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
-	Card,
-	CardContent,
-	CardFooter,
-	CardHeader,
-} from "@/components/ui/card";
-import { ScrollArea } from "@/components/ui/scroll-area";
+	Tooltip,
+	TooltipContent,
+	TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { SKILLS, type SkillCategoryId } from "@/constants/resume";
 
 export async function generateMetadata() {
 	const t = await getTranslations("metadata");
 
 	return {
-		title: t("resume.experience.title"),
-		description: t("resume.experience.description"),
+		title: t("resume.skills.title"),
+		description: t("resume.skills.description"),
 		openGraph: {
-			title: t("resume.experience.title"),
-			description: t("resume.experience.description"),
+			title: t("resume.skills.title"),
+			description: t("resume.skills.description"),
 			images: [{ url: t("default.image") }],
 			type: "website",
 			siteName: t("default.siteName"),
-			url: t("resume.experience.url"),
+			url: t("resume.skills.url"),
 		},
 		twitter: {
 			card: "summary_large_image",
-			title: t("resume.experience.title"),
-			description: t("resume.experience.description"),
+			title: t("resume.skills.title"),
+			description: t("resume.skills.description"),
 			images: [t("default.image")],
 		},
 		metadataBase: new URL(t("default.url")),
 	};
 }
 
-export default async function Experience() {
-	const t = await getTranslations("resume.experience");
+const categoryKeys: Record<
+	SkillCategoryId,
+	| "categories.frontend"
+	| "categories.backend"
+	| "categories.languages"
+	| "categories.tools"
+	| "categories.testing"
+> = {
+	frontend: "categories.frontend",
+	backend: "categories.backend",
+	languages: "categories.languages",
+	tools: "categories.tools",
+	testing: "categories.testing",
+};
 
-	const positions = [
-		{
-			position: t("positions.heineken.position"),
-			company: t("positions.heineken.company"),
-			location: t("positions.heineken.location"),
-			duration: t("positions.heineken.duration"),
-		},
-		{
-			position: t("positions.rangle.position"),
-			company: t("positions.rangle.company"),
-			location: t("positions.rangle.location"),
-			duration: t("positions.rangle.duration"),
-		},
-		{
-			position: t("positions.cgi2.position"),
-			company: t("positions.cgi2.company"),
-			location: t("positions.cgi2.location"),
-			duration: t("positions.cgi2.duration"),
-		},
-		{
-			position: t("positions.cgi1.position"),
-			company: t("positions.cgi1.company"),
-			location: t("positions.cgi1.location"),
-			duration: t("positions.cgi1.duration"),
-		},
-		{
-			position: t("positions.dcm2.position"),
-			company: t("positions.dcm2.company"),
-			location: t("positions.dcm2.location"),
-			duration: t("positions.dcm2.duration"),
-		},
-		{
-			position: t("positions.dcm1.position"),
-			company: t("positions.dcm1.company"),
-			location: t("positions.dcm1.location"),
-			duration: t("positions.dcm1.duration"),
-		},
-	];
+export default async function Skills() {
+	const t = await getTranslations("resume.skills");
 
 	return (
-		<section className="flex flex-col gap-8" aria-label="Experience timeline">
-			<header className="flex flex-col gap-8 text-center md:text-left">
-				<h1 className="text-4xl font-bold">{t("title")}</h1>
-				<p className="max-w-xl mx-auto md:mx-0 text-muted-foreground">
+		<section className="flex flex-col gap-8">
+			<header className="flex flex-col gap-4 text-center md:text-left">
+				<h1 className="font-bold text-4xl">{t("title")}</h1>
+				<p className="text-muted-foreground max-w-2xl mx-auto md:mx-0">
 					{t("description")}
 				</p>
 			</header>
-			<ScrollArea>
-				<div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-					{positions.map((item, index) => (
-						<AnimatedElement key={`${item.company}-${index}`} index={index}>
-							<Card>
-								<CardHeader>
-									<time className="text-primary font-semibold">
-										{item.duration}
-									</time>
-								</CardHeader>
-								<CardContent className="flex justify-center md:justify-start">
-									<h2 className="text-xl max-w-64 min-h-14 w-full text-center md:text-left font-bold">
-										{item.position}
-									</h2>
-								</CardContent>
-								<CardFooter className="flex flex-wrap items-center justify-center md:justify-start gap-2">
-									<span className="rounded-full size-2 bg-primary" />
-									<span>{item.company}</span>
-								</CardFooter>
-							</Card>
-						</AnimatedElement>
-					))}
-				</div>
-			</ScrollArea>
+
+			<div className="flex flex-col gap-8">
+				{SKILLS.map((category) => (
+					<Card
+						key={category.id}
+						className="border-none shadow-none bg-transparent"
+					>
+						<CardHeader className="px-0 pt-0">
+							<CardTitle className="text-2xl font-bold">
+								{t(categoryKeys[category.id])}
+							</CardTitle>
+						</CardHeader>
+						<CardContent className="px-0">
+							<ul
+								className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"
+								aria-label={`${category.title} skills`}
+							>
+								{category.items.map((skill) => (
+									<li key={skill.name}>
+										<Tooltip>
+											<TooltipTrigger
+												className="w-full flex-col gap-2 h-32 bg-card border hover:border-primary/50 hover:bg-accent/50 transition-all duration-300 rounded-xl flex justify-center items-center group"
+												asChild
+											>
+												<Link href={skill.link} target="_blank">
+													<div className="text-5xl group-hover:scale-110 group-hover:text-primary transition-all duration-300">
+														{skill.icon}
+													</div>
+													<span className="font-medium text-sm text-muted-foreground group-hover:text-foreground transition-colors">
+														{skill.name}
+													</span>
+												</Link>
+											</TooltipTrigger>
+											<TooltipContent className="capitalize">
+												{skill.name}
+											</TooltipContent>
+										</Tooltip>
+									</li>
+								))}
+							</ul>
+						</CardContent>
+					</Card>
+				))}
+			</div>
 		</section>
 	);
 }

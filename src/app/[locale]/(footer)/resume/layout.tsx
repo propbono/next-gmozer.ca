@@ -2,6 +2,9 @@
 
 import { useTranslations } from "next-intl";
 import type { ReactNode } from "react";
+import { FaBriefcase, FaCode, FaGraduationCap, FaUser } from "react-icons/fa6";
+import { DownloadResume } from "@/components/resume-download";
+import { Button } from "@/components/ui/button";
 import { Link, usePathname } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
@@ -13,48 +16,67 @@ export default function ResumeLayout({
 	const pathname = usePathname();
 	const resume = useTranslations("navigation.resume.children");
 
+	const navItems = [
+		{
+			label: resume("skills.title"),
+			url: resume("skills.url"),
+			Icon: FaCode,
+		},
+		{
+			label: resume("experience.title"),
+			url: resume("experience.url"),
+			Icon: FaBriefcase,
+		},
+		{
+			label: resume("education.title"),
+			url: resume("education.url"),
+			Icon: FaGraduationCap,
+		},
+		{
+			label: resume("about.title"),
+			url: resume("about.url"),
+			Icon: FaUser,
+		},
+	];
+
 	return (
 		<article className="container">
-			<div className="flex flex-col sm:flex-row justify-center gap-16">
-				<nav
-					className="flex flex-col flex-grow-0 flex-1 min-w-56 w-full mx-auto md:mx-0 gap-6 h-auto rounded-md p-1 text-foreground"
-					aria-label="Resume sections"
-				>
-					{[
-						{
-							label: resume("experience.title"),
-							url: resume("experience.url"),
-						},
+			<div className="flex flex-col md:flex-row justify-center gap-8 md:gap-16 items-start">
+				<div className="flex flex-col gap-6 w-full md:w-auto md:min-w-56 flex-shrink-0">
+					<nav
+						className="flex flex-row md:flex-col flex-wrap md:flex-nowrap w-full gap-2 md:gap-6 h-auto rounded-md p-1 text-foreground"
+						aria-label="Resume sections"
+					>
+						{navItems.map(({ label, url, Icon }) => (
+							<Button
+								asChild
+								key={label}
+								variant={pathname === url ? "default" : "outline"}
+								className={cn(
+									"inline-flex items-center flex-1 md:flex-none w-full justify-center md:justify-start whitespace-nowrap text-balance  transition-all",
+									{
+										"hover:bg-primary dark:hover:bg-primary": pathname === url,
+									},
+								)}
+							>
+								<Link href={url} title={label}>
+									<Icon className="w-5 h-5 md:mr-3" />
+									<span className="hidden md:inline">{label}</span>
+								</Link>
+							</Button>
+						))}
+						<div className="hidden md:block">
+							<DownloadResume text={resume("download")} />
+						</div>
+					</nav>
+				</div>
 
-						{
-							label: resume("skills.title"),
-							url: resume("skills.url"),
-						},
-						{
-							label: resume("education.title"),
-							url: resume("education.url"),
-						},
-						{
-							label: resume("about.title"),
-							url: resume("about.url"),
-						},
-					].map((tab) => (
-						<Link
-							key={tab.label}
-							href={tab.url}
-							className={cn(
-								"inline-flex items-center w-full bg-white dark:bg-foreground justify-center whitespace-nowrap text-foreground dark:text-background rounded-lg p-3 text-balance font-medium ring-offset-white transition-all",
-								{
-									"text-background shadow-sm font-bold bg-primary dark:bg-primary":
-										pathname === tab.url,
-								},
-							)}
-						>
-							{tab.label}
-						</Link>
-					))}
-				</nav>
-				<div className="flex-grow h-full">{children}</div>
+				<div className="flex flex-col gap-6 w-full flex-grow">
+					<div className="md:hidden">
+						<DownloadResume text={resume("download")} />
+					</div>
+					<div className="flex-grow h-full">{children}</div>
+				</div>
 			</div>
 		</article>
 	);
