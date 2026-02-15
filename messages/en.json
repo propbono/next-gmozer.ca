@@ -45,7 +45,8 @@
 				"skills": { "title": "Skills", "url": "/resume" },
 				"experience": { "title": "Experience", "url": "/resume/experience" },
 				"education": { "title": "Education", "url": "/resume/education" },
-				"about": { "title": "About me", "url": "/resume/about" }
+				"about": { "title": "About me", "url": "/resume/about" },
+				"download": "Download Resume"
 			}
 		},
 		"work": { "default": { "title": "Work", "url": "/work" } },
@@ -363,17 +364,11 @@
 					"location": "Toronto, ON, Canada",
 					"duration": "Aug 2021 - Jan 2023"
 				},
-				"dcm2": {
-					"position": "Software Developer, Frontend",
+				"dcm": {
+					"position": "Software Developer",
 					"company": "DCM (TSX: DCM)",
 					"location": "Mississauga, ON, Canada",
-					"duration": "Jan 2021 - Aug 2021"
-				},
-				"dcm1": {
-					"position": "Software Developer, Quadient",
-					"company": "DCM (TSX: DCM)",
-					"location": "Mississauga, ON, Canada",
-					"duration": "Dec 2018 - Jan 2021"
+					"duration": "Dec 2018 - Aug 2021"
 				}
 			}
 		},
@@ -572,7 +567,7 @@
 			"experience": {
 				"title": "Professional Experience | Greg Mozer",
 				"description": "View my professional timeline, work history, and achievements as a Senior Fullstack Engineer working with cutting-edge technologies.",
-				"url": "https://gmozer.ca/en/resume"
+				"url": "https://gmozer.ca/en/resume/experience"
 			},
 			"education": {
 				"title": "Education & Qualifications | Greg Mozer",

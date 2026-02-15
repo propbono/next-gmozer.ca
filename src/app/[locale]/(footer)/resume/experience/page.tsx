@@ -61,16 +61,10 @@ export default async function Experience() {
 			duration: t("positions.cgi1.duration"),
 		},
 		{
-			position: t("positions.dcm2.position"),
-			company: t("positions.dcm2.company"),
-			location: t("positions.dcm2.location"),
-			duration: t("positions.dcm2.duration"),
-		},
-		{
-			position: t("positions.dcm1.position"),
-			company: t("positions.dcm1.company"),
-			location: t("positions.dcm1.location"),
-			duration: t("positions.dcm1.duration"),
+			position: t("positions.dcm.position"),
+			company: t("positions.dcm.company"),
+			location: t("positions.dcm.location"),
+			duration: t("positions.dcm.duration"),
 		},
 	];
 

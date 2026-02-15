@@ -45,7 +45,8 @@
 				"skills": { "title": "Umiejętności", "url": "/resume" },
 				"experience": { "title": "Doświadczenie", "url": "/resume/experience" },
 				"education": { "title": "Wykształcenie", "url": "/resume/education" },
-				"about": { "title": "O mnie", "url": "/resume/about" }
+				"about": { "title": "O mnie", "url": "/resume/about" },
+				"download": "Pobierz CV"
 			}
 		},
 		"work": { "default": { "title": "Portfolio", "url": "/work" } },
@@ -363,17 +364,11 @@
 					"location": "Toronto, ON, Kanada",
 					"duration": "Sie 2021 - Sty 2023"
 				},
-				"dcm2": {
-					"position": "Programista Frontend",
+				"dcm": {
+					"position": "Programista",
 					"company": "DCM (TSX: DCM)",
 					"location": "Mississauga, ON, Kanada",
-					"duration": "Sty 2021 - Sie 2021"
-				},
-				"dcm1": {
-					"position": "Programista Quadient",
-					"company": "DCM (TSX: DCM)",
-					"location": "Mississauga, ON, Kanada",
-					"duration": "Gru 2018 - Sty 2021"
+					"duration": "Gru 2018 - Sie 2021"
 				}
 			}
 		},
@@ -572,7 +567,7 @@
 			"experience": {
 				"title": "Doświadczenie Zawodowe | Grzegorz Mozer",
 				"description": "Moja ścieżka kariery, historia zatrudnienia oraz osiągnięcia jako starszy inżynier fullstack pracujący z najnowszymi technologiami.",
-				"url": "https://gmozer.ca/en/resume"
+				"url": "https://gmozer.ca/en/resume/experience"
 			},
 			"education": {
 				"title": "Wykształcenie i Kwalifikacje | Grzegorz Mozer",
