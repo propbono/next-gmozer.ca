@@ -1,9 +1,10 @@
 import type { routing } from "@/i18n/routing";
-import messages from "../../messages/en.json";
+import type messages from "../../messages/en.json";
 
 declare module "next-intl" {
+	// biome-ignore lint/style/useConsistentTypeDefinitions: required for module augmentation
 	interface AppConfig {
-		Locale: (typeof routing.locales)[number];
 		Messages: typeof messages;
+		Locale: (typeof routing.locales)[number];
 	}
 }

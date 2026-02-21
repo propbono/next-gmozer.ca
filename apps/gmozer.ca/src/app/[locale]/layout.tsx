@@ -1,3 +1,4 @@
+import { cn } from "@gmozer/utils";
 import { Ubuntu } from "next/font/google"; // Keep existing imports
 import { notFound } from "next/navigation";
 import Script from "next/script";
@@ -13,7 +14,6 @@ import { ThemeProvider } from "@/components/theme-provider"; // Verify path
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { routing } from "@/i18n/routing";
-import { cn } from "@/lib/utils";
 
 import "../globals.css";
 

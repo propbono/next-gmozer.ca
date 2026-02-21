@@ -21,7 +21,9 @@
 		],
 		"paths": {
 			"@/*": ["./src/*"],
-			"@/actions/*": ["./src/actions/*"]
+			"@/actions/*": ["./src/actions/*"],
+			"@gmozer/utils": ["../../libs/utils/src/index.ts"],
+			"@gmozer/types": ["../../libs/types/src/index.ts"]
 		},
 		"target": "ES2017"
 	},
@@ -33,5 +35,9 @@
 		"next.config.mjs",
 		".next/dev/types/**/*.ts"
 	],
-	"exclude": ["node_modules"]
+	"exclude": [
+		"node_modules",
+		"../../libs/**/node_modules",
+		"../../node_modules"
+	]
 }

@@ -17,6 +17,8 @@
 		"prepare": "husky"
 	},
 	"dependencies": {
+		"@gmozer/types": "workspace:*",
+		"@gmozer/utils": "workspace:*",
 		"@hookform/resolvers": "^5.2.2",
 		"@octokit/types": "^16.0.0",
 		"@radix-ui/react-dialog": "^1.1.1",

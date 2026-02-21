@@ -1,7 +1,7 @@
 "use client";
+import type { Stat } from "@gmozer/types";
+import { cn } from "@gmozer/utils";
 import CountUp from "react-countup";
-import { cn } from "@/lib/utils";
-import type { Stat } from "@/types/stats";
 export const Stats = ({ stats }: { stats: Stat[] }) => {
 	return (
 		<div className="flex flex-col md:flex-row md:flex-wrap w-full gap-4 justify-between">

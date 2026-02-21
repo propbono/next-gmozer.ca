@@ -1,6 +1,6 @@
+import type { NavItem } from "@gmozer/types";
+import { cn } from "@gmozer/utils";
 import { Link } from "@/i18n/navigation";
-import { cn } from "@/lib/utils";
-import type { NavItem } from "@/types/nav";
 import { Button } from "../ui/button";
 
 export const DesktopNav = ({

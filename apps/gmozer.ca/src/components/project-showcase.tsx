@@ -1,4 +1,6 @@
 "use client";
+import type { Project } from "@gmozer/types";
+import { isStringArray } from "@gmozer/utils";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { useCallback, useEffect, useMemo, useState } from "react";
@@ -11,8 +13,6 @@ import {
 } from "@/components/ui/carousel";
 import { PROJECT_KEYS } from "@/constants/main";
 import { useElementSize } from "@/hooks/use-element-size";
-import { isStringArray } from "@/lib/utils";
-import type { Project } from "@/types/work";
 import { ProjectCard } from "./project-card";
 
 export function ProjectShowcase() {

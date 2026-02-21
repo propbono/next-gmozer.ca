@@ -1,3 +1,4 @@
+import { cn } from "@gmozer/utils";
 import {
 	Tooltip,
 	TooltipContent,
@@ -6,7 +7,6 @@ import {
 import { SOCIALS } from "@/constants/socials";
 import { Link } from "@/i18n/navigation";
 import { phClientCapture } from "@/lib/posthog/client";
-import { cn } from "@/lib/utils";
 
 export const SocialLinks = ({
 	isMobile = false,

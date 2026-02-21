@@ -13,12 +13,22 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.3.15",
+		"@nx/js": "^22.5.2",
 		"@nx/next": "22.5.1",
+		"@nx/vite": "22.5.1",
 		"@nx/vitest": "22.5.1",
+		"@swc-node/register": "~1.11.1",
+		"@swc/core": "~1.15.5",
+		"@swc/helpers": "~0.5.18",
+		"@types/node": "20.19.9",
+		"@vitest/coverage-v8": "^4.0.0",
 		"husky": "^9.1.7",
 		"lint-staged": "^15.5.1",
 		"nx": "22.5.1",
-		"typescript": "^5"
+		"prettier": "~3.6.2",
+		"typescript": "~5.9.2",
+		"vite": "^7.0.0",
+		"vitest": "^4.0.8"
 	},
 	"dependencies": {
 		"tslib": "^2.8.1"

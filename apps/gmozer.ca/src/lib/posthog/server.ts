@@ -1,5 +1,5 @@
+import type { PostHogEvents } from "@gmozer/types";
 import { PostHog } from "posthog-node";
-import type { PostHogEvents } from "./types";
 
 export const phServerCapture = async <K extends keyof PostHogEvents>(
 	eventName: K,

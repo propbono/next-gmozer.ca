@@ -1,7 +1,7 @@
 "use client";
 
+import { cn } from "@gmozer/utils";
 import { useMediaQuery } from "@/hooks/use-media-query";
-import { cn } from "@/lib/utils";
 import { SocialLinks } from "./social-link";
 
 export const Socials = ({

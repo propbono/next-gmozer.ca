@@ -12,6 +12,8 @@ export default defineConfig({
 	resolve: {
 		alias: {
 			"@": resolve(__dirname, "./src"),
+			"@gmozer/utils": resolve(__dirname, "../../libs/utils/src/index.ts"),
+			"@gmozer/types": resolve(__dirname, "../../libs/types/src/index.ts"),
 		},
 	},
 });

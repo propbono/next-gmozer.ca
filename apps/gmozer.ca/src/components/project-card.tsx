@@ -1,5 +1,6 @@
 "use client";
 
+import type { Project } from "@gmozer/types";
 import { useTranslations } from "next-intl";
 import {
 	RiArrowLeftSLine,
@@ -17,7 +18,6 @@ import {
 	TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { Link } from "@/i18n/navigation";
-import type { Project } from "@/types/work";
 
 type ProjectCardProps = {
 	project: Project;

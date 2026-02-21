@@ -1,6 +1,5 @@
+import type { Social } from "@gmozer/types";
 import { RiGithubFill, RiLinkedinFill, RiMailSendFill } from "react-icons/ri";
-
-import type { Social } from "@/types/social";
 
 export const SOCIALS: Social[] = [
 	{ name: "Github", url: "https://github.com/propbono/", icon: RiGithubFill },
