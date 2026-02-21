@@ -16,7 +16,8 @@
 		"baseUrl": ".",
 		"paths": {
 			"@gmozer/utils": ["libs/utils/src/index.ts"],
-			"@gmozer/types": ["libs/types/src/index.ts"]
+			"@gmozer/types": ["libs/types/src/index.ts"],
+			"@gmozer/ui": ["libs/ui/src/index.ts"]
 		}
 	},
 	"exclude": ["node_modules", "tmp"]

@@ -18,11 +18,15 @@ vi.mock("@/actions/contact", () => ({
 
 // Mock the toast component
 const mockToast = vi.fn();
-vi.mock("@/hooks/use-toast", () => ({
-	useToast: () => ({
-		toast: mockToast,
-	}),
-}));
+vi.mock("@gmozer/ui", async (importOriginal) => {
+	const actual = await importOriginal<typeof import("@gmozer/ui")>();
+	return {
+		...actual,
+		useToast: () => ({
+			toast: mockToast,
+		}),
+	};
+});
 
 const renderWithTranslations = (children: ReactNode) => {
 	render(

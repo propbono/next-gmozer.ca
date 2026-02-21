@@ -1,12 +1,12 @@
-import { getTranslations } from "next-intl/server";
-import { AnimatedElement } from "@/components/animated-element/animated-element";
 import {
 	Card,
 	CardContent,
 	CardFooter,
 	CardHeader,
-} from "@/components/ui/card";
-import { ScrollArea } from "@/components/ui/scroll-area";
+	ScrollArea,
+} from "@gmozer/ui";
+import { getTranslations } from "next-intl/server";
+import { AnimatedElement } from "@/components/animated-element/animated-element";
 
 export async function generateMetadata() {
 	const t = await getTranslations("metadata");

@@ -1,0 +1,8 @@
+{
+	"root": false,
+	"extends": ["../../biome.json"],
+	"files": {
+		"ignoreUnknown": false,
+		"includes": ["!node_modules", "!.nx", "!.next", "!coverage"]
+	}
+}

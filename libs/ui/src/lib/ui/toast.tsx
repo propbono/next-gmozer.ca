@@ -2,7 +2,7 @@
 
 import * as ToastPrimitives from "@radix-ui/react-toast";
 import { cva, type VariantProps } from "class-variance-authority";
-import { X } from "lucide-react";
+import { RxCross2 as X } from "react-icons/rx";
 import * as React from "react";
 
 import { cn } from "@gmozer/utils";

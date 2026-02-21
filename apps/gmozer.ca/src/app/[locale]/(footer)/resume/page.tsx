@@ -1,11 +1,14 @@
-import Link from "next/link";
-import { getTranslations } from "next-intl/server";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
 	Tooltip,
 	TooltipContent,
 	TooltipTrigger,
-} from "@/components/ui/tooltip";
+} from "@gmozer/ui";
+import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 import { SKILLS, type SkillCategoryId } from "@/constants/resume";
 
 export async function generateMetadata() {

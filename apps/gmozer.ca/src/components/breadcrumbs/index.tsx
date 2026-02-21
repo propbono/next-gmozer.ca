@@ -1,14 +1,14 @@
 "use client";
 
-import { Fragment } from "react";
-import { RxCaretRight } from "react-icons/rx";
 import {
 	Breadcrumb,
 	BreadcrumbItem,
 	BreadcrumbLink,
 	BreadcrumbList,
 	BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
+} from "@gmozer/ui";
+import { Fragment } from "react";
+import { RxCaretRight } from "react-icons/rx";
 import { usePathname } from "@/i18n/navigation";
 
 export const BreadcrumbNav = () => {

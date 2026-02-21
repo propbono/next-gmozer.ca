@@ -1,18 +1,17 @@
 "use client";
 import type { Project } from "@gmozer/types";
-import { isStringArray } from "@gmozer/utils";
-import Image from "next/image";
-import { useTranslations } from "next-intl";
-import { useCallback, useEffect, useMemo, useState } from "react";
-import { LuImageOff } from "react-icons/lu";
 import {
 	Carousel,
 	type CarouselApi,
 	CarouselContent,
 	CarouselItem,
-} from "@/components/ui/carousel";
+} from "@gmozer/ui";
+import { isStringArray } from "@gmozer/utils";
+import Image from "next/image";
+import { useTranslations } from "next-intl";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { LuImageOff } from "react-icons/lu";
 import { PROJECT_KEYS } from "@/constants/main";
-import { useElementSize } from "@/hooks/use-element-size";
 import { ProjectCard } from "./project-card";
 
 export function ProjectShowcase() {
@@ -20,7 +19,6 @@ export function ProjectShowcase() {
 	const [_current, setCurrent] = useState(0);
 	const [_count, setCount] = useState(0);
 	const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
-	const [ref, { height }] = useElementSize();
 	const t = useTranslations("work");
 
 	const projects: Project[] = useMemo(() => {
@@ -77,19 +75,13 @@ export function ProjectShowcase() {
 
 	return (
 		<article className="flex flex-grow relative">
-			<div
-				ref={ref}
-				className="hidden sm:block absolute md:rounded-s-lg w-full md:w-[768px] lg:w-[872px] xl:w-[1024px] 2xl:w-[1124px] h-full top-0 right-0"
-			>
+			<div className="hidden sm:block absolute md:rounded-s-lg w-full md:w-[768px] lg:w-[872px] xl:w-[1024px] 2xl:w-[1124px] h-full top-0 right-0">
 				<Carousel setApi={setApi} className="h-full">
 					<CarouselContent className="h-full">
 						{projects?.length > 0 &&
 							projects.map((item, index) => (
 								<CarouselItem key={item.title} className="h-full">
-									<div
-										className="relative w-full h-full bg-muted/30 md:rounded-s-lg overflow-hidden"
-										style={{ height: `${height}px` }}
-									>
+									<div className="relative w-full h-full bg-muted/30 md:rounded-s-lg overflow-hidden">
 										{item.image ? (
 											<Image
 												src={item.image}

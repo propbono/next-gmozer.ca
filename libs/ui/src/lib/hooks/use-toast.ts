@@ -3,7 +3,8 @@
 // Inspired by react-hot-toast library
 import * as React from "react";
 
-import type { ToastActionElement, ToastProps } from "@/components/ui/toast";
+import type { ToastActionElement, ToastProps } from "../ui/toast";
+import { useEffect } from "react";
 
 const TOAST_LIMIT = 1;
 const TOAST_REMOVE_DELAY = 1000000;
@@ -49,9 +50,9 @@ type Action =
 			toastId?: ToasterToast["id"];
 	  };
 
-interface State {
+type State = {
 	toasts: ToasterToast[];
-}
+};
 
 const toastTimeouts = new Map<string, ReturnType<typeof setTimeout>>();
 
@@ -171,7 +172,7 @@ function toast({ ...props }: Toast) {
 function useToast() {
 	const [state, setState] = React.useState<State>(memoryState);
 
-	React.useEffect(() => {
+	useEffect(() => {
 		listeners.push(setState);
 		return () => {
 			const index = listeners.indexOf(setState);

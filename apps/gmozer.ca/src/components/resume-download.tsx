@@ -1,10 +1,10 @@
 "use client";
+import { Button } from "@gmozer/ui";
 import Link from "next/link";
 import { useLocale } from "next-intl";
 import { RxDownload } from "react-icons/rx";
 import { RESUME_LINKS } from "@/constants/main";
 import { phClientCapture } from "@/lib/posthog/client";
-import { Button } from "./ui/button";
 
 export const DownloadResume = ({ text }: { text: string }) => {
 	const locale = useLocale();

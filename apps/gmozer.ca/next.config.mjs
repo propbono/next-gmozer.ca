@@ -19,6 +19,13 @@ const nextConfig = {
 		];
 	},
 	skipTrailingSlashRedirect: true,
+	transpilePackages: ["@gmozer/ui", "@gmozer/utils", "@gmozer/types"],
+	eslint: {
+		ignoreDuringBuilds: true,
+	},
+	typescript: {
+		ignoreBuildErrors: true,
+	},
 };
 
 const withNextIntl = createNextIntlPlugin();

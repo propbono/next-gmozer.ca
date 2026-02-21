@@ -1,17 +1,17 @@
 import type { NavItem } from "@gmozer/types";
-import { cn } from "@gmozer/utils";
-import { useTranslations } from "next-intl";
-import { RxHamburgerMenu } from "react-icons/rx";
-import { Link } from "@/i18n/navigation";
-import { Button } from "../ui/button";
 import {
+	Button,
 	Sheet,
 	SheetClose,
 	SheetContent,
 	SheetDescription,
 	SheetTitle,
 	SheetTrigger,
-} from "../ui/sheet";
+} from "@gmozer/ui";
+import { cn } from "@gmozer/utils";
+import { useTranslations } from "next-intl";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { Link } from "@/i18n/navigation";
 
 export const MobileNav = ({
 	items,

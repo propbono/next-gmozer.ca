@@ -1,7 +1,6 @@
+import { Card, CardContent } from "@gmozer/ui";
 import type { ReactElement } from "react";
 import { LuChevronRight } from "react-icons/lu";
-
-import { Card, CardContent } from "../ui/card";
 
 export type ServiceCardProps = {
 	title: string;

@@ -1,3 +1,4 @@
+import { Toaster, TooltipProvider } from "@gmozer/ui";
 import { cn } from "@gmozer/utils";
 import { Ubuntu } from "next/font/google"; // Keep existing imports
 import { notFound } from "next/navigation";
@@ -11,8 +12,6 @@ import {
 import type { ReactNode } from "react";
 import PostHogPageView from "@/components/posthog-pageview"; // Added import
 import { ThemeProvider } from "@/components/theme-provider"; // Verify path
-import { Toaster } from "@/components/ui/toaster";
-import { TooltipProvider } from "@/components/ui/tooltip";
 import { routing } from "@/i18n/routing";
 
 import "../globals.css";

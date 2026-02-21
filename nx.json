@@ -3,7 +3,8 @@
 	"targetDefaults": {
 		"build": {
 			"outputs": ["{projectRoot}/.next"],
-			"cache": true
+			"cache": true,
+			"dependsOn": ["^lint", "^typecheck", "^test"]
 		},
 		"test:coverage": {
 			"outputs": ["{projectRoot}/coverage"],
@@ -47,5 +48,12 @@
 			}
 		}
 	],
-	"nxCloudId": "6991d5ad8c861d2f1fa95f9d"
+	"nxCloudId": "6991d5ad8c861d2f1fa95f9d",
+	"generators": {
+		"@nx/react": {
+			"library": {
+				"unitTestRunner": "vitest"
+			}
+		}
+	}
 }

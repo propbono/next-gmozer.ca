@@ -1,6 +1,16 @@
 "use client";
 
 import type { Project } from "@gmozer/types";
+import {
+	Badge,
+	Button,
+	Card,
+	CardContent,
+	Separator,
+	Tooltip,
+	TooltipContent,
+	TooltipTrigger,
+} from "@gmozer/ui";
 import { useTranslations } from "next-intl";
 import {
 	RiArrowLeftSLine,
@@ -8,15 +18,6 @@ import {
 	RiArrowRightSLine,
 	RiGithubLine,
 } from "react-icons/ri";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
-import {
-	Tooltip,
-	TooltipContent,
-	TooltipTrigger,
-} from "@/components/ui/tooltip";
 import { Link } from "@/i18n/navigation";
 
 type ProjectCardProps = {

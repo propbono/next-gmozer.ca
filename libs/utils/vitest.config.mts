@@ -1,3 +1,6 @@
+// @ts-expect-error - Force testing env to prevent Next.js React 19 production build crash
+process.env.NODE_ENV = "test";
+
 import { nxCopyAssetsPlugin } from "@nx/vite/plugins/nx-copy-assets.plugin";
 import { nxViteTsPaths } from "@nx/vite/plugins/nx-tsconfig-paths.plugin";
 import { defineConfig } from "vitest/config";

@@ -1,6 +1,5 @@
+import { Button, Card, CardContent } from "@gmozer/ui";
 import { Link } from "@/i18n/navigation";
-import { Button } from "../ui/button";
-import { Card, CardContent } from "../ui/card";
 
 export type CallToActionCardProps = {
 	ctaTitle: string;

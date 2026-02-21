@@ -1,8 +1,8 @@
 "use client";
 
+import { Button } from "@gmozer/ui";
 import { useTranslations } from "next-intl";
 import { useEffect } from "react";
-import { Button } from "@/components/ui/button";
 import { useRouter } from "@/i18n/navigation";
 
 export default function ErrorPage({

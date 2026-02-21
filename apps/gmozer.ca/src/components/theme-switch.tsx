@@ -1,9 +1,9 @@
 "use client";
 
+import { Button } from "@gmozer/ui";
 import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 import { LuMoon, LuSun } from "react-icons/lu";
-import { Button } from "./ui/button";
 
 export const ThemeSwitch = () => {
 	const { theme, setTheme } = useTheme();

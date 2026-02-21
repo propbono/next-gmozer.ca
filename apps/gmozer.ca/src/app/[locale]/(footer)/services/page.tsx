@@ -1,7 +1,7 @@
+import { Separator } from "@gmozer/ui";
 import { getTranslations } from "next-intl/server";
 import { RiArrowRightDownLine } from "react-icons/ri";
 import { AnimatedElement } from "@/components/animated-element/animated-element";
-import { Separator } from "@/components/ui/separator";
 import { Link } from "@/i18n/navigation";
 
 export async function generateMetadata() {
