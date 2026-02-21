@@ -1,0 +1,2 @@
+libs/types/src/lib/global.ts(2,27): error TS2307: Cannot find module '../../messages/en.json' or its corresponding type declarations.
+libs/types/src/lib/global.ts(4,16): error TS2664: Invalid module name in augmentation, module 'next-intl' cannot be found.

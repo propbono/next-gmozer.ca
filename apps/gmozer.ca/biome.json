@@ -1,0 +1,70 @@
+{
+	"root": false,
+	"extends": ["../../biome.json"],
+	"files": {
+		"ignoreUnknown": false,
+		"includes": [
+			"/**",
+			"!node_modules",
+			"!**/.nx",
+			"!dist",
+			"!build",
+			"!**/.next",
+			"!out",
+			"!coverage",
+			"!src/hooks/use-toast.ts",
+			"!src/hooks/use-media-query.ts",
+			"!src/hooks/use-element-size.ts",
+			"!src/components/ui",
+			"!src/types/global.ts",
+			"!src/app/**/opengraph-image.tsx"
+		]
+	},
+	"formatter": {
+		"enabled": true,
+		"formatWithErrors": false,
+		"attributePosition": "auto",
+		"indentStyle": "tab",
+		"indentWidth": 2,
+		"lineWidth": 80,
+		"lineEnding": "lf"
+	},
+	"javascript": {
+		"formatter": {
+			"arrowParentheses": "always",
+			"bracketSameLine": false,
+			"bracketSpacing": true,
+			"jsxQuoteStyle": "double",
+			"quoteProperties": "asNeeded",
+			"semicolons": "always",
+			"trailingCommas": "all",
+			"attributePosition": "auto",
+			"enabled": true
+		}
+	},
+	"css": {
+		"parser": {
+			"cssModules": true,
+			"allowWrongLineComments": true,
+			"tailwindDirectives": true
+		}
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true
+		}
+	},
+	"overrides": [
+		{
+			"includes": ["src/app/globals.css"],
+			"linter": {
+				"rules": {
+					"suspicious": {
+						"noUnknownAtRules": "off"
+					}
+				}
+			}
+		}
+	]
+}

@@ -1,0 +1,17 @@
+@import "tailwindcss";
+@import "../../../../libs/ui/src/styles.css";
+
+@source "../../../../libs/ui/src";
+
+@plugin "tailwindcss-animate";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+	* {
+		@apply border-border;
+	}
+	body {
+		@apply bg-background text-foreground;
+	}
+}

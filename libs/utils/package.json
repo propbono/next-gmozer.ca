@@ -1,0 +1,19 @@
+{
+	"name": "@gmozer/utils",
+	"version": "0.0.0",
+	"private": true,
+	"scripts": {
+		"test": "vitest run",
+		"lint": "biome check --config-path=biome.json .",
+		"typecheck": "tsc --noEmit"
+	},
+	"dependencies": {
+		"clsx": "^2.1.1",
+		"tailwind-merge": "^3.4.0"
+	},
+	"devDependencies": {
+		"@nx/vite": "22.5.1",
+		"vite": "^7.0.0",
+		"vitest": "^4.0.18"
+	}
+}
