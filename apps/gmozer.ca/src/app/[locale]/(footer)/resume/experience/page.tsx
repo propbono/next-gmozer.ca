@@ -1,12 +1,11 @@
 import {
-	Card,
-	CardContent,
-	CardFooter,
-	CardHeader,
-	ScrollArea,
+	Timeline,
+	TimelineDetails,
+	TimelineDuration,
+	TimelineItem,
+	TimelineTitle,
 } from "@gmozer/ui";
 import { getTranslations } from "next-intl/server";
-import { AnimatedElement } from "@/components/animated-element/animated-element";
 
 export async function generateMetadata() {
 	const t = await getTranslations("metadata");
@@ -70,36 +69,26 @@ export default async function Experience() {
 
 	return (
 		<section className="flex flex-col gap-8" aria-label="Experience timeline">
-			<header className="flex flex-col gap-8 text-center md:text-left">
+			<header className="flex flex-col gap-4 text-center md:text-left">
 				<h1 className="text-4xl font-bold">{t("title")}</h1>
 				<p className="max-w-xl mx-auto md:mx-0 text-muted-foreground">
 					{t("description")}
 				</p>
 			</header>
-			<ScrollArea>
-				<div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-					{positions.map((item, index) => (
-						<AnimatedElement key={`${item.company}-${index}`} index={index}>
-							<Card>
-								<CardHeader>
-									<time className="text-primary font-semibold">
-										{item.duration}
-									</time>
-								</CardHeader>
-								<CardContent className="flex justify-center md:justify-start">
-									<h2 className="text-xl max-w-64 min-h-14 w-full text-center md:text-left font-bold">
-										{item.position}
-									</h2>
-								</CardContent>
-								<CardFooter className="flex flex-wrap items-center justify-center md:justify-start gap-2">
-									<span className="rounded-full size-2 bg-primary" />
-									<span>{item.company}</span>
-								</CardFooter>
-							</Card>
-						</AnimatedElement>
-					))}
-				</div>
-			</ScrollArea>
+
+			<Timeline>
+				{positions.map((item, index) => (
+					<TimelineItem
+						key={`${item.company}-${index}`}
+						index={index}
+						isLast={index === positions.length - 1}
+					>
+						<TimelineDuration>{item.duration}</TimelineDuration>
+						<TimelineTitle>{item.position}</TimelineTitle>
+						<TimelineDetails primary={item.company} secondary={item.location} />
+					</TimelineItem>
+				))}
+			</Timeline>
 		</section>
 	);
 }
