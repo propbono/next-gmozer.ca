@@ -69,9 +69,10 @@ export const TimelineItem = ({
 
 			{/* Content */}
 			<motion.div
-				className="flex-1 pb-2 transition-transform duration-300 ease-out group-hover:translate-x-1.5"
+				className="flex-1 pb-2"
 				initial={{ opacity: 0, x: -30 }}
 				animate={{ opacity: 1, x: 0 }}
+				whileHover={{ x: 6 }}
 				transition={{
 					duration: 0.5,
 					delay: 0.15 * index + 0.1,
@@ -89,8 +90,19 @@ export const TimelineItem = ({
 /*  TimelineItemContent helpers                                        */
 /* ------------------------------------------------------------------ */
 
-export const TimelineDuration = ({ children }: { children: ReactNode }) => (
-	<time className="text-sm font-semibold text-primary tracking-wide uppercase transition-colors duration-300">
+type TimelineDurationProps = {
+	children: ReactNode;
+	dateTime?: string;
+};
+
+export const TimelineDuration = ({
+	children,
+	dateTime,
+}: TimelineDurationProps) => (
+	<time
+		dateTime={dateTime}
+		className="text-sm font-semibold text-primary tracking-wide uppercase transition-colors duration-300"
+	>
 		{children}
 	</time>
 );
