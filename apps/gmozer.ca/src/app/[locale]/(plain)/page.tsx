@@ -10,7 +10,7 @@ import { isValidLocale } from "@/i18n/routing";
 import { getGithubStats, MOCK_STATS } from "@/services/github";
 
 const PROPRIETARY_PROJECTS_COUNT = 10;
-const PROPRIETARY_COMMITS_COUNT = 550;
+const PROPRIETARY_COMMITS_COUNT = 300;
 
 export async function generateMetadata(props: {
 	params: Promise<{ locale: string }>;
