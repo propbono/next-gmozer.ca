@@ -14,7 +14,12 @@
 			"cache": true
 		},
 		"lint": {
-			"cache": true
+			"cache": true,
+			"inputs": [
+				"default",
+				"{workspaceRoot}/biome.json",
+				"{projectRoot}/biome.json"
+			]
 		},
 		"lint:all": {
 			"cache": true
