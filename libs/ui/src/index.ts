@@ -13,6 +13,7 @@ export * from "./lib/ui/separator";
 export * from "./lib/ui/sheet";
 export * from "./lib/ui/tabs";
 export * from "./lib/ui/textarea";
+export * from "./lib/ui/timeline";
 export * from "./lib/ui/toast";
 export * from "./lib/ui/toaster";
 export * from "./lib/ui/tooltip";
