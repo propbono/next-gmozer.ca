@@ -19,13 +19,21 @@
 				"default",
 				"{workspaceRoot}/biome.json",
 				"{projectRoot}/biome.json"
-			]
+			],
+			"outputs": []
 		},
 		"lint:all": {
-			"cache": true
+			"cache": true,
+			"outputs": []
 		},
 		"typecheck": {
-			"cache": true
+			"cache": true,
+			"inputs": [
+				"default",
+				"{workspaceRoot}/tsconfig.base.json",
+				"{projectRoot}/tsconfig.json"
+			],
+			"outputs": []
 		},
 		"@nx/vitest:test": {
 			"cache": true,
