@@ -14,7 +14,7 @@ type GithubStats = {
 
 export const MOCK_STATS: GithubStats = {
 	projectCount: 20,
-	allCommitsCount: 2000,
+	allCommitsCount: 1000,
 };
 
 const GITHUB_USERNAMES = ["propbono", "gregmozer"] as const;
