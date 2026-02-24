@@ -1,11 +1,11 @@
 import type { Stat } from "@gmozer/types";
-import { differenceInCalendarYears } from "date-fns";
+import { Stats } from "@gmozer/ui";
+import { differenceInYears } from "date-fns";
 import { getTranslations } from "next-intl/server";
 import { HeroPhoto } from "@/components/hero-photo";
 import { DownloadResume } from "@/components/resume-download";
 import { Socials } from "@/components/socials";
-import { Stats } from "@/components/stats";
-import { DEV_START_YEAR, TECHNOLOGIES_MASTERED } from "@/constants/main";
+import { DEV_START_DATE, TECHNOLOGIES_MASTERED } from "@/constants/main";
 import { isValidLocale } from "@/i18n/routing";
 import { getGithubStats, MOCK_STATS } from "@/services/github";
 
@@ -62,14 +62,19 @@ export async function generateMetadata(props: {
 export default async function Home() {
 	const t = await getTranslations("home");
 
-	const yearsOfExperience = differenceInCalendarYears(
-		new Date(),
-		DEV_START_YEAR,
-	);
+	const currentDate = new Date();
+	const devStartDate = new Date(DEV_START_DATE);
+
+	const yearsOfExperience = differenceInYears(currentDate, devStartDate);
+
 	const githubStats = await getGithubStats();
 
 	const stats: Stat[] = [
-		{ title: t("stats.yearsExperience"), value: yearsOfExperience },
+		{
+			title: t("stats.yearsExperience"),
+			value: yearsOfExperience,
+			suffix: "+",
+		},
 		{
 			title: t("stats.projectsCompleted"),
 			value:
@@ -77,7 +82,11 @@ export default async function Home() {
 					? PROPRIETARY_PROJECTS_COUNT + githubStats.data.projectCount
 					: PROPRIETARY_PROJECTS_COUNT + MOCK_STATS.projectCount,
 		},
-		{ title: t("stats.technologiesUsed"), value: TECHNOLOGIES_MASTERED },
+		{
+			title: t("stats.technologiesUsed"),
+			value: TECHNOLOGIES_MASTERED,
+			suffix: "+",
+		},
 		{
 			title: t("stats.commits"),
 			value:

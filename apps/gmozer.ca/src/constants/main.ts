@@ -1,4 +1,4 @@
-export const DEV_START_YEAR = new Date("2018-12-10");
+export const DEV_START_DATE = new Date("2018-12-10");
 export const TECHNOLOGIES_MASTERED = 10;
 export const RESUME_LINKS = {
 	en: "/resume/Grzegorz_Mozer_Resume_CA.pdf",

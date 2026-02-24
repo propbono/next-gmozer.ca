@@ -1,3 +1,4 @@
+export * from "./lib/components/stats/stats";
 export * from "./lib/hooks/use-toast";
 export * from "./lib/ui/badge";
 export * from "./lib/ui/breadcrumb";
