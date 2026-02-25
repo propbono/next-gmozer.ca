@@ -3,7 +3,7 @@
 import { type HTMLMotionProps, motion } from "framer-motion";
 import type { ReactNode } from "react";
 
-type AnimatedCardProps = HTMLMotionProps<"div"> & {
+export type AnimatedCardProps = HTMLMotionProps<"div"> & {
 	children: ReactNode;
 	index: number;
 };

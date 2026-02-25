@@ -1,3 +1,4 @@
+import { CheckCircleWithText, NumberItem, ServiceCard } from "@gmozer/ui";
 import { getTranslations } from "next-intl/server";
 import {
 	LuCircleCheck,
@@ -8,9 +9,6 @@ import {
 } from "react-icons/lu";
 import { BreadcrumbNav } from "@/components/breadcrumbs";
 import { CallToActionCard } from "@/components/call-to-action-card";
-import { CheckCircleWithText } from "@/components/check-circle-with-text";
-import { NumberItem } from "@/components/number-item";
-import { ServiceCard } from "@/components/service-card";
 
 export async function generateMetadata() {
 	const t = await getTranslations("metadata");

@@ -1,3 +1,7 @@
+export * from "./lib/components/animated-element";
+export * from "./lib/components/check-circle-with-text";
+export * from "./lib/components/number-item";
+export * from "./lib/components/service-card";
 export * from "./lib/components/stats/stats";
 export * from "./lib/hooks/use-toast";
 export * from "./lib/ui/badge";
