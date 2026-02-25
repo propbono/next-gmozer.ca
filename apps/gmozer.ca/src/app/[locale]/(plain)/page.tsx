@@ -1,8 +1,7 @@
 import type { Stat } from "@gmozer/types";
-import { Stats } from "@gmozer/ui";
+import { AnimatedHero, Stats } from "@gmozer/ui";
 import { differenceInYears } from "date-fns";
 import { getTranslations } from "next-intl/server";
-import { HeroPhoto } from "@/components/hero-photo";
 import { DownloadResume } from "@/components/resume-download";
 import { Socials } from "@/components/socials";
 import { DEV_START_DATE, TECHNOLOGIES_MASTERED } from "@/constants/main";
@@ -121,7 +120,10 @@ export default async function Home() {
 					</div>
 				</div>
 				<aside className="order-1 md:order-none mb-6 md:mb-0">
-					<HeroPhoto />
+					<AnimatedHero
+						imageSrc="/images/Raccoon_1-min.png"
+						imageAlt="Raccon"
+					/>
 				</aside>
 			</section>
 

@@ -2,7 +2,7 @@ import { TooltipProvider } from "@radix-ui/react-tooltip";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import { phClientCapture } from "@/lib/posthog/client";
-import { SocialLinks } from "./social-link";
+import { Socials } from "./index";
 
 // Mock the client capture function
 vi.mock("@/lib/posthog/client", () => ({
@@ -16,11 +16,11 @@ vi.mock("@/i18n/navigation", () => ({
 	),
 }));
 
-describe("SocialLinks", () => {
+describe("Socials", () => {
 	it("captures click_social_link event with correct typed properties", () => {
 		render(
 			<TooltipProvider>
-				<SocialLinks />
+				<Socials />
 			</TooltipProvider>,
 		);
 

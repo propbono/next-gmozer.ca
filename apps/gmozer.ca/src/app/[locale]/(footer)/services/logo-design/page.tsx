@@ -1,4 +1,4 @@
-import { CheckCircleWithText, NumberItem } from "@gmozer/ui";
+import { CheckCircleWithText, NumberItem, PageSection } from "@gmozer/ui";
 import { getTranslations } from "next-intl/server";
 import { BreadcrumbNav } from "@/components/breadcrumbs";
 
@@ -36,13 +36,11 @@ export default async function LogoDesign() {
 				<h1 className="text-4xl font-bold mb-6">{t("title")}</h1>
 			</header>
 			<div className="grid gap-16">
-				<section aria-labelledby="brand-identity">
-					<h2 className="text-2xl font-semibold mb-4">
-						{t("brand-identity.title")}
-					</h2>
-					<p className="text-muted-foreground mb-4">
-						{t("brand-identity.description")}
-					</p>
+				<PageSection
+					id="brand-identity"
+					title={t("brand-identity.title")}
+					description={t("brand-identity.description")}
+				>
 					<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 						<CheckCircleWithText text={t("brand-identity.point1")} />
 						<CheckCircleWithText text={t("brand-identity.point2")} />
@@ -51,13 +49,13 @@ export default async function LogoDesign() {
 						<CheckCircleWithText text={t("brand-identity.point5")} />
 						<CheckCircleWithText text={t("brand-identity.point6")} />
 					</div>
-				</section>
+				</PageSection>
 
-				<section aria-labelledby="process">
-					<h2 className="text-2xl font-semibold mb-4">{t("process.title")}</h2>
-					<p className="text-muted-foreground mb-4">
-						{t("process.description")}
-					</p>
+				<PageSection
+					id="process"
+					title={t("process.title")}
+					description={t("process.description")}
+				>
 					<div className="space-y-8">
 						<NumberItem
 							number={1}
@@ -81,7 +79,7 @@ export default async function LogoDesign() {
 							isLastItem={true}
 						/>
 					</div>
-				</section>
+				</PageSection>
 			</div>
 		</article>
 	);

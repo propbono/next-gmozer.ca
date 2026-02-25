@@ -1,7 +1,14 @@
 "use client";
+
 import { motion } from "framer-motion";
 import Image from "next/image";
-export const HeroPhoto = () => {
+
+export type AnimatedHeroProps = {
+	imageSrc: string;
+	imageAlt: string;
+};
+
+export const AnimatedHero = ({ imageSrc, imageAlt }: AnimatedHeroProps) => {
 	return (
 		<div className="w-full h-full relative">
 			<motion.div
@@ -24,8 +31,8 @@ export const HeroPhoto = () => {
 						quality={100}
 						fill
 						className="object-contain"
-						alt="Raccon"
-						src="/images/Raccoon_1-min.png"
+						alt={imageAlt}
+						src={imageSrc}
 						sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
 					/>
 				</motion.div>
