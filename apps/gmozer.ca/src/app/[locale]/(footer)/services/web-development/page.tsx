@@ -14,7 +14,7 @@ import {
 	LuServer,
 	LuWorkflow,
 } from "react-icons/lu";
-import { BreadcrumbNav } from "@/components/breadcrumbs";
+import { BreadcrumbNav } from "@/components";
 import { Link } from "@/i18n/navigation";
 
 export async function generateMetadata() {

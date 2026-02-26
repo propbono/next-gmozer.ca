@@ -24,7 +24,7 @@ function PostHogPageView() {
 	return null;
 }
 
-export default function SuspendedPostHogPageView() {
+export function SuspendedPostHogPageView() {
 	return (
 		<Suspense fallback={null}>
 			<PostHogPageView />

@@ -3,7 +3,7 @@ import { NextIntlClientProvider } from "next-intl";
 import type { ReactNode } from "react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { sendEmail } from "@/actions/contact";
-import messages from "../../messages/en.json";
+import messages from "../../../messages/en.json";
 import { ContactForm } from "./contact-form";
 
 // Set environment variables

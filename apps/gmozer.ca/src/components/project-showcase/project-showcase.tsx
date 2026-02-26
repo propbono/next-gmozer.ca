@@ -12,7 +12,7 @@ import { useTranslations } from "next-intl";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { LuImageOff } from "react-icons/lu";
 import { PROJECT_KEYS } from "@/constants/main";
-import { ProjectCard } from "./project-card";
+import { ProjectCard } from "../project-card";
 
 export function ProjectShowcase() {
 	const [api, setApi] = useState<CarouselApi>();

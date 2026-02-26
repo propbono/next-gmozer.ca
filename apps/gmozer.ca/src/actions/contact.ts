@@ -2,7 +2,7 @@
 
 import type { ReactElement } from "react";
 import { Resend } from "resend";
-import { ContactFormEmailTemplate } from "@/components/contact-form-template";
+import { ContactFormEmailTemplate } from "@/components";
 import { contactFormSchema } from "@/schemas/contact";
 
 export const sendEmail = async (formData: FormData) => {

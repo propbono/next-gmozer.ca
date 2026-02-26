@@ -5,7 +5,7 @@ import { cn } from "@gmozer/utils";
 import { useTranslations } from "next-intl";
 import type { ReactNode } from "react";
 import { FaBriefcase, FaCode, FaGraduationCap, FaUser } from "react-icons/fa6";
-import { DownloadResume } from "@/components/resume-download";
+import { DownloadResume } from "@/components";
 import { Link, usePathname } from "@/i18n/navigation";
 
 export default function ResumeLayout({

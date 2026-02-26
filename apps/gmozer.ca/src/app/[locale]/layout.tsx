@@ -10,8 +10,7 @@ import {
 	setRequestLocale,
 } from "next-intl/server";
 import type { ReactNode } from "react";
-import PostHogPageView from "@/components/posthog-pageview"; // Added import
-import { ThemeProvider } from "@/components/theme-provider"; // Verify path
+import { PostHogProvider, ThemeProvider } from "@/components"; // Verify path
 import { routing } from "@/i18n/routing";
 
 import "../globals.css";
@@ -104,13 +103,14 @@ export default async function RootLayout({
 				className={cn("flex flex-col min-h-screen min-w-72", ubuntu.variable)}
 			>
 				<NextIntlClientProvider messages={messages}>
-					<PostHogPageView />
-					<ThemeProvider>
-						<TooltipProvider delayDuration={150}>{children}</TooltipProvider>
-					</ThemeProvider>
+					<PostHogProvider>
+						<ThemeProvider>
+							<TooltipProvider delayDuration={150}>{children}</TooltipProvider>
+						</ThemeProvider>
 
-					<Toaster />
-					<Script type="application/ld+json">{JSON.stringify(jsonLd)}</Script>
+						<Toaster />
+						<Script type="application/ld+json">{JSON.stringify(jsonLd)}</Script>
+					</PostHogProvider>
 				</NextIntlClientProvider>
 			</body>
 		</html>

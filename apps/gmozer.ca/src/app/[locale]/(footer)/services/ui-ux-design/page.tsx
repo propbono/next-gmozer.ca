@@ -1,6 +1,6 @@
 import { NumberItem, PageSection, ServiceCard } from "@gmozer/ui";
 import { getTranslations } from "next-intl/server";
-import { BreadcrumbNav } from "@/components/breadcrumbs";
+import { BreadcrumbNav } from "@/components";
 
 export async function generateMetadata() {
 	const t = await getTranslations("metadata");

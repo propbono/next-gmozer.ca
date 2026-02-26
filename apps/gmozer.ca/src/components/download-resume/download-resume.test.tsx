@@ -2,7 +2,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import type { ComponentProps } from "react";
 import { describe, expect, it, vi } from "vitest";
 import { phClientCapture } from "@/lib/posthog/client";
-import { DownloadResume } from "./resume-download";
+import { DownloadResume } from "./download-resume";
 
 // Mock the client capture function
 vi.mock("@/lib/posthog/client", () => ({

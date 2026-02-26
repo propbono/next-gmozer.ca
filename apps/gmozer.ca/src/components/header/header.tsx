@@ -8,7 +8,7 @@ import { useMediaQuery } from "@/hooks/use-media-query";
 import { Link, usePathname } from "@/i18n/navigation";
 
 import { DesktopNav } from "../desktop-nav";
-import { LocaleSwitcher } from "../language-switcher";
+import { LocaleSwitcher } from "../locale-switcher";
 import { MobileNav } from "../mobile-nav";
 import { ThemeSwitch } from "../theme-switch";
 

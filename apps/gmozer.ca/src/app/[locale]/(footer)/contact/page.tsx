@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
-import { ContactForm } from "@/components/contact-form";
+import { ContactForm } from "@/components";
 
 export async function generateMetadata() {
 	const t = await getTranslations("metadata");

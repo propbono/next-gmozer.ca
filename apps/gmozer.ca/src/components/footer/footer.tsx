@@ -2,7 +2,7 @@
 import { useTranslations } from "next-intl";
 import { RiCopyrightLine } from "react-icons/ri";
 import { usePathname } from "@/i18n/navigation";
-import { LocaleSwitcher } from "../language-switcher";
+import { LocaleSwitcher } from "../locale-switcher";
 import { Socials } from "../socials";
 
 export const Footer = () => {

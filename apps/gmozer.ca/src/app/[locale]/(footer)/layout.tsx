@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
-import { Footer } from "@/components/footer";
-import { Header } from "@/components/header";
+import { Footer, Header } from "@/components";
 
 export default function FooterLayout({
 	children,
