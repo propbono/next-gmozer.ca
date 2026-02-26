@@ -20,8 +20,9 @@ export const MOCK_STATS: GithubStats = {
 const GITHUB_USERNAMES = ["propbono", "gregmozer"] as const;
 
 type GithubRepo = Endpoints["GET /user/repos"]["response"]["data"][number];
-type GithubContributor =
-	Endpoints["GET /repos/{owner}/{repo}/contributors"]["response"]["data"][number];
+type GithubContributorsResponse =
+	Endpoints["GET /repos/{owner}/{repo}/contributors"]["response"];
+type GithubContributor = GithubContributorsResponse["data"][number];
 
 type GithubError = {
 	status: "error";
@@ -39,7 +40,7 @@ export const getGithubStats = cache(
 	async (): Promise<GithubResponse> => {
 		try {
 			const octokit = new Octokit({
-				auth: process.env.GITHUB_TOKEN,
+				auth: process.env["GITHUB_TOKEN"],
 				retry: {
 					enabled: true,
 					retries: 3,
@@ -68,13 +69,16 @@ export const getGithubStats = cache(
 
 			const contributionsData = await Promise.all(requests);
 			const allCommitsCount = contributionsData
-				.flatMap((response) => response.data)
+				.flatMap((response: GithubContributorsResponse) => response.data)
 				.filter((user: GithubContributor) =>
 					GITHUB_USERNAMES.includes(
 						user.login as (typeof GITHUB_USERNAMES)[number],
 					),
 				)
-				.reduce((acc, curr: GithubContributor) => acc + curr.contributions, 0);
+				.reduce(
+					(acc: number, curr: GithubContributor) => acc + curr.contributions,
+					0,
+				);
 
 			return {
 				status: "success",
