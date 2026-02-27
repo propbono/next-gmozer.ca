@@ -16,8 +16,6 @@ import { ProjectCard } from "../project-card";
 
 export function ProjectShowcase() {
 	const [api, setApi] = useState<CarouselApi>();
-	const [_current, setCurrent] = useState(0);
-	const [_count, setCount] = useState(0);
 	const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
 	const t = useTranslations("work");
 
@@ -49,27 +47,26 @@ export function ProjectShowcase() {
 	);
 
 	useEffect(() => {
-		if (!api) return;
+		if (!api) {
+			return;
+		}
 
-		setCount(api.scrollSnapList().length);
-		setCurrent(api.selectedScrollSnap() + 1);
+		setCurrentProjectIndex(api.selectedScrollSnap());
 
 		api.on("select", () => {
-			setCurrent(api.selectedScrollSnap() + 1);
+			setCurrentProjectIndex(api.selectedScrollSnap());
 		});
 	}, [api]);
 
 	const handleNext = useCallback(() => {
 		if (api?.canScrollNext()) {
 			api.scrollNext();
-			setCurrentProjectIndex((prev) => prev + 1);
 		}
 	}, [api]);
 
 	const handlePrevious = useCallback(() => {
 		if (api?.canScrollPrev()) {
 			api.scrollPrev();
-			setCurrentProjectIndex((prev) => prev - 1);
 		}
 	}, [api]);
 

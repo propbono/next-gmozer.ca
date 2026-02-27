@@ -10,7 +10,8 @@ import {
 	setRequestLocale,
 } from "next-intl/server";
 import type { ReactNode } from "react";
-import { PostHogProvider, ThemeProvider } from "@/components"; // Verify path
+import { PostHogProvider } from "@/components/posthog-provider";
+import { ThemeProvider } from "@/components/theme-provider";
 import { routing } from "@/i18n/routing";
 
 import "../globals.css";
@@ -109,7 +110,9 @@ export default async function RootLayout({
 						</ThemeProvider>
 
 						<Toaster />
-						<Script type="application/ld+json">{JSON.stringify(jsonLd)}</Script>
+						<Script id="json-ld" type="application/ld+json">
+							{JSON.stringify(jsonLd)}
+						</Script>
 					</PostHogProvider>
 				</NextIntlClientProvider>
 			</body>

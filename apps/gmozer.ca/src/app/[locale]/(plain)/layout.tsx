@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { Header } from "@/components";
+import { Header } from "@/components/header";
 
 export default function PlainLayout({
 	children,

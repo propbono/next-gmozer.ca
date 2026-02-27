@@ -3,7 +3,8 @@ import type { Stat } from "@gmozer/types";
 import { AnimatedHero, Stats } from "@gmozer/ui";
 import { differenceInYears } from "date-fns";
 import { getTranslations } from "next-intl/server";
-import { DownloadResume, Socials } from "@/components";
+import { DownloadResume } from "@/components/download-resume";
+import { Socials } from "@/components/socials";
 import { DEV_START_DATE, TECHNOLOGIES_MASTERED } from "@/constants/main";
 import { isValidLocale } from "@/i18n/routing";
 
