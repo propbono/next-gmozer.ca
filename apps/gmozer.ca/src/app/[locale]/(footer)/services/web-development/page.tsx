@@ -1,4 +1,5 @@
 import {
+	BreadcrumbNav,
 	Button,
 	CallToActionCard,
 	CheckCircleWithText,
@@ -14,7 +15,6 @@ import {
 	LuServer,
 	LuWorkflow,
 } from "react-icons/lu";
-import { BreadcrumbNav } from "@/components/breadcrumb-nav";
 import { Link } from "@/i18n/navigation";
 
 export async function generateMetadata() {
@@ -47,7 +47,22 @@ export default async function WebDevelopment() {
 
 	return (
 		<article className="container">
-			<BreadcrumbNav />
+			<BreadcrumbNav
+				items={[
+					{
+						label: nav("home.default.title"),
+						href: nav("home.default.url"),
+					},
+					{
+						label: nav("services.default.title"),
+						href: nav("services.default.url"),
+					},
+					{
+						label: nav("services.children.web-development.title"),
+						href: nav("services.children.web-development.url"),
+					},
+				]}
+			/>
 			<header>
 				<h1 className="text-4xl font-bold mb-6">{t("title")}</h1>
 			</header>

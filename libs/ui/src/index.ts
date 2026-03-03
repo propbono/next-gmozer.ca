@@ -1,5 +1,6 @@
 export * from "./lib/components/animated-element";
 export * from "./lib/components/animated-hero";
+export * from "./lib/components/breadcrumb-nav";
 export * from "./lib/components/call-to-action-card";
 export * from "./lib/components/check-circle-with-text";
 export * from "./lib/components/number-item";
