@@ -1,22 +1,12 @@
 "use client";
 import type { Project } from "@gmozer/types";
-import {
-	Carousel,
-	type CarouselApi,
-	CarouselContent,
-	CarouselItem,
-} from "@gmozer/ui";
 import { isStringArray } from "@gmozer/utils";
-import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { useCallback, useEffect, useMemo, useState } from "react";
-import { LuImageOff } from "react-icons/lu";
+import { useMemo } from "react";
 import { PROJECT_KEYS } from "@/constants/main";
-import { ProjectCard } from "../project-card";
+import { ProjectItem } from "./project-items/project-item";
 
 export function ProjectShowcase() {
-	const [api, setApi] = useState<CarouselApi>();
-	const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
 	const t = useTranslations("work");
 
 	const projects: Project[] = useMemo(() => {
@@ -41,77 +31,16 @@ export function ProjectShowcase() {
 		});
 	}, [t]);
 
-	const currentProject = useMemo(
-		() => projects[currentProjectIndex],
-		[currentProjectIndex, projects],
-	);
-
-	useEffect(() => {
-		if (!api) {
-			return;
-		}
-
-		setCurrentProjectIndex(api.selectedScrollSnap());
-
-		api.on("select", () => {
-			setCurrentProjectIndex(api.selectedScrollSnap());
-		});
-	}, [api]);
-
-	const handleNext = useCallback(() => {
-		if (api?.canScrollNext()) {
-			api.scrollNext();
-		}
-	}, [api]);
-
-	const handlePrevious = useCallback(() => {
-		if (api?.canScrollPrev()) {
-			api.scrollPrev();
-		}
-	}, [api]);
-
 	return (
-		<article className="flex flex-grow relative">
-			<div className="hidden sm:block absolute md:rounded-s-lg w-full md:w-[768px] lg:w-[872px] xl:w-[1024px] 2xl:w-[1124px] h-full top-0 right-0">
-				<Carousel setApi={setApi} className="h-full">
-					<CarouselContent className="h-full">
-						{projects?.length > 0 &&
-							projects.map((item, index) => (
-								<CarouselItem key={item.title} className="h-full">
-									<div className="relative w-full h-full bg-muted/30 md:rounded-s-lg overflow-hidden">
-										{item.image ? (
-											<Image
-												src={item.image}
-												alt={item.title}
-												fill
-												className="object-cover md:rounded-s-lg"
-												sizes="(max-width: 1024px) 100vw, 50vw"
-												priority={index === 0}
-											/>
-										) : (
-											<div className="w-full h-full flex flex-col items-center justify-center text-muted-foreground bg-muted">
-												<LuImageOff className="size-16 mb-4 opacity-50" />
-												<span className="text-lg font-medium">
-													{t("noImage")}
-												</span>
-											</div>
-										)}
-									</div>
-								</CarouselItem>
-							))}
-					</CarouselContent>
-				</Carousel>
-			</div>
-			<div className="container flex flex-grow items-center justify-start">
-				<ProjectCard
-					project={currentProject}
-					index={currentProjectIndex}
-					onNext={handleNext}
-					onPrevious={handlePrevious}
-					canNext={!!api?.canScrollNext()}
-					canPrevious={!!api?.canScrollPrev()}
+		<article className="container py-12 flex flex-col">
+			{projects.map((project, index) => (
+				<ProjectItem
+					key={project.title}
+					project={project}
+					index={index}
+					isLast={index === projects.length - 1}
 				/>
-			</div>
+			))}
 		</article>
 	);
 }
