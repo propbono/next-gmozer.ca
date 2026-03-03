@@ -1,3 +1,11 @@
+import {
+	Button,
+	CallToActionCard,
+	CheckCircleWithText,
+	NumberItem,
+	PageSection,
+	ServiceCard,
+} from "@gmozer/ui";
 import { getTranslations } from "next-intl/server";
 import {
 	LuCircleCheck,
@@ -6,11 +14,8 @@ import {
 	LuServer,
 	LuWorkflow,
 } from "react-icons/lu";
-import { BreadcrumbNav } from "@/components/breadcrumbs";
-import { CallToActionCard } from "@/components/call-to-action-card";
-import { CheckCircleWithText } from "@/components/check-circle-with-text";
-import { NumberItem } from "@/components/number-item";
-import { ServiceCard } from "@/components/service-card";
+import { BreadcrumbNav } from "@/components/breadcrumb-nav";
+import { Link } from "@/i18n/navigation";
 
 export async function generateMetadata() {
 	const t = await getTranslations("metadata");
@@ -47,13 +52,11 @@ export default async function WebDevelopment() {
 				<h1 className="text-4xl font-bold mb-6">{t("title")}</h1>
 			</header>
 			<div className="grid gap-16">
-				<section aria-labelledby="offerings">
-					<h2 className="text-2xl font-semibold mb-4">
-						{t("offerings.title")}
-					</h2>
-					<p className="text-muted-foreground mb-4">
-						{t("offerings.description")}
-					</p>
+				<PageSection
+					id="offerings"
+					title={t("offerings.title")}
+					description={t("offerings.description")}
+				>
 					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
 						<ServiceCard
 							title={t("offerings.point1.title")}
@@ -97,13 +100,13 @@ export default async function WebDevelopment() {
 						<CheckCircleWithText text={t("offerings.point8")} />
 						<CheckCircleWithText text={t("offerings.point9")} />
 					</div>
-				</section>
+				</PageSection>
 
-				<section aria-labelledby="process">
-					<h2 className="text-2xl font-semibold mb-4">{t("process.title")}</h2>
-					<p className="text-muted-foreground mb-4">
-						{t("process.description")}
-					</p>
+				<PageSection
+					id="process"
+					title={t("process.title")}
+					description={t("process.description")}
+				>
 					<div className="space-y-8">
 						<NumberItem
 							number={1}
@@ -132,23 +135,27 @@ export default async function WebDevelopment() {
 							isLastItem={true}
 						/>
 					</div>
-				</section>
+				</PageSection>
 				<section aria-labelledby="cta">
 					<CallToActionCard
-						ctaTitle={t("cta.title")}
-						ctaDescription={t("cta.description")}
-						ctaUrl={nav("contact.default.url")}
-						ctaUrlText={t("cta.button")}
+						title={t("cta.title")}
+						description={t("cta.description")}
+						action={
+							<Button
+								size="lg"
+								className="bg-primary hover:bg-primary-foreground text-primary-foreground hover:text-primary"
+								asChild
+							>
+								<Link href={nav("contact.default.url")}>{t("cta.button")}</Link>
+							</Button>
+						}
 					/>
 				</section>
-				<section aria-labelledby="technologies">
-					<h2 className="text-2xl font-semibold mb-4">
-						{t("technologies.title")}
-					</h2>
-					<p className="text-muted-foreground mb-4">
-						{t("technologies.description")}
-					</p>
-
+				<PageSection
+					id="technologies"
+					title={t("technologies.title")}
+					description={t("technologies.description")}
+				>
 					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 						<ServiceCard
 							title={t("technologies.point1.title")}
@@ -171,7 +178,7 @@ export default async function WebDevelopment() {
 							icon={<LuCircleCheck className="h-5 w-5 text-primary" />}
 						/>
 					</div>
-				</section>
+				</PageSection>
 			</div>
 		</article>
 	);

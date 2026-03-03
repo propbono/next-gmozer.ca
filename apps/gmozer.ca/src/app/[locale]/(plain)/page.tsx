@@ -1,13 +1,12 @@
+import { getGithubStats, MOCK_STATS } from "@gmozer/github";
 import type { Stat } from "@gmozer/types";
-import { Stats } from "@gmozer/ui";
+import { AnimatedHero, Stats } from "@gmozer/ui";
 import { differenceInYears } from "date-fns";
 import { getTranslations } from "next-intl/server";
-import { HeroPhoto } from "@/components/hero-photo";
-import { DownloadResume } from "@/components/resume-download";
+import { DownloadResume } from "@/components/download-resume";
 import { Socials } from "@/components/socials";
 import { DEV_START_DATE, TECHNOLOGIES_MASTERED } from "@/constants/main";
 import { isValidLocale } from "@/i18n/routing";
-import { getGithubStats, MOCK_STATS } from "@/services/github";
 
 const PROPRIETARY_PROJECTS_COUNT = 10;
 const PROPRIETARY_COMMITS_COUNT = 300;
@@ -121,7 +120,10 @@ export default async function Home() {
 					</div>
 				</div>
 				<aside className="order-1 md:order-none mb-6 md:mb-0">
-					<HeroPhoto />
+					<AnimatedHero
+						imageSrc="/images/Raccoon_1-min.png"
+						imageAlt="Raccon"
+					/>
 				</aside>
 			</section>
 

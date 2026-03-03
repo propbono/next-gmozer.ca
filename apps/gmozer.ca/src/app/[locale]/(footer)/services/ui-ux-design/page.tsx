@@ -1,7 +1,6 @@
+import { NumberItem, PageSection, ServiceCard } from "@gmozer/ui";
 import { getTranslations } from "next-intl/server";
-import { BreadcrumbNav } from "@/components/breadcrumbs";
-import { NumberItem } from "@/components/number-item";
-import { ServiceCard } from "@/components/service-card";
+import { BreadcrumbNav } from "@/components/breadcrumb-nav";
 
 export async function generateMetadata() {
 	const t = await getTranslations("metadata");
@@ -37,13 +36,11 @@ export default async function UiUxDesign() {
 				<h1 className="text-4xl font-bold mb-6">{t("title")}</h1>
 			</header>
 			<div className="grid gap-16">
-				<section aria-labelledby="philosophy">
-					<h2 className="text-2xl font-semibold mb-4">
-						{t("philosophy.title")}
-					</h2>
-					<p className="text-muted-foreground mb-4">
-						{t("philosophy.description")}
-					</p>
+				<PageSection
+					id="philosophy"
+					title={t("philosophy.title")}
+					description={t("philosophy.description")}
+				>
 					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
 						<ServiceCard
 							title={t("philosophy.point1.title")}
@@ -71,13 +68,13 @@ export default async function UiUxDesign() {
 							hasSecondChevronIcon={false}
 						/>
 					</div>
-				</section>
+				</PageSection>
 
-				<section aria-labelledby="process">
-					<h2 className="text-2xl font-semibold mb-4">{t("process.title")}</h2>
-					<p className="text-muted-foreground mb-4">
-						{t("process.description")}
-					</p>
+				<PageSection
+					id="process"
+					title={t("process.title")}
+					description={t("process.description")}
+				>
 					<div className="space-y-8">
 						<NumberItem
 							number={1}
@@ -101,12 +98,13 @@ export default async function UiUxDesign() {
 							isLastItem={true}
 						/>
 					</div>
-				</section>
+				</PageSection>
 
-				<section aria-labelledby="tools">
-					<h2 className="text-2xl font-semibold mb-4">{t("tools.title")}</h2>
-					<p className="text-muted-foreground mb-4">{t("tools.description")}</p>
-
+				<PageSection
+					id="tools"
+					title={t("tools.title")}
+					description={t("tools.description")}
+				>
 					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 						<ServiceCard
 							title={t("tools.point1.title")}
@@ -121,7 +119,7 @@ export default async function UiUxDesign() {
 							description={t("tools.point3.description")}
 						/>
 					</div>
-				</section>
+				</PageSection>
 			</div>
 		</article>
 	);
