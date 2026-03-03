@@ -1,6 +1,10 @@
-import { CheckCircleWithText, NumberItem, PageSection } from "@gmozer/ui";
+import {
+	BreadcrumbNav,
+	CheckCircleWithText,
+	NumberItem,
+	PageSection,
+} from "@gmozer/ui";
 import { getTranslations } from "next-intl/server";
-import { BreadcrumbNav } from "@/components/breadcrumb-nav";
 
 export async function generateMetadata() {
 	const t = await getTranslations("metadata");
@@ -28,10 +32,26 @@ export async function generateMetadata() {
 
 export default async function LogoDesign() {
 	const t = await getTranslations("services.logoDesign.content");
+	const nav = await getTranslations("navigation");
 
 	return (
 		<article className="container">
-			<BreadcrumbNav />
+			<BreadcrumbNav
+				items={[
+					{
+						label: nav("home.default.title"),
+						href: nav("home.default.url"),
+					},
+					{
+						label: nav("services.default.title"),
+						href: nav("services.default.url"),
+					},
+					{
+						label: nav("services.children.logo-design.title"),
+						href: nav("services.children.logo-design.url"),
+					},
+				]}
+			/>
 			<header>
 				<h1 className="text-4xl font-bold mb-6">{t("title")}</h1>
 			</header>
