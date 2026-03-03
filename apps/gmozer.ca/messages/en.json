@@ -69,6 +69,7 @@
 	},
 	"services": {
 		"srTitle": "List of services",
+		"learnMore": "Learn more",
 		"webDevelopment": {
 			"title": "Web Development",
 			"description": "Creating stunning and responsive websites that provide an exceptional user experience. I specialize in building custom web applications using the latest technologies.",
@@ -425,6 +426,10 @@
 	},
 	"work": {
 		"noImage": "No image available",
+		"visitSite": "Visit Site",
+		"sourceCode": "Source Code",
+		"viewLiveProject": "View live project",
+		"viewOnGitHub": "View on GitHub",
 		"card-footer": {
 			"live": "Live Project",
 			"github": "GitHub Repository",

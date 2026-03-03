@@ -69,6 +69,7 @@
 	},
 	"services": {
 		"srTitle": "Lista usług",
+		"learnMore": "Dowiedz się więcej",
 		"webDevelopment": {
 			"title": "Tworzenie stron internetowych",
 			"description": "Tworzenie efektownych i responsywnych stron internetowych zapewniających wyjątkowe wrażenia użytkownika. Specjalizuję się w budowaniu niestandardowych aplikacji webowych z wykorzystaniem najnowszych technologii.",
@@ -425,6 +426,10 @@
 	},
 	"work": {
 		"noImage": "Brak zdjęcia",
+		"visitSite": "Odwiedź stronę",
+		"sourceCode": "Kod źródłowy",
+		"viewLiveProject": "Zobacz projekt",
+		"viewOnGitHub": "Zobacz na GitHubie",
 		"card-footer": {
 			"live": "Link do projektu",
 			"github": "Repozytorium GitHub",
