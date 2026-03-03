@@ -68,6 +68,7 @@
 		}
 	},
 	"services": {
+		"learnMore": "Dowiedz się więcej",
 		"srTitle": "Lista usług",
 		"webDevelopment": {
 			"title": "Tworzenie stron internetowych",
