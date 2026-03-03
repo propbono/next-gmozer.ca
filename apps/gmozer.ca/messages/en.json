@@ -68,6 +68,7 @@
 		}
 	},
 	"services": {
+		"learnMore": "Learn more",
 		"srTitle": "List of services",
 		"learnMore": "Learn more",
 		"webDevelopment": {
