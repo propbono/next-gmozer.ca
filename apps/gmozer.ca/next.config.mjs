@@ -26,6 +26,22 @@ const nextConfig = {
 	typescript: {
 		ignoreBuildErrors: true,
 	},
+	images: {
+		qualities: [70, 75, 100],
+	},
+	async headers() {
+		return [
+			{
+				source: "/:path*",
+				headers: [
+					{
+						key: "Permissions-Policy",
+						value: "camera=(), microphone=(), geolocation=()",
+					},
+				],
+			},
+		];
+	},
 };
 
 const withNextIntl = createNextIntlPlugin();
