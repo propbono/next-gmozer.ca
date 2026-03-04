@@ -57,15 +57,17 @@ export const getGithubStats = cache(
 				throw new Error("Projects length empty. Returning mock data.");
 			}
 
-			const requests = projects.map((repo: GithubRepo) =>
-				octokit.request("GET /repos/{owner}/{repo}/contributors", {
-					owner: repo.owner?.login || "",
-					repo: repo.name,
-					headers: {
-						"X-GitHub-Api-Version": "2022-11-28",
-					},
-				}),
-			);
+			const requests = projects
+				.filter((repo: GithubRepo) => Boolean(repo.owner?.login))
+				.map((repo: GithubRepo) =>
+					octokit.request("GET /repos/{owner}/{repo}/contributors", {
+						owner: repo.owner!.login,
+						repo: repo.name,
+						headers: {
+							"X-GitHub-Api-Version": "2022-11-28",
+						},
+					}),
+				);
 
 			const contributionsData = await Promise.all(requests);
 			const allCommitsCount = contributionsData
