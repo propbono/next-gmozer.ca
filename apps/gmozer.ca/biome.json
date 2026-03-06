@@ -17,7 +17,9 @@
 			"!src/hooks/use-element-size.ts",
 			"!src/components/ui",
 			"!src/types/global.ts",
-			"!src/app/**/opengraph-image.tsx"
+			"!src/app/**/opengraph-image.tsx",
+			"!src/payload-types.ts",
+			"!src/app/**/importMap.js"
 		]
 	},
 	"formatter": {
@@ -62,6 +64,20 @@
 				"rules": {
 					"suspicious": {
 						"noUnknownAtRules": "off"
+					}
+				}
+			}
+		},
+		{
+			"includes": [
+				"src/app/(payload)/**",
+				"src/payload.config.ts",
+				"src/lib/payload.ts"
+			],
+			"linter": {
+				"rules": {
+					"correctness": {
+						"noUndeclaredDependencies": "off"
 					}
 				}
 			}

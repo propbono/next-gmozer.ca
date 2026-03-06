@@ -9,6 +9,7 @@
 		"test": "nx run-many --target=test",
 		"lint": "nx run-many --target=lint",
 		"typecheck": "nx run-many --target=typecheck",
+		"payload:generate": "nx run @gmozer.ca/web:payload:generate",
 		"prepare": "husky"
 	},
 	"devDependencies": {
