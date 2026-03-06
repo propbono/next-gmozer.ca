@@ -12,7 +12,7 @@ export default async function Image() {
   // Load the raccoon image
   // We use fetch with import.meta.url because this runs in the Edge runtime
   const raccoonSrc = await fetch(
-    new URL('../../../../public/images/Raccoon_1-min.png', import.meta.url)
+    new URL('../../../../../public/images/Raccoon_1-min.png', import.meta.url)
   ).then((res) => res.arrayBuffer());
 
   return new ImageResponse(
