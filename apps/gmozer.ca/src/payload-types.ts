@@ -88,10 +88,10 @@ export interface Config {
   db: {
     defaultIDType: number;
   };
-  fallbackLocale: null;
+  fallbackLocale: ('false' | 'none' | 'null') | false | null | ('en' | 'pl') | ('en' | 'pl')[];
   globals: {};
   globalsSelect: {};
-  locale: null;
+  locale: 'en' | 'pl';
   widgets: {
     collections: CollectionsWidget;
   };
@@ -172,7 +172,7 @@ export interface Media {
       filesize?: number | null;
       filename?: string | null;
     };
-    card?: {
+    small?: {
       url?: string | null;
       width?: number | null;
       height?: number | null;
@@ -180,7 +180,23 @@ export interface Media {
       filesize?: number | null;
       filename?: string | null;
     };
-    hero?: {
+    medium?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    large?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    xlarge?: {
       url?: string | null;
       width?: number | null;
       height?: number | null;
@@ -199,7 +215,7 @@ export interface Project {
   title: string;
   category: string;
   description: string;
-  image: number | Media;
+  image?: (number | null) | Media;
   stack?:
     | {
         name?: string | null;
@@ -343,7 +359,7 @@ export interface MediaSelect<T extends boolean = true> {
               filesize?: T;
               filename?: T;
             };
-        card?:
+        small?:
           | T
           | {
               url?: T;
@@ -353,7 +369,27 @@ export interface MediaSelect<T extends boolean = true> {
               filesize?: T;
               filename?: T;
             };
-        hero?:
+        medium?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        large?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        xlarge?:
           | T
           | {
               url?: T;

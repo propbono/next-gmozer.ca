@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { ProjectShowcase } from "@/components/project-showcase";
+import { getProjects } from "@/lib/get-projects";
 
 export async function generateMetadata() {
 	const t = await getTranslations("metadata");
@@ -25,6 +26,7 @@ export async function generateMetadata() {
 	};
 }
 
-export default function Work() {
-	return <ProjectShowcase />;
+export default async function Work() {
+	const projects = await getProjects();
+	return <ProjectShowcase projects={projects} />;
 }

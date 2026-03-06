@@ -28,6 +28,7 @@ export function ProjectItem({ project, index, isLast }: ProjectItemProps) {
 					src={project.image}
 					alt={project.title}
 					className={index % 2 === 1 ? "lg:order-2" : ""}
+					imageSizes={project.imageSizes}
 				/>
 
 				<div

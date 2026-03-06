@@ -14,6 +14,14 @@ const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 
 export default buildConfig({
+	localization: {
+		locales: [
+			{ label: "English", code: "en" },
+			{ label: "Polish", code: "pl" },
+		],
+		defaultLocale: "en",
+		fallback: true,
+	},
 	admin: {
 		user: "users",
 		importMap: {
@@ -33,12 +41,16 @@ export default buildConfig({
 		},
 	}),
 	plugins: [
-		vercelBlobStorage({
-			collections: {
-				media: true,
-			},
-			token: process.env.GMOZER_READ_WRITE_TOKEN || "",
-		}),
+		...(process.env.GMOZER_READ_WRITE_TOKEN
+			? [
+					vercelBlobStorage({
+						collections: {
+							media: true,
+						},
+						token: process.env.GMOZER_READ_WRITE_TOKEN,
+					}),
+				]
+			: []),
 	],
 	email: resendAdapter({
 		defaultFromAddress: process.env.EMAIL_FROM || "noreply@gmozer.ca",

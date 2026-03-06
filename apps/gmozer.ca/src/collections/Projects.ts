@@ -32,7 +32,6 @@ export const Projects: CollectionConfig = {
 			name: "image",
 			type: "upload",
 			relationTo: "media",
-			required: true,
 		},
 		{
 			name: "stack",

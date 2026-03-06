@@ -29,6 +29,13 @@ const nextConfig = {
 	},
 	images: {
 		qualities: [70, 75, 100],
+		deviceSizes: [400, 640, 960, 1280, 1920],
+		remotePatterns: [
+			{
+				protocol: "https",
+				hostname: "*.public.blob.vercel-storage.com",
+			},
+		],
 	},
 	async headers() {
 		return [
