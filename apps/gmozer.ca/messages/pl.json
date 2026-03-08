@@ -340,36 +340,48 @@
 		"experience": {
 			"title": "Doświadczenie",
 			"description": "Droga ciągłego rozwoju i tworzenia wartości w firmach technologicznych na różnych etapach ich rozwoju.",
+			"present": "Obecnie",
+			"duration": "{years, plural, =0 {} one {# rok} few {# lata} many {# lat} other {# lat}} {months, plural, =0 {} one {# miesiąc} few {# miesiące} many {# miesięcy} other {# miesięcy}}",
 			"positions": {
 				"heineken": {
 					"position": "Starszy programista",
 					"company": "Heineken",
 					"location": "Kraków, Polska",
-					"duration": "Gru 2024 - Obecnie"
+					"startDate": "2024-12-01",
+					"endDate": null,
+					"currentlyWorking": true
 				},
 				"rangle": {
 					"position": "Starszy programista",
 					"company": "Rangle.io",
 					"location": "Toronto, ON, Kanada",
-					"duration": "Lis 2023 - Gru 2024"
+					"startDate": "2023-11-01",
+					"endDate": "2024-12-01",
+					"currentlyWorking": false
 				},
 				"cgi2": {
 					"position": "Starszy programista",
 					"company": "CGI (TSX: GIB.A)",
 					"location": "Toronto, ON, Kanada",
-					"duration": "Sty 2023 - Lis 2023"
+					"startDate": "2023-01-01",
+					"endDate": "2023-11-01",
+					"currentlyWorking": false
 				},
 				"cgi1": {
 					"position": "Programista",
 					"company": "CGI (TSX: GIB.A)",
 					"location": "Toronto, ON, Kanada",
-					"duration": "Sie 2021 - Sty 2023"
+					"startDate": "2021-08-01",
+					"endDate": "2023-01-01",
+					"currentlyWorking": false
 				},
 				"dcm": {
 					"position": "Programista",
 					"company": "DCM (TSX: DCM)",
 					"location": "Mississauga, ON, Kanada",
-					"duration": "Gru 2018 - Sie 2021"
+					"startDate": "2018-12-01",
+					"endDate": "2021-08-01",
+					"currentlyWorking": false
 				}
 			}
 		},

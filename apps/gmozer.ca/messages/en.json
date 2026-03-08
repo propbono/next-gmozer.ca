@@ -340,36 +340,48 @@
 		"experience": {
 			"title": "Experience",
 			"description": "A journey of continuous growth and impactful contributions across diverse technology companies.",
+			"present": "Present",
+			"duration": "{years, plural, =0 {} one {# year} other {# years}} {months, plural, =0 {} one {# month} other {# months}}",
 			"positions": {
 				"heineken": {
 					"position": "Senior Software Developer",
 					"company": "Heineken",
 					"location": "Krakow, Poland",
-					"duration": "Dec 2024 - Present"
+					"startDate": "2024-12-01",
+					"endDate": null,
+					"currentlyWorking": true
 				},
 				"rangle": {
 					"position": "Senior Software Developer",
 					"company": "Rangle.io",
 					"location": "Toronto, ON, Canada",
-					"duration": "Nov 2023 - Dec 2024"
+					"startDate": "2023-11-01",
+					"endDate": "2024-12-01",
+					"currentlyWorking": false
 				},
 				"cgi2": {
 					"position": "Senior Software Developer",
 					"company": "CGI (TSX: GIB.A)",
 					"location": "Toronto, ON, Canada",
-					"duration": "Jan 2023 - Nov 2023"
+					"startDate": "2023-01-01",
+					"endDate": "2023-11-01",
+					"currentlyWorking": false
 				},
 				"cgi1": {
 					"position": "Software Developer",
 					"company": "CGI (TSX: GIB.A)",
 					"location": "Toronto, ON, Canada",
-					"duration": "Aug 2021 - Jan 2023"
+					"startDate": "2021-08-01",
+					"endDate": "2023-01-01",
+					"currentlyWorking": false
 				},
 				"dcm": {
 					"position": "Software Developer",
 					"company": "DCM (TSX: DCM)",
 					"location": "Mississauga, ON, Canada",
-					"duration": "Dec 2018 - Aug 2021"
+					"startDate": "2018-12-01",
+					"endDate": "2021-08-01",
+					"currentlyWorking": false
 				}
 			}
 		},

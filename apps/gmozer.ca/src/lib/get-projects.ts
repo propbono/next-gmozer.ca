@@ -2,25 +2,8 @@ import type { Project } from "@gmozer/types";
 import { isStringArray } from "@gmozer/utils";
 import { getLocale, getTranslations } from "next-intl/server";
 import { PROJECT_KEYS } from "@/constants/main";
+import { checkPayloadEnabled } from "@/lib/check-payload-enabled";
 import { getPayloadClient } from "@/lib/payload";
-
-import { getPostHogServerClient } from "@/lib/posthog/server";
-
-const checkPayloadEnabled = async (): Promise<boolean> => {
-	const client = getPostHogServerClient();
-	if (!client) return false;
-
-	try {
-		const isEnabled = await client.isFeatureEnabled(
-			"isPayloadEnabled",
-			"server", // distinctId for global/server-side evaluation
-		);
-
-		return isEnabled === true;
-	} catch {
-		return false;
-	}
-};
 
 const getProjectsFromPayload = async (locale: string): Promise<Project[]> => {
 	const payload = await getPayloadClient();

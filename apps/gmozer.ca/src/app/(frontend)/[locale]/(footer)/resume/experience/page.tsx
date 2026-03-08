@@ -5,7 +5,9 @@ import {
 	TimelineItem,
 	TimelineTitle,
 } from "@gmozer/ui";
-import { getTranslations } from "next-intl/server";
+import { calculateExperienceDuration } from "@gmozer/utils";
+import { getFormatter, getTranslations } from "next-intl/server";
+import { getExperiences } from "@/lib/get-experiences";
 
 export async function generateMetadata() {
 	const t = await getTranslations("metadata");
@@ -33,39 +35,8 @@ export async function generateMetadata() {
 
 export default async function Experience() {
 	const t = await getTranslations("resume.experience");
-
-	const positions = [
-		{
-			position: t("positions.heineken.position"),
-			company: t("positions.heineken.company"),
-			location: t("positions.heineken.location"),
-			duration: t("positions.heineken.duration"),
-		},
-		{
-			position: t("positions.rangle.position"),
-			company: t("positions.rangle.company"),
-			location: t("positions.rangle.location"),
-			duration: t("positions.rangle.duration"),
-		},
-		{
-			position: t("positions.cgi2.position"),
-			company: t("positions.cgi2.company"),
-			location: t("positions.cgi2.location"),
-			duration: t("positions.cgi2.duration"),
-		},
-		{
-			position: t("positions.cgi1.position"),
-			company: t("positions.cgi1.company"),
-			location: t("positions.cgi1.location"),
-			duration: t("positions.cgi1.duration"),
-		},
-		{
-			position: t("positions.dcm.position"),
-			company: t("positions.dcm.company"),
-			location: t("positions.dcm.location"),
-			duration: t("positions.dcm.duration"),
-		},
-	];
+	const format = await getFormatter();
+	const positions = await getExperiences();
 
 	return (
 		<section className="flex flex-col gap-8" aria-label="Experience timeline">
@@ -77,17 +48,48 @@ export default async function Experience() {
 			</header>
 
 			<Timeline>
-				{positions.map((item, index) => (
-					<TimelineItem
-						key={`${item.company}-${index}`}
-						index={index}
-						isLast={index === positions.length - 1}
-					>
-						<TimelineDuration>{item.duration}</TimelineDuration>
-						<TimelineTitle>{item.position}</TimelineTitle>
-						<TimelineDetails primary={item.company} secondary={item.location} />
-					</TimelineItem>
-				))}
+				{positions.map((item, index) => {
+					// Date calculations
+					const durationObj = calculateExperienceDuration(
+						item.startDate,
+						item.endDate,
+					);
+					const startDateFormatted = format.dateTime(new Date(item.startDate), {
+						year: "numeric",
+						month: "short",
+					});
+					const endDateFormatted = item.currentlyWorking
+						? t("present")
+						: item.endDate
+							? format.dateTime(new Date(item.endDate), {
+									year: "numeric",
+									month: "short",
+								})
+							: "";
+
+					const fullDuration = t("duration", {
+						years: durationObj.years,
+						months: durationObj.months,
+					}).trim();
+
+					return (
+						<TimelineItem
+							key={`${item.company}-${index}`}
+							index={index}
+							isLast={index === positions.length - 1}
+						>
+							<TimelineDuration>
+								{startDateFormatted} - {endDateFormatted}
+								{fullDuration ? ` (${fullDuration})` : ""}
+							</TimelineDuration>
+							<TimelineTitle>{item.position}</TimelineTitle>
+							<TimelineDetails
+								primary={item.company}
+								secondary={item.location}
+							/>
+						</TimelineItem>
+					);
+				})}
 			</Timeline>
 		</section>
 	);
