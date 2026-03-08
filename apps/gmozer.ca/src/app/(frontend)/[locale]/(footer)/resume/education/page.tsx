@@ -5,7 +5,8 @@ import {
 	TimelineItem,
 	TimelineTitle,
 } from "@gmozer/ui";
-import { getTranslations } from "next-intl/server";
+import { getFormatter, getTranslations } from "next-intl/server";
+import { getEducation } from "@/lib/get-education";
 
 export async function generateMetadata() {
 	const t = await getTranslations("metadata");
@@ -34,26 +35,8 @@ export async function generateMetadata() {
 export default async function Education() {
 	const t = await getTranslations("resume.education");
 
-	const educationItems = [
-		{
-			degree: t("items.aws.degree"),
-			institution: t("items.aws.institution"),
-			program: t("items.aws.program"),
-			duration: t("items.aws.duration"),
-		},
-		{
-			degree: t("items.wit.degree"),
-			institution: t("items.wit.institution"),
-			program: t("items.wit.program"),
-			duration: t("items.wit.duration"),
-		},
-		{
-			degree: t("items.ucw.degree"),
-			institution: t("items.ucw.institution"),
-			program: t("items.ucw.program"),
-			duration: t("items.ucw.duration"),
-		},
-	];
+	const format = await getFormatter();
+	const educationItems = await getEducation();
 
 	return (
 		<section className="flex flex-col gap-8" aria-label="Education timeline">
@@ -65,20 +48,37 @@ export default async function Education() {
 			</header>
 
 			<Timeline>
-				{educationItems.map((item, index) => (
-					<TimelineItem
-						key={`${item.institution}-${index}`}
-						index={index}
-						isLast={index === educationItems.length - 1}
-					>
-						<TimelineDuration>{item.duration}</TimelineDuration>
-						<TimelineTitle>{item.degree}</TimelineTitle>
-						<TimelineDetails
-							primary={item.institution}
-							secondary={item.program || undefined}
-						/>
-					</TimelineItem>
-				))}
+				{educationItems.map((item, index) => {
+					// We only show years for education
+					const startYear = format.dateTime(new Date(item.startDate), {
+						year: "numeric",
+					});
+					const endYear = item.currentlyStudying
+						? "Present"
+						: item.endDate
+							? format.dateTime(new Date(item.endDate), {
+									year: "numeric",
+								})
+							: "";
+
+					const durationDisplay =
+						startYear === endYear ? startYear : `${startYear} - ${endYear}`;
+
+					return (
+						<TimelineItem
+							key={`${item.institution}-${index}`}
+							index={index}
+							isLast={index === educationItems.length - 1}
+						>
+							<TimelineDuration>{durationDisplay}</TimelineDuration>
+							<TimelineTitle>{item.degree}</TimelineTitle>
+							<TimelineDetails
+								primary={item.institution}
+								secondary={item.program || undefined}
+							/>
+						</TimelineItem>
+					);
+				})}
 			</Timeline>
 		</section>
 	);
