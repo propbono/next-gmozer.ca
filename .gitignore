@@ -52,3 +52,4 @@ out
 
 vite.config.*.timestamp*
 *.log
+.trae/

@@ -93,8 +93,12 @@ export interface Config {
     defaultIDType: number;
   };
   fallbackLocale: ('false' | 'none' | 'null') | false | null | ('en' | 'pl') | ('en' | 'pl')[];
-  globals: {};
-  globalsSelect: {};
+  globals: {
+    'about-me': AboutMe;
+  };
+  globalsSelect: {
+    'about-me': AboutMeSelect<false> | AboutMeSelect<true>;
+  };
   locale: 'en' | 'pl';
   widgets: {
     collections: CollectionsWidget;
@@ -535,6 +539,48 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
   batch?: T;
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "about-me".
+ */
+export interface AboutMe {
+  id: number;
+  title: string;
+  description: string;
+  name: string;
+  phone: string;
+  email: string;
+  location: string;
+  nationality: string;
+  languages: {
+    language: string;
+    id?: string | null;
+  }[];
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "about-me_select".
+ */
+export interface AboutMeSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  name?: T;
+  phone?: T;
+  email?: T;
+  location?: T;
+  nationality?: T;
+  languages?:
+    | T
+    | {
+        language?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

@@ -11,6 +11,7 @@ import { Experiences } from "./collections/Experiences";
 import { Media } from "./collections/Media";
 import { Projects } from "./collections/Projects";
 import { Users } from "./collections/Users";
+import { AboutMe } from "./globals/AboutMe";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -31,6 +32,7 @@ export default buildConfig({
 		},
 	},
 	collections: [Users, Media, Projects, Experiences, Education],
+	globals: [AboutMe],
 	editor: lexicalEditor(),
 	secret: process.env.PAYLOAD_SECRET || "",
 	typescript: {

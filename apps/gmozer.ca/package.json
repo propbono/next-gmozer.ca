@@ -18,9 +18,10 @@
 		"payload:generate": "payload generate:types && payload generate:importmap",
 		"typecheck": "tsc --noEmit",
 		"prepare": "husky",
-		"seed-projects": "tsx --env-file .env.local src/scripts/seed-projects.ts",
-		"seed-experiences": "tsx --env-file .env.local src/scripts/seed-experiences.ts",
-		"seed-education": "tsx --env-file .env.local src/scripts/seed-education.ts"
+		"seed:projects": "tsx --env-file .env.local src/scripts/seed-projects.ts",
+		"seed:experiences": "tsx --env-file .env.local src/scripts/seed-experiences.ts",
+		"seed:education": "tsx --env-file .env.local src/scripts/seed-education.ts",
+		"seed:about": "tsx --env-file .env.local src/scripts/seed-about.ts"
 	},
 	"dependencies": {
 		"@gmozer/github": "workspace:*",

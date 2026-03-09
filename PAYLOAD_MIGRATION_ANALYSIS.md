@@ -121,9 +121,9 @@ These items are **UI labels and strings** that are best kept in i18n files:
 ```mermaid
 graph LR
     A["✅ Projects (done)"] --> B["1. Experience"]
-    B --> C["2. Education"]
-    C --> D["3. Services"]
-    D --> E["4. About Me"]
+    B["✅ Education (done)"] --> C["2. Education"]
+    C["✅ Services (done)"] --> D["3. Services"]
+    D["✅ About Me (done)"] --> E["4. About Me"]
     E --> F["5. Skills"]
     F --> G["6. Hero / Socials / Config"]
 ```
