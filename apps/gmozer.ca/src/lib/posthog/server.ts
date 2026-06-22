@@ -17,8 +17,6 @@ export const getPostHogServerClient = () => {
 
 	posthogClient = new PostHog(apiKey, {
 		host: process.env.NEXT_PUBLIC_POSTHOG_HOST,
-		// In a long-running server process, we don't want to flush immediately
-		// on every single event, but rather batch them for performance.
 	});
 
 	return posthogClient;
@@ -41,4 +39,10 @@ export const phServerCapture = async <K extends keyof PostHogEvents>(
 		event: eventName,
 		properties: properties || {},
 	});
+
+	// Flush immediately so events are sent before the response completes.
+	// In serverless environments (Vercel, etc.), the process may be
+	// terminated shortly after the response, so we can't rely on the
+	// default batching interval.
+	await client.flush();
 };
