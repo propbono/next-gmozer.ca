@@ -47,7 +47,6 @@ async function getEducationFromMessages(): Promise<Education[]> {
 	const t = await getTranslations("resume.education");
 
 	return EDUCATION_KEYS.map((key, index) => {
-		// Extract proper fallback dates according to current JSON string keys
 		const durationStr = t(`items.${key}.duration`); // e.g., "2023 - 2025"
 		const years = durationStr.split(" - ").map((year) => year.trim());
 
@@ -56,18 +55,16 @@ async function getEducationFromMessages(): Promise<Education[]> {
 		let endDate = null;
 		let currentlyStudying = false;
 
-		// If it's single year, or starts with "present"/empty, figure out logic
 		if (years.length > 1 && years[1].toLowerCase() !== "present") {
 			endDate = new Date(`${years[1]}-12-31T00:00:00Z`).toISOString();
 		} else if (years.length > 1 && years[1].toLowerCase() === "present") {
 			currentlyStudying = true;
 		} else {
-			// Single year education, start and end are the same
 			endDate = new Date(`${years[0]}-12-31T00:00:00Z`).toISOString();
 		}
 
 		return {
-			id: index + 1000, // Provide strict number IDs for fallback payload types
+			id: -(index + 1), // negative to avoid collision with Payload's positive auto-increment IDs
 			institution: t(`items.${key}.institution`),
 			degree: t.has(`items.${key}.degree`) ? t(`items.${key}.degree`) : "",
 			program: t.has(`items.${key}.program`) ? t(`items.${key}.program`) : "",
@@ -75,8 +72,8 @@ async function getEducationFromMessages(): Promise<Education[]> {
 			endDate,
 			currentlyStudying,
 			order: index,
-			updatedAt: new Date().toISOString(),
-			createdAt: new Date().toISOString(),
+			updatedAt: "",
+			createdAt: "",
 		};
 	});
 }
