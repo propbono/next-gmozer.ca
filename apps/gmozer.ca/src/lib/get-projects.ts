@@ -3,9 +3,9 @@ import { isStringArray } from "@gmozer/utils";
 import { unstable_cache as cache } from "next/cache";
 import { getLocale, getTranslations } from "next-intl/server";
 import { PROJECT_KEYS } from "@/constants/main";
-import { checkPayloadEnabled } from "@/lib/check-payload-enabled";
 import { resolveLocale } from "@/lib/locale";
 import { getPayloadClient } from "@/lib/payload";
+import { withPayloadFallback } from "@/lib/with-payload-fallback";
 
 const getProjectsFromPayload = async (locale: string): Promise<Project[]> => {
 	try {
@@ -71,12 +71,8 @@ const getProjectsFromMessages = async (): Promise<Project[]> => {
 };
 
 export const getProjects = async (): Promise<Project[]> => {
-	const isPayloadEnabled = await checkPayloadEnabled();
-
-	if (isPayloadEnabled) {
+	return withPayloadFallback(async () => {
 		const locale = await getLocale();
 		return getProjectsFromPayload(locale);
-	}
-
-	return getProjectsFromMessages();
+	}, getProjectsFromMessages);
 };

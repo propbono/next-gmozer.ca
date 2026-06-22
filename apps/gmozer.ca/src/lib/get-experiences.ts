@@ -1,8 +1,8 @@
 import { unstable_cache as cache } from "next/cache";
 import { getLocale, getTranslations } from "next-intl/server";
-import { checkPayloadEnabled } from "@/lib/check-payload-enabled";
 import { resolveLocale } from "@/lib/locale";
 import { getPayloadClient } from "@/lib/payload";
+import { withPayloadFallback } from "@/lib/with-payload-fallback";
 import type { Experience } from "@/payload-types";
 
 const EXPERIENCE_KEYS = ["heineken", "rangle", "cgi2", "cgi1", "dcm"] as const;
@@ -62,12 +62,8 @@ const getExperiencesFromMessages = async (): Promise<Experience[]> => {
 };
 
 export const getExperiences = async (): Promise<Experience[]> => {
-	const isPayloadEnabled = await checkPayloadEnabled();
-
-	if (isPayloadEnabled) {
+	return withPayloadFallback(async () => {
 		const locale = await getLocale();
 		return getExperiencesFromPayload(locale);
-	}
-
-	return getExperiencesFromMessages();
+	}, getExperiencesFromMessages);
 };

@@ -1,20 +1,14 @@
 import { unstable_cache as cache } from "next/cache";
 import { getLocale, getTranslations } from "next-intl/server";
-import { checkPayloadEnabled } from "@/lib/check-payload-enabled";
 import { resolveLocale } from "@/lib/locale";
 import { getPayloadClient } from "@/lib/payload";
+import { withPayloadFallback } from "@/lib/with-payload-fallback";
 import type { Education } from "@/payload-types";
 
 const EDUCATION_KEYS = ["aws", "wit", "ucw"] as const;
 
 export async function getEducation(): Promise<Education[]> {
-	const isPayloadEnabled = await checkPayloadEnabled();
-
-	if (isPayloadEnabled) {
-		return getEducationFromPayload();
-	}
-
-	return getEducationFromMessages();
+	return withPayloadFallback(getEducationFromPayload, getEducationFromMessages);
 }
 
 async function getEducationFromPayload(): Promise<Education[]> {

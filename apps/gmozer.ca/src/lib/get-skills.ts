@@ -6,30 +6,20 @@ import {
 	type SkillCategory,
 	type SkillCategoryId,
 } from "@/constants/resume";
-import { checkPayloadEnabled } from "@/lib/check-payload-enabled";
 import { iconMap } from "@/lib/icon-map";
 import { resolveLocale } from "@/lib/locale";
 import { getPayloadClient } from "@/lib/payload";
+import { withPayloadFallback } from "@/lib/with-payload-fallback";
 import type { SkillCategory as PayloadSkillCategory } from "@/payload-types";
 
 export async function getSkills(): Promise<SkillCategory[]> {
-	const isPayloadEnabled = await checkPayloadEnabled();
-
-	if (isPayloadEnabled) {
-		try {
+	return withPayloadFallback(
+		async () => {
 			const locale = await getLocale();
-			return await getSkillsFromPayload(locale);
-		} catch (error) {
-			// biome-ignore lint/suspicious/noConsole: Log fallback for debugging
-			console.error(
-				"Failed to fetch Skills from Payload, falling back to constant:",
-				error,
-			);
-			return SKILLS;
-		}
-	}
-
-	return SKILLS;
+			return getSkillsFromPayload(locale);
+		},
+		() => Promise.resolve(SKILLS),
+	);
 }
 
 async function getSkillsFromPayload(locale: string): Promise<SkillCategory[]> {

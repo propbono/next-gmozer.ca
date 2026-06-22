@@ -1,8 +1,8 @@
 import { unstable_cache as cache } from "next/cache";
 import { getLocale, getTranslations } from "next-intl/server";
-import { checkPayloadEnabled } from "@/lib/check-payload-enabled";
 import { resolveLocale } from "@/lib/locale";
 import { getPayloadClient } from "@/lib/payload";
+import { withPayloadFallback } from "@/lib/with-payload-fallback";
 
 export type AboutData = {
 	title: string;
@@ -18,23 +18,10 @@ export type AboutData = {
 };
 
 export async function getAbout(): Promise<AboutData> {
-	const isPayloadEnabled = await checkPayloadEnabled();
-
-	if (isPayloadEnabled) {
-		try {
-			const locale = await getLocale();
-			return await getAboutFromPayload(locale);
-		} catch (error) {
-			// biome-ignore lint/suspicious/noConsole: Log fallback for debugging
-			console.error(
-				"Failed to fetch AboutMe from Payload, falling back to JSON:",
-				error,
-			);
-			return getAboutFromMessages();
-		}
-	}
-
-	return getAboutFromMessages();
+	return withPayloadFallback(async () => {
+		const locale = await getLocale();
+		return getAboutFromPayload(locale);
+	}, getAboutFromMessages);
 }
 
 async function getAboutFromPayload(locale: string): Promise<AboutData> {
