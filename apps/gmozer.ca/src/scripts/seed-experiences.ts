@@ -1,4 +1,4 @@
-import { getPayloadClient } from "@/lib/payload";
+import { createLocalized, runSeed } from "./seed-helpers";
 
 const experienceData = [
 	{
@@ -84,17 +84,13 @@ const experienceData = [
 ];
 
 async function seed() {
-	const payload = await getPayloadClient();
-
 	// biome-ignore lint/suspicious/noConsole: Seed script logging
 	console.log("🌱 Seeding experiences...");
 
 	for (const entry of experienceData) {
-		// Create with English locale
-		const doc = await payload.create({
-			collection: "experiences",
-			locale: "en",
-			data: {
+		const doc = await createLocalized(
+			"experiences",
+			{
 				position: entry.en.position,
 				company: entry.en.company,
 				location: entry.en.location,
@@ -103,31 +99,21 @@ async function seed() {
 				currentlyWorking: entry.currentlyWorking,
 				order: entry.order,
 			},
-		});
-
-		// Update with Polish locale
-		await payload.update({
-			collection: "experiences",
-			id: doc.id,
-			locale: "pl",
-			data: {
+			{
 				position: entry.pl.position,
 				company: entry.pl.company,
 				location: entry.pl.location,
 			},
-		});
+		);
 
 		// biome-ignore lint/suspicious/noConsole: Seed script logging
-		console.log(`  ✅ ${entry.en.company} — ${entry.en.position}`);
+		console.log(
+			`  ✅ ${entry.en.company} — ${entry.en.position} (id: ${doc.id})`,
+		);
 	}
 
 	// biome-ignore lint/suspicious/noConsole: Seed script logging
 	console.log("🌱 Done! Seeded", experienceData.length, "experiences.");
-	process.exit(0);
 }
 
-seed().catch((error) => {
-	// biome-ignore lint/suspicious/noConsole: Seed script error
-	console.error("❌ Seed failed:", error);
-	process.exit(1);
-});
+runSeed(seed);

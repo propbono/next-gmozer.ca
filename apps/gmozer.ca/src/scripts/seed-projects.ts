@@ -1,10 +1,10 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { getPayload } from "payload";
-
+import { getPayloadClient } from "@/lib/payload";
 import enMessages from "../../messages/en.json" with { type: "json" };
 import plMessages from "../../messages/pl.json" with { type: "json" };
+import { createLocalized, runSeed } from "./seed-helpers";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -48,8 +48,7 @@ const getProjectData = (
 };
 
 async function uploadImage(
-	// biome-ignore lint/suspicious/noExplicitAny: Payload instance type is complex
-	payload: any,
+	payload: Awaited<ReturnType<typeof getPayloadClient>>,
 	imagePath: string,
 	altText: string,
 ): Promise<number | null> {
@@ -80,11 +79,7 @@ async function uploadImage(
 }
 
 async function seed() {
-	const configPath = path.resolve(dirname, "../payload.config.ts");
-
-	const payload = await getPayload({
-		config: (await import(configPath)).default,
-	});
+	const payload = await getPayloadClient();
 
 	// biome-ignore lint/suspicious/noConsole: CLI script
 	console.log("🌱 Starting seed...");
@@ -140,10 +135,9 @@ async function seed() {
 			imageId = await uploadImage(payload, enData.image, enData.title);
 		}
 
-		// Create with English (default locale)
-		const created = await payload.create({
-			collection: "projects",
-			data: {
+		const created = await createLocalized(
+			"projects",
+			{
 				title: enData.title,
 				category: enData.category,
 				description: enData.description,
@@ -153,20 +147,12 @@ async function seed() {
 				order: i + 1,
 				...(imageId ? { image: imageId } : {}),
 			},
-			locale: "en",
-		});
-
-		// Update with Polish locale
-		await payload.update({
-			collection: "projects",
-			id: created.id,
-			data: {
+			{
 				title: plData.title,
 				category: plData.category,
 				description: plData.description,
 			},
-			locale: "pl",
-		});
+		);
 
 		// biome-ignore lint/suspicious/noConsole: CLI script
 		console.log(`  ✅ Created (id: ${created.id}) with EN + PL content`);
@@ -176,11 +162,6 @@ async function seed() {
 	console.log(
 		"\n🎉 Seed complete! Created 6 projects with EN/PL translations and images.",
 	);
-	process.exit(0);
 }
 
-seed().catch((error) => {
-	// biome-ignore lint/suspicious/noConsole: CLI script
-	console.error("❌ Seed failed:", error);
-	process.exit(1);
-});
+runSeed(seed);

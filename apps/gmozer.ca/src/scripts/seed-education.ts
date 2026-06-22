@@ -1,4 +1,4 @@
-import { getPayloadClient } from "@/lib/payload";
+import { createLocalized, runSeed } from "./seed-helpers";
 
 const educationData = [
 	{
@@ -52,17 +52,13 @@ const educationData = [
 ];
 
 async function seed() {
-	const payload = await getPayloadClient();
-
 	// biome-ignore lint/suspicious/noConsole: Seed script logging
 	console.log("🌱 Seeding education...");
 
 	for (const entry of educationData) {
-		// Create with English locale
-		const doc = await payload.create({
-			collection: "education",
-			locale: "en",
-			data: {
+		const doc = await createLocalized(
+			"education",
+			{
 				institution: entry.en.institution,
 				degree: entry.en.degree,
 				program: entry.en.program,
@@ -71,31 +67,19 @@ async function seed() {
 				currentlyStudying: entry.currentlyStudying,
 				order: entry.order,
 			},
-		});
-
-		// Update with Polish locale
-		await payload.update({
-			collection: "education",
-			id: doc.id,
-			locale: "pl",
-			data: {
+			{
 				institution: entry.pl.institution,
 				degree: entry.pl.degree,
 				program: entry.pl.program,
 			},
-		});
+		);
 
 		// biome-ignore lint/suspicious/noConsole: Seed script logging
-		console.log(`  ✅ ${entry.en.institution}`);
+		console.log(`  ✅ ${entry.en.institution} (id: ${doc.id})`);
 	}
 
 	// biome-ignore lint/suspicious/noConsole: Seed script logging
 	console.log("🌱 Done! Seeded", educationData.length, "education entries.");
-	process.exit(0);
 }
 
-seed().catch((error) => {
-	// biome-ignore lint/suspicious/noConsole: Seed script error
-	console.error("❌ Seed failed:", error);
-	process.exit(1);
-});
+runSeed(seed);

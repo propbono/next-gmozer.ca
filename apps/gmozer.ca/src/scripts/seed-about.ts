@@ -1,12 +1,7 @@
-import path from "node:path";
-import { fileURLToPath } from "node:url";
-import { getPayload } from "payload";
-
+import { getPayloadClient } from "@/lib/payload";
 import enMessages from "../../messages/en.json" with { type: "json" };
 import plMessages from "../../messages/pl.json" with { type: "json" };
-
-const filename = fileURLToPath(import.meta.url);
-const dirname = path.dirname(filename);
+import { runSeed } from "./seed-helpers";
 
 type AboutData = {
 	title: string;
@@ -38,13 +33,7 @@ const getAboutData = (messages: typeof enMessages): AboutData => {
 };
 
 async function seed() {
-	const configPath = path.resolve(dirname, "../payload.config.ts");
-
-	// biome-ignore lint/suspicious/noExplicitAny: Payload config type is complex
-	const configPromise = (await import(configPath)).default as any;
-	const payload = await getPayload({
-		config: configPromise,
-	});
+	const payload = await getPayloadClient();
 
 	// biome-ignore lint/suspicious/noConsole: CLI script
 	console.log("🌱 Starting seed for About Me...");
@@ -52,7 +41,6 @@ async function seed() {
 	const enData = getAboutData(enMessages);
 	const plData = getAboutData(plMessages);
 
-	// Update with English (default locale)
 	// biome-ignore lint/suspicious/noConsole: CLI script
 	console.log("📝 Updating About Me (EN)...");
 	await payload.updateGlobal({
@@ -61,7 +49,6 @@ async function seed() {
 		locale: "en",
 	});
 
-	// Update with Polish locale
 	// biome-ignore lint/suspicious/noConsole: CLI script
 	console.log("📝 Updating About Me (PL)...");
 	await payload.updateGlobal({
@@ -72,11 +59,6 @@ async function seed() {
 
 	// biome-ignore lint/suspicious/noConsole: CLI script
 	console.log("\n🎉 Seed complete! Updated About Me with EN/PL translations.");
-	process.exit(0);
 }
 
-seed().catch((error) => {
-	// biome-ignore lint/suspicious/noConsole: CLI script
-	console.error("❌ Seed failed:", error);
-	process.exit(1);
-});
+runSeed(seed);
