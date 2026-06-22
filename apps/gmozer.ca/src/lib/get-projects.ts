@@ -8,38 +8,44 @@ import { resolveLocale } from "@/lib/locale";
 import { getPayloadClient } from "@/lib/payload";
 
 const getProjectsFromPayload = async (locale: string): Promise<Project[]> => {
-	return cache(
-		async () => {
-			const payload = await getPayloadClient();
+	try {
+		return await cache(
+			async () => {
+				const payload = await getPayloadClient();
 
-			const { docs } = await payload.find({
-				collection: "projects",
-				locale: resolveLocale(locale),
-				sort: "order",
-				limit: 100,
-			});
+				const { docs } = await payload.find({
+					collection: "projects",
+					locale: resolveLocale(locale),
+					sort: "order",
+					limit: 100,
+				});
 
-			return docs.map((doc) => {
-				const media =
-					typeof doc.image === "object" && doc.image !== null
-						? doc.image
-						: null;
+				return docs.map((doc) => {
+					const media =
+						typeof doc.image === "object" && doc.image !== null
+							? doc.image
+							: null;
 
-				return {
-					title: doc.title,
-					category: doc.category,
-					description: doc.description,
-					liveLink: doc.liveLink ?? undefined,
-					githubLink: doc.githubLink ?? "",
-					stack: (doc.stack ?? []).map((item) => item.name ?? ""),
-					image: media?.url ?? undefined,
-					imageSizes: media?.sizes ?? null,
-				};
-			});
-		},
-		[`projects-${locale}`],
-		{ tags: ["projects"], revalidate: 3600 },
-	)();
+					return {
+						title: doc.title,
+						category: doc.category,
+						description: doc.description,
+						liveLink: doc.liveLink ?? undefined,
+						githubLink: doc.githubLink ?? "",
+						stack: (doc.stack ?? []).map((item) => item.name ?? ""),
+						image: media?.url ?? undefined,
+						imageSizes: media?.sizes ?? null,
+					};
+				});
+			},
+			[`projects-${locale}`],
+			{ tags: ["projects"], revalidate: 3600 },
+		)();
+	} catch (error) {
+		// biome-ignore lint/suspicious/noConsole: Log fallback for debugging
+		console.error("Failed to fetch projects from Payload CMS:", error);
+		return getProjectsFromMessages();
+	}
 };
 
 const getProjectsFromMessages = async (): Promise<Project[]> => {
@@ -68,17 +74,8 @@ export const getProjects = async (): Promise<Project[]> => {
 	const isPayloadEnabled = await checkPayloadEnabled();
 
 	if (isPayloadEnabled) {
-		try {
-			const locale = await getLocale();
-			return await getProjectsFromPayload(locale);
-		} catch (error) {
-			// biome-ignore lint/suspicious/noConsole: Log fallback for debugging
-			console.error(
-				"Failed to fetch from Payload, falling back to JSON:",
-				error,
-			);
-			return getProjectsFromMessages();
-		}
+		const locale = await getLocale();
+		return getProjectsFromPayload(locale);
 	}
 
 	return getProjectsFromMessages();

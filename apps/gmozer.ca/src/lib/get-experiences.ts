@@ -10,22 +10,28 @@ const EXPERIENCE_KEYS = ["heineken", "rangle", "cgi2", "cgi1", "dcm"] as const;
 const getExperiencesFromPayload = async (
 	locale: string,
 ): Promise<Experience[]> => {
-	return cache(
-		async () => {
-			const payload = await getPayloadClient();
+	try {
+		return await cache(
+			async () => {
+				const payload = await getPayloadClient();
 
-			const { docs } = await payload.find({
-				collection: "experiences",
-				locale: resolveLocale(locale),
-				sort: "order",
-				limit: 100,
-			});
+				const { docs } = await payload.find({
+					collection: "experiences",
+					locale: resolveLocale(locale),
+					sort: "order",
+					limit: 100,
+				});
 
-			return docs;
-		},
-		[`experiences-${locale}`],
-		{ tags: ["experiences"], revalidate: 3600 },
-	)();
+				return docs;
+			},
+			[`experiences-${locale}`],
+			{ tags: ["experiences"], revalidate: 3600 },
+		)();
+	} catch (error) {
+		// biome-ignore lint/suspicious/noConsole: Log fallback for debugging
+		console.error("Failed to fetch experiences from Payload CMS:", error);
+		return getExperiencesFromMessages();
+	}
 };
 
 const getExperiencesFromMessages = async (): Promise<
@@ -140,17 +146,8 @@ export const getExperiences = async (): Promise<
 	const isPayloadEnabled = await checkPayloadEnabled();
 
 	if (isPayloadEnabled) {
-		try {
-			const locale = await getLocale();
-			return await getExperiencesFromPayload(locale);
-		} catch (error) {
-			// biome-ignore lint/suspicious/noConsole: Log fallback for debugging
-			console.error(
-				"Failed to fetch experiences from Payload, falling back to JSON:",
-				error,
-			);
-			return getExperiencesFromMessages();
-		}
+		const locale = await getLocale();
+		return getExperiencesFromPayload(locale);
 	}
 
 	return getExperiencesFromMessages();
