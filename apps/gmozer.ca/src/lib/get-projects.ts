@@ -31,13 +31,7 @@ const getProjectsFromPayload = async (locale: string): Promise<Project[]> => {
 					description: doc.description,
 					liveLink: doc.liveLink ?? undefined,
 					githubLink: doc.githubLink ?? "",
-					stack: Array.isArray(doc.stack)
-						? doc.stack.map((item) =>
-								typeof item === "object" && item !== null && "name" in item
-									? String(item.name)
-									: String(item),
-							)
-						: [],
+					stack: (doc.stack ?? []).map((item) => item.name ?? ""),
 					image: media?.url ?? undefined,
 					imageSizes: media?.sizes ?? null,
 				};
