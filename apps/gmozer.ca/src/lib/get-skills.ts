@@ -1,5 +1,6 @@
 import { unstable_cache as cache } from "next/cache";
 import { getLocale } from "next-intl/server";
+import { createElement } from "react";
 import {
 	SKILLS,
 	type SkillCategory,
@@ -50,7 +51,9 @@ async function getSkillsFromPayload(locale: string): Promise<SkillCategory[]> {
 					doc.skills?.map((skill) => ({
 						name: skill.name,
 						link: skill.link || "",
-						icon: iconMap[skill.iconName] || null,
+						icon: iconMap[skill.iconName]
+							? createElement(iconMap[skill.iconName])
+							: null,
 					})) || [],
 			}));
 		},

@@ -34,115 +34,34 @@ const getExperiencesFromPayload = async (
 	}
 };
 
-const getExperiencesFromMessages = async (): Promise<
-	Pick<
-		Experience,
-		| "position"
-		| "company"
-		| "location"
-		| "startDate"
-		| "endDate"
-		| "currentlyWorking"
-	>[]
-> => {
+const getExperiencesFromMessages = async (): Promise<Experience[]> => {
 	const t = await getTranslations("resume.experience");
 
-	return EXPERIENCE_KEYS.map((key) => {
-		// Use literal arrays/maps or switch to satisfy next-intl strict types
-		// without string templates
+	// @ts-expect-error — dynamic key into translation messages (temporary fallback)
+	const positions = t.raw("positions") as Record<
+		string,
+		Record<string, unknown>
+	>;
 
-		let currentlyWorkingStr: string;
-		let positionStr: string;
-		let companyStr: string;
-		let locationStr: string;
-		let startDateStr: string;
-		let endDateStr: string | null = null;
-
-		switch (key) {
-			case "heineken":
-				// @ts-expect-error dynamic keys exist in json
-				currentlyWorkingStr = t("positions.heineken.currentlyWorking");
-				positionStr = t("positions.heineken.position");
-				companyStr = t("positions.heineken.company");
-				locationStr = t("positions.heineken.location");
-				startDateStr = t("positions.heineken.startDate");
-				// @ts-expect-error JSON contains null for this key instead of string
-				endDateStr = t.has("positions.heineken.endDate")
-					? // @ts-expect-error JSON contains null for this key instead of string
-						t("positions.heineken.endDate")
-					: null;
-				break;
-			case "rangle":
-				// @ts-expect-error dynamic keys exist in json
-				currentlyWorkingStr = t("positions.rangle.currentlyWorking");
-				positionStr = t("positions.rangle.position");
-				companyStr = t("positions.rangle.company");
-				locationStr = t("positions.rangle.location");
-				startDateStr = t("positions.rangle.startDate");
-				endDateStr = t.has("positions.rangle.endDate")
-					? t("positions.rangle.endDate")
-					: null;
-				break;
-			case "cgi2":
-				// @ts-expect-error dynamic keys exist in json
-				currentlyWorkingStr = t("positions.cgi2.currentlyWorking");
-				positionStr = t("positions.cgi2.position");
-				companyStr = t("positions.cgi2.company");
-				locationStr = t("positions.cgi2.location");
-				startDateStr = t("positions.cgi2.startDate");
-				endDateStr = t.has("positions.cgi2.endDate")
-					? t("positions.cgi2.endDate")
-					: null;
-				break;
-			case "cgi1":
-				// @ts-expect-error dynamic keys exist in json
-				currentlyWorkingStr = t("positions.cgi1.currentlyWorking");
-				positionStr = t("positions.cgi1.position");
-				companyStr = t("positions.cgi1.company");
-				locationStr = t("positions.cgi1.location");
-				startDateStr = t("positions.cgi1.startDate");
-				endDateStr = t.has("positions.cgi1.endDate")
-					? t("positions.cgi1.endDate")
-					: null;
-				break;
-			case "dcm":
-				// @ts-expect-error dynamic keys exist in json
-				currentlyWorkingStr = t("positions.dcm.currentlyWorking");
-				positionStr = t("positions.dcm.position");
-				companyStr = t("positions.dcm.company");
-				locationStr = t("positions.dcm.location");
-				startDateStr = t("positions.dcm.startDate");
-				endDateStr = t.has("positions.dcm.endDate")
-					? t("positions.dcm.endDate")
-					: null;
-				break;
-			default:
-				throw new Error(`Unknown experience key: ${key}`);
-		}
+	return EXPERIENCE_KEYS.map((key, index) => {
+		const entry = positions[key];
 
 		return {
-			position: positionStr,
-			company: companyStr,
-			location: locationStr,
-			startDate: startDateStr,
-			endDate: endDateStr,
-			// Boolean casting for robust handling whether JSON returns a string or true
-			currentlyWorking: String(currentlyWorkingStr) === "true",
+			id: -(index + 1),
+			position: String(entry.position),
+			company: String(entry.company),
+			location: String(entry.location),
+			startDate: String(entry.startDate),
+			endDate: entry.endDate !== null ? String(entry.endDate) : null,
+			currentlyWorking: String(entry.currentlyWorking) === "true",
+			order: index,
+			updatedAt: "",
+			createdAt: "",
 		};
 	});
 };
 
-export const getExperiences = async (): Promise<
-	Pick<
-		Experience,
-		| "position"
-		| "company"
-		| "location"
-		| "startDate"
-		| "endDate"
-		| "currentlyWorking"
-	>[]
-> => {
+export const getExperiences = async (): Promise<Experience[]> => {
 	const isPayloadEnabled = await checkPayloadEnabled();
 
 	if (isPayloadEnabled) {
