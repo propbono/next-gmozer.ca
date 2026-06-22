@@ -1,5 +1,7 @@
+import { unstable_cache as cache } from "next/cache";
 import { getLocale, getTranslations } from "next-intl/server";
 import { checkPayloadEnabled } from "@/lib/check-payload-enabled";
+import { resolveLocale } from "@/lib/locale";
 import { getPayloadClient } from "@/lib/payload";
 import type { Education } from "@/payload-types";
 
@@ -17,17 +19,22 @@ export async function getEducation(): Promise<Education[]> {
 
 async function getEducationFromPayload(): Promise<Education[]> {
 	try {
-		const payload = await getPayloadClient();
 		const locale = await getLocale();
 
-		const { docs } = await payload.find({
-			collection: "education",
-			locale: locale as "en" | "pl",
-			fallbackLocale: "en",
-			sort: "order",
-		});
-
-		return docs;
+		return cache(
+			async () => {
+				const payload = await getPayloadClient();
+				const { docs } = await payload.find({
+					collection: "education",
+					locale: resolveLocale(locale),
+					fallbackLocale: "en",
+					sort: "order",
+				});
+				return docs;
+			},
+			[`education-${locale}`],
+			{ tags: ["education"], revalidate: 3600 },
+		)();
 	} catch (error) {
 		// biome-ignore lint/suspicious/noConsole: Log fallback for debugging
 		console.error("Failed to fetch education from Payload CMS:", error);

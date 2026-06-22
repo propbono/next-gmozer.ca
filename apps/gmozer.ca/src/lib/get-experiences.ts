@@ -1,5 +1,7 @@
+import { unstable_cache as cache } from "next/cache";
 import { getLocale, getTranslations } from "next-intl/server";
 import { checkPayloadEnabled } from "@/lib/check-payload-enabled";
+import { resolveLocale } from "@/lib/locale";
 import { getPayloadClient } from "@/lib/payload";
 import type { Experience } from "@/payload-types";
 
@@ -8,16 +10,22 @@ const EXPERIENCE_KEYS = ["heineken", "rangle", "cgi2", "cgi1", "dcm"] as const;
 const getExperiencesFromPayload = async (
 	locale: string,
 ): Promise<Experience[]> => {
-	const payload = await getPayloadClient();
+	return cache(
+		async () => {
+			const payload = await getPayloadClient();
 
-	const { docs } = await payload.find({
-		collection: "experiences",
-		locale: locale as "en" | "pl",
-		sort: "order",
-		limit: 100,
-	});
+			const { docs } = await payload.find({
+				collection: "experiences",
+				locale: resolveLocale(locale),
+				sort: "order",
+				limit: 100,
+			});
 
-	return docs;
+			return docs;
+		},
+		[`experiences-${locale}`],
+		{ tags: ["experiences"], revalidate: 3600 },
+	)();
 };
 
 const getExperiencesFromMessages = async (): Promise<

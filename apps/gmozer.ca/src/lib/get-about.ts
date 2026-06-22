@@ -1,5 +1,7 @@
+import { unstable_cache as cache } from "next/cache";
 import { getLocale, getTranslations } from "next-intl/server";
 import { checkPayloadEnabled } from "@/lib/check-payload-enabled";
+import { resolveLocale } from "@/lib/locale";
 import { getPayloadClient } from "@/lib/payload";
 
 export type AboutData = {
@@ -36,28 +38,34 @@ export async function getAbout(): Promise<AboutData> {
 }
 
 async function getAboutFromPayload(locale: string): Promise<AboutData> {
-	const payload = await getPayloadClient();
+	return cache(
+		async () => {
+			const payload = await getPayloadClient();
 
-	const about = await payload.findGlobal({
-		slug: "about-me",
-		locale: locale as "en" | "pl",
-	});
+			const about = await payload.findGlobal({
+				slug: "about-me",
+				locale: resolveLocale(locale),
+			});
 
-	return {
-		title: about.title,
-		description: about.description,
-		items: {
-			name: about.name,
-			phone: about.phone,
-			email: about.email,
-			location: about.location,
-			nationality: about.nationality,
-			languages: about.languages
-				.map((item) => item.language)
-				.filter(Boolean)
-				.join(", "),
+			return {
+				title: about.title,
+				description: about.description,
+				items: {
+					name: about.name,
+					phone: about.phone,
+					email: about.email,
+					location: about.location,
+					nationality: about.nationality,
+					languages: about.languages
+						.map((item) => item.language)
+						.filter(Boolean)
+						.join(", "),
+				},
+			};
 		},
-	};
+		[`about-me-${locale}`],
+		{ tags: ["about-me"], revalidate: 3600 },
+	)();
 }
 
 async function getAboutFromMessages(): Promise<AboutData> {

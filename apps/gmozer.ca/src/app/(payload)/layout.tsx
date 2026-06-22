@@ -7,7 +7,7 @@ import type { ServerFunctionClient } from "payload";
 import type { ReactNode } from "react";
 import { importMap } from "./admin/importMap";
 import "@payloadcms/next/css";
-
+import "../../styles/payloadStyles.css";
 import "./custom.scss";
 
 type Args = {

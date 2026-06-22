@@ -10,6 +10,7 @@ import { Education } from "./collections/Education";
 import { Experiences } from "./collections/Experiences";
 import { Media } from "./collections/Media";
 import { Projects } from "./collections/Projects";
+import { SkillCategories } from "./collections/SkillCategories";
 import { Users } from "./collections/Users";
 import { AboutMe } from "./globals/AboutMe";
 
@@ -31,7 +32,14 @@ export default buildConfig({
 			baseDir: path.resolve(dirname),
 		},
 	},
-	collections: [Users, Media, Projects, Experiences, Education],
+	collections: [
+		Users,
+		Media,
+		Projects,
+		Experiences,
+		Education,
+		SkillCategories,
+	],
 	globals: [AboutMe],
 	editor: lexicalEditor(),
 	secret: process.env.PAYLOAD_SECRET || "",

@@ -1,41 +1,51 @@
 import type { Project } from "@gmozer/types";
 import { isStringArray } from "@gmozer/utils";
+import { unstable_cache as cache } from "next/cache";
 import { getLocale, getTranslations } from "next-intl/server";
 import { PROJECT_KEYS } from "@/constants/main";
 import { checkPayloadEnabled } from "@/lib/check-payload-enabled";
+import { resolveLocale } from "@/lib/locale";
 import { getPayloadClient } from "@/lib/payload";
 
 const getProjectsFromPayload = async (locale: string): Promise<Project[]> => {
-	const payload = await getPayloadClient();
+	return cache(
+		async () => {
+			const payload = await getPayloadClient();
 
-	const { docs } = await payload.find({
-		collection: "projects",
-		locale: locale as "en" | "pl",
-		sort: "order",
-		limit: 100,
-	});
+			const { docs } = await payload.find({
+				collection: "projects",
+				locale: resolveLocale(locale),
+				sort: "order",
+				limit: 100,
+			});
 
-	return docs.map((doc) => {
-		const media =
-			typeof doc.image === "object" && doc.image !== null ? doc.image : null;
+			return docs.map((doc) => {
+				const media =
+					typeof doc.image === "object" && doc.image !== null
+						? doc.image
+						: null;
 
-		return {
-			title: doc.title,
-			category: doc.category,
-			description: doc.description,
-			liveLink: doc.liveLink ?? undefined,
-			githubLink: doc.githubLink ?? "",
-			stack: Array.isArray(doc.stack)
-				? doc.stack.map((item) =>
-						typeof item === "object" && item !== null && "name" in item
-							? String(item.name)
-							: String(item),
-					)
-				: [],
-			image: media?.url ?? undefined,
-			imageSizes: media?.sizes ?? null,
-		};
-	});
+				return {
+					title: doc.title,
+					category: doc.category,
+					description: doc.description,
+					liveLink: doc.liveLink ?? undefined,
+					githubLink: doc.githubLink ?? "",
+					stack: Array.isArray(doc.stack)
+						? doc.stack.map((item) =>
+								typeof item === "object" && item !== null && "name" in item
+									? String(item.name)
+									: String(item),
+							)
+						: [],
+					image: media?.url ?? undefined,
+					imageSizes: media?.sizes ?? null,
+				};
+			});
+		},
+		[`projects-${locale}`],
+		{ tags: ["projects"], revalidate: 3600 },
+	)();
 };
 
 const getProjectsFromMessages = async (): Promise<Project[]> => {

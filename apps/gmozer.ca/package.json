@@ -20,8 +20,9 @@
 		"prepare": "husky",
 		"seed:projects": "tsx --env-file .env.local src/scripts/seed-projects.ts",
 		"seed:experiences": "tsx --env-file .env.local src/scripts/seed-experiences.ts",
-		"seed:education": "tsx --env-file .env.local src/scripts/seed-education.ts",
-		"seed:about": "tsx --env-file .env.local src/scripts/seed-about.ts"
+		"seed-education": "tsx --env-file .env.local src/scripts/seed-education.ts",
+		"seed:about": "tsx --env-file .env.local src/scripts/seed-about.ts",
+		"seed:skills": "tsx --env-file .env.local src/scripts/seed-skills.ts"
 	},
 	"dependencies": {
 		"@gmozer/github": "workspace:*",
@@ -34,6 +35,7 @@
 		"@payloadcms/next": "^3.79.0",
 		"@payloadcms/richtext-lexical": "^3.79.0",
 		"@payloadcms/storage-vercel-blob": "^3.79.0",
+		"@payloadcms/ui": "^3.79.0",
 		"@radix-ui/react-dialog": "^1.1.1",
 		"@radix-ui/react-label": "^2.1.1",
 		"@radix-ui/react-scroll-area": "^1.1.0",

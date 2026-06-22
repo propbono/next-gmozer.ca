@@ -9,7 +9,8 @@ import {
 } from "@gmozer/ui";
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
-import { SKILLS, type SkillCategoryId } from "@/constants/resume";
+import type { SkillCategoryId } from "@/constants/resume";
+import { getSkills } from "@/lib/get-skills";
 
 export async function generateMetadata() {
 	const t = await getTranslations("metadata");
@@ -52,6 +53,7 @@ const categoryKeys: Record<
 
 export default async function Skills() {
 	const t = await getTranslations("resume.skills");
+	const skills = await getSkills();
 
 	return (
 		<section className="flex flex-col gap-8">
@@ -63,14 +65,18 @@ export default async function Skills() {
 			</header>
 
 			<div className="flex flex-col gap-8">
-				{SKILLS.map((category) => (
+				{skills.map((category) => (
 					<Card
 						key={category.id}
 						className="border-none shadow-none bg-transparent"
 					>
 						<CardHeader className="px-0 pt-0">
 							<CardTitle className="text-2xl font-bold">
-								{t(categoryKeys[category.id])}
+								{/* If the category ID exists in our translation map, translate it. 
+                    Otherwise use the title from Payload (fallback or custom category) */}
+								{categoryKeys[category.id]
+									? t(categoryKeys[category.id])
+									: category.title}
 							</CardTitle>
 						</CardHeader>
 						<CardContent className="px-0">
