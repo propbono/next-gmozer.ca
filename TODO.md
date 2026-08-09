@@ -54,7 +54,7 @@ _Building on your recent "skills" and mobile menu updates to make the site feel 
 
 _Populating the site with the substance that matters to visitors._
 
-- [ ] **Project Showcase:** Add remaining projects (images-with-ai, psl-group-quiz-app) and perform a final verification check. (3 projects added: Gabeyre Global Inc, Dev Slot, Vault Onboarding)
+- [ ] **Project Showcase:** Add remaining project (images-with-ai) and perform a final verification check. (4 projects added: Gabeyre Global Inc, Dev Slot, Vault Onboarding, PSL Group Quiz)
     
 - [ ] **Refine "Toolbox":** Ensure the "Tools/Toolset" section (formerly skills) is properly categorized and highly visible.
     

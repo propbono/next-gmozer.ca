@@ -536,6 +536,15 @@
 				"githubLink": "https://github.com/propbono/vault-onboarding",
 				"stack": ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
 				"image": "/work/vault-onboarding.avif"
+			},
+			"project10": {
+				"title": "PSL Group Quiz",
+				"category": "Frontend",
+				"description": "Interaktywna aplikacja quizowa do testowania wiedzy z HTML i CSS. Zbudowana w React.",
+				"liveLink": "https://psl-group-quiz-app.vercel.app/",
+				"githubLink": "https://github.com/propbono/PSLGroup-Test",
+				"stack": ["React.js", "JavaScript", "Tailwind CSS", "Vercel"],
+				"image": "/work/psl-quiz.avif"
 			}
 		}
 	},
