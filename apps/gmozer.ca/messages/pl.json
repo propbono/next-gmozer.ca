@@ -441,7 +441,7 @@
 				"title": "Farah Freight Group",
 				"category": "Frontend",
 				"description": "Strona firmowa Farah Freight Group. Aplikacja jednostronicowa stworzona z użyciem NextJS i Nodemailer do wysyłania emaili.",
-				"liveLink": "https://farahfg.com/",
+				"liveLink": "https://prod-farahfg.vercel.app/",
 				"githubLink": "https://github.com/propbono/farahfg.com",
 				"stack": [
 					"NextJS",
@@ -509,6 +509,33 @@
 				"githubLink": "https://github.com/propbono/swm-interview-2024",
 				"stack": ["TypeScript"],
 				"image": "/work/swm.avif"
+			},
+			"project7": {
+				"title": "Gabeyre Global Inc",
+				"category": "Full stack",
+				"description": "Strona firmowa Gabeyre Global Inc, firmy logistycznej i transportowej. Zbudowana z użyciem TanStack Start.",
+				"liveLink": "https://gabeyreglobal.com/",
+				"githubLink": "https://github.com/propbono/gabeyreglobal.ca",
+				"stack": ["TanStack Start", "TypeScript", "Tailwind CSS", "Vercel"],
+				"image": "/work/gabeyreglobal.avif"
+			},
+			"project8": {
+				"title": "Dev Slot",
+				"category": "Full stack",
+				"description": "Narzędzie do rezerwacji slotów czasowych dla deweloperów. Planuj i zarządzaj sesjami programistycznymi.",
+				"liveLink": "https://dev-slot.vercel.app/",
+				"githubLink": "https://github.com/propbono/dev-slot",
+				"stack": ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+				"image": "/work/dev-slot.avif"
+			},
+			"project9": {
+				"title": "Vault Onboarding",
+				"category": "Frontend",
+				"description": "Samodzielny proces wdrażania do Vault, bezpiecznej platformy do przechowywania danych cyfrowych.",
+				"liveLink": "https://vault-onboarding-self.vercel.app/",
+				"githubLink": "https://github.com/propbono/vault-onboarding",
+				"stack": ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+				"image": "/work/vault-onboarding.avif"
 			}
 		}
 	},

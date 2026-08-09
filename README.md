@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Greg Mozer — Portfolio
+
+Portfolio website for Greg Mozer, a Senior Software Engineer based in Toronto/Józefów. Built with Next.js 16, Tailwind CSS, and Payload CMS — deployed on Vercel at [gmozer.ca](https://gmozer.ca/).
+
+## Tech Stack
+
+- **Framework**: Next.js 16 (App Router) with React 19
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS 4, Framer Motion
+- **CMS**: Payload 3 (SQLite, Resend email, Vercel Blob storage)
+- **i18n**: next-intl (English / Polish)
+- **Monitoring**: Sentry, PostHog
+- **Tooling**: Nx monorepo, Biome, Vitest, pnpm
+
+## Monorepo Structure
+
+```
+libs/
+  ui/          Shared UI components (Radix primitives, component library)
+  utils/       Shared utilities (cn, formatters)
+  types/       Shared TypeScript types (PostHog events, etc.)
+  github/      GitHub API integration
+apps/
+  gmozer.ca/   Portfolio website
+```
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
+pnpm nx dev gmozer.ca
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Create `.env.local` in `apps/gmozer.ca/`:
 
-## Learn More
+```env
+# PostHog
+NEXT_PUBLIC_POSTHOG_KEY=phc_...
+NEXT_PUBLIC_POSTHOG_HOST=https://us.i.posthog.com
 
-To learn more about Next.js, take a look at the following resources:
+# Sentry
+NEXT_PUBLIC_SENTRY_DSN=https://...@sentry.io/...
+SENTRY_DSN=https://...@sentry.io/...
+SENTRY_ORG=your-org
+SENTRY_PROJECT=gmozer-ca
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Payload CMS
+PAYLOAD_SECRET=...
+DATABASE_URI=file:./payload.db
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+# Email (Resend)
+RESEND_API_KEY=re_...
 
-## Deploy on Vercel
+# Vercel Blob Storage (Payload media)
+BLOB_READ_WRITE_TOKEN=...
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Commands
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+| Command | Description |
+|---------|-------------|
+| `pnpm nx dev gmozer.ca` | Start dev server |
+| `pnpm nx build gmozer.ca` | Production build |
+| `pnpm nx test gmozer.ca` | Run Vitest tests |
+| `pnpm nx lint gmozer.ca` | Run Biome linter |
+| `pnpm nx typecheck gmozer.ca` | TypeScript check |
+
+## Portfolio Content
+
+Portfolio projects are defined in locale files under `apps/gmozer.ca/messages/`
+(en.json / pl.json) in the `work.projects` section. Screenshots live in
+`apps/gmozer.ca/public/work/`.
+
+## License
+
+All rights reserved.

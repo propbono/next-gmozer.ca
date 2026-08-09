@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@gmozer/ui";
+import * as Sentry from "@sentry/nextjs";
 import { useTranslations } from "next-intl";
 import { useEffect } from "react";
 import { useRouter } from "@/i18n/navigation";
@@ -16,6 +17,7 @@ export default function ErrorPage({
 	const router = useRouter();
 
 	useEffect(() => {
+		Sentry.captureException(error);
 		// biome-ignore lint/suspicious/noConsole: Log error for debugging
 		console.error(error);
 	}, [error]);

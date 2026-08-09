@@ -54,7 +54,7 @@ _Building on your recent "skills" and mobile menu updates to make the site feel 
 
 _Populating the site with the substance that matters to visitors._
 
-- [ ] **Project Showcase:** Add more projects and perform a final verification check.
+- [ ] **Project Showcase:** Add remaining projects (images-with-ai, psl-group-quiz-app) and perform a final verification check. (3 projects added: Gabeyre Global Inc, Dev Slot, Vault Onboarding)
     
 - [ ] **Refine "Toolbox":** Ensure the "Tools/Toolset" section (formerly skills) is properly categorized and highly visible.
     
@@ -63,7 +63,7 @@ _Populating the site with the substance that matters to visitors._
 
 _Tools to help you move faster and catch bugs before your users do._
 
-- [ ] **Error Tracking:** Integrate **Sentry** for production monitoring.
+- [x] **Error Tracking:** Integrate **Sentry** for production monitoring.
     
 - [ ] **AI Assistance:** Add **Greptile** or **Code Rabbit** to your workflow/VS Code.
     
