@@ -76,7 +76,7 @@ describe("New portfolio projects", () => {
 });
 
 describe("PROJECT_KEYS constant", () => {
-	it("includes all 9 project keys", () => {
+	it("includes all 10 project keys", () => {
 		expect(PROJECT_KEYS).toEqual([
 			"project1",
 			"project2",
@@ -87,6 +87,7 @@ describe("PROJECT_KEYS constant", () => {
 			"project7",
 			"project8",
 			"project9",
+			"project10",
 		]);
 	});
 
