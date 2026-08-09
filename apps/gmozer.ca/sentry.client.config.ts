@@ -5,9 +5,5 @@ Sentry.init({
 	// Replay is disabled by default in newer versions; enable if needed
 	// integrations: [Sentry.replayIntegration()],
 
-	// Performance monitoring sample rate
-	tracesSampleRate: 1.0,
-
-	// Adjust in production to reduce data volume
-	// tracesSampleRate: 0.1,
+	tracesSampleRate: 0.1,
 });
