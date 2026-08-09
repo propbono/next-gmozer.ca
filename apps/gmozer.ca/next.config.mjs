@@ -1,4 +1,5 @@
 import { withPayload } from "@payloadcms/next/withPayload";
+import { withSentryConfig } from "@sentry/nextjs";
 import createNextIntlPlugin from "next-intl/plugin";
 
 // @ts-check
@@ -7,6 +8,9 @@ import createNextIntlPlugin from "next-intl/plugin";
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
+	experimental: {
+		clientInstrumentationHook: true,
+	},
 	async rewrites() {
 		return [
 			{
@@ -46,4 +50,13 @@ const nextConfig = {
 };
 
 const withNextIntl = createNextIntlPlugin();
-export default withPayload(withNextIntl(nextConfig));
+
+const config = withPayload(withNextIntl(nextConfig));
+
+export default withSentryConfig(config, {
+	sourcemaps: {
+		disable: false,
+		deleteSourcemapsAfterUpload: true,
+	},
+	silent: !process.env.CI,
+});
