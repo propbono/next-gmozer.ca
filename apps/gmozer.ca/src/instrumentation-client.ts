@@ -2,7 +2,10 @@ import * as Sentry from "@sentry/nextjs";
 import posthog from "posthog-js";
 
 if (!process.env.NEXT_PUBLIC_POSTHOG_KEY) {
-	console.error("NEXT_PUBLIC_POSTHOG_KEY is not defined — PostHog analytics disabled");
+	// biome-ignore lint/suspicious/noConsole: Warn about missing configuration
+	console.error(
+		"NEXT_PUBLIC_POSTHOG_KEY is not defined — PostHog analytics disabled",
+	);
 } else {
 	posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY, {
 		api_host: "/ph",

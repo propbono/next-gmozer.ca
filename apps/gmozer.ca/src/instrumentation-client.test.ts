@@ -20,9 +20,7 @@ describe("PostHog instrumentation-client", () => {
 	it("does NOT throw when NEXT_PUBLIC_POSTHOG_KEY is missing", async () => {
 		delete process.env.NEXT_PUBLIC_POSTHOG_KEY;
 		// Should not throw
-		await expect(
-			import("@/instrumentation-client"),
-		).resolves.toBeDefined();
+		await expect(import("@/instrumentation-client")).resolves.toBeDefined();
 	});
 
 	it("does NOT call posthog.init when key is missing", async () => {
@@ -34,10 +32,13 @@ describe("PostHog instrumentation-client", () => {
 	it("calls posthog.init when key is present", async () => {
 		process.env.NEXT_PUBLIC_POSTHOG_KEY = "test-key";
 		await import("@/instrumentation-client");
-		expect(mockInit).toHaveBeenCalledWith("test-key", expect.objectContaining({
-			api_host: "/ph",
-			capture_pageview: false,
-			capture_pageleave: true,
-		}));
+		expect(mockInit).toHaveBeenCalledWith(
+			"test-key",
+			expect.objectContaining({
+				api_host: "/ph",
+				capture_pageview: false,
+				capture_pageleave: true,
+			}),
+		);
 	});
 });
