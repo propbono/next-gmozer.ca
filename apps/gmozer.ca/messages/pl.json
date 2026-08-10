@@ -643,7 +643,7 @@
 		}
 	},
 	"footer": {
-		"copyright": "2023 Grzegorz Mozer | Wszelkie prawa zastrzeżone"
+		"copyright": "{year} Grzegorz Mozer | Wszelkie prawa zastrzeżone"
 	},
 	"metadata": {
 		"default": {

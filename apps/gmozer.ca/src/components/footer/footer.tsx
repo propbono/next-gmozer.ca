@@ -13,7 +13,8 @@ export const Footer = () => {
 		<footer className="bg-foreground py-8">
 			<div className="font-medium container flex flex-col items-center justify-between gap-4  md:flex-row">
 				<span className="flex items-center align-middle text-muted gap-2">
-					<RiCopyrightLine /> {t("copyright")}
+					<RiCopyrightLine />{" "}
+					{t("copyright", { year: new Date().getFullYear() })}
 				</span>
 				<div className="flex items-center gap-8">
 					<Socials

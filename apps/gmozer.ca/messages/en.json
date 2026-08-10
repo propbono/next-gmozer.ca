@@ -643,7 +643,7 @@
 		}
 	},
 	"footer": {
-		"copyright": "2023 Greg Mozer | All rights reserved"
+		"copyright": "{year} Greg Mozer | All rights reserved"
 	},
 	"metadata": {
 		"default": {
