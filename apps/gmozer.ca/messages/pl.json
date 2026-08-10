@@ -528,7 +528,7 @@
 			"project4": {
 				"title": "Dev Slot",
 				"category": "Full stack",
-				"description": "Narzędzie do rezerwacji slotów czasowych dla deweloperów. Planuj i zarządzaj sesjami programistycznymi.",
+				"description": "Praktyka rozmów technicznych wspierana przez AI. Przygotuj się do rozmowy o architekturę systemów z adaptacyjnymi wyzwaniami dopasowanymi do opisu stanowiska.",
 				"liveLink": "https://dev-slot.vercel.app/",
 				"githubLink": "https://github.com/propbono/dev-slot",
 				"stack": ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
