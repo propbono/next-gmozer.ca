@@ -12,10 +12,16 @@
 	},
 	"navigation": {
 		"home": {
-			"default": { "title": "Home", "url": "/" }
+			"default": {
+				"title": "Home",
+				"url": "/"
+			}
 		},
 		"services": {
-			"default": { "title": "Services", "url": "/services" },
+			"default": {
+				"title": "Services",
+				"url": "/services"
+			},
 			"children": {
 				"web-development": {
 					"title": "Web Development",
@@ -40,17 +46,42 @@
 			}
 		},
 		"resume": {
-			"default": { "title": "Resume", "url": "/resume" },
+			"default": {
+				"title": "Resume",
+				"url": "/resume"
+			},
 			"children": {
-				"skills": { "title": "Skills", "url": "/resume" },
-				"experience": { "title": "Experience", "url": "/resume/experience" },
-				"education": { "title": "Education", "url": "/resume/education" },
-				"about": { "title": "About me", "url": "/resume/about" },
+				"skills": {
+					"title": "Skills",
+					"url": "/resume"
+				},
+				"experience": {
+					"title": "Experience",
+					"url": "/resume/experience"
+				},
+				"education": {
+					"title": "Education",
+					"url": "/resume/education"
+				},
+				"about": {
+					"title": "About me",
+					"url": "/resume/about"
+				},
 				"download": "Download Resume"
 			}
 		},
-		"work": { "default": { "title": "Work", "url": "/work" } },
-		"contact": { "default": { "title": "Contact me", "url": "/contact" } }
+		"work": {
+			"default": {
+				"title": "Work",
+				"url": "/work"
+			}
+		},
+		"contact": {
+			"default": {
+				"title": "Contact me",
+				"url": "/contact"
+			}
+		}
 	},
 	"home": {
 		"hero": {
@@ -412,15 +443,30 @@
 			"title": "About me",
 			"description": "Experienced Software Developer focused on optimizing system performance and leading teams to deliver scalable, high-quality solutions. I have a strong track record in deploying client applications and driving digital transformation. Skilled in React and TypeScript, I am committed to continuous learning and mentoring junior developers to enhance collaboration and code quality.",
 			"items": {
-				"name": { "label": "Name", "value": "Greg Mozer" },
-				"phone": { "label": "Phone", "value": "+1 (647) 833 8068" },
-				"email": { "label": "Email", "value": "propbono@gmail.com" },
+				"name": {
+					"label": "Name",
+					"value": "Greg Mozer"
+				},
+				"phone": {
+					"label": "Phone",
+					"value": "+1 (647) 833 8068"
+				},
+				"email": {
+					"label": "Email",
+					"value": "propbono@gmail.com"
+				},
 				"location": {
 					"label": "Location",
 					"value": "Toronto, ON, Canada / Józefów, Poland"
 				},
-				"nationality": { "label": "Nationality", "value": "Canadian, Polish" },
-				"languages": { "label": "Languages", "value": "English, Polish" }
+				"nationality": {
+					"label": "Nationality",
+					"value": "Canadian, Polish"
+				},
+				"languages": {
+					"label": "Languages",
+					"value": "English, Polish"
+				}
 			}
 		}
 	},
@@ -503,14 +549,6 @@
 				"image": "/work/gmozer-old.avif"
 			},
 			"project6": {
-				"title": "SWM Interview 2024",
-				"category": "Algorithm",
-				"description": "Interview task is composed from two parts, coding exercise and an essay. Below you can see the information about programming task. Write a function that receives two sequences: A and B of integers and returns one sequence C. Sequence C should contain all elements from sequence A (maintaining the order) except those, that are present in sequence B p times, where p is a prime number.",
-				"githubLink": "https://github.com/propbono/swm-interview-2024",
-				"stack": ["TypeScript"],
-				"image": "/work/swm.avif"
-			},
-			"project7": {
 				"title": "Gabeyre Global Inc",
 				"category": "Full stack",
 				"description": "Corporate website for Gabeyre Global Inc, a logistics and freight company. Built with TanStack Start.",
@@ -519,7 +557,7 @@
 				"stack": ["TanStack Start", "TypeScript", "Tailwind CSS", "Vercel"],
 				"image": "/work/gabeyreglobal.avif"
 			},
-			"project8": {
+			"project7": {
 				"title": "Dev Slot",
 				"category": "Full stack",
 				"description": "Developer time-slot booking tool. Schedule and manage development sessions.",
@@ -528,7 +566,7 @@
 				"stack": ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
 				"image": "/work/dev-slot.avif"
 			},
-			"project9": {
+			"project8": {
 				"title": "Vault Onboarding",
 				"category": "Frontend",
 				"description": "Self-serve onboarding flow for Vault, a secure digital storage platform.",
@@ -537,14 +575,22 @@
 				"stack": ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
 				"image": "/work/vault-onboarding.avif"
 			},
-			"project10": {
+			"project9": {
 				"title": "PSL Group Quiz",
 				"category": "Frontend",
 				"description": "Interactive multiple-choice quiz app for testing HTML and CSS knowledge. Built with React.",
-				"liveLink": "https://psl-group-quiz-app.vercel.app/",
+				"liveLink": "https://psl-quiz.vercel.app/",
 				"githubLink": "https://github.com/propbono/PSLGroup-Test",
 				"stack": ["React.js", "JavaScript", "Tailwind CSS", "Vercel"],
 				"image": "/work/psl-quiz.avif"
+			},
+			"project11": {
+				"title": "SWM Interview 2024",
+				"category": "Algorithm",
+				"description": "Interview task is composed from two parts, coding exercise and an essay. Below you can see the information about programming task. Write a function that receives two sequences: A and B of integers and returns one sequence C. Sequence C should contain all elements from sequence A (maintaining the order) except those, that are present in sequence B p times, where p is a prime number.",
+				"githubLink": "https://github.com/propbono/swm-interview-2024",
+				"stack": ["TypeScript"],
+				"image": "/work/swm.avif"
 			}
 		}
 	},

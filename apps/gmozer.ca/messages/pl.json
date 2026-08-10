@@ -12,10 +12,16 @@
 	},
 	"navigation": {
 		"home": {
-			"default": { "title": "Strona główna", "url": "/" }
+			"default": {
+				"title": "Strona główna",
+				"url": "/"
+			}
 		},
 		"services": {
-			"default": { "title": "Usługi", "url": "/services" },
+			"default": {
+				"title": "Usługi",
+				"url": "/services"
+			},
 			"children": {
 				"web-development": {
 					"title": "Tworzenie stron internetowych",
@@ -40,17 +46,42 @@
 			}
 		},
 		"resume": {
-			"default": { "title": "O mnie", "url": "/resume" },
+			"default": {
+				"title": "O mnie",
+				"url": "/resume"
+			},
 			"children": {
-				"skills": { "title": "Umiejętności", "url": "/resume" },
-				"experience": { "title": "Doświadczenie", "url": "/resume/experience" },
-				"education": { "title": "Wykształcenie", "url": "/resume/education" },
-				"about": { "title": "O mnie", "url": "/resume/about" },
+				"skills": {
+					"title": "Umiejętności",
+					"url": "/resume"
+				},
+				"experience": {
+					"title": "Doświadczenie",
+					"url": "/resume/experience"
+				},
+				"education": {
+					"title": "Wykształcenie",
+					"url": "/resume/education"
+				},
+				"about": {
+					"title": "O mnie",
+					"url": "/resume/about"
+				},
 				"download": "Pobierz CV"
 			}
 		},
-		"work": { "default": { "title": "Portfolio", "url": "/work" } },
-		"contact": { "default": { "title": "Kontakt", "url": "/contact" } }
+		"work": {
+			"default": {
+				"title": "Portfolio",
+				"url": "/work"
+			}
+		},
+		"contact": {
+			"default": {
+				"title": "Kontakt",
+				"url": "/contact"
+			}
+		}
 	},
 	"home": {
 		"hero": {
@@ -412,15 +443,30 @@
 			"title": "O mnie",
 			"description": "Doświadczony programista skupiony na optymalizacji wydajności systemów i prowadzeniu zespołów w dostarczaniu skalowalnych, wysokiej jakości rozwiązań. Posiadam udokumentowane doświadczenie we wdrażaniu aplikacji klienckich i prowadzeniu transformacji cyfrowych. Biegły w React i TypeScript, zaangażowany w ciągłe uczenie się i mentoring młodszych programistów dla poprawy współpracy i jakości kodu.",
 			"items": {
-				"name": { "label": "Imię", "value": "Grzegorz Mozer" },
-				"phone": { "label": "Telefon", "value": "+48 (530) 061 945" },
-				"email": { "label": "Email", "value": "propbono@gmail.com" },
+				"name": {
+					"label": "Imię",
+					"value": "Grzegorz Mozer"
+				},
+				"phone": {
+					"label": "Telefon",
+					"value": "+48 (530) 061 945"
+				},
+				"email": {
+					"label": "Email",
+					"value": "propbono@gmail.com"
+				},
 				"location": {
 					"label": "Lokalizacja",
 					"value": "Józefów, Polska / Toronto, Kanada"
 				},
-				"nationality": { "label": "Narodowość", "value": "Polska, Kanadyjska" },
-				"languages": { "label": "Języki", "value": "Polski, Angielski" }
+				"nationality": {
+					"label": "Narodowość",
+					"value": "Polska, Kanadyjska"
+				},
+				"languages": {
+					"label": "Języki",
+					"value": "Polski, Angielski"
+				}
 			}
 		}
 	},
@@ -503,14 +549,6 @@
 				"image": "/work/gmozer-old.avif"
 			},
 			"project6": {
-				"title": "SWM Interview 2024",
-				"category": "Algorytm",
-				"description": "Zadanie rekrutacyjne składa się z dwóch części, ćwiczenia programistycznego i eseju. Poniżej informacje o zadaniu programistycznym. Napisz funkcję otrzymującą dwie sekwencje: A i B liczb całkowitych i zwracającą sekwencję C. Sekwencja C powinna zawierać wszystkie elementy z sekwencji A (zachowując kolejność) z wyjątkiem tych, które występują w sekwencji B p razy, gdzie p jest liczbą pierwszą.",
-				"githubLink": "https://github.com/propbono/swm-interview-2024",
-				"stack": ["TypeScript"],
-				"image": "/work/swm.avif"
-			},
-			"project7": {
 				"title": "Gabeyre Global Inc",
 				"category": "Full stack",
 				"description": "Strona firmowa Gabeyre Global Inc, firmy logistycznej i transportowej. Zbudowana z użyciem TanStack Start.",
@@ -519,7 +557,7 @@
 				"stack": ["TanStack Start", "TypeScript", "Tailwind CSS", "Vercel"],
 				"image": "/work/gabeyreglobal.avif"
 			},
-			"project8": {
+			"project7": {
 				"title": "Dev Slot",
 				"category": "Full stack",
 				"description": "Narzędzie do rezerwacji slotów czasowych dla deweloperów. Planuj i zarządzaj sesjami programistycznymi.",
@@ -528,7 +566,7 @@
 				"stack": ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
 				"image": "/work/dev-slot.avif"
 			},
-			"project9": {
+			"project8": {
 				"title": "Vault Onboarding",
 				"category": "Frontend",
 				"description": "Samodzielny proces wdrażania do Vault, bezpiecznej platformy do przechowywania danych cyfrowych.",
@@ -537,14 +575,22 @@
 				"stack": ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
 				"image": "/work/vault-onboarding.avif"
 			},
-			"project10": {
+			"project9": {
 				"title": "PSL Group Quiz",
 				"category": "Frontend",
 				"description": "Interaktywna aplikacja quizowa do testowania wiedzy z HTML i CSS. Zbudowana w React.",
-				"liveLink": "https://psl-group-quiz-app.vercel.app/",
+				"liveLink": "https://psl-quiz.vercel.app/",
 				"githubLink": "https://github.com/propbono/PSLGroup-Test",
 				"stack": ["React.js", "JavaScript", "Tailwind CSS", "Vercel"],
 				"image": "/work/psl-quiz.avif"
+			},
+			"project11": {
+				"title": "SWM Interview 2024",
+				"category": "Algorytm",
+				"description": "Zadanie rekrutacyjne składa się z dwóch części, ćwiczenia programistycznego i eseju. Poniżej informacje o zadaniu programistycznym. Napisz funkcję otrzymującą dwie sekwencje: A i B liczb całkowitych i zwracającą sekwencję C. Sekwencja C powinna zawierać wszystkie elementy z sekwencji A (zachowując kolejność) z wyjątkiem tych, które występują w sekwencji B p razy, gdzie p jest liczbą pierwszą.",
+				"githubLink": "https://github.com/propbono/swm-interview-2024",
+				"stack": ["TypeScript"],
+				"image": "/work/swm.avif"
 			}
 		}
 	},

@@ -21,28 +21,35 @@ describe("Farah Freight Group link fix", () => {
 });
 
 describe("New portfolio projects", () => {
-	const newKeys = ["project7", "project8", "project9"] as const;
+	const newKeys = ["project6", "project7", "project8", "project9"] as const;
 	const expectedProjects = {
-		project7: {
+		project6: {
 			titleEn: "Gabeyre Global Inc",
 			titlePl: "Gabeyre Global Inc",
 			image: "/work/gabeyreglobal.avif",
 			liveLink: "https://gabeyreglobal.com/",
 			githubLink: "https://github.com/propbono/gabeyreglobal.ca",
 		},
-		project8: {
+		project7: {
 			titleEn: "Dev Slot",
 			titlePl: "Dev Slot",
 			image: "/work/dev-slot.avif",
 			liveLink: "https://dev-slot.vercel.app/",
 			githubLink: "https://github.com/propbono/dev-slot",
 		},
-		project9: {
+		project8: {
 			titleEn: "Vault Onboarding",
 			titlePl: "Vault Onboarding",
 			image: "/work/vault-onboarding.avif",
 			liveLink: "https://vault-onboarding-self.vercel.app/",
 			githubLink: "https://github.com/propbono/vault-onboarding",
+		},
+		project9: {
+			titleEn: "PSL Group Quiz",
+			titlePl: "PSL Group Quiz",
+			image: "/work/psl-quiz.avif",
+			liveLink: "https://psl-quiz.vercel.app/",
+			githubLink: "https://github.com/propbono/PSLGroup-Test",
 		},
 	};
 
@@ -73,6 +80,19 @@ describe("New portfolio projects", () => {
 			expect(project.stack).toBeInstanceOf(Array);
 		});
 	}
+
+	it("project11 (SWM Interview) exists in both locales with no liveLink", () => {
+		const enProj = en.work.projects.project11;
+		const plProj = pl.work.projects.project11;
+		expect(enProj).toBeDefined();
+		expect(enProj.title).toBe("SWM Interview 2024");
+		expect(enProj.liveLink).toBeUndefined();
+		expect(enProj.githubLink).toBe(
+			"https://github.com/propbono/swm-interview-2024",
+		);
+		expect(plProj).toBeDefined();
+		expect(plProj.liveLink).toBeUndefined();
+	});
 });
 
 describe("PROJECT_KEYS constant", () => {
@@ -87,7 +107,7 @@ describe("PROJECT_KEYS constant", () => {
 			"project7",
 			"project8",
 			"project9",
-			"project10",
+			"project11",
 		]);
 	});
 
