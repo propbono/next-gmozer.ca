@@ -16,4 +16,5 @@ export const PROJECT_KEYS = [
 	"project8",
 	"project9",
 	"project10",
+	"project11",
 ] as const;
