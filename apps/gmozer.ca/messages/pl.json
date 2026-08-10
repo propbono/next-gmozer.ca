@@ -586,9 +586,9 @@
 				"image": "/work/gmozer-old.avif"
 			},
 			"project10": {
-				"title": "SWM Interview 2024",
+				"title": "Filtr Sekwencji Liczb Pierwszych",
 				"category": "Algorytm",
-				"description": "Zadanie rekrutacyjne składa się z dwóch części, ćwiczenia programistycznego i eseju. Poniżej informacje o zadaniu programistycznym. Napisz funkcję otrzymującą dwie sekwencje: A i B liczb całkowitych i zwracającą sekwencję C. Sekwencja C powinna zawierać wszystkie elementy z sekwencji A (zachowując kolejność) z wyjątkiem tych, które występują w sekwencji B p razy, gdzie p jest liczbą pierwszą.",
+				"description": "Wyzwanie algorytmiczne: filtrowanie sekwencji poprzez usuwanie elementów, które pojawiają się liczbę pierwszą razy w sekwencji referencyjnej. Implementacja w TypeScript z czystą, czytelną logiką algorytmiczną.",
 				"githubLink": "https://github.com/propbono/swm-interview-2024",
 				"stack": ["TypeScript"],
 				"image": "/work/swm.avif"

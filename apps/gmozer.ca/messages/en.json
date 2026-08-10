@@ -586,9 +586,9 @@
 				"image": "/work/gmozer-old.avif"
 			},
 			"project10": {
-				"title": "SWM Interview 2024",
+				"title": "Prime Sequence Filter",
 				"category": "Algorithm",
-				"description": "Interview task is composed from two parts, coding exercise and an essay. Below you can see the information about programming task. Write a function that receives two sequences: A and B of integers and returns one sequence C. Sequence C should contain all elements from sequence A (maintaining the order) except those, that are present in sequence B p times, where p is a prime number.",
+				"description": "Algorithm challenge: filter a sequence by removing elements that appear a prime number of times in a reference sequence. TypeScript implementation with clean, readable algorithmic logic.",
 				"githubLink": "https://github.com/propbono/swm-interview-2024",
 				"stack": ["TypeScript"],
 				"image": "/work/swm.avif"

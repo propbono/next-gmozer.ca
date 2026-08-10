@@ -84,16 +84,17 @@ describe("Reordered portfolio projects", () => {
 		});
 	}
 
-	it("project10 (SWM Interview) exists in both locales with no liveLink", () => {
+	it("project10 (Prime Sequence Filter) exists in both locales with no liveLink", () => {
 		const enProj = en.work.projects.project10;
 		const plProj = pl.work.projects.project10;
 		expect(enProj).toBeDefined();
-		expect(enProj.title).toBe("SWM Interview 2024");
+		expect(enProj.title).toBe("Prime Sequence Filter");
 		expect((enProj as { liveLink?: string }).liveLink).toBeUndefined();
 		expect(enProj.githubLink).toBe(
 			"https://github.com/propbono/swm-interview-2024",
 		);
 		expect(plProj).toBeDefined();
+		expect(plProj.title).toBe("Filtr Sekwencji Liczb Pierwszych");
 		expect((plProj as { liveLink?: string }).liveLink).toBeUndefined();
 	});
 });
