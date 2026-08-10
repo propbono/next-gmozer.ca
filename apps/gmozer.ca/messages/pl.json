@@ -544,6 +544,15 @@
 				"image": "/work/wizcode.avif"
 			},
 			"project6": {
+				"title": "Images with AI",
+				"category": "Full stack",
+				"description": "Aplikacja do generowania obrazów AI. Twórz i zarządzaj obrazami generowanymi przez sztuczną inteligencję z nowoczesnym interfejsem.",
+				"liveLink": "https://puffythoughts.vercel.app/",
+				"githubLink": "https://github.com/propbono/images-with-ai",
+				"stack": ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+				"image": "/work/images-with-ai.avif"
+			},
+			"project7": {
 				"title": "Vault Onboarding",
 				"category": "Frontend",
 				"description": "Samodzielny proces wdrażania do Vault, bezpiecznej platformy do przechowywania danych cyfrowych.",
@@ -552,7 +561,7 @@
 				"stack": ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
 				"image": "/work/vault-onboarding.avif"
 			},
-			"project7": {
+			"project8": {
 				"title": "Grzegorz Mozer / Propbono (Nowy)",
 				"category": "Full stack",
 				"description": "Portfolio Propbono prezentujące niektóre z realizowanych projektów.",
@@ -567,7 +576,7 @@
 				],
 				"image": "/work/gmozer-new.avif"
 			},
-			"project8": {
+			"project9": {
 				"title": "PSL Group Quiz",
 				"category": "Frontend",
 				"description": "Interaktywna aplikacja quizowa do testowania wiedzy z HTML i CSS. Zbudowana w React.",
@@ -576,7 +585,7 @@
 				"stack": ["React.js", "JavaScript", "Tailwind CSS", "Vercel"],
 				"image": "/work/psl-quiz.avif"
 			},
-			"project9": {
+			"project10": {
 				"title": "Propbono (Grzegorz Mozer - Stary)",
 				"category": "Frontend",
 				"description": "Portfolio Propbono prezentujące niektóre z realizowanych projektów. Napisane w RemixJS.",
@@ -585,7 +594,7 @@
 				"stack": ["Remix.js", "TypeScript", "Tailwind CSS", "Vite", "Vercel"],
 				"image": "/work/gmozer-old.avif"
 			},
-			"project10": {
+			"project11": {
 				"title": "Filtr Sekwencji Liczb Pierwszych",
 				"category": "Algorytm",
 				"description": "Wyzwanie algorytmiczne: filtrowanie sekwencji poprzez usuwanie elementów, które pojawiają się liczbę pierwszą razy w sekwencji referencyjnej. Implementacja w TypeScript z czystą, czytelną logiką algorytmiczną.",

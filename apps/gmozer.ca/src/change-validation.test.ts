@@ -38,14 +38,14 @@ describe("Reordered portfolio projects", () => {
 			liveLink: "https://dev-slot.vercel.app/",
 			githubLink: "https://github.com/propbono/dev-slot",
 		},
-		project6: {
+		project7: {
 			titleEn: "Vault Onboarding",
 			titlePl: "Vault Onboarding",
 			image: "/work/vault-onboarding.avif",
 			liveLink: "https://vault-onboarding-self.vercel.app/",
 			githubLink: "https://github.com/propbono/vault-onboarding",
 		},
-		project8: {
+		project9: {
 			titleEn: "PSL Group Quiz",
 			titlePl: "PSL Group Quiz",
 			image: "/work/psl-quiz.avif",
@@ -84,9 +84,9 @@ describe("Reordered portfolio projects", () => {
 		});
 	}
 
-	it("project10 (Prime Sequence Filter) exists in both locales with no liveLink", () => {
-		const enProj = en.work.projects.project10;
-		const plProj = pl.work.projects.project10;
+	it("project11 (Prime Sequence Filter) exists in both locales with no liveLink", () => {
+		const enProj = en.work.projects.project11;
+		const plProj = pl.work.projects.project11;
 		expect(enProj).toBeDefined();
 		expect(enProj.title).toBe("Prime Sequence Filter");
 		expect((enProj as { liveLink?: string }).liveLink).toBeUndefined();
@@ -100,7 +100,7 @@ describe("Reordered portfolio projects", () => {
 });
 
 describe("PROJECT_KEYS constant", () => {
-	it("includes all 10 project keys in order", () => {
+	it("includes all 11 project keys in order", () => {
 		expect(PROJECT_KEYS).toEqual([
 			"project1",
 			"project2",
@@ -112,6 +112,7 @@ describe("PROJECT_KEYS constant", () => {
 			"project8",
 			"project9",
 			"project10",
+			"project11",
 		]);
 	});
 

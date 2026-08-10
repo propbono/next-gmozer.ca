@@ -544,6 +544,15 @@
 				"image": "/work/wizcode.avif"
 			},
 			"project6": {
+				"title": "Images with AI",
+				"category": "Full stack",
+				"description": "AI image generation app. Create and manage AI-generated images with a modern interface.",
+				"liveLink": "https://puffythoughts.vercel.app/",
+				"githubLink": "https://github.com/propbono/images-with-ai",
+				"stack": ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+				"image": "/work/images-with-ai.avif"
+			},
+			"project7": {
 				"title": "Vault Onboarding",
 				"category": "Frontend",
 				"description": "Self-serve onboarding flow for Vault, a secure digital storage platform.",
@@ -552,7 +561,7 @@
 				"stack": ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
 				"image": "/work/vault-onboarding.avif"
 			},
-			"project7": {
+			"project8": {
 				"title": "Greg Mozer / Propbono (New)",
 				"category": "Full stack",
 				"description": "Propbono portfolio website presenting some of the projects that I worked on.",
@@ -567,7 +576,7 @@
 				],
 				"image": "/work/gmozer-new.avif"
 			},
-			"project8": {
+			"project9": {
 				"title": "PSL Group Quiz",
 				"category": "Frontend",
 				"description": "Interactive multiple-choice quiz app for testing HTML and CSS knowledge. Built with React.",
@@ -576,7 +585,7 @@
 				"stack": ["React.js", "JavaScript", "Tailwind CSS", "Vercel"],
 				"image": "/work/psl-quiz.avif"
 			},
-			"project9": {
+			"project10": {
 				"title": "Propbono (Old)",
 				"category": "Frontend",
 				"description": "Propbono portfolio website presenting some of the projects that I worked on. Written in RemixJS.",
@@ -585,7 +594,7 @@
 				"stack": ["Remix.js", "TypeScript", "Tailwind CSS", "Vite", "Vercel"],
 				"image": "/work/gmozer-old.avif"
 			},
-			"project10": {
+			"project11": {
 				"title": "Prime Sequence Filter",
 				"category": "Algorithm",
 				"description": "Algorithm challenge: filter a sequence by removing elements that appear a prime number of times in a reference sequence. TypeScript implementation with clean, readable algorithmic logic.",
