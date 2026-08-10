@@ -103,11 +103,11 @@ export default async function Home() {
 			>
 				<div className="max-w-2xl order-2 md:order-none">
 					<p className="text-xl mb-2 2xl:mb-4">{t("hero.position")}</p>
-					<h2 className="w-full mb-4 2xl:mb-6 font-logo text-4xl md:text-5xl font-bold leading-relaxed md:leading-snug text-foreground">
+					<h1 className="w-full mb-4 2xl:mb-6 font-logo text-4xl md:text-5xl font-bold leading-relaxed md:leading-snug text-foreground">
 						{t.rich("hero.title", {
 							span: (chunks) => <span className="text-primary">{chunks}</span>,
 						})}
-					</h2>
+					</h1>
 					<p className="font-body text-xl md:text-2xl font-medium leading-relaxed text-muted-foreground md:leading-normal mb-5 2xl:mb-7">
 						{t("hero.description")}
 					</p>
@@ -122,7 +122,7 @@ export default async function Home() {
 				<aside className="order-1 md:order-none mb-6 md:mb-0">
 					<AnimatedHero
 						imageSrc="/images/Raccoon_1-min.png"
-						imageAlt="Raccon"
+						imageAlt="Raccoon"
 					/>
 				</aside>
 			</section>

@@ -32,7 +32,7 @@ export function ProjectShowcase() {
 	}, [t]);
 
 	return (
-		<article className="container py-12 flex flex-col">
+		<div className="flex flex-col">
 			{projects.map((project, index) => (
 				<ProjectItem
 					key={project.title}
@@ -41,6 +41,6 @@ export function ProjectShowcase() {
 					isLast={index === projects.length - 1}
 				/>
 			))}
-		</article>
+		</div>
 	);
 }

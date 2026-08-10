@@ -33,6 +33,7 @@ export const DesktopNav = ({
 					<Link
 						key={item.name}
 						href={item.href}
+						aria-current={isActive ? "page" : undefined}
 						className={cn(
 							"text-foreground hover:text-primary py-2 font-bold text-lg capitalize",
 							isActive && "text-primary border-b-2 border-primary",

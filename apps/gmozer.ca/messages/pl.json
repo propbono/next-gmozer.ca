@@ -19,7 +19,7 @@
 		},
 		"services": {
 			"default": {
-				"title": "Usługi",
+				"title": "Co robię",
 				"url": "/services"
 			},
 			"children": {
@@ -47,7 +47,7 @@
 		},
 		"resume": {
 			"default": {
-				"title": "O mnie",
+				"title": "CV",
 				"url": "/resume"
 			},
 			"children": {
@@ -72,7 +72,7 @@
 		},
 		"work": {
 			"default": {
-				"title": "Portfolio",
+				"title": "Projekty",
 				"url": "/work"
 			}
 		},
@@ -471,6 +471,7 @@
 		}
 	},
 	"work": {
+		"pageTitle": "Projekty",
 		"noImage": "Brak zdjęcia",
 		"visitSite": "Odwiedź stronę",
 		"sourceCode": "Kod źródłowy",
@@ -516,6 +517,42 @@
 				"image": "/work/gemprint.avif"
 			},
 			"project3": {
+				"title": "Gabeyre Global Inc",
+				"category": "Full stack",
+				"description": "Strona firmowa Gabeyre Global Inc, firmy logistycznej i transportowej. Zbudowana z użyciem TanStack Start.",
+				"liveLink": "https://gabeyreglobal.com/",
+				"githubLink": "https://github.com/propbono/gabeyreglobal.ca",
+				"stack": ["TanStack Start", "TypeScript", "Tailwind CSS", "Vercel"],
+				"image": "/work/gabeyreglobal.avif"
+			},
+			"project4": {
+				"title": "Dev Slot",
+				"category": "Full stack",
+				"description": "Narzędzie do rezerwacji slotów czasowych dla deweloperów. Planuj i zarządzaj sesjami programistycznymi.",
+				"liveLink": "https://dev-slot.vercel.app/",
+				"githubLink": "https://github.com/propbono/dev-slot",
+				"stack": ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+				"image": "/work/dev-slot.avif"
+			},
+			"project5": {
+				"title": "Wizzcode Music App",
+				"category": "Frontend",
+				"description": "Przykładowa aplikacja muzyczna do testowania hooków React Query i pisania testów w Vitest. Komunikuje się z API Itunes i pobiera albumy używając React Query.",
+				"liveLink": "https://wizcode-music.vercel.app/",
+				"githubLink": "https://github.com/propbono/wizcode-music",
+				"stack": ["React.js", "TypeScript", "Tailwind CSS", "Vite", "Vercel"],
+				"image": "/work/wizcode.avif"
+			},
+			"project6": {
+				"title": "Vault Onboarding",
+				"category": "Frontend",
+				"description": "Samodzielny proces wdrażania do Vault, bezpiecznej platformy do przechowywania danych cyfrowych.",
+				"liveLink": "https://vault-onboarding-self.vercel.app/",
+				"githubLink": "https://github.com/propbono/vault-onboarding",
+				"stack": ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+				"image": "/work/vault-onboarding.avif"
+			},
+			"project7": {
 				"title": "Grzegorz Mozer / Propbono (Nowy)",
 				"category": "Full stack",
 				"description": "Portfolio Propbono prezentujące niektóre z realizowanych projektów.",
@@ -530,52 +567,7 @@
 				],
 				"image": "/work/gmozer-new.avif"
 			},
-			"project4": {
-				"title": "Wizzcode Music App",
-				"category": "Frontend",
-				"description": "Przykładowa aplikacja muzyczna do testowania hooków React Query i pisania testów w Vitest. Komunikuje się z API Itunes i pobiera albumy używając React Query.",
-				"liveLink": "https://wizcode-music.vercel.app/",
-				"githubLink": "https://github.com/propbono/wizcode-music",
-				"stack": ["React.js", "TypeScript", "Tailwind CSS", "Vite", "Vercel"],
-				"image": "/work/wizcode.avif"
-			},
-			"project5": {
-				"title": "Propbono (Grzegorz Mozer - Stary)",
-				"category": "Frontend",
-				"description": "Portfolio Propbono prezentujące niektóre z realizowanych projektów. Napisane w RemixJS.",
-				"liveLink": "https://gmozerca-old.vercel.app/",
-				"githubLink": "https://github.com/propbono/portfolio",
-				"stack": ["Remix.js", "TypeScript", "Tailwind CSS", "Vite", "Vercel"],
-				"image": "/work/gmozer-old.avif"
-			},
-			"project6": {
-				"title": "Gabeyre Global Inc",
-				"category": "Full stack",
-				"description": "Strona firmowa Gabeyre Global Inc, firmy logistycznej i transportowej. Zbudowana z użyciem TanStack Start.",
-				"liveLink": "https://gabeyreglobal.com/",
-				"githubLink": "https://github.com/propbono/gabeyreglobal.ca",
-				"stack": ["TanStack Start", "TypeScript", "Tailwind CSS", "Vercel"],
-				"image": "/work/gabeyreglobal.avif"
-			},
-			"project7": {
-				"title": "Dev Slot",
-				"category": "Full stack",
-				"description": "Narzędzie do rezerwacji slotów czasowych dla deweloperów. Planuj i zarządzaj sesjami programistycznymi.",
-				"liveLink": "https://dev-slot.vercel.app/",
-				"githubLink": "https://github.com/propbono/dev-slot",
-				"stack": ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
-				"image": "/work/dev-slot.avif"
-			},
 			"project8": {
-				"title": "Vault Onboarding",
-				"category": "Frontend",
-				"description": "Samodzielny proces wdrażania do Vault, bezpiecznej platformy do przechowywania danych cyfrowych.",
-				"liveLink": "https://vault-onboarding-self.vercel.app/",
-				"githubLink": "https://github.com/propbono/vault-onboarding",
-				"stack": ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
-				"image": "/work/vault-onboarding.avif"
-			},
-			"project9": {
 				"title": "PSL Group Quiz",
 				"category": "Frontend",
 				"description": "Interaktywna aplikacja quizowa do testowania wiedzy z HTML i CSS. Zbudowana w React.",
@@ -584,7 +576,16 @@
 				"stack": ["React.js", "JavaScript", "Tailwind CSS", "Vercel"],
 				"image": "/work/psl-quiz.avif"
 			},
-			"project11": {
+			"project9": {
+				"title": "Propbono (Grzegorz Mozer - Stary)",
+				"category": "Frontend",
+				"description": "Portfolio Propbono prezentujące niektóre z realizowanych projektów. Napisane w RemixJS.",
+				"liveLink": "https://gmozerca-old.vercel.app/",
+				"githubLink": "https://github.com/propbono/portfolio",
+				"stack": ["Remix.js", "TypeScript", "Tailwind CSS", "Vite", "Vercel"],
+				"image": "/work/gmozer-old.avif"
+			},
+			"project10": {
 				"title": "SWM Interview 2024",
 				"category": "Algorytm",
 				"description": "Zadanie rekrutacyjne składa się z dwóch części, ćwiczenia programistycznego i eseju. Poniżej informacje o zadaniu programistycznym. Napisz funkcję otrzymującą dwie sekwencje: A i B liczb całkowitych i zwracającą sekwencję C. Sekwencja C powinna zawierać wszystkie elementy z sekwencji A (zachowując kolejność) z wyjątkiem tych, które występują w sekwencji B p razy, gdzie p jest liczbą pierwszą.",
@@ -674,7 +675,7 @@
 		},
 		"services": {
 			"default": {
-				"title": "Usługi | Grzegorz Mozer",
+				"title": "Co robię | Grzegorz Mozer",
 				"description": "Kompleksowe usługi webowe: rozwój frontendu, projektowanie UI/UX, optymalizacja SEO oraz tworzenie aplikacji mobilnych.",
 				"url": "https://gmozer.ca/pl/services"
 			},
@@ -705,7 +706,7 @@
 			}
 		},
 		"work": {
-			"title": "Projekty personalne | Grzegorz Mozer",
+			"title": "Projekty | Grzegorz Mozer",
 			"description": "Przeglądaj moje portfolio projektów webowych zrealizowanych z użyciem React, Next.js i TypeScript",
 			"url": "https://gmozer.ca/pl/work"
 		},

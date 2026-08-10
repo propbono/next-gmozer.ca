@@ -19,7 +19,7 @@
 		},
 		"services": {
 			"default": {
-				"title": "Services",
+				"title": "What I Do",
 				"url": "/services"
 			},
 			"children": {
@@ -72,7 +72,7 @@
 		},
 		"work": {
 			"default": {
-				"title": "Work",
+				"title": "Projects",
 				"url": "/work"
 			}
 		},
@@ -471,6 +471,7 @@
 		}
 	},
 	"work": {
+		"pageTitle": "Projects",
 		"noImage": "No image available",
 		"visitSite": "Visit Site",
 		"sourceCode": "Source Code",
@@ -516,6 +517,42 @@
 				"image": "/work/gemprint.avif"
 			},
 			"project3": {
+				"title": "Gabeyre Global Inc",
+				"category": "Full stack",
+				"description": "Corporate website for Gabeyre Global Inc, a logistics and freight company. Built with TanStack Start.",
+				"liveLink": "https://gabeyreglobal.com/",
+				"githubLink": "https://github.com/propbono/gabeyreglobal.ca",
+				"stack": ["TanStack Start", "TypeScript", "Tailwind CSS", "Vercel"],
+				"image": "/work/gabeyreglobal.avif"
+			},
+			"project4": {
+				"title": "Dev Slot",
+				"category": "Full stack",
+				"description": "Developer time-slot booking tool. Schedule and manage development sessions.",
+				"liveLink": "https://dev-slot.vercel.app/",
+				"githubLink": "https://github.com/propbono/dev-slot",
+				"stack": ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+				"image": "/work/dev-slot.avif"
+			},
+			"project5": {
+				"title": "Wizzcode Music App",
+				"category": "Frontend",
+				"description": "Sample music app to test React Query hooks and write some cool tests in Vitest. It communicates with Itunes API and pull some albums using React Query.",
+				"liveLink": "https://wizcode-music.vercel.app/",
+				"githubLink": "https://github.com/propbono/wizcode-music",
+				"stack": ["React.js", "TypeScript", "Tailwind CSS", "Vite", "Vercel"],
+				"image": "/work/wizcode.avif"
+			},
+			"project6": {
+				"title": "Vault Onboarding",
+				"category": "Frontend",
+				"description": "Self-serve onboarding flow for Vault, a secure digital storage platform.",
+				"liveLink": "https://vault-onboarding-self.vercel.app/",
+				"githubLink": "https://github.com/propbono/vault-onboarding",
+				"stack": ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+				"image": "/work/vault-onboarding.avif"
+			},
+			"project7": {
 				"title": "Greg Mozer / Propbono (New)",
 				"category": "Full stack",
 				"description": "Propbono portfolio website presenting some of the projects that I worked on.",
@@ -530,52 +567,7 @@
 				],
 				"image": "/work/gmozer-new.avif"
 			},
-			"project4": {
-				"title": "Wizzcode Music App",
-				"category": "Frontend",
-				"description": "Sample music app to test React Query hooks and write some cool tests in Vitest. It communicates with Itunes API and pull some albums using React Query.",
-				"liveLink": "https://wizcode-music.vercel.app/",
-				"githubLink": "https://github.com/propbono/wizcode-music",
-				"stack": ["React.js", "TypeScript", "Tailwind CSS", "Vite", "Vercel"],
-				"image": "/work/wizcode.avif"
-			},
-			"project5": {
-				"title": "Propbono (Greg Mozer - Old)",
-				"category": "Frontend",
-				"description": "Propbono portfolio website presenting some of the projects that I worked on. Written in RemixJS.",
-				"liveLink": "https://gmozerca-old.vercel.app/",
-				"githubLink": "https://github.com/propbono/portfolio",
-				"stack": ["Remix.js", "TypeScript", "Tailwind CSS", "Vite", "Vercel"],
-				"image": "/work/gmozer-old.avif"
-			},
-			"project6": {
-				"title": "Gabeyre Global Inc",
-				"category": "Full stack",
-				"description": "Corporate website for Gabeyre Global Inc, a logistics and freight company. Built with TanStack Start.",
-				"liveLink": "https://gabeyreglobal.com/",
-				"githubLink": "https://github.com/propbono/gabeyreglobal.ca",
-				"stack": ["TanStack Start", "TypeScript", "Tailwind CSS", "Vercel"],
-				"image": "/work/gabeyreglobal.avif"
-			},
-			"project7": {
-				"title": "Dev Slot",
-				"category": "Full stack",
-				"description": "Developer time-slot booking tool. Schedule and manage development sessions.",
-				"liveLink": "https://dev-slot.vercel.app/",
-				"githubLink": "https://github.com/propbono/dev-slot",
-				"stack": ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
-				"image": "/work/dev-slot.avif"
-			},
 			"project8": {
-				"title": "Vault Onboarding",
-				"category": "Frontend",
-				"description": "Self-serve onboarding flow for Vault, a secure digital storage platform.",
-				"liveLink": "https://vault-onboarding-self.vercel.app/",
-				"githubLink": "https://github.com/propbono/vault-onboarding",
-				"stack": ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
-				"image": "/work/vault-onboarding.avif"
-			},
-			"project9": {
 				"title": "PSL Group Quiz",
 				"category": "Frontend",
 				"description": "Interactive multiple-choice quiz app for testing HTML and CSS knowledge. Built with React.",
@@ -584,7 +576,16 @@
 				"stack": ["React.js", "JavaScript", "Tailwind CSS", "Vercel"],
 				"image": "/work/psl-quiz.avif"
 			},
-			"project11": {
+			"project9": {
+				"title": "Propbono (Old)",
+				"category": "Frontend",
+				"description": "Propbono portfolio website presenting some of the projects that I worked on. Written in RemixJS.",
+				"liveLink": "https://gmozerca-old.vercel.app/",
+				"githubLink": "https://github.com/propbono/portfolio",
+				"stack": ["Remix.js", "TypeScript", "Tailwind CSS", "Vite", "Vercel"],
+				"image": "/work/gmozer-old.avif"
+			},
+			"project10": {
 				"title": "SWM Interview 2024",
 				"category": "Algorithm",
 				"description": "Interview task is composed from two parts, coding exercise and an essay. Below you can see the information about programming task. Write a function that receives two sequences: A and B of integers and returns one sequence C. Sequence C should contain all elements from sequence A (maintaining the order) except those, that are present in sequence B p times, where p is a prime number.",
@@ -674,7 +675,7 @@
 		},
 		"services": {
 			"default": {
-				"title": "Services | Greg Mozer",
+				"title": "What I Do | Greg Mozer",
 				"description": "Comprehensive web development services including frontend development, UI/UX design, SEO optimization, and mobile app development.",
 				"url": "https://gmozer.ca/en/services"
 			},
@@ -705,7 +706,7 @@
 			}
 		},
 		"work": {
-			"title": "Personal projects | Greg Mozer",
+			"title": "Projects | Greg Mozer",
 			"description": "Explore my portfolio of web development projects using React, Next.js, and TypeScript",
 			"url": "https://gmozer.ca/en/work"
 		},
