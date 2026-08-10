@@ -547,7 +547,7 @@
 				"title": "Images with AI",
 				"category": "Full stack",
 				"description": "Aplikacja do generowania obrazów AI. Twórz i zarządzaj obrazami generowanymi przez sztuczną inteligencję z nowoczesnym interfejsem.",
-				"liveLink": "https://images-with-ai.vercel.app/",
+				"liveLink": "https://puffythoughts.vercel.app/",
 				"githubLink": "https://github.com/propbono/images-with-ai",
 				"stack": ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
 				"image": "/work/images-with-ai.avif"
