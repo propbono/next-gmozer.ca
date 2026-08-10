@@ -15,7 +15,9 @@ describe("Farah Freight Group link fix", () => {
 	});
 
 	it("does not reference the broken farahfg.com domain", () => {
-		const allLinks = Object.values(en.work.projects).map((p) => p.liveLink);
+		const allLinks = Object.values(en.work.projects).map(
+			(p) => (p as { liveLink?: string }).liveLink,
+		);
 		expect(allLinks).not.toContain("https://farahfg.com/");
 	});
 });
@@ -61,7 +63,9 @@ describe("New portfolio projects", () => {
 			expect(project).toBeDefined();
 			expect(project.title).toBe(expected.titleEn);
 			expect(project.image).toBe(expected.image);
-			expect(project.liveLink).toBe(expected.liveLink);
+			expect((project as { liveLink?: string }).liveLink).toBe(
+				expected.liveLink,
+			);
 			expect(project.githubLink).toBe(expected.githubLink);
 			expect(project.category).toBeTruthy();
 			expect(project.description).toBeTruthy();
@@ -73,7 +77,9 @@ describe("New portfolio projects", () => {
 			expect(project).toBeDefined();
 			expect(project.title).toBe(expected.titlePl);
 			expect(project.image).toBe(expected.image);
-			expect(project.liveLink).toBe(expected.liveLink);
+			expect((project as { liveLink?: string }).liveLink).toBe(
+				expected.liveLink,
+			);
 			expect(project.githubLink).toBe(expected.githubLink);
 			expect(project.category).toBeTruthy();
 			expect(project.description).toBeTruthy();
@@ -86,12 +92,12 @@ describe("New portfolio projects", () => {
 		const plProj = pl.work.projects.project11;
 		expect(enProj).toBeDefined();
 		expect(enProj.title).toBe("SWM Interview 2024");
-		expect(enProj.liveLink).toBeUndefined();
+		expect((enProj as { liveLink?: string }).liveLink).toBeUndefined();
 		expect(enProj.githubLink).toBe(
 			"https://github.com/propbono/swm-interview-2024",
 		);
 		expect(plProj).toBeDefined();
-		expect(plProj.liveLink).toBeUndefined();
+		expect((plProj as { liveLink?: string }).liveLink).toBeUndefined();
 	});
 });
 
