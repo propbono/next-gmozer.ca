@@ -528,7 +528,7 @@
 			"project4": {
 				"title": "Dev Slot",
 				"category": "Full stack",
-				"description": "Developer time-slot booking tool. Schedule and manage development sessions.",
+				"description": "AI-powered technical interview practice. Ace your architecture interview with adaptive system design challenges tailored to your target job description.",
 				"liveLink": "https://dev-slot.vercel.app/",
 				"githubLink": "https://github.com/propbono/dev-slot",
 				"stack": ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
