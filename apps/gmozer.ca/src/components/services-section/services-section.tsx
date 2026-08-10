@@ -73,9 +73,9 @@ const ServiceListItem = ({
 					</div>
 
 					<div className="space-y-4 flex-grow">
-						<h3 className="text-3xl font-bold text-foreground tracking-tight group-hover:text-primary transition-colors duration-300">
+						<h2 className="text-3xl font-bold text-foreground tracking-tight group-hover:text-primary transition-colors duration-300">
 							{service.title}
-						</h3>
+						</h2>
 						<p className="text-lg text-muted-foreground leading-relaxed">
 							{service.description}
 						</p>

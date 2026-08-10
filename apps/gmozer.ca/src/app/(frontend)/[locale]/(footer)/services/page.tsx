@@ -37,6 +37,7 @@ export async function generateMetadata() {
 
 export default async function Services() {
 	const t = await getTranslations("services");
+	const navT = await getTranslations("navigation");
 	const nav = await getTranslations("navigation.services.children");
 
 	const services: ServiceItem[] = [
@@ -73,8 +74,14 @@ export default async function Services() {
 	];
 
 	return (
-		<article className="container py-12" aria-label={t("srTitle")}>
+		<section className="container py-12" aria-labelledby="services-heading">
+			<h1
+				id="services-heading"
+				className="text-4xl md:text-5xl font-bold text-foreground mb-8"
+			>
+				{navT("services.default.title")}
+			</h1>
 			<ServicesSection services={services} />
-		</article>
+		</section>
 	);
 }

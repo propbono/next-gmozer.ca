@@ -8,5 +8,5 @@ export const SOCIALS: Social[] = [
 		url: "https://www.linkedin.com/in/greg-mozer/",
 		icon: RiLinkedinFill,
 	},
-	{ name: "Email", url: "mailto:propbono@gmail", icon: RiMailSendFill },
+	{ name: "Email", url: "mailto:propbono@gmail.com", icon: RiMailSendFill },
 ];

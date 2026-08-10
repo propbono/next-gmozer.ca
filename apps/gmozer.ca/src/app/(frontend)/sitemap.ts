@@ -91,7 +91,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 	const resumeRoutes = [
 		"/resume/education",
 		"/resume/experience",
-		"/resume/skills",
 		"/resume/about",
 	].map((route) => ({
 		url: `${baseUrl}${route}`,

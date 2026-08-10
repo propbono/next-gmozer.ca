@@ -22,31 +22,30 @@ describe("Farah Freight Group link fix", () => {
 	});
 });
 
-describe("New portfolio projects", () => {
-	const newKeys = ["project6", "project7", "project8", "project9"] as const;
-	const expectedProjects = {
-		project6: {
+describe("Reordered portfolio projects", () => {
+	const projectChecks = {
+		project3: {
 			titleEn: "Gabeyre Global Inc",
 			titlePl: "Gabeyre Global Inc",
 			image: "/work/gabeyreglobal.avif",
 			liveLink: "https://gabeyreglobal.com/",
 			githubLink: "https://github.com/propbono/gabeyreglobal.ca",
 		},
-		project7: {
+		project4: {
 			titleEn: "Dev Slot",
 			titlePl: "Dev Slot",
 			image: "/work/dev-slot.avif",
 			liveLink: "https://dev-slot.vercel.app/",
 			githubLink: "https://github.com/propbono/dev-slot",
 		},
-		project8: {
+		project6: {
 			titleEn: "Vault Onboarding",
 			titlePl: "Vault Onboarding",
 			image: "/work/vault-onboarding.avif",
 			liveLink: "https://vault-onboarding-self.vercel.app/",
 			githubLink: "https://github.com/propbono/vault-onboarding",
 		},
-		project9: {
+		project8: {
 			titleEn: "PSL Group Quiz",
 			titlePl: "PSL Group Quiz",
 			image: "/work/psl-quiz.avif",
@@ -55,9 +54,7 @@ describe("New portfolio projects", () => {
 		},
 	};
 
-	for (const key of newKeys) {
-		const expected = expectedProjects[key];
-
+	for (const [key, expected] of Object.entries(projectChecks)) {
 		it(`${key} exists in English locale with correct data`, () => {
 			const project = en.work.projects[key as keyof typeof en.work.projects];
 			expect(project).toBeDefined();
@@ -87,9 +84,9 @@ describe("New portfolio projects", () => {
 		});
 	}
 
-	it("project11 (SWM Interview) exists in both locales with no liveLink", () => {
-		const enProj = en.work.projects.project11;
-		const plProj = pl.work.projects.project11;
+	it("project10 (SWM Interview) exists in both locales with no liveLink", () => {
+		const enProj = en.work.projects.project10;
+		const plProj = pl.work.projects.project10;
 		expect(enProj).toBeDefined();
 		expect(enProj.title).toBe("SWM Interview 2024");
 		expect((enProj as { liveLink?: string }).liveLink).toBeUndefined();
@@ -102,7 +99,7 @@ describe("New portfolio projects", () => {
 });
 
 describe("PROJECT_KEYS constant", () => {
-	it("includes all 10 project keys", () => {
+	it("includes all 10 project keys in order", () => {
 		expect(PROJECT_KEYS).toEqual([
 			"project1",
 			"project2",
@@ -113,7 +110,7 @@ describe("PROJECT_KEYS constant", () => {
 			"project7",
 			"project8",
 			"project9",
-			"project11",
+			"project10",
 		]);
 	});
 

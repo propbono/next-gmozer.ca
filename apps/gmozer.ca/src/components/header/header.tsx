@@ -37,16 +37,16 @@ export const Header = () => {
 				href: nav("home.default.url"),
 			},
 			{
-				name: nav("services.default.title"),
-				href: nav("services.default.url"),
+				name: nav("work.default.title"),
+				href: nav("work.default.url"),
 			},
 			{
 				name: nav("resume.default.title"),
 				href: nav("resume.default.url"),
 			},
 			{
-				name: nav("work.default.title"),
-				href: nav("work.default.url"),
+				name: nav("services.default.title"),
+				href: nav("services.default.url"),
 			},
 			{
 				name: nav("contact.default.title"),
@@ -77,7 +77,7 @@ export const Header = () => {
 					{!isMobileScreen && (
 						<DesktopNav items={navItems} pathname={pathname} />
 					)}
-					{pathname === "/" && <LocaleSwitcher />}
+					<LocaleSwitcher />
 					<ThemeSwitch />
 					{isMobileScreen && <MobileNav items={navItems} pathname={pathname} />}
 				</div>

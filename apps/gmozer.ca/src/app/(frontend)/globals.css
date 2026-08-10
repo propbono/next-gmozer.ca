@@ -9,6 +9,10 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+@utility font-logo {
+	font-family: var(--font-ubuntu), sans-serif;
+}
+
 @layer base {
 	* {
 		@apply border-border;

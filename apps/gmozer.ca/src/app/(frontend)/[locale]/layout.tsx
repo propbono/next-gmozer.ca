@@ -40,7 +40,7 @@ export async function generateMetadata() {
 			title: t("default.title"),
 			description: t("default.description"),
 		},
-		metadataBase: new URL(t("default.url")),
+		metadataBase: new URL("https://gmozer.ca"),
 	};
 }
 

@@ -1,6 +1,19 @@
 import { getTranslations } from "next-intl/server";
 import { ProjectShowcase } from "@/components/project-showcase";
 
+export default async function Work() {
+	const t = await getTranslations("work");
+
+	return (
+		<div className="container py-12">
+			<h1 className="text-4xl md:text-5xl font-bold text-foreground mb-8">
+				{t("pageTitle")}
+			</h1>
+			<ProjectShowcase />
+		</div>
+	);
+}
+
 export async function generateMetadata() {
 	const t = await getTranslations("metadata");
 
@@ -23,8 +36,4 @@ export async function generateMetadata() {
 		},
 		metadataBase: new URL(t("default.url")),
 	};
-}
-
-export default function Work() {
-	return <ProjectShowcase />;
 }
